@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+public/dist
+public/dev
+tmp
+logs
+.tmp
+.DS_Store
+.sass-cache
+.env
+.c9
+*.orig
