@@ -1,25 +1,41 @@
-'use strict';
+var gulp = require('gulp'),
+  nodemon = require('gulp-nodemon'),
+  plumber = require('gulp-plumber'),
+  livereload = require('gulp-livereload'),
+  sass = require('gulp-sass'),
+  autoprefixer = require('gulp-autoprefixer');
 
-var gulp = require('gulp');
-var wrench = require('wrench');
-var conf = require('./gulp/conf');
 
-wrench.readdirSyncRecursive('./gulp').filter(function(file) {
-    return (/\.(js|coffee)$/i).test(file);
-}).map(function(file) {
-    require('./gulp/' + file);
+gulp.task('sass', function() {
+  return gulp.src('public/src/styles/*.scss')
+        .pipe(sass())
+        .pipe(autoprefixer())
+        .pipe(gulp.dest('public/dev/styles'));
 });
 
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'del']
+gulp.task('watch', function() {
+  gulp.watch('public/src/styles/*.scss', ['sass']);
 });
 
-var tail = Math.random().toString(36).substr(2);
-
-gulp.task('dev', ['cleanDev'], function() {
-    gulp.start('development');
+gulp.task('develop', function() {
+  livereload.listen();
+  nodemon({
+    script: 'bin/www',
+    ext: 'js handlebars coffee',
+    stdout: false
+  }).on('readable', function() {
+    this.stdout.on('data', function(chunk) {
+      if (/^Express server listening on port/.test(chunk)) {
+        livereload.changed(__dirname);
+      }
+    });
+    this.stdout.pipe(process.stdout);
+    this.stderr.pipe(process.stderr);
+  });
 });
 
-gulp.task('pro', ['cleanTmp'], function() {
-    gulp.start('production');
-});
+gulp.task('default', [
+  'sass',
+  'develop',
+  'watch'
+]);

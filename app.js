@@ -1,54 +1,83 @@
 var express = require('express');
-var errorHandler = require('errorhandler');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var exphbs = require('express-handlebars');
+var i18n = require("i18n");
 
-// Create express server
 var app = express();
 
-require('./server/express')(app);
+var env = process.env.NODE_ENV || 'development';
+app.locals.ENV = env;
+app.locals.ENV_DEVELOPMENT = env === 'development';
 
-require('./server/router')(app);
+// i18next init
+i18n.configure({
+  locales: ['zh', 'en'],
+  directory: __dirname + '/locales',
+  defaultLocale: 'zh'
+});
 
-// catch 404 and forward to error handler
-// app.use(function(req, res) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   res.render('404', {
-//     layout: 'layout'
-//   });
-// });
+// view engine setup
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  partialsDir: ['views/partials/'],
+  helpers: new require('./server/helpers')()
+}));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'handlebars');
+
+// app.use(favicon(__dirname + '/public/img/favicon.ico'));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+var routes = require('./routes/index');
+var users = require('./routes/user');
+
+app.use('/', routes);
+app.use('/users', users);
+
+/// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+/// error handlers
 
 // development error handler
-// if (app.get('env') === 'development') {
-//   app.use(function(err, req, res) {
-//     res.status(err.status || 500);
-//     res.render('500', {
-//       layout: 'layout',
-//       message: err.message,
-//       error: err
-//     });
-//   });
-// }
+// will print stacktrace
+
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err,
+      title: 'error'
+    });
+  });
+}
 
 // production error handler
-// app.use(function(err, req, res) {
-//   res.status(err.status || 500);
-//   res.render('500', {
-//     layout: 'layout',
-//     message: err.message,
-//     error: {}
-//   });
-// });
-
-/**
- * Error Handler.
- */
-app.use(errorHandler());
-
-/**
- * Start Express server.
- */
-app.listen(app.get('port'), () => {
-  console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {},
+    title: 'error'
+  });
 });
+
 
 module.exports = app;

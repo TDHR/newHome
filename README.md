@@ -2,8 +2,6 @@
 
 瑞资官方网站
 
-使用 node.js 编写，将项目 clone 到本地后，需要先执行 npm i
-
 
 ## Code Guide
 
