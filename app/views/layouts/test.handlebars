@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>{{__ 'title'}}</title>
+  {{#if ENV_DEVELOPMENT}}
+    <link rel="stylesheet" href="/dev/styles/style.css">
+    <script src="http://localhost:35729/livereload.js"></script>
+  {{else}}
+    
+  {{/if}}
+</head>
+<body>
+  {{> header}}
+  test test test test test test test 
+  {{{body}}}
+  {{> footer}}
+</body>
+</html>

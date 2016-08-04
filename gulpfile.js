@@ -8,9 +8,9 @@ var gulp = require('gulp'),
 
 gulp.task('sass', function() {
   return gulp.src('public/src/styles/*.scss')
-        .pipe(sass())
-        .pipe(autoprefixer())
-        .pipe(gulp.dest('public/dev/styles'));
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('public/dev/styles'));
 });
 
 gulp.task('watch', function() {
@@ -20,8 +20,8 @@ gulp.task('watch', function() {
 gulp.task('develop', function() {
   livereload.listen();
   nodemon({
-    script: 'bin/www',
-    ext: 'js handlebars coffee',
+    script: 'app.js',
+    ext: 'js handlebars',
     stdout: false
   }).on('readable', function() {
     this.stdout.on('data', function(chunk) {
