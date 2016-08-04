@@ -12,3 +12,11 @@ router.get('/', function(req, res, next) {
     articles: articles
   });
 });
+
+
+router.get('/login', function(req, res, next) {
+  var articles = [new Article(), new Article()];
+  res.render('home/index', {
+    articles: articles
+  });
+});

@@ -2,7 +2,7 @@ node_modules
 npm-debug.log
 public/dist
 public/dev
-tmp
+public/tmp
 logs
 .tmp
 .DS_Store

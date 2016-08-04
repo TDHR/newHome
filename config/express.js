@@ -42,7 +42,7 @@ module.exports = function(app, config) {
     extended: true
   }));
   app.use(compress());
-  app.use(express.static(config.root + '/public'));
+  app.use(express.static(config.public));
   app.use(methodOverride());
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
@@ -59,7 +59,7 @@ module.exports = function(app, config) {
   if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
       res.status(err.status || 500);
-      res.render('error', {
+      res.render('error/' + (err.status || 500), {
         message: err.message,
         error: err,
         title: 'error'
@@ -69,11 +69,10 @@ module.exports = function(app, config) {
 
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('error/' + (err.status || 500), {
       message: err.message,
       error: {},
       title: 'error'
     });
   });
-
 };
