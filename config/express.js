@@ -19,7 +19,9 @@ module.exports = function(app, config) {
     locales: ['zh', 'en'],
     cookie: 'REITsLocale',
     directory: config.root + '/locales',
-    defaultLocale: 'zh'
+    defaultLocale: 'zh',
+    updateFiles: false,
+    extension: '.js'
   });
 
   app.use(cookieParser());

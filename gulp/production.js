@@ -14,7 +14,7 @@ var del = require('del');
 var util = require('gulp-util');
 var csso = require('gulp-csso');
 
-// 处理图片
+// images
 gulp.task('prodImages', function() {
   var min = gulp.src(path.join(conf.paths.src, '/images/*'))
     .pipe(plumber())
@@ -61,6 +61,12 @@ gulp.task('prodScripts', function() {
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/scripts')));
 });
 
+// libs
+gulp.task('prodLibs', function() {
+  return gulp.src(path.join(conf.paths.src, '/libs/**'))
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/libs')));
+});
+
 // clean dist file
 gulp.task('cleanDist', function() {
   del([path.join(conf.paths.dist, '/*')]);
@@ -72,7 +78,7 @@ gulp.task('renewDist', function() {
         .pipe(gulp.dest(conf.paths.dist));
 });
 
-gulp.task('production', ['prodImages', 'prodStyles', 'prodScripts'], function() {
+gulp.task('production', ['prodImages', 'prodStyles', 'prodScripts', 'prodLibs'], function() {
   gulp.start('cleanDist');
   gulp.start('renewDist');
   util.log(util.colors.green('Build success!'));

@@ -1,13 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var Article = require('../models/article');
 
 module.exports = function(app) {
-  app.use('/', router);
+  app.use('/values', router);
 };
 
 router.get('/', function(req, res, next) {
-  res.render('home/index', {
-    articles: Article
-  });
+  res.render('values/index');
 });

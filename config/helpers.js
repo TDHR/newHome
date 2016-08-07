@@ -20,5 +20,27 @@ module.exports = function() {
   _helpers.fileTail = function() {
     return tail;
   }
+
+  _helpers.math = function(a, b, c) {
+    var res = 0;
+    switch(b) {
+      case '+':
+        res = a + c;
+        break;
+      case '-':
+        res = a - c;
+        break;
+      case '*':
+        res = a * c;
+        break;
+      case '/':
+        res = a / c;
+        break;
+      case '%':
+        res = a % c;
+        break;
+    }
+    return res;
+  }
   return _helpers;
 };

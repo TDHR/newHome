@@ -12,8 +12,9 @@ var plumber = require('gulp-plumber');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cached');
 var del = require('del');
+var mergeJson = require('gulp-merge-json');
 
-// 处理图片
+// images
 gulp.task('devImages', function() {
   var min = gulp.src(path.join(conf.paths.src, '/images/*'))
     .pipe(plumber())
@@ -33,7 +34,7 @@ gulp.task('devImages', function() {
 gulp.task('devStyles', function() {
   return gulp.src(path.join(conf.paths.src, '/styles/*.scss'))
     .pipe(plumber())
-    .pipe(cache('styles'))
+    // .pipe(cache('styles'))
     .pipe(sass().on('error', conf.errorHandler('Sass')))
     .pipe(autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
     .pipe(plumber.stop())
@@ -44,7 +45,7 @@ gulp.task('devStyles', function() {
 gulp.task('devScripts', function() {
   return gulp.src(path.join(conf.paths.src, '/scripts/*.js'))
     .pipe(plumber())
-    .pipe(cache('scripts'))
+    // .pipe(cache('scripts'))
     .pipe(named())
     .pipe(webpack({
       module: {
@@ -56,6 +57,12 @@ gulp.task('devScripts', function() {
     }))
     .pipe(plumber.stop())
     .pipe(gulp.dest(path.join(conf.paths.dev, '/scripts')));
+});
+
+// libs
+gulp.task('devLibs', function() {
+  return gulp.src(path.join(conf.paths.src, '/libs/**'))
+    .pipe(gulp.dest(path.join(conf.paths.dev, '/libs')));
 });
 
 // server
@@ -85,9 +92,12 @@ gulp.task('cleanDev', function() {
 gulp.task('watch', function() {
   gulp.watch(path.join(conf.paths.src, '/images/*'), ['devImages']);
   gulp.watch(path.join(conf.paths.src, '/styles/*.scss'), ['devStyles']);
+  gulp.watch(path.join(conf.paths.src, '/styles/**/*.scss'), ['devStyles']);
   gulp.watch(path.join(conf.paths.src, '/scripts/*.js'), ['devScripts']);
+  gulp.watch(path.join(conf.paths.src, '/scripts/**/*.js'), ['devScripts']);
+  gulp.watch(path.join(conf.paths.locales, '/**/*.js'), ['locales']);
 });
 
-gulp.task('development', ['devImages', 'devStyles', 'devScripts', 'devServer'], function() {
+gulp.task('development', ['devImages', 'devStyles', 'devScripts', 'devLibs', 'devServer'], function() {
   gulp.start('watch');
 });
