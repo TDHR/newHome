@@ -75,10 +75,25 @@ only screen and (min-device-pixel-ratio: 2) {
     .navbar-nav {
       >li {
         >a {
-          position: relative;
+          color: #000;
+          .nav-text {
+            border-color: #fff;
+          }
           &:hover,
           &:focus,
           &:active {
+            background-color: transparent;
+            color: $color-blue;
+            transition: color .6s;
+            .nav-text {
+              padding-bottom: 16px;
+              border-bottom: 2px solid $color-blue;
+              transition: border-color .6s;
+            }
+          }
+        }
+        &.active {
+          >a {
             background-color: transparent;
             color: $color-blue;
             .nav-text {
