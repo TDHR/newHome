@@ -9,7 +9,9 @@
   "private": true,
   "scripts": {
     "dev": "gulp dev",
-    "prod": "gulp prod"
+    "prod": "gulp prod",
+    "start": "pm2 start ecosystem.json --env production",
+    "restart": "pm2 restart ecosystem.json --env production"
   },
   "repository": {
     "type": "git",
