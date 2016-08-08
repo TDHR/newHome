@@ -1,0 +1,185 @@
+<div class="page-home">
+  <div class="banner-home"></div>
+  <div class="block-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="home-character-1">
+            <img src="/images/home-character-1.jpg" />
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="title">
+            <span>{{__ 'reits-chain'}}</span>{{__ 'home-block1-title'}}
+          </div>
+          <div class="content">
+            <p>{{__ 'home-block1-content1'}}</p>
+            <p>{{__ 'home-block1-content2'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="title">
+              <i class="icon icon-earth"></i>
+              REITs 市场规模
+            </div>
+            <div class="content">
+              <p>2015年1月27日，美国有254个上市REITs，总市值达9594亿美元，全球市场规模达到15000亿美元。</p>
+              <p>如能达到美国相同规模，我国未来可上市REITs规模将达到7.72万亿元。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="title">
+              <i class="icon icon-link"></i>
+              区块链爆点
+            </div>
+            <div class="content">
+              <p>构建在区块链基础上的信息披露以及分红机制，让信任跨越国界。</p>
+              <p>秒级的全球化的流动性，让资产溢价至少20%。</p>
+              <p>殿堂级的安全性，维护成本再降20%。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="title">
+              <i class="icon icon-gear"></i>
+              智能解决方案
+            </div>
+            <div class="content">
+              <p>去人工干预的资产确权。</p>
+              <p>秒级自动全球分红。</p>
+              <p>全天候的股权动态跟踪，让投资者更有信心。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block-3">
+    <div class="container">
+      <div class="block-header">
+        <span>我们的服务</span>
+      </div>
+      <div class="block-body">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="title">
+                <i class="icon icon-building"></i>
+                地产融资
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="title">
+                <i class="icon icon-securities"></i>
+                资产证券化
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="title">
+                <i class="icon icon-shakehands"></i>
+                交易撮合
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <div class="title">
+                <i class="icon icon-transaction"></i>
+                私募股权交易
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block-4">
+    <div class="container">
+      <div class="block-header">
+        <span>创始人团队</span>
+      </div>
+      <div class="block-body">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card">
+              <a href="/team#1">
+                <img src="/images/avatar.jpg" class="team-avatar">
+                <div class="name">刘坚</div>
+                <div class="office">联合创始人 首席运营官</div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <a href="/team#1">
+                <img src="/images/avatar.jpg" class="team-avatar">
+                <div class="name">刘坚</div>
+                <div class="office">联合创始人 首席运营官</div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <a href="/team#1">
+                <img src="/images/avatar.jpg" class="team-avatar">
+                <div class="name">刘坚</div>
+                <div class="office">联合创始人 首席运营官</div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card">
+              <a href="/team#1">
+                <img src="/images/avatar.jpg" class="team-avatar">
+                <div class="name">刘坚</div>
+                <div class="office">联合创始人 首席运营官</div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block-5">
+    <div class="container">
+      <div class="block-header">
+        <span>知识库</span>
+        <div class="desc">REITs，或房地产投资信托基金，是一种专门投资于房地产行业的投资基金。</div>
+      </div>
+      <div class="block-body">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <ul class="article-list">
+              {{#each articles}}
+                <li>
+                  <div class="number">0{{math @key '+' 1}}</div>
+                  <div class="article">
+                    <div class="title">{{this.title}}</div>
+                    <div class="content">{{this.content}}</div>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> scripts}}
+<script href="/scripts/home.js{{fileTail}}"></script>

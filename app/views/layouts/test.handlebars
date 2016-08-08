@@ -1,0 +1,29 @@
+<!doctype html>
+<!--[if lte IE 7]> <html class="ie7"> <![endif]-->
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <title>{{__ 'title'}}</title>
+  <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/style.css{{fileTail}}">
+  <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.min.js"></script>
+    <script src="/libs/respond.min.js"></script>
+  <![endif]-->
+  <script src="/libs/jquery.min.js"></script>
+  <script src="/libs/bootstrap/js/bootstrap.min.js"></script>
+  {{#if ENV_DEVELOPMENT}}
+    <script src="http://localhost:35729/livereload.js"></script>
+  {{/if}}
+</head>
+<body>
+  {{> header}}
+  {{{body}}}
+  {{> footer}}
+</body>
+</html>
