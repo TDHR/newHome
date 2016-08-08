@@ -6,5 +6,7 @@ module.exports = function(app) {
 };
 
 router.get('/', function(req, res, next) {
-  res.render('service/index');
+  res.render('service/index', {
+    nav: 'service'
+  });
 });

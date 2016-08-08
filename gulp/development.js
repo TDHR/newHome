@@ -10,7 +10,7 @@ var livereload = require('gulp-livereload');
 var nodemon = require('gulp-nodemon');
 var plumber = require('gulp-plumber');
 var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cached');
+var cache = require('gulp-cache');
 var del = require('del');
 var mergeJson = require('gulp-merge-json');
 
@@ -18,13 +18,12 @@ var mergeJson = require('gulp-merge-json');
 gulp.task('devImages', function() {
   var min = gulp.src(path.join(conf.paths.src, '/images/*'))
     .pipe(plumber())
-    .pipe(cache('images'))
-    .pipe(imagemin({
+    .pipe(cache(imagemin({
       progressive: true,
       svgoPlugins: [{
         removeViewBox: false
       }]
-    }))
+    })))
     .pipe(plumber.stop())
     .pipe(gulp.dest(path.join(conf.paths.dev, '/images')));
   return merge(min);
@@ -34,7 +33,6 @@ gulp.task('devImages', function() {
 gulp.task('devStyles', function() {
   return gulp.src(path.join(conf.paths.src, '/styles/*.scss'))
     .pipe(plumber())
-    // .pipe(cache('styles'))
     .pipe(sass().on('error', conf.errorHandler('Sass')))
     .pipe(autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
     .pipe(plumber.stop())
@@ -45,7 +43,6 @@ gulp.task('devStyles', function() {
 gulp.task('devScripts', function() {
   return gulp.src(path.join(conf.paths.src, '/scripts/*.js'))
     .pipe(plumber())
-    // .pipe(cache('scripts'))
     .pipe(named())
     .pipe(webpack({
       module: {

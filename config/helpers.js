@@ -4,7 +4,7 @@ var env = process.env.NODE_ENV || 'development';
 
 module.exports = function() {
   var _helpers = {};
-  var tail = ''; 
+  var tail = '';
   // i18n helper函数 __函数不考虑单复数
   _helpers.__ = function() {
     return i18n.__.apply(this, arguments);
@@ -21,26 +21,50 @@ module.exports = function() {
     return tail;
   }
 
-  _helpers.math = function(a, b, c) {
-    var res = 0;
-    switch(b) {
-      case '+':
-        res = a + c;
+  _helpers.math = function(lvalue, operator, rvalue) {
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+    return {
+      "+": lvalue + rvalue,
+      "-": lvalue - rvalue,
+      "*": lvalue * rvalue,
+      "/": lvalue / rvalue,
+      "%": lvalue % rvalue
+    }[operator];
+  }
+
+  _helpers.ifCond = function(v1, operator, v2, options) {
+    switch (operator) {
+      case '==':
+        return (v1 == v2) ? options.fn(this) : options.inverse(this);
         break;
-      case '-':
-        res = a - c;
+      case '===':
+        return (v1 === v2) ? options.fn(this) : options.inverse(this);
         break;
-      case '*':
-        res = a * c;
+      case '<':
+        return (v1 < v2) ? options.fn(this) : options.inverse(this);
         break;
-      case '/':
-        res = a / c;
+      case '<=':
+        return (v1 <= v2) ? options.fn(this) : options.inverse(this);
         break;
-      case '%':
-        res = a % c;
+      case '>':
+        return (v1 > v2) ? options.fn(this) : options.inverse(this);
+        break;
+      case '>=':
+        return (v1 >= v2) ? options.fn(this) : options.inverse(this);
+        break;
+      case '!=':
+        return (v1 != v2) ? options.fn(this) : options.inverse(this);
+        break;
+      case '!==':
+        return (v1 !== v2) ? options.fn(this) : options.inverse(this);
+        break;
+      default:
+        return options.inverse(this)
         break;
     }
-    return res;
+    return options.inverse(this);
   }
+
   return _helpers;
 };
