@@ -1,0 +1,31 @@
+.page-team {
+  .cards {
+    margin: 70px 0;
+  }
+  .card {
+    padding-bottom: 30px;
+    margin: 60px 0;
+    border-bottom: 1px dashed #bcbcbc;
+    .avatar {
+      display: block;
+      width: 220px;
+      max-width: 100%;
+      margin: 0 auto 20px;
+      border-radius: 110px;
+    }
+    .name {
+      font-size: 28px;
+      color: $color-blue;
+    }
+    .office {
+      font-size: 16px;
+      margin: 5px 0 20px;
+    }
+    .info {
+      color: #929ba0;
+      >p {
+        margin: 0 0 10px;
+      }
+    }
+  }
+}

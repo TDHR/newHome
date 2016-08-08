@@ -1,0 +1,18 @@
+.page-contact {
+  .cards {
+    margin: 70px 0;
+  }
+  .card {
+    padding-bottom: 20px;
+    // border-bottom: 1px dashed #bcbcbc;
+    .name {
+      margin-bottom: 20px;
+      font-size: 26px;
+      color: $color-blue;
+    }
+    .text {
+      margin: 15px 0 0;
+      color: #666;
+    }
+  }
+}

@@ -25,7 +25,7 @@
   "home-block4-office2": "首席技术官",
   "home-block4-name3": "严志",
   "home-block4-office3": "首席运营官",
-  "home-block4-name4": "刘小晓",
+  "home-block4-name4": "林小晓",
   "home-block4-office4": "总裁助理",
   "home-block5-title": "知识库",
   "home-block5-subtitle": "REITs，或房地产投资信托基金，是一种专门投资于房地产行业的投资基金。"
