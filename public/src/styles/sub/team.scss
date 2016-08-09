@@ -4,7 +4,7 @@
   }
   .card {
     padding-bottom: 30px;
-    margin: 60px 0;
+    margin: 70px 0;
     border-bottom: 1px dashed #bcbcbc;
     .avatar {
       display: block;
@@ -22,8 +22,10 @@
       margin: 5px 0 20px;
     }
     .info {
+      padding-left: 22px;
       color: #929ba0;
-      >p {
+      list-style-type: disc;
+      >li {
         margin: 0 0 10px;
       }
     }

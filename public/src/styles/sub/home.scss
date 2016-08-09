@@ -81,11 +81,12 @@
     padding: 60px 0;
     .block-header {
       font-size: 26px;
-      color: $color-blue;
       text-align: center;
-      >span {
-        padding: 3px 0;
-        border-bottom: 2px solid $color-blue;
+      >a {
+        >span {
+          padding: 3px 0;
+          border-bottom: 2px solid $color-blue;
+        }
       }
     }
     .block-body {
@@ -122,11 +123,12 @@
     background-color: #eee;
     .block-header {
       font-size: 26px;
-      color: $color-blue;
       text-align: center;
-      >span {
-        padding: 3px 0;
-        border-bottom: 2px solid $color-blue;
+      >a {
+        >span {
+          padding: 3px 0;
+          border-bottom: 2px solid $color-blue;
+        }
       }
     }
     .block-body {
@@ -136,7 +138,8 @@
         text-align: center;
         font-size: 14px;
         >a {
-          &:hover, &:active {
+          &:hover,
+          &:active {
             .name {
               color: $color-blue;
             }
@@ -164,11 +167,12 @@
     padding: 60px 0 50px;
     .block-header {
       font-size: 26px;
-      color: $color-blue;
       text-align: center;
-      >span {
-        padding: 3px 0;
-        border-bottom: 2px solid $color-blue;
+      >a {
+        >span {
+          padding: 3px 0;
+          border-bottom: 2px solid $color-blue;
+        }
       }
       .desc {
         margin-top: 20px;

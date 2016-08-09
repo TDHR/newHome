@@ -25,40 +25,46 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card">
-            <div class="title">
-              <i class="icon icon-earth"></i>
-              {{__ 'home-block2-card1-title'}}
-            </div>
-            <div class="content">
-              <p>{{__ 'home-block2-card1-content1'}}</p>
-              <p>{{__ 'home-block2-card1-content2'}}</p>
-            </div>
+            <a href="/values">
+              <div class="title">
+                  <i class="icon icon-earth"></i>
+                  {{__ 'home-block2-card1-title'}}
+              </div>
+              <div class="content">
+                <p>{{__ 'home-block2-card1-content1'}}</p>
+                <p>{{__ 'home-block2-card1-content2'}}</p>
+              </div>
+            </a>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <div class="title">
-              <i class="icon icon-link"></i>
-              {{__ 'home-block2-card2-title'}}
-            </div>
-            <div class="content">
-              <p>{{__ 'home-block2-card2-content1'}}</p>
-              <p>{{__ 'home-block2-card2-content2'}}</p>
-              <p>{{__ 'home-block2-card2-content3'}}</p>
-            </div>
+            <a href="/values">
+              <div class="title">
+                <i class="icon icon-link"></i>
+                {{__ 'home-block2-card2-title'}}
+              </div>
+              <div class="content">
+                <p>{{__ 'home-block2-card2-content1'}}</p>
+                <p>{{__ 'home-block2-card2-content2'}}</p>
+                <p>{{__ 'home-block2-card2-content3'}}</p>
+              </div>
+            </a>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
-            <div class="title">
-              <i class="icon icon-gear"></i>
-              {{__ 'home-block2-card3-title'}}
-            </div>
-            <div class="content">
-              <p>{{__ 'home-block2-card3-content1'}}</p>
-              <p>{{__ 'home-block2-card3-content2'}}</p>
-              <p>{{__ 'home-block2-card3-content3'}}</p>
-            </div>
+            <a href="/values">
+              <div class="title">
+                <i class="icon icon-gear"></i>
+                {{__ 'home-block2-card3-title'}}
+              </div>
+              <div class="content">
+                <p>{{__ 'home-block2-card3-content1'}}</p>
+                <p>{{__ 'home-block2-card3-content2'}}</p>
+                <p>{{__ 'home-block2-card3-content3'}}</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -67,7 +73,9 @@
   <div class="block-3">
     <div class="container">
       <div class="block-header">
-        <span>{{__ 'home-blcok3-title'}}</span>
+        <a href="/service">
+          <span>{{__ 'home-blcok3-title'}}</span>
+        </a>
       </div>
       <div class="block-body">
         <div class="row">
@@ -110,7 +118,9 @@
   <div class="block-4">
     <div class="container">
       <div class="block-header">
-        <span>{{__ 'home-block4-title'}}</span>
+        <a href="/team">
+          <span>{{__ 'home-block4-title'}}</span>
+        </a>
       </div>
       <div class="block-body">
         <div class="row">
@@ -157,7 +167,9 @@
   <div class="block-5">
     <div class="container">
       <div class="block-header">
-        <span>{{__ 'home-block5-title'}}</span>
+        <a href="/knowledge">
+          <span>{{__ 'home-block5-title'}}</span>
+        </a>
         <div class="desc">{{__ 'home-block5-subtitle'}}</div>
       </div>
       <div class="block-body">
@@ -166,11 +178,13 @@
             <ul class="article-list">
               {{#each articles}}
                 <li>
-                  <div class="number">0{{math @key '+' 1}}</div>
-                  <div class="article">
-                    <div class="title">{{this.title}}</div>
-                    <div class="content">{{this.content}}</div>
-                  </div>
+                  <a href="/article?id={{this.id}}">
+                    <div class="number">0{{math @key '+' 1}}</div>
+                    <div class="article">
+                      <div class="title">{{this.title}}</div>
+                      <div class="content">{{this.content}}</div>
+                    </div>
+                  </a>
                 </li>
               {{/each}}
             </ul>

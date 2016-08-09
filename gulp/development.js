@@ -2,7 +2,7 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
 var webpack = require('webpack-stream');
-var merge = require('merge-stream');
+// var merge = require('merge-stream');
 var named = require('vinyl-named');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
@@ -16,7 +16,7 @@ var mergeJson = require('gulp-merge-json');
 
 // images
 gulp.task('devImages', function() {
-  var min = gulp.src(path.join(conf.paths.src, '/images/*'))
+  return gulp.src(path.join(conf.paths.src, '/images/*'))
     .pipe(plumber())
     .pipe(cache(imagemin({
       progressive: true,
@@ -26,7 +26,6 @@ gulp.task('devImages', function() {
     })))
     .pipe(plumber.stop())
     .pipe(gulp.dest(path.join(conf.paths.dev, '/images')));
-  return merge(min);
 });
 
 // styles
@@ -85,14 +84,19 @@ gulp.task('cleanDev', function() {
   del([path.join(conf.paths.dev, '/*')]);
 });
 
+// livereload
+gulp.task('livereload', function() {
+  livereload.changed(__dirname);
+});
+
 // watch
 gulp.task('watch', function() {
-  gulp.watch(path.join(conf.paths.src, '/images/*'), ['devImages']);
-  gulp.watch(path.join(conf.paths.src, '/styles/*.scss'), ['devStyles']);
-  gulp.watch(path.join(conf.paths.src, '/styles/**/*.scss'), ['devStyles']);
-  gulp.watch(path.join(conf.paths.src, '/scripts/*.js'), ['devScripts']);
-  gulp.watch(path.join(conf.paths.src, '/scripts/**/*.js'), ['devScripts']);
-  gulp.watch(path.join(conf.paths.locales, '/**/*.js'), ['locales']);
+  gulp.watch(path.join(conf.paths.src, '/images/*'), ['devImages', 'livereload']);
+  gulp.watch(path.join(conf.paths.src, '/styles/*.scss'), ['devStyles', 'livereload']);
+  gulp.watch(path.join(conf.paths.src, '/styles/**/*.scss'), ['devStyles', 'livereload']);
+  gulp.watch(path.join(conf.paths.src, '/scripts/*.js'), ['devScripts', 'livereload']);
+  gulp.watch(path.join(conf.paths.src, '/scripts/**/*.js'), ['devScripts', 'livereload']);
+  gulp.watch(path.join(conf.paths.locales, '/**/*.js'), ['locales', 'livereload']);
 });
 
 gulp.task('development', ['devImages', 'devStyles', 'devScripts', 'devLibs', 'devServer'], function() {

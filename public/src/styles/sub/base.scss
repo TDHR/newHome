@@ -21,10 +21,11 @@ body {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #1689e5;
+  color: $color-blue;
   &:hover,
   &:focus {
     text-decoration: none;
+    color: $color-blue;
   }
   img {
     border: 0;
@@ -53,69 +54,71 @@ only screen and (min-device-pixel-ratio: 2) {
   }
 }
 
-.navbar {
-  margin-bottom: 0;
-  .navbar-header {
-    .navbar-brand {
-      padding: 10px 0;
-      >img {
-        width: 74px;
-        height: 30px;
-      }
-    }
-    .navbar-toggle {
-      margin-right: 0;
-      border-color: #1689e5;
-      .icon-bar {
-        background-color: #1689e5;
-      }
-    }
-  }
-  .navbar-collapse {
-    .navbar-nav {
-      >li {
-        >a {
-          color: #000;
-          .nav-text {
-            border-color: #fff;
-          }
-          &:hover,
-          &:focus,
-          &:active {
-            background-color: transparent;
-            color: $color-blue;
-            transition: color .6s;
-            .nav-text {
-              padding-bottom: 16px;
-              border-bottom: 2px solid $color-blue;
-              transition: border-color .6s;
-            }
-          }
+.header {
+  border-bottom: 1px solid #eee;
+  .navbar {
+    margin-bottom: 0;
+    .navbar-header {
+      .navbar-brand {
+        padding: 7px 0;
+        >img {
+          height: 36px;
         }
-        &.active {
+      }
+      .navbar-toggle {
+        margin-right: 0;
+        border-color: #1689e5;
+        .icon-bar {
+          background-color: #1689e5;
+        }
+      }
+    }
+    .navbar-collapse {
+      .navbar-nav {
+        >li {
           >a {
-            background-color: transparent;
-            color: $color-blue;
+            color: #000;
             .nav-text {
-              padding-bottom: 16px;
-              border-bottom: 2px solid $color-blue;
+              border-color: #fff;
+            }
+            &:hover,
+            &:focus,
+            &:active {
+              background-color: transparent;
+              color: $color-blue;
+              transition: color .6s;
+              .nav-text {
+                padding-bottom: 16px;
+                border-bottom: 2px solid $color-blue;
+                transition: border-color .6s;
+              }
+            }
+          }
+          &.active {
+            >a {
+              background-color: transparent;
+              color: $color-blue;
+              .nav-text {
+                padding-bottom: 16px;
+                border-bottom: 2px solid $color-blue;
+              }
             }
           }
         }
       }
-    }
-    .dropdown-toggle {
-      >img {
-        margin-right: 4px;
-        vertical-align: text-bottom;
+      .dropdown-toggle {
+        >img {
+          margin-right: 4px;
+          vertical-align: text-bottom;
+        }
       }
-    }
-    .language-menu {
-      >li {
-        >a {
-          >img {
-            margin-right: 4px;
-            vertical-align: text-bottom;
+      .language-menu {
+        >li {
+          >a {
+            >img {
+              margin-right: 4px;
+              vertical-align: text-bottom;
+            }
           }
         }
       }
