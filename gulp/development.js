@@ -99,6 +99,7 @@ gulp.task('watch', function() {
   gulp.watch(path.join(conf.paths.locales, '/**/*.js'), ['locales', 'livereload']);
 });
 
-gulp.task('development', ['devImages', 'devStyles', 'devScripts', 'devLibs', 'devServer'], function() {
+gulp.task('development', ['devImages', 'devStyles', 'devScripts', 'devLibs'], function() {
+  gulp.start('devServer')
   gulp.start('watch');
 });
