@@ -1,4 +1,41 @@
 {{> banner-other}}
-knowledge
+<div class="page-knowledge">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="article-list">
+          {{#each articles}}
+            <div class="col-md-6 card">
+              <a href="article?id={{this.id}}">
+                <div class="cover">
+                  <img src="/images/{{this.cover}}">
+                </div>
+                <div class="title">{{this.title}}</div>
+                <div class="date">{{this.date}}</div>
+                <div class="content">{{this.content}}</div>
+              </a>
+            </div>
+          {{/each}}
+        </div>
+        <ul class="pagination">
+          <li>
+            <a href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li>
+            <a href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 {{> scripts}}
