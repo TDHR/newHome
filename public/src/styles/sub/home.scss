@@ -17,15 +17,15 @@
       }
     }
     .title {
-      font-size: 26px;
-      >span {
-        padding: 3px 0;
+      font-size: 20px;
+      .underline {
+        padding: 0 0 3px;
         color: $color-blue;
         border-bottom: 2px solid $color-blue;
       }
     }
     .content {
-      margin-top: 20px;
+      margin: 15px 0 20px;
       color: #858585;
       >p {
         margin: 0 0 20px;
@@ -93,6 +93,12 @@
       margin-top: 50px;
       .card {
         margin-bottom: 20px;
+        >a {
+          color: #000;
+          &:hover, &:active {
+            color: $color-blue;
+          }
+        }
       }
       .title {
         text-align: center;
@@ -174,14 +180,14 @@
           border-bottom: 2px solid $color-blue;
         }
       }
-      .desc {
-        margin-top: 20px;
+      .subtitle {
+        margin-top: 15px;
         font-size: 12px;
         color: #929ba0;
       }
     }
     .block-body {
-      margin-top: 40px;
+      margin-top: 30px;
       .article-list {
         >li {
           position: relative;

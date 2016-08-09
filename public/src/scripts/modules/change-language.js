@@ -7,7 +7,6 @@ import Cookies from 'cookies-js';
  */
 export default (type) => {
   let current = Cookies.get('REITsLocale');
-  console.log(type, current);
   if (current !== type) {
     Cookies.set('REITsLocale', type, {
       expires: Infinity
