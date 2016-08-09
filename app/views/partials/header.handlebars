@@ -13,6 +13,11 @@
       </div>
       <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
+          <li {{#ifCond nav '===' 'home'}}class="active"{{/ifCond}}>
+            <a href="/">
+              <span class="nav-text">{{__ 'nav-home'}}</span>
+            </a>
+          </li>
           <li {{#ifCond nav '===' 'values'}}class="active"{{/ifCond}}>
             <a href="/values">
               <span class="nav-text">{{__ 'nav-values'}}</span>
