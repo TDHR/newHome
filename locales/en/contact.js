@@ -1,6 +1,7 @@
 {
   "contact-card1-name": "REITs (Beijing) FinTech Co., Ltd.",
-  "contact-card1-text1": "地址：北京市朝阳区望京嘉润花园B座无界空间",
-  "contact-card1-text2": "电话：010-12345678",
-  "contact-card1-text3": "邮箱：example@test.com"
+  "contact-card1-text1": "Address: Woo Space, JiaRun Garden Building B. WangJing Chaoyang District, Beijing China",
+  "contact-card1-text2": "Tel：010-89943073",
+  "contact-card1-text3": "Email：bd@reitsfax.com",
+  "contact-wechat": "WeChat"
 }

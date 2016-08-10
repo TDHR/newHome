@@ -1,4 +1,4 @@
-// modules/desktop
+// modules
 import ChangeLanguage from './modules/change-language';
 
 // 语言切换按钮
