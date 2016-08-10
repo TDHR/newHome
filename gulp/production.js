@@ -15,17 +15,21 @@ var csso = require('gulp-csso');
 
 // images
 gulp.task('prodImages', function() {
-  var min = gulp.src(path.join(conf.paths.src, '/images/*'))
-    .pipe(plumber())
-    .pipe(imagemin({
-      progressive: true,
-      svgoPlugins: [{
-        removeViewBox: false
-      }]
-    }))
-    .pipe(plumber.stop())
+  // var min = gulp.src(path.join(conf.paths.src, '/images/*'))
+  //   .pipe(plumber())
+  //   .pipe(imagemin({
+  //     progressive: true,
+  //     svgoPlugins: [{
+  //       removeViewBox: false
+  //     }]
+  //   }))
+  //   .pipe(plumber.stop())
+  //   .pipe(gulp.dest(path.join(conf.paths.tmp, '/images')));
+  // return merge(min);
+  
+  // imagemin 在服务器上表现不正常，找寻替代方案
+  return gulp.src(path.join(conf.paths.src, '/images/*'))
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/images')));
-  return merge(min);
 });
 
 // styles
