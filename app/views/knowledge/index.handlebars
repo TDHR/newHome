@@ -1,4 +1,78 @@
 {{> banner-other}}
-knowledge
+<div class="page-knowledge">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="article-list">
+          <li>
+            <div class="number">01</div>
+            <div class="article">
+              <div class="title">{{__ 'knowledge-article1-title'}}</div>
+              <div class="content">
+                <p>{{__ 'knowledge-article1-content1'}}</p>
+                <p>{{__ 'knowledge-article1-content2'}}</p>
+                <p>{{__ 'knowledge-article1-content3'}}</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="number">02</div>
+            <div class="article">
+              <div class="title">{{__ 'knowledge-article2-title'}}</div>
+              <div class="content">
+                <p>{{__ 'knowledge-article2-content1'}}</p>
+                <p>{{__ 'knowledge-article2-content2'}}</p>
+                <p>{{__ 'knowledge-article2-content3'}}</p>
+                <p>{{__ 'knowledge-article2-content4'}}</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="number">03</div>
+            <div class="article">
+              <div class="title">{{__ 'knowledge-article3-title'}}</div>
+              <div class="content">
+                <p>{{__ 'knowledge-article3-content1'}}</p>
+                <p>{{__ 'knowledge-article3-content2'}}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {{!-- <div class="row">
+      <div class="articles">
+        {{#each articles}}
+          <div class="col-md-6 card">
+            <a href="article?id={{this.id}}">
+              <div class="cover">
+                <img src="/images/{{this.cover}}">
+              </div>
+              <div class="title">{{this.title}}</div>
+              <div class="date">{{this.date}}</div>
+              <div class="content">{{this.content}}</div>
+            </a>
+          </div>
+        {{/each}}
+      </div>
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </div> --}}
+  </div>
+</div>
 
+{{> footer}}
 {{> scripts}}

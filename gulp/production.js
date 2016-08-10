@@ -9,7 +9,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
-var cache = require('gulp-cached');
 var del = require('del');
 var util = require('gulp-util');
 var csso = require('gulp-csso');
@@ -18,7 +17,6 @@ var csso = require('gulp-csso');
 gulp.task('prodImages', function() {
   var min = gulp.src(path.join(conf.paths.src, '/images/*'))
     .pipe(plumber())
-    .pipe(cache('images'))
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{
@@ -34,7 +32,6 @@ gulp.task('prodImages', function() {
 gulp.task('prodStyles', function() {
   return gulp.src(path.join(conf.paths.src, '/styles/*.scss'))
     .pipe(plumber())
-    .pipe(cache('styles'))
     .pipe(sass().on('error', conf.errorHandler('Sass')))
     .pipe(autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
     .pipe(csso())
@@ -46,7 +43,6 @@ gulp.task('prodStyles', function() {
 gulp.task('prodScripts', function() {
   return gulp.src(path.join(conf.paths.src, '/scripts/*.js'))
     .pipe(plumber())
-    .pipe(cache('scripts'))
     .pipe(named())
     .pipe(webpack({
       module: {
