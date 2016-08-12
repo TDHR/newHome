@@ -10,6 +10,7 @@ var livereload = require('gulp-livereload');
 var nodemon = require('gulp-nodemon');
 var plumber = require('gulp-plumber');
 var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 var cache = require('gulp-cache');
 var del = require('del');
 var mergeJson = require('gulp-merge-json');
@@ -22,7 +23,8 @@ gulp.task('devImages', function() {
       progressive: true,
       svgoPlugins: [{
         removeViewBox: false
-      }]
+      }],
+      use: [pngquant()]
     })))
     .pipe(plumber.stop())
     .pipe(gulp.dest(path.join(conf.paths.dev, '/images')));

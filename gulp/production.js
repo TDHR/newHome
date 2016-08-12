@@ -6,47 +6,39 @@ var merge = require('merge-stream');
 var named = require('vinyl-named');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var plumber = require('gulp-plumber');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 var del = require('del');
 var util = require('gulp-util');
 var csso = require('gulp-csso');
 
 // images
 gulp.task('prodImages', function() {
-  // var min = gulp.src(path.join(conf.paths.src, '/images/*'))
-  //   .pipe(plumber())
-  //   .pipe(imagemin({
-  //     progressive: true,
-  //     svgoPlugins: [{
-  //       removeViewBox: false
-  //     }]
-  //   }))
-  //   .pipe(plumber.stop())
-  //   .pipe(gulp.dest(path.join(conf.paths.tmp, '/images')));
-  // return merge(min);
-  
-  // imagemin 在服务器上表现不正常，找寻替代方案
-  return gulp.src(path.join(conf.paths.src, '/images/*'))
+  var min = gulp.src(path.join(conf.paths.src, '/images/*'))
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{
+        removeViewBox: false
+      }],
+      use: [pngquant()]
+    }))
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/images')));
+  return merge(min);
 });
 
 // styles
 gulp.task('prodStyles', function() {
   return gulp.src(path.join(conf.paths.src, '/styles/*.scss'))
-    .pipe(plumber())
     .pipe(sass().on('error', conf.errorHandler('Sass')))
     .pipe(autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
     .pipe(csso())
-    .pipe(plumber.stop())
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/styles')));
 });
 
 // scripts
 gulp.task('prodScripts', function() {
   return gulp.src(path.join(conf.paths.src, '/scripts/*.js'))
-    .pipe(plumber())
     .pipe(named())
     .pipe(webpack({
       module: {
@@ -57,7 +49,6 @@ gulp.task('prodScripts', function() {
       }
     }))
     .pipe(uglify().on('error', conf.errorHandler('Uglify *.js')))
-    .pipe(plumber.stop())
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/scripts')));
 });
 
