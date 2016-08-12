@@ -9,6 +9,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
 var del = require('del');
 var util = require('gulp-util');
 var csso = require('gulp-csso');
@@ -21,7 +22,8 @@ gulp.task('prodImages', function() {
   //     progressive: true,
   //     svgoPlugins: [{
   //       removeViewBox: false
-  //     }]
+  //     }],
+  //     use: [pngquant()]
   //   }))
   //   .pipe(plumber.stop())
   //   .pipe(gulp.dest(path.join(conf.paths.tmp, '/images')));
