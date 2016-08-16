@@ -4,6 +4,8 @@
 	"contact-card1-text2": "Tel：010-89943073",
 	"contact-card1-text3": "Email：bd@reitsfax.com",
 	"contact-wechat": "WeChat",
+	"explorer-total-circulation": "总发行量：",
+	"explorer-owners": "持仓人数：",
 	"home-block1-title1": "Who we are",
 	"home-block1-title2": "Our core value",
 	"home-block1-content1": "REITsChain (Beijing) FinTech Co., Ltd. was established in May 2016, co-sponsored and funded by former Chief Operating Officer of UBS Global Real Estate Greater China and two technology partners with block chain talents.",
