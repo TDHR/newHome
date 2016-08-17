@@ -19,7 +19,7 @@ module.exports = function() {
   }
   _helpers.fileTail = function() {
     return tail;
-  }
+  };
 
   _helpers.math = function(lvalue, operator, rvalue) {
     lvalue = parseFloat(lvalue);
@@ -31,13 +31,14 @@ module.exports = function() {
       "/": lvalue / rvalue,
       "%": lvalue % rvalue
     }[operator];
-  }
+  };
+
+  _helpers.handleName = function(name) {
+    return name.substr(0,1) + name.substr(1).replace(/./g, '*');
+  };
 
   _helpers.ifCond = function(v1, operator, v2, options) {
     switch (operator) {
-      case '==':
-        return (v1 == v2) ? options.fn(this) : options.inverse(this);
-        break;
       case '===':
         return (v1 === v2) ? options.fn(this) : options.inverse(this);
         break;
@@ -53,9 +54,6 @@ module.exports = function() {
       case '>=':
         return (v1 >= v2) ? options.fn(this) : options.inverse(this);
         break;
-      case '!=':
-        return (v1 != v2) ? options.fn(this) : options.inverse(this);
-        break;
       case '!==':
         return (v1 !== v2) ? options.fn(this) : options.inverse(this);
         break;
@@ -64,7 +62,7 @@ module.exports = function() {
         break;
     }
     return options.inverse(this);
-  }
+  };
 
   return _helpers;
 };

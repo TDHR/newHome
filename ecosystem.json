@@ -1,9 +1,8 @@
 {
   "apps" : [{
-    // Application #1
     "name"        : "gold-rock",
     "script"      : "app.js",
-    "watch"       : true,
+    "watch"       : false,
     "node_args"   : "--harmony",
     "merge_logs"  : true,
     "env": {
