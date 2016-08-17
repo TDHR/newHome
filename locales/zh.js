@@ -4,6 +4,8 @@
 	"contact-card1-text2": "电话：010-89943073",
 	"contact-card1-text3": "邮箱：bd@reitsfax.com",
 	"contact-wechat": "微信公众号",
+	"explorer-total-circulation": "总发行量：",
+	"explorer-owners": "持仓人数：",
 	"home-block1-title1": "我们是谁",
 	"home-block1-title2": "核心价值",
 	"home-block1-content1": "瑞资（北京）科技有限公司成立于2016年5月，是由来自华尔街投行精英、前瑞银环球不动产中国区首席运营官（COO）与两位区块链技术英才共同发起创立的公司。",

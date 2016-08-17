@@ -13,10 +13,9 @@ router.get('/knowledge', function(req, res) {
   });
 });
 
-router.get('/article', function(req, res) {
-  var id = req.query.id;
+router.get('/knowledge/:articleID', function(req, res) {
   res.render('knowledge/article', {
-    nav: 'article',
-    article: Article[id]
+    nav: 'knowledge',
+    article: Article[req.params.articleID]
   });
 });
