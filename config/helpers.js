@@ -34,7 +34,7 @@ module.exports = function() {
   };
 
   _helpers.handleName = function(name) {
-    return name.substr(0,1) + name.substr(1).replace(/./g, '*');
+    return name.substr(0, 1) + name.substr(1).replace(/./g, '*');
   };
 
   _helpers.ifCond = function(v1, operator, v2, options) {
@@ -62,6 +62,27 @@ module.exports = function() {
         break;
     }
     return options.inverse(this);
+  };
+
+  _helpers.times = function(n, start, block) {
+    var accum = '';
+    start = start || 0;
+    if (start) {
+      for (var i = start; i <= n; ++i) {
+        accum += block.fn(i);
+      }
+    } else {
+      for (var i = start; i < n; ++i) {
+        accum += block.fn(i);
+      }
+    }
+    return accum;
+  };
+
+  _helpers.dateFormat = function(timestamp, type) {
+    var fix = type === 'unix' ? 1000 : 1;
+    var date = new Date(timestamp * fix);
+    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
   };
 
   return _helpers;

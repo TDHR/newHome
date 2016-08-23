@@ -59,6 +59,8 @@
 	"knowledge-article3-title": "Why should I invest in REITs?",
 	"knowledge-article3-content1": "REITs are total return investments. They typically provide high dividends plus the potential for moderate, long-term capital appreciation. Long-term total returns of REIT stocks are likely to be somewhat less than the returns of higher risk, high-growth stocks and somewhat more than the returns of lower risk bonds.",
 	"knowledge-article3-content2": "REITs are required by law to distribute each year to their shareholders at least 90 percent of their taxable income. Thus, REITs tend to be among those companies paying the highest dividends. The dividends come primarily from the relatively stable and predictable stream of contractual rents paid by the tenants who occupy the REIT's properties. Because rental rates tend to rise during periods of inflation, REIT dividends tend to be protected from the long-term corrosive effect of rising prices.",
+	"article-summary": "Summary:",
+	"article-not-exist": "The article does not exist",
 	"language": "English",
 	"language-code": "en",
 	"title": "REITs (Beijing)",
