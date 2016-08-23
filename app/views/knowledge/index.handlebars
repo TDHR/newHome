@@ -20,7 +20,9 @@
             </li>
             {{/each}}
         </ul>
-        <div class="pagination-holder"></div>
+        {{#ifCond articleData.total '>' 1}}
+        <div id="paginationHolder" class="pagination-holder" data-total={{articleData.total}} data-current={{articleData.current}}></div>
+        {{/ifCond}}
       </div>
     </div>
     {{/if}}
@@ -66,16 +68,4 @@
 {{> footer}}
 {{> scripts}}
 <script src="/libs/jquery.bootpag.js"></script>
-<script>
-  $('.pagination-holder').bootpag({
-    total: {{articleData.total}},
-    page: {{articleData.current}},
-    maxVisible: 5,
-    leaps: true,
-    hrefVariable: '[number]',
-    href: '/knowledge/[number]',
-    wrapClass: 'pagination',
-    activeClass: 'active',
-    disabledClass: 'disabled'
-  });
-</script>
+<script src="/scripts/knowledge.js{{fileTail}}"></script>
