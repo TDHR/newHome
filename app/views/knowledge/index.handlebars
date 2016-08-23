@@ -1,11 +1,33 @@
 {{> banner-other}}
 <div class="page-knowledge">
   <div class="container">
+    {{#if articleData.articles}}
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-10 col-md-offset-1">
+        <ul class="articles">
+            {{#each articleData.articles}}
+            <li>
+              <a href="/knowledge/article/{{this.id}}">
+                <div class="wx-cover">
+                  <img src="{{this.cover}}">
+                </div>
+                <div class="article">
+                  <div class="title">{{this.title}}</div>
+                  <div class="date">{{dateFormat this.date 'unix'}}</div>
+                  <div class="summary">{{this.summary}}</div>
+                </div>
+              </a>
+            </li>
+            {{/each}}
+        </ul>
+        <div class="pagination-holder"></div>
+      </div>
+    </div>
+    {{/if}}
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
         <ul class="article-list">
           <li>
-            <div class="number">01</div>
             <div class="article">
               <div class="title">{{__ 'knowledge-article1-title'}}</div>
               <div class="content">
@@ -16,7 +38,6 @@
             </div>
           </li>
           <li>
-            <div class="number">02</div>
             <div class="article">
               <div class="title">{{__ 'knowledge-article2-title'}}</div>
               <div class="content">
@@ -28,7 +49,6 @@
             </div>
           </li>
           <li>
-            <div class="number">03</div>
             <div class="article">
               <div class="title">{{__ 'knowledge-article3-title'}}</div>
               <div class="content">
@@ -40,39 +60,22 @@
         </ul>
       </div>
     </div>
-    {{!-- <div class="row">
-      <div class="articles">
-        {{#each articles}}
-          <div class="col-md-6 card">
-            <a href="knowledge/{{this.id}}">
-              <div class="cover">
-                <img src="/images/{{this.cover}}">
-              </div>
-              <div class="title">{{this.title}}</div>
-              <div class="date">{{this.date}}</div>
-              <div class="content">{{this.content}}</div>
-            </a>
-          </div>
-        {{/each}}
-      </div>
-      <ul class="pagination">
-        <li>
-          <a href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li>
-          <a href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </div> --}}
   </div>
 </div>
 
 {{> footer}}
 {{> scripts}}
+<script src="/libs/jquery.bootpag.js"></script>
+<script>
+  $('.pagination-holder').bootpag({
+    total: {{articleData.total}},
+    page: {{articleData.current}},
+    maxVisible: 5,
+    leaps: true,
+    hrefVariable: '[number]',
+    href: '/knowledge/[number]',
+    wrapClass: 'pagination',
+    activeClass: 'active',
+    disabledClass: 'disabled'
+  });
+</script>
