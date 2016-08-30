@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.use('/', router);
 };
 
-router.get('/contact', function(req, res, next) {
+router.get('/contact', function(req, res) {
   res.render('contact/index', {
     nav: 'contact'
   });
