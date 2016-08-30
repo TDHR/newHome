@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.use('/', router);
 };
 
-router.get('/values', function(req, res, next) {
+router.get('/values', function(req, res) {
   res.render('values/index', {
     nav: 'values'
   });
