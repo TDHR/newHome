@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
     })
     .end(function(err, result) {
       var articleData = '';
-      if (result.body.success) {
+      if (result && result.body.success) {
         articleData = result.body.data;
       }
       res.render('site/home', {
@@ -66,7 +66,7 @@ router.get('/knowledge/:pageNumber?', function(req, res) {
     })
     .end(function(err, result) {
       var data = '';
-      if (result.body.success) {
+      if (result && result.body.success) {
         data = result.body.data;
       }
       res.render('site/knowledge', {
@@ -86,7 +86,7 @@ router.get('/knowledge/article/:articleID', function(req, res) {
     })
     .end(function(err, result) {
       var data = '';
-      if (result.body.success) {
+      if (result && result.body.success) {
         data = result.body.data;
       }
       res.render('site/article', {

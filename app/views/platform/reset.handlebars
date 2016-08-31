@@ -1,1 +1,36 @@
-reset
+<div class="page-reset">
+  <div class="container">
+    <div class="form-big-holder">
+      <form class="form-big">
+        <div class="form-group">
+          <label for="mobile">手机</label>
+          <input type="text" class="form-control input-lg" id="mobile">
+        </div>
+        <div class="form-group">
+          <label for="smsCode">短信验证码</label>
+          <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-7">
+              <input type="text" class="form-control input-lg" id="smsCode">
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-5">
+              <a id="btnSmsCode" class="btn-sms">获取验证码</a>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">新密码</label>
+          <input type="password" class="form-control input-lg" id="password">
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">确认密码</label>
+          <input type="password" class="form-control input-lg" id="confirmPassword">
+        </div>
+        <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">重置密码</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{> footer}}
+{{> scripts}}
+<script src="/scripts/login.js{{fileTail}}"></script>

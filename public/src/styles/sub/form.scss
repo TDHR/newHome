@@ -4,7 +4,7 @@
   margin: 60px auto;
   border: 1px solid #eee;
   border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, .08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
 }
 
 @media (max-width: 768px) {
@@ -16,6 +16,11 @@
 .form-big {
   .form-group {
     margin-bottom: 30px;
+  }
+  .btn-sms {
+    display: block;
+    padding-top: 14px;
+    font-size: 13px;
   }
   .cpptcha-img {
     width: 100px;
