@@ -72,6 +72,8 @@
 	"nav-knowledge": "知识库",
 	"nav-story": "案例",
 	"nav-contact": "联系我们",
+	"nav-login": "登录",
+	"nav-signup": "注册",
 	"footer-copyright": "&#169; 2016 REITs (Beijing) FinTech Co., Ltd. All Rights Reserved&nbsp;&nbsp; &#124; &nbsp;&nbsp;京ICP备16039726号",
 	"service-card1-title": "资产证券化的区块链解决方案",
 	"service-card1-content1": "用区块链技术搭建ABS及类REITs等金融资产交易所，为产品发行和交易提供一站式解决方案。",

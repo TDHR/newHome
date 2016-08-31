@@ -1,3 +1,7 @@
+/**
+ * 忘记密码
+ */
+
 var express = require('express');
 var router = express.Router();
 
@@ -5,8 +9,8 @@ module.exports = function(app) {
   app.use('/', router);
 };
 
-router.get('/service', function(req, res) {
-  res.render('service/index', {
-    nav: 'service'
+router.get('/reset', function(req, res) {
+  res.render('platform/reset', {
+    nav: 'reset'
   });
 });

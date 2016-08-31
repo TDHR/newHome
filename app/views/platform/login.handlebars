@@ -1,0 +1,35 @@
+<div class="page-login">
+  <div class="container">
+    <div class="form-big-holder">
+      <form class="form-big">
+        <div class="form-group">
+          <label for="mobile">手机</label>
+          <input type="text" class="form-control input-lg" id="mobile">
+        </div>
+        <div class="form-group">
+          <label for="password">密码</label>
+          <input type="password" class="form-control input-lg" id="password">
+        </div>
+        <div id="captchaHolder" class="form-group hide">
+          <label for="captcha">验证码</label>
+          <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-7">
+              <input type="text" class="form-control input-lg" id="captcha">
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-5">
+              <img id="captchaImg" class="cpptcha-img" src="http://localhost:3000/images/wechat.png">
+            </div>
+          </div>
+        </div>
+        <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">登录</button>
+        <div class="form-help">
+          <a href="/reset">忘记密码？</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{> footer}}
+{{> scripts}}
+<script src="/scripts/login.js{{fileTail}}"></script>
