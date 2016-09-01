@@ -1,5 +1,5 @@
 <div class="page-signup">
-  <div class="container">
+  <div id="formHolder" class="container">
     <div class="form-big-holder">
       <form class="form-big">
         <div class="form-group">
@@ -30,18 +30,18 @@
           <input type="text" class="form-control input-lg" id="realName">
         </div>
         <div class="form-group">
-          <label for="">证件类型</label>
-          <select id="" class="form-control input-lg disabled" disabled>
+          <label for="idType">证件类型</label>
+          <select id="idType" class="form-control input-lg disabled" disabled>
             <option value="1">身份证</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="">证件号码</label>
-          <input type="text" class="form-control input-lg" id="">
+          <label for="idNum">证件号码</label>
+          <input type="text" class="form-control input-lg" id="idNum">
         </div>
-        <div class="form-group">
-          <label for="terms">
-            <input id="terms" type="checkbox" class="">
+        <div class="checkbox">
+          <label>
+            <input id="terms" type="checkbox">
             我已阅读并同意瑞资的 <a href="" target="_blank">服务条款</a>
           </label>
         </div>
@@ -49,8 +49,13 @@
       </form>
     </div>
   </div>
+  <div id="successHolder" class="container hide">
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    <h3>恭喜，注册成功！</h3>
+    <p>立即前往 <a href="/login">登录</a> 吧</p>
+  </div>
 </div>
 
 {{> footer}}
 {{> scripts}}
-<script src="/scripts/login.js{{fileTail}}"></script>
+<script src="/scripts/signup.js{{fileTail}}"></script>

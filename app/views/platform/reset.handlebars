@@ -1,5 +1,5 @@
 <div class="page-reset">
-  <div class="container">
+  <div id="formHolder" class="container">
     <div class="form-big-holder">
       <form class="form-big">
         <div class="form-group">
@@ -29,8 +29,13 @@
       </form>
     </div>
   </div>
+  <div id="successHolder" class="container hide">
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    <h3>重置密码成功！</h3>
+    <p>立即前往 <a href="/login">登录</a> 吧</p>
+  </div>
 </div>
 
 {{> footer}}
 {{> scripts}}
-<script src="/scripts/login.js{{fileTail}}"></script>
+<script src="/scripts/reset.js{{fileTail}}"></script>

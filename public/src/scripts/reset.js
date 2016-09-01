@@ -8,7 +8,7 @@ import Alert from './modules/alert';
 function submitForm(data) {
   $.ajax({
     method: 'POST',
-    url: '/login',
+    url: '/reset',
     data: data,
     cache: false,
     beforeSend: function() {
@@ -16,8 +16,8 @@ function submitForm(data) {
     },
     success: function(data) {
       if (data.success) {
-        // 登录成功，跳转到 ucenter
-        location.href = '/user/dashboard';
+        $('#formHolder').addClass('hide');
+        $('#successHolder').removeClass('hide');
       } else {
         Alert(data.msg);
       }
@@ -45,23 +45,33 @@ $('#btnSubmit').on('click', function() {
     return false;
   }
 
+  let smsCode = $('#smsCode').val();
+  if (Validate.length(smsCode, 6)) {
+    data.smsCode = smsCode;
+  } else {
+    Alert('请输入短信验证码', 5000);
+    return false;
+  }
+
   let password = $('#password').val();
   if (Validate.length(password, 6)) {
     data.password = password;
   } else {
-    Alert('请输入密码', 5000);
+    Alert('请输入不小于6位的密码', 5000);
     return false;
   }
 
-  if (!$('#captchaHolder').hasClass('hide')) {
-    let captcha = $('#captcha').val();
-    if (Validate.length(captcha, 4)) {
-      data.captcha = captcha;
+  let confirmPassword = $('#confirmPassword').val();
+  if (Validate.length(confirmPassword, 6)) {
+    if (password === confirmPassword) {
+      data.confirmPassword = confirmPassword;
     } else {
-      Alert('请输入验证码', 5000);
+      Alert('两次密码不一致', 5000);
       return false;
     }
+  } else {
+    Alert('请输入不小于6位的确认密码', 5000);
+    return false;
   }
-
   submitForm(data);
 });
