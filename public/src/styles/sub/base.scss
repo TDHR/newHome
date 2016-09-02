@@ -81,20 +81,29 @@ only screen and (min-device-pixel-ratio: 2) {
       .navbar-nav {
         >li {
           >a {
+            position: relative;
+            padding: 0;
+            margin: 20px 15px;
             color: #000;
-            .nav-text {
-              border-color: #fff;
+            @media (min-width: 768px) {
+              &:after {
+                position: absolute;
+                bottom: -21px;
+                left: 0;
+                width: 0;
+                height: 3px;
+                content: "";
+                background-color: $color-blue;
+                transition: width .35s;
+              }
             }
             &:hover,
             &:focus,
             &:active {
               background-color: transparent;
               color: $color-blue;
-              transition: color .6s;
-              .nav-text {
-                padding-bottom: 16px;
-                border-bottom: 2px solid $color-blue;
-                transition: border-color .6s;
+              &:after {
+                width: 100%;
               }
             }
           }
@@ -102,9 +111,8 @@ only screen and (min-device-pixel-ratio: 2) {
             >a {
               background-color: transparent;
               color: $color-blue;
-              .nav-text {
-                padding-bottom: 16px;
-                border-bottom: 2px solid $color-blue;
+              &:after {
+                width: 100%;
               }
             }
           }
