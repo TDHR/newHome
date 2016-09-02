@@ -1,11 +1,75 @@
-<div class="page-dashboard">
+<div class="page-safety">
   <div class="container">
     <div class="row">
       <div class="col-md-2">
         {{> sidebar}}
       </div>
       <div class="col-md-10">
-        safety
+        <div class="panel-list">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-9">
+                  <span class="glyphicon glyphicon-ok"></span>
+                  登录密码
+                </div>
+                <div class="col-md-3 text-right">
+                  <a href="">修改</a>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">
+              互联网账号存在被盗风险，建议定期更改密码以保护账户安全。
+            </div>
+          </div>
+          <div class="panel panel-success">
+            <div class="panel-heading">
+               <div class="row">
+                  <div class="col-md-9">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    实名认证
+                  </div>
+                  <div class="col-md-3 text-right">
+                    <a href="">查看</a>
+                  </div>
+               </div>
+            </div>
+            <div class="panel-body">
+              你认证的实名信息：51************1111
+            </div>
+          </div>
+        </div>
+        <div class="record-list table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <td>登录记录（最近十次）</td>
+              </tr>
+              <tr>
+                <th>登录时间</th>
+                <th>登录 IP</th>
+                <th>所在地</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2016-09-02 12:12:08</td>
+                <td>123.122.121.124</td>
+                <td>北京</td>
+              </tr>
+              <tr>
+                <td>2016-09-02 11:12:08</td>
+                <td>123.122.121.124</td>
+                <td>北京</td>
+              </tr>
+              <tr>
+                <td>2016-09-02 10:12:08</td>
+                <td>123.122.121.124</td>
+                <td>北京</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

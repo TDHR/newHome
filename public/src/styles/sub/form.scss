@@ -37,5 +37,13 @@
 }
 
 .form-normal {
-
+  .form-group {
+    margin-bottom: 20px;
+    input, select {
+      max-width: 380px;
+    }
+  }
+  .btn-submit {
+    margin-top: 10px;
+  }
 }

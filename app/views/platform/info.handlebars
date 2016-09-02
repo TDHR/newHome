@@ -1,11 +1,40 @@
-<div class="page-dashboard">
+<div class="page-info">
   <div class="container">
     <div class="row">
       <div class="col-md-2">
         {{> sidebar}}
       </div>
       <div class="col-md-10">
-        info
+        <form class="form-normal">
+          <div class="avatar-now">
+            <label>当前头像</label>
+            <img src="http://localhost:3000/images/avatar-yanzhi.jpg" class="avatar">
+          </div>
+          <div class="form-group">
+            <label for="avatar">更换头像</label>
+            <input type="file" class="form-control" id="avatar">
+            <span class="help-block">仅支持JPG、GIF、PNG、JPEG，文件小于4M</span>
+          </div>
+          <div class="form-group">
+            <label for="nickname">昵称</label>
+            <input type="text" class="form-control" id="nickname">
+          </div>
+          <div class="form-group">
+            <label>性别</label>
+            <div>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="1"> 男
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="2"> 女
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="0" checked> 保密
+              </label>
+            </div>
+          </div>
+          <button id="btnSubmit" type="button" class="btn btn-primary btn-submit">保存</button>
+        </form>
       </div>
     </div>
   </div>

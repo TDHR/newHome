@@ -1,5 +1,5 @@
 /**
- * 登录
+ * 我的资产
  */
 
 var express = require('express');
@@ -34,27 +34,5 @@ router.get('/user/bind-wallet', function(req, res) {
 router.get('/user/update-dividend', function(req, res) {
   res.render('platform/update-dividend', {
     nav: 'dashboard'
-  });
-});
-
-
-// 系统通知
-router.get('/notification', function(req, res) {
-  res.render('platform/notification', {
-    nav: 'notification'
-  });
-});
-
-// 个人信息
-router.get('/user/info', function(req, res) {
-  res.render('platform/info', {
-    nav: 'info'
-  });
-});
-
-// 账户安全
-router.get('/user/safety', function(req, res) {
-  res.render('platform/safety', {
-    nav: 'safety'
   });
 });

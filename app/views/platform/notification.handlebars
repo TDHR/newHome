@@ -1,11 +1,49 @@
-<div class="page-dashboard">
+<div class="page-notification">
   <div class="container">
     <div class="row">
       <div class="col-md-2">
         {{> sidebar}}
       </div>
       <div class="col-md-10">
-        notification
+        <div class="list table-responsive">
+          <table class="table table-hover">
+            <tbody>
+              <tr class="unread">
+                <td>
+                  <a href="/notification/123">系统通知的标题</a>
+                </td>
+                <td class="text-right">2016-09-02</td>
+              </tr>
+              <tr class="unread">
+                <td>
+                  <a href="/notification/123">系统通知的标题</a>
+                </td>
+                <td class="text-right">2016-09-02</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="/notification/123">系统通知的标题</a>
+                </td>
+                <td class="text-right">2016-09-02</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="/notification/123">系统通知的标题</a>
+                </td>
+                <td class="text-right">2016-09-02</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="pagination-holder">
+          <ul class="pagination bootpag">
+            <li data-lp="1" class="prev disabled"><a href="/knowledge/1">«</a></li>
+            <li data-lp="1" class="active"><a href="/knowledge/1">1</a></li>
+            <li data-lp="2"><a href="/knowledge/2">2</a></li>
+            <li data-lp="2" class="next"><a href="/knowledge/2">»</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
