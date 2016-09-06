@@ -1,0 +1,23 @@
+<div class="col-md-10 col-md-offset-1">
+  <ul class="articles">
+    {{each articles as v k}}
+    <li>
+      <a href="/knowledge/article/{{v.id}}">
+        <div class="wx-cover">
+          <img src="{{v.cover}}">
+        </div>
+        <div class="article">
+          <div class="title">{{v.title}}</div>
+          <div class="date">{{v.date}}</div>
+          <div class="summary">{{v.summary}}</div>
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+  {{if pagination}}
+    {{if total > 1}}
+    <div id="paginationHolder" class="pagination-holder" data-total={{total}} data-current={{current}}></div>
+    {{/if}}
+  {{/if}}
+</div>

@@ -13,24 +13,9 @@ module.exports = function(app) {
 
 // 首页
 router.get('/', function(req, res) {
-  var page = req.query.page || 1;
-  request
-    .get(config.weixin + '/ArticleOut/GetList')
-    .send({
-      language: req.getLocale() || 'zh',
-      page: page,
-      limit: 4
-    })
-    .end(function(err, result) {
-      var articleData = '';
-      if (result && result.body.success) {
-        articleData = result.body.data;
-      }
-      res.render('site/home', {
-        nav: 'home',
-        articleData: articleData
-      });
-    });
+  res.render('site/home', {
+    nav: 'home'
+  });
 });
 
 // 核心价值
@@ -56,24 +41,9 @@ router.get('/team', function(req, res) {
 
 // 知识库
 router.get('/knowledge/:pageNumber?', function(req, res) {
-  var page = req.params.pageNumber || 1;
-  request
-    .get(config.weixin + '/ArticleOut/GetList')
-    .send({
-      language: req.getLocale() || 'zh',
-      page: page,
-      limit: 5
-    })
-    .end(function(err, result) {
-      var data = '';
-      if (result && result.body.success) {
-        data = result.body.data;
-      }
-      res.render('site/knowledge', {
-        nav: 'knowledge',
-        articleData: data
-      });
-    });
+  res.render('site/knowledge', {
+    nav: 'knowledge'
+  });
 });
 
 // 文章内容
@@ -101,4 +71,30 @@ router.get('/contact', function(req, res) {
   res.render('site/contact', {
     nav: 'contact'
   });
+});
+
+// 获取文章
+router.get('/articles', function(req, res) {
+  var page = req.query.page || 1;
+  var limit = req.query.limit || 4;
+  request
+    .get(config.weixin + '/ArticleOut/GetList')
+    .send({
+      language: req.getLocale() || 'zh',
+      page: page,
+      limit: limit
+    })
+    .end(function(err, result) {
+      var articleData = '';
+      if (result && result.body.success) {
+        return res.json({
+          success: true,
+          data: result.body.data
+        });
+      } else {
+        return res.json({
+          success: false
+        });
+      }
+    });
 });

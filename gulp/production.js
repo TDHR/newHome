@@ -2,7 +2,7 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
 var webpack = require('webpack-stream');
-var merge = require('merge-stream');
+// var merge = require('merge-stream');
 var named = require('vinyl-named');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
@@ -15,7 +15,7 @@ var csso = require('gulp-csso');
 
 // images
 gulp.task('prodImages', function() {
-  var min = gulp.src(path.join(conf.paths.src, '/images/*'))
+  return gulp.src(path.join(conf.paths.src, '/images/*'))
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{
@@ -24,7 +24,6 @@ gulp.task('prodImages', function() {
       use: [pngquant()]
     }))
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/images')));
-  return merge(min);
 });
 
 // styles
@@ -65,8 +64,8 @@ gulp.task('cleanDist', function() {
 
 // copy tmp to dist
 gulp.task('renewDist', function() {
-    return gulp.src(path.join(conf.paths.tmp, '/**'))
-        .pipe(gulp.dest(conf.paths.dist));
+  return gulp.src(path.join(conf.paths.tmp, '/**'))
+    .pipe(gulp.dest(conf.paths.dist));
 });
 
 gulp.task('production', ['prodImages', 'prodStyles', 'prodScripts', 'prodLibs'], function() {

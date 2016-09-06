@@ -1,31 +1,7 @@
 {{> banner-other}}
 <div class="page-knowledge">
   <div class="container">
-    {{#if articleData.articles}}
-    <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <ul class="articles">
-            {{#each articleData.articles}}
-            <li>
-              <a href="/knowledge/article/{{this.id}}">
-                <div class="wx-cover">
-                  <img src="{{this.cover}}">
-                </div>
-                <div class="article">
-                  <div class="title">{{this.title}}</div>
-                  <div class="date">{{dateFormat this.date 'unix'}}</div>
-                  <div class="summary">{{this.summary}}</div>
-                </div>
-              </a>
-            </li>
-            {{/each}}
-        </ul>
-        {{#ifCond articleData.total '>' 1}}
-        <div id="paginationHolder" class="pagination-holder" data-total={{articleData.total}} data-current={{articleData.current}}></div>
-        {{/ifCond}}
-      </div>
-    </div>
-    {{/if}}
+    <div id="articles" class="row"></div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <ul class="article-list">

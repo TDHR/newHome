@@ -25,10 +25,10 @@ gulp.task('locales', function() {
   return merge(lang[0], lang[1]);
 });
 
-gulp.task('dev', ['cleanDev', 'locales'], function() {
+gulp.task('dev', ['cleanDev', 'tpl', 'locales'], function() {
   gulp.start('development');
 });
 
-gulp.task('prod', ['cleanDist', 'locales'], function() {
+gulp.task('prod', ['cleanDist', 'tpl', 'locales'], function() {
   gulp.start('production');
 });
