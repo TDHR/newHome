@@ -34,7 +34,16 @@ router.post('/login', function(req, res) {
           .get('http://ip.taobao.com/service/getIpInfo.php?ip=' + ip)
           .set('Accept', 'json')
           .end(function(err, result) {
-            cb(null, JSON.parse(result.text));
+            if (err) {
+              cb(null, {
+                data: {
+                  country: "",
+                  city: ""
+                }
+              });
+            } else {
+              cb(null, JSON.parse(result.text));
+            }
           });
       } else {
         cb(null, {
@@ -42,7 +51,7 @@ router.post('/login', function(req, res) {
             country: "",
             city: ""
           }
-        })
+        });
       }
     }
   }, function(cb, results) {
