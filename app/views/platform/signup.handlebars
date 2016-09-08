@@ -1,64 +1,86 @@
 <div class="page-signup">
   <div id="formHolder" class="container">
     <div class="form-big-holder">
-      <form class="form-big">
-        <div class="form-group">
-          <label for="mobile">手机</label>
-          <input type="text" class="form-control input-lg" id="mobile">
-        </div>
-        <div class="form-group">
-          <label for="smsCode">短信验证码</label>
-          <div class="row">
-            <div class="col-md-8 col-sm-8 col-xs-7">
-              <input type="text" class="form-control input-lg" id="smsCode">
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-5">
-              <a id="btnSmsCode" class="btn-sms">获取验证码</a>
-            </div>
+      <div class="steps">
+        <div class="row">
+          <div id="stepTitle1" class="step col-md-6 col-sm-6 active">
+            <span class="num">1</span>
+            <span class="text">手机注册</span>
+          </div>
+          <div id="stepTitle2" class="step col-md-6 col-sm-6">
+            <span class="num">2</span>
+            <span class="text">实名认证</span>
           </div>
         </div>
-        <div class="form-group">
-          <label for="password">密码</label>
-          <input type="password" class="form-control input-lg" id="password">
+      </div>
+      <form id="form" class="form-big">
+        <div id="step1">
+          <div class="form-group">
+            <label for="mobile">手机</label>
+            <input type="text" class="form-control input-lg" id="mobile" name="mobile">
+          </div>
+          <div class="form-group">
+            <label for="smsCode">短信验证码</label>
+            <div class="row">
+              <div class="col-md-8 col-sm-8 col-xs-7">
+                <input type="text" class="form-control input-lg" id="smsCode" name="smsCode">
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-5">
+                <a id="btnSmsCode" class="btn-sms">获取验证码</a>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" class="form-control input-lg" id="password" name="password">
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">确认密码</label>
+            <input type="password" class="form-control input-lg" id="confirmPassword" name="confirmPassword">
+          </div>
+          <div class="form-group">
+            <label for="angel">天使码（选填）</label>
+            <input type="text" class="form-control input-lg" id="angel" name="angel">
+          </div>
+          <button id="btnNext" type="button" class="btn btn-success btn-lg btn-block btn-submit">下一步</button>
         </div>
-        <div class="form-group">
-          <label for="confirmPassword">确认密码</label>
-          <input type="password" class="form-control input-lg" id="confirmPassword">
+        <div id="step2" class="hide">
+          <div class="form-group">
+            <label for="realName">真实姓名</label>
+            <input type="text" class="form-control input-lg" id="realName" name="realName">
+          </div>
+          <div class="form-group">
+            <label for="idType">证件类型</label>
+            <select id="idType" class="form-control input-lg disabled" name="idType" disabled>
+              <option value="1" selected >身份证</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="idNum">证件号码</label>
+            <input type="text" class="form-control input-lg" id="idNum" name="idNum">
+          </div>
+          <div class="form-group">
+            <label for="photo1">身份证正面</label>
+            <input type="file" class="form-control input-lg" id="photo1" name="photo1">
+            <span class="help-block">仅支持JPG、GIF、PNG、JPEG，文件小于5M</span>
+          </div>
+          <div class="form-group">
+            <label for="photo2">身份证背面</label>
+            <input type="file" class="form-control input-lg" id="photo2" name="photo2">
+          </div>
+          <div class="form-group">
+            <label for="photo3">正面半身照（手持身份证）</label>
+            <input type="file" class="form-control input-lg" id="photo3" name="photo3">
+            <span class="help-block">请确保身份证和你的样貌都清晰可见</span>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input id="terms" type="checkbox">
+              我已阅读并同意瑞资的 <a href="" target="_blank">服务条款</a>
+            </label>
+          </div>
+          <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">注册</button>
         </div>
-        <div class="form-group">
-          <label for="realName">真实姓名</label>
-          <input type="text" class="form-control input-lg" id="realName">
-        </div>
-        <div class="form-group">
-          <label for="idType">证件类型</label>
-          <select id="idType" class="form-control input-lg disabled" disabled>
-            <option value="1">身份证</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="idNum">证件号码</label>
-          <input type="text" class="form-control input-lg" id="idNum">
-        </div>
-        <div class="form-group">
-          <label for="photo1">身份证正面</label>
-          <input type="file" class="form-control input-lg" id="photo1">
-        </div>
-        <div class="form-group">
-          <label for="photo2">身份证背面</label>
-          <input type="file" class="form-control input-lg" id="photo2">
-        </div>
-        <div class="form-group">
-          <label for="photo3">正面半身照（手持身份证）</label>
-          <input type="file" class="form-control input-lg" id="photo3">
-          <span class="help-block">请确保身份证和你的样貌都清晰可见</span>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input id="terms" type="checkbox">
-            我已阅读并同意瑞资的 <a href="" target="_blank">服务条款</a>
-          </label>
-        </div>
-        <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">注册</button>
       </form>
     </div>
   </div>

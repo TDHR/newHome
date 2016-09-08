@@ -75,6 +75,7 @@
 	"nav-login": "登录",
 	"nav-signup": "注册",
 	"footer-copyright": "&#169; 2016 REITs (Beijing) FinTech Co., Ltd. All Rights Reserved&nbsp;&nbsp; &#124; &nbsp;&nbsp;京ICP备16039726号",
+	"browsehappy": "你的浏览器太古老啦! 请<a href=\"http://browsehappy.com/\">升级</a>到其它现代浏览器，以便正常访问本网站。",
 	"service-card1-title": "资产证券化的区块链解决方案",
 	"service-card1-content1": "用区块链技术搭建ABS及类REITs等金融资产交易所，为产品发行和交易提供一站式解决方案。",
 	"service-card1-content2": "将有租金收益的商业不动产进行资产证券化（发行REITs），并利用区块链以数字资产形式在全球市场发布。",

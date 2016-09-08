@@ -24,9 +24,18 @@ const length = (val, n) => {
   return val.length >= n;
 };
 
+// 图片格式
+// 只能为 jpg, png, gif, jpeg
+const image = (val) => {
+  val = val.split('.');
+  val = val[val.length - 1].toLowerCase();
+  return /(gif|jpg|jpeg|png)$/.test(val);
+};
+
 export default {
   email: email,
   mobile: mobile,
   num: num,
-  length: length
+  length: length,
+  image: image
 };

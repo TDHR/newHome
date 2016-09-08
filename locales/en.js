@@ -75,6 +75,7 @@
 	"nav-login": "Login",
 	"nav-signup": "Sign up",
 	"footer-copyright": "&#169; 2016 REITs (Beijing) FinTech Co., Ltd. All Rights Reserved&nbsp;&nbsp; &#124; &nbsp;&nbsp;京ICP备16039726号",
+	"browsehappy": "Your browser is ancient! <a href=\"http://browsehappy.com/\">Upgrade to a different browser</a> to experience this site.",
 	"service-card1-title": "Chain ABS Solution",
 	"service-card1-content1": "We will launch our ABC exchange platform with block chain technology to provide one-stop solutions to issue and trade ABS and REITs assets.",
 	"service-card1-content2": "To securitize the commercial real estates with rental income (REITs IPO) and issue REITs shares on the block chain globally in the form of digital assets.",

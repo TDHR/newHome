@@ -1,7 +1,6 @@
 /**
  * 注册
  */
-
 var express = require('express');
 var router = express.Router();
 
@@ -17,11 +16,13 @@ router.get('/signup', function(req, res) {
 
 // 注册
 router.post('/signup', function(req, res) {
-  var body = req.body;
-  // TODO: 1. 转发到 PHP 后端，并将返回的结果转发给前端
+  console.log('req.files', req.files);
+  console.log('req.body', req.body);
+  console.log('req.file', req.file);
+  // var body = req.body;
+  // TODO: 1. 转发到 Java 后端，并将返回的结果转发给前端
   return res.json({
     success: true,
-    msg: '',
-    data: body
+    msg: ''
   });
 });
