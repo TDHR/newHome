@@ -5,89 +5,89 @@
         <div class="row">
           <div id="stepTitle1" class="step col-md-6 col-sm-6 active">
             <span class="num">1</span>
-            <span class="text">手机注册</span>
+            <span class="text">{{__ 'signup-step1'}}</span>
           </div>
           <div id="stepTitle2" class="step col-md-6 col-sm-6">
             <span class="num">2</span>
-            <span class="text">实名认证</span>
+            <span class="text">{{__ 'signup-step2'}}</span>
           </div>
         </div>
       </div>
       <form id="form" class="form-big">
         <div id="step1">
           <div class="form-group">
-            <label for="mobile">手机</label>
-            <input type="text" class="form-control input-lg" id="mobile" name="mobile">
+            <label for="phoneNum">{{__ 'signup-phone'}}</label>
+            <input type="text" class="form-control input-lg" id="phoneNum" name="phoneNum">
           </div>
           <div class="form-group">
-            <label for="smsCode">短信验证码</label>
+            <label for="phoneValidCode">{{__ 'signup-sms'}}</label>
             <div class="row">
               <div class="col-md-8 col-sm-8 col-xs-7">
-                <input type="text" class="form-control input-lg" id="smsCode" name="smsCode">
+                <input type="text" class="form-control input-lg" id="phoneValidCode" name="phoneValidCode">
               </div>
               <div class="col-md-4 col-sm-4 col-xs-5">
-                <a id="btnSmsCode" class="btn-sms">获取验证码</a>
+                <a id="btnSmsCode" class="btn-sms">{{__ 'signup-get-sms'}}</a>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <label for="password">密码</label>
+            <label for="password">{{__ 'signup-pwd1'}}</label>
             <input type="password" class="form-control input-lg" id="password" name="password">
           </div>
           <div class="form-group">
-            <label for="confirmPassword">确认密码</label>
-            <input type="password" class="form-control input-lg" id="confirmPassword" name="confirmPassword">
+            <label for="confirmPassword">{{__ 'signup-pwd2'}}</label>
+            <input type="password" class="form-control input-lg" id="confirmPassword">
           </div>
           <div class="form-group">
-            <label for="angel">天使码（选填）</label>
-            <input type="text" class="form-control input-lg" id="angel" name="angel">
+            <label for="angel">{{__ 'signup-angel'}}</label>
+            <input type="text" class="form-control input-lg" id="angel">
           </div>
-          <button id="btnNext" type="button" class="btn btn-success btn-lg btn-block btn-submit">下一步</button>
+          <button id="btnNext" type="button" class="btn btn-success btn-lg btn-block btn-submit">{{__ 'signup-next'}}</button>
         </div>
         <div id="step2" class="hide">
           <div class="form-group">
-            <label for="realName">真实姓名</label>
+            <label for="realName">{{__ 'signup-real-name'}}</label>
             <input type="text" class="form-control input-lg" id="realName" name="realName">
           </div>
           <div class="form-group">
-            <label for="idType">证件类型</label>
+            <label for="idType">{{__ 'signup-id-type'}}</label>
             <select id="idType" class="form-control input-lg disabled" name="idType" disabled>
-              <option value="1" selected >身份证</option>
+              <option value="1" selected >{{__ 'signup-id-type-1'}}</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="idNum">证件号码</label>
+            <label for="idNum">{{__ 'signup-id-num'}}</label>
             <input type="text" class="form-control input-lg" id="idNum" name="idNum">
           </div>
           <div class="form-group">
-            <label for="photo1">身份证正面</label>
-            <input type="file" class="form-control input-lg" id="photo1" name="photo1">
-            <span class="help-block">仅支持JPG、GIF、PNG、JPEG，文件小于5M</span>
+            <label for="idPhoto1">{{__ 'signup-photo1'}}</label>
+            <input type="file" class="form-control input-lg" id="idPhoto1" name="idPhoto1">
+            <span class="help-block">{{__ 'signup-photo-help1'}}</span>
           </div>
           <div class="form-group">
-            <label for="photo2">身份证背面</label>
-            <input type="file" class="form-control input-lg" id="photo2" name="photo2">
+            <label for="idPhoto2">{{__ 'signup-photo2'}}</label>
+            <input type="file" class="form-control input-lg" id="idPhoto2" name="idPhoto2">
           </div>
           <div class="form-group">
-            <label for="photo3">正面半身照（手持身份证）</label>
-            <input type="file" class="form-control input-lg" id="photo3" name="photo3">
-            <span class="help-block">请确保身份证和你的样貌都清晰可见</span>
+            <label for="photo">{{__ 'signup-photo3'}}</label>
+            <input type="file" class="form-control input-lg" id="photo" name="photo">
+            <span class="help-block">{{__ 'signup-photo-help2'}}</span>
           </div>
           <div class="checkbox">
             <label>
               <input id="terms" type="checkbox">
-              我已阅读并同意瑞资的 <a href="" target="_blank">服务条款</a>
+              {{{__ 'signup-terms'}}}
             </label>
           </div>
-          <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">注册</button>
+          <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">{{__ 'signup-register'}}</button>
         </div>
       </form>
     </div>
   </div>
   <div id="successHolder" class="container hide">
     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-    <h3>恭喜，注册成功！</h3>
-    <p>立即前往 <a href="/login">登录</a> 吧</p>
+    <h3>{{__ 'signup-success1'}}</h3>
+    <p>{{{__ 'signup-success2'}}}</p>
   </div>
 </div>
 

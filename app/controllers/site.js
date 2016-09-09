@@ -98,3 +98,10 @@ router.get('/articles', function(req, res) {
       }
     });
 });
+
+// 联系我们
+router.get('/terms', function(req, res) {
+  res.render('site/terms', {
+    nav: 'terms'
+  });
+});

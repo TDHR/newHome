@@ -10,7 +10,8 @@ var config = {
       name: 'gold-rock'
     },
     port: process.env.PORT || 3000,
-    weixin: 'http://app.reitschain.com'
+    weixin: 'http://app.reitschain.com',
+    platform: 'http://192.168.2.103:8080/wwReits'
   },
   production: {
     root: rootPath,
@@ -19,7 +20,8 @@ var config = {
       name: 'gold-rock'
     },
     port: process.env.PORT || 3000,
-    weixin: 'http://app.reitschain.com'
+    weixin: 'http://app.reitschain.com',
+    platform: ''
   }
 };
 

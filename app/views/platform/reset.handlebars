@@ -3,36 +3,36 @@
     <div class="form-big-holder">
       <form class="form-big">
         <div class="form-group">
-          <label for="mobile">手机</label>
+          <label for="mobile">{{__ "reset-phone"}}</label>
           <input type="text" class="form-control input-lg" id="mobile">
         </div>
         <div class="form-group">
-          <label for="smsCode">短信验证码</label>
+          <label for="smsCode">{{__ "reset-sms"}}</label>
           <div class="row">
             <div class="col-md-8 col-sm-8 col-xs-7">
               <input type="text" class="form-control input-lg" id="smsCode">
             </div>
             <div class="col-md-4 col-sm-4 col-xs-5">
-              <a id="btnSmsCode" class="btn-sms">获取验证码</a>
+              <a id="btnSmsCode" class="btn-sms">{{__ "reset-get-sms"}}</a>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password">新密码</label>
+          <label for="password">{{__ "reset-pwd1"}}</label>
           <input type="password" class="form-control input-lg" id="password">
         </div>
         <div class="form-group">
-          <label for="confirmPassword">确认密码</label>
+          <label for="confirmPassword">{{__ "reset-pwd2"}}</label>
           <input type="password" class="form-control input-lg" id="confirmPassword">
         </div>
-        <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">重置密码</button>
+        <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">{{__ "reset-submit"}}</button>
       </form>
     </div>
   </div>
   <div id="successHolder" class="container hide">
     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-    <h3>重置密码成功！</h3>
-    <p>立即前往 <a href="/login">登录</a> 吧</p>
+    <h3>{{__ "reset-success1"}}</h3>
+    <p>{{{__ "reset-success2"}}}</p>
   </div>
 </div>
 

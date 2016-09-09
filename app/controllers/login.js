@@ -6,6 +6,7 @@ var express = require('express');
 var router = express.Router();
 var request = require('superagent');
 var async = require('async');
+var config = require('../../config/config');
 
 module.exports = function(app) {
   app.use('/', router);
@@ -37,7 +38,6 @@ router.post('/login', function(req, res) {
             if (err) {
               cb(null, {
                 data: {
-                  country: "",
                   city: ""
                 }
               });
@@ -48,24 +48,38 @@ router.post('/login', function(req, res) {
       } else {
         cb(null, {
           data: {
-            country: "",
             city: ""
           }
         });
       }
-    }
-  }, function(cb, results) {
-    var ipInfo = results.getIpInfo.data;
-    var country = ipInfo.country;
-    var city = ipInfo.city;
-    console.log(country, city);
+    },
+    sendToSever: ['getIpInfo', function(results, cb) {
+      var ipInfo = results.getIpInfo.data;
+      var location = ipInfo.city;
+      request
+        .post(config.platform + '/api/login/dologin')
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .send({
+          username: body.username,
+          password: body.password,
+          validateCode: body.validateCode || '',
+          ip: ip,
+          location: ipInfo.city
+        })
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }]
+  }, function(err, results) {
+    var serverData = results.sendToSever;
+    console.log(serverData);
+    if (serverData && serverData.body.success) {
 
-    // TODO: 1. 转发到 Java 后端，并将返回的结果转发给前端
-    //       2. 存储登录用户的信息
-    return res.json({
-      success: true,
-      msg: '',
-      data: body
-    });
+    }
+    // return res.json({
+    //   success: true,
+    //   msg: '',
+    //   data: body
+    // });
   });
 });

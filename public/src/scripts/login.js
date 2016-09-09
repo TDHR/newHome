@@ -1,8 +1,15 @@
+// locales
+import Locales from './locales/locales';
+
 // utils
+import Cookies from 'cookies-js';
 import Validate from './utils/validate';
 
 // modules
 import Alert from './modules/alert';
+
+// 获取当前的语言类型
+let locale = Cookies.get('REITsLocale');
 
 // 提交表单信息
 function submitForm(data) {
@@ -19,11 +26,11 @@ function submitForm(data) {
         // 登录成功，跳转到 ucenter
         location.href = '/user/dashboard';
       } else {
-        Alert(data.msg);
+        Alert(data.msg, 5000);
       }
     },
     error: function() {
-      Alert('登录失败，请稍后重试');
+      Alert(Locales.login[locale]['submit-err-1'], 5000);
     },
     complete: function() {
       $('#btnSubmit').removeClass('disabled');
@@ -39,9 +46,9 @@ $('#btnSubmit').on('click', function() {
   let data = {};
   let mobile = $('#mobile').val();
   if (Validate.mobile(mobile)) {
-    data.mobile = mobile;
+    data.username = mobile;
   } else {
-    Alert('请输入正确的手机号码', 5000);
+    Alert(Locales.login[locale]['phone-err-1'], 5000);
     return false;
   }
 
@@ -49,16 +56,16 @@ $('#btnSubmit').on('click', function() {
   if (Validate.length(password, 6)) {
     data.password = password;
   } else {
-    Alert('请输入密码', 5000);
+    Alert(Locales.login[locale]['pwd-err-1'], 5000);
     return false;
   }
 
   if (!$('#captchaHolder').hasClass('hide')) {
     let captcha = $('#captcha').val();
     if (Validate.length(captcha, 4)) {
-      data.captcha = captcha;
+      data.validateCode = captcha;
     } else {
-      Alert('请输入验证码', 5000);
+      Alert(Locales.login[locale]['captcha-err-1'], 5000);
       return false;
     }
   }

@@ -1,8 +1,15 @@
+// locales
+import Locales from './locales/locales';
+
 // utils
+import Cookies from 'cookies-js';
 import Validate from './utils/validate';
 
 // modules
 import Alert from './modules/alert';
+
+// 获取当前的语言类型
+let locale = Cookies.get('REITsLocale');
 
 // 提交表单信息
 function submitForm(data) {
@@ -23,7 +30,7 @@ function submitForm(data) {
       }
     },
     error: function() {
-      Alert('登录失败，请稍后重试');
+      Alert(Locales.reset[locale]['submit-err-1']);
     },
     complete: function() {
       $('#btnSubmit').removeClass('disabled');
@@ -41,7 +48,7 @@ $('#btnSubmit').on('click', function() {
   if (Validate.mobile(mobile)) {
     data.mobile = mobile;
   } else {
-    Alert('请输入正确的手机号码', 5000);
+    Alert(Locales.reset[locale]['phone-err-1'], 5000);
     return false;
   }
 
@@ -49,7 +56,7 @@ $('#btnSubmit').on('click', function() {
   if (Validate.length(smsCode, 6)) {
     data.smsCode = smsCode;
   } else {
-    Alert('请输入短信验证码', 5000);
+    Alert(Locales.reset[locale]['sms-err-1'], 5000);
     return false;
   }
 
@@ -57,7 +64,7 @@ $('#btnSubmit').on('click', function() {
   if (Validate.length(password, 6)) {
     data.password = password;
   } else {
-    Alert('请输入不小于6位的密码', 5000);
+    Alert(Locales.reset[locale]['pwd-err-1'], 5000);
     return false;
   }
 
@@ -66,11 +73,11 @@ $('#btnSubmit').on('click', function() {
     if (password === confirmPassword) {
       data.confirmPassword = confirmPassword;
     } else {
-      Alert('两次密码不一致', 5000);
+      Alert(Locales.reset[locale]['confirm-pwd-err-1'], 5000);
       return false;
     }
   } else {
-    Alert('请输入不小于6位的确认密码', 5000);
+    Alert(Locales.reset[locale]['confirm-pwd-err-2'], 5000);
     return false;
   }
   submitForm(data);
