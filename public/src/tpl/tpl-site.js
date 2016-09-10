@@ -183,7 +183,7 @@ $out+=' <li> <a href="/knowledge/article/';
 $out+=$escape(v.id);
 $out+='"> <div class="wx-cover"> <img src="';
 $out+=$escape(v.cover);
-$out+='"> </div> <div class="article"> <div class="title">';
+$out+='"> </div> <div class="article"> <div class="article-title">';
 $out+=$escape(v.title);
 $out+='</div> <div class="date">';
 $out+=$escape(v.date);

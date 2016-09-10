@@ -1,118 +1,123 @@
 <div class="page-home">
-  <div class="banner-home hidden-xs"></div>
-  <div class="block-1">
+  <div class="banner-home">
     <div class="container">
-      <div class="row">
-        <div class="col-md-5">
-          <div class="home-character-1">
-            <img src="/images/home-character-1.jpg" />
-          </div>
+      <div class="intro">
+        <div class="title">{{__ 'home-intro-title1'}}</div>
+        <div class="plus">+</div>
+        <div class="content">
+          <p>{{__ 'home-intro-content1'}}</p>
+          <p>{{__ 'home-intro-content2'}}</p>
         </div>
-        <div class="col-md-7">
-          <div class="title">
-            <span class="underline">{{__ 'home-block1-title1'}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="values">
+    <div class="container">
+      <div class="holder">
+        <div class="title">{{__ 'home-values-title'}}</div>
+        <div class="content">{{__ 'home-values-content'}}</div>
+        <a href="/values" class="btn-more">{{__ 'home-more'}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="market">
+    <div class="container">
+      <div class="title">{{__ 'home-market-title'}}</div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-6 hidden-sm hidden-xs">
+            <img class="picture" src="/images/home-market.png">
           </div>
-          <div class="content">
-            <p>{{__ 'home-block1-content1'}}</p>
-          </div>
-          <div class="title">
-            <a href="/values">
-              <span class="underline">{{__ 'reits-chain'}}{{__ 'home-block1-title2'}}</span>
-            </a>
-          </div>
-          <div class="content">
-            <p>{{__ 'home-block1-content2'}}</p>
+          <div class="col-md-6">
+            <div class="text">
+              <p>{{__ 'home-market-content1'}}</p>
+              <p>{{__ 'home-market-content2'}}</p>
+            </div>
+            <a href="/values" class="more">{{__ 'home-more'}} ❯</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="block-2">
+  <div class="power">
     <div class="container">
-      <div class="card">
-        <a href="/values">
-          <div class="title">
-            <i class="icon icon-earth"></i>
-            {{__ 'home-block2-card1-title'}}
+      <div class="title">{{__ 'home-power-title'}}</div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="text">
+              <p>{{__ 'home-power-content1'}}</p>
+              <p>{{__ 'home-power-content2'}}</p>
+            </div>
+            <a href="/values" class="more">{{__ 'home-more'}} ❯</a>
           </div>
-          <div class="content">
-            <p>{{__ 'home-block2-card1-content1'}}</p>
-            <p>{{__ 'home-block2-card1-content2'}}</p>
-            <p>{{__ 'home-block2-card1-content3'}}</p>
+          <div class="col-md-4 hidden-sm hidden-xs">
+            <img class="picture" src="/images/home-power.png">
           </div>
-        </a>
-      </div>
-      <div class="card">
-        <a href="/values">
-          <div class="title">
-            <i class="icon icon-link"></i>
-            {{__ 'home-block2-card2-title'}}
-          </div>
-          <div class="content">
-            <p>{{__ 'home-block2-card2-content1'}}</p>
-            <p>{{__ 'home-block2-card2-content2'}}</p>
-          </div>
-        </a>
-      </div>
-      <div class="card">
-        <a href="/values">
-          <div class="title">
-            <i class="icon icon-gear"></i>
-            {{__ 'home-block2-card3-title'}}
-          </div>
-          <div class="content">
-            <p>{{__ 'home-block2-card3-content1'}}</p>
-            <p>{{__ 'home-block2-card3-content2'}}</p>
-          </div>
-        </a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="block-3">
+  <div class="solutions">
     <div class="container">
-      <div class="block-header">
-        <a href="/service">
-          <span>{{__ 'home-blcok3-title'}}</span>
-        </a>
+      <div class="title">{{__ 'home-solutions-title'}}</div>
+      <div class="content">
+        <div class="row">
+          <div class="col-md-6 hidden-sm hidden-xs">
+            <img class="picture" src="/images/home-solutions.png">
+          </div>
+          <div class="col-md-6">
+            <div class="text">
+              <p>{{{__ 'home-solutions-content1'}}}</p>
+              <p class="note">{{{__ 'home-solutions-content2'}}}</p>
+            </div>
+            <a href="/values" class="more">{{__ 'home-more'}} ❯</a>
+          </div>
+        </div>
       </div>
-      <div class="block-body">
+    </div>
+  </div>
+  <div class="service">
+    <div class="container">
+      <div class="title">{{__ 'home-service-title'}}</div>
+      <div class="content">
         <div class="row">
           <div class="col-md-3">
             <div class="card">
-              <a href="/service#">
-                <div class="title">
+              <a href="/service">
+                <div class="card-title">
                   <i class="icon icon-securities"></i>
-                  {{__ 'home-blcok3-card1-title'}}
+                  <p>{{__ 'home-service-card1-title'}}</p>
                 </div>
               </a>
             </div>
           </div>
           <div class="col-md-3">
             <div class="card">
-              <a href="/service#">
-                <div class="title">
+              <a href="/service">
+                <div class="card-title">
                   <i class="icon icon-transaction"></i>
-                  {{__ 'home-blcok3-card2-title'}}
+                  <p>{{__ 'home-service-card2-title'}}</p>
                 </div>
               </a>
             </div>
           </div>
           <div class="col-md-3">
             <div class="card">
-              <a href="/service#">
-                <div class="title">
+              <a href="/service">
+                <div class="card-title">
                   <i class="icon icon-building"></i>
-                  {{__ 'home-blcok3-card3-title'}}
+                  <p>{{__ 'home-service-card3-title'}}</p>
                 </div>
               </a>
             </div>
           </div>
           <div class="col-md-3">
             <div class="card">
-              <a href="/service#">
-                <div class="title">
+              <a href="/service">
+                <div class="card-title">
                   <i class="icon icon-shakehands"></i>
-                  {{__ 'home-blcok3-card4-title'}}
+                  <p>{{__ 'home-service-card4-title'}}</p>
                 </div>
               </a>
             </div>
@@ -121,88 +126,88 @@
       </div>
     </div>
   </div>
-  <div class="block-4">
+  <div class="team">
     <div class="container">
-      <div class="block-header">
-        <a href="/team">
-          <span>{{__ 'home-block4-title'}}</span>
-        </a>
-      </div>
-      <div class="block-body">
+      <div class="title">{{__ 'home-team-title'}}</div>
+      <div class="content">
         <div class="row">
           <div class="col-md-3">
             <div class="card">
-              <img src="/images/avatar-liujian.jpg" class="team-avatar">
-              <div class="name">{{__ 'home-block4-name1'}}</div>
-              <div class="office">{{__ 'home-block4-office1'}}</div>
+              <a href="/team">
+                <img src="/images/avatar-liujian.jpg" class="team-avatar">
+                <div class="name">{{__ 'home-team-name1'}}</div>
+                <div class="office">{{__ 'home-team-office1'}}</div>
+              </a>
             </div>
           </div>
           <div class="col-md-3">
             <div class="card">
-              <img src="/images/avatar-yanzhi.jpg" class="team-avatar">
-              <div class="name">{{__ 'home-block4-name3'}}</div>
-              <div class="office">{{__ 'home-block4-office3'}}</div>
+              <a href="/team">
+                <img src="/images/avatar-yanzhi.jpg" class="team-avatar">
+                <div class="name">{{__ 'home-team-name3'}}</div>
+                <div class="office">{{__ 'home-team-office3'}}</div>
+              </a>
             </div>
           </div>
           <div class="col-md-3">
             <div class="card">
-              <img src="/images/avatar-zhuyaozong.jpg" class="team-avatar">
-              <div class="name">{{__ 'home-block4-name2'}}</div>
-              <div class="office">{{__ 'home-block4-office2'}}</div>
+              <a href="/team">
+                <img src="/images/avatar-zhuyaozong.jpg" class="team-avatar">
+                <div class="name">{{__ 'home-team-name2'}}</div>
+                <div class="office">{{__ 'home-team-office2'}}</div>
+              </a>
             </div>
           </div>
           <div class="col-md-3">
             <div class="card">
-              <img src="/images/avatar-linxiaoxiao.jpg" class="team-avatar">
-              <div class="name">{{__ 'home-block4-name4'}}</div>
-              <div class="office">{{__ 'home-block4-office4'}}</div>
+              <a href="/team">
+                <img src="/images/avatar-linxiaoxiao.jpg" class="team-avatar">
+                <div class="name">{{__ 'home-team-name4'}}</div>
+                <div class="office">{{__ 'home-team-office4'}}</div>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="block-5">
+  <div class="knowledge">
     <div class="container">
-      <div class="block-header">
-        <a href="/knowledge">
-          <span>{{__ 'home-block5-title'}}</span>
-        </a>
-      </div>
-      <div class="block-body">
+      <div class="title">{{__ 'home-knowledge-title'}}</div>
+      <div class="content">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <ul class="article-list">
               <li>
                 <div class="number">01</div>
                 <div class="article">
-                  <div class="title">{{__ 'home-block5-article1-title'}}</div>
-                  <div class="content">
-                    <p>{{__ 'home-block5-article1-content1'}}</p>
-                    <p>{{__ 'home-block5-article1-content2'}}</p>
-                    <p>{{__ 'home-block5-article1-content3'}}</p>
+                  <div class="article-title">{{__ 'home-knowledge-article1-title'}}</div>
+                  <div class="article-content">
+                    <p>{{__ 'home-knowledge-article1-content1'}}</p>
+                    <p>{{__ 'home-knowledge-article1-content2'}}</p>
+                    <p>{{__ 'home-knowledge-article1-content3'}}</p>
                   </div>
                 </div>
               </li>
               <li>
                 <div class="number">02</div>
                 <div class="article">
-                  <div class="title">{{__ 'home-block5-article2-title'}}</div>
-                  <div class="content">
-                    <p>{{__ 'home-block5-article2-content1'}}</p>
-                    <p>{{__ 'home-block5-article2-content2'}}</p>
-                    <p>{{__ 'home-block5-article2-content3'}}</p>
-                    <p>{{__ 'home-block5-article2-content4'}}</p>
+                  <div class="article-title">{{__ 'home-knowledge-article2-title'}}</div>
+                  <div class="article-content">
+                    <p>{{__ 'home-knowledge-article2-content1'}}</p>
+                    <p>{{__ 'home-knowledge-article2-content2'}}</p>
+                    <p>{{__ 'home-knowledge-article2-content3'}}</p>
+                    <p>{{__ 'home-knowledge-article2-content4'}}</p>
                   </div>
                 </div>
               </li>
               <li>
                 <div class="number">03</div>
                 <div class="article">
-                  <div class="title">{{__ 'home-block5-article3-title'}}</div>
-                  <div class="content">
-                    <p>{{__ 'home-block5-article3-content1'}}</p>
-                    <p>{{__ 'home-block5-article3-content2'}}</p>
+                  <div class="article-title">{{__ 'home-knowledge-article3-title'}}</div>
+                  <div class="article-content">
+                    <p>{{__ 'home-knowledge-article3-content1'}}</p>
+                    <p>{{__ 'home-knowledge-article3-content2'}}</p>
                   </div>
                 </div>
               </li>
