@@ -1,3 +1,6 @@
+// config
+import Config from './config/config-now';
+
 // locales
 import Locales from './locales/locales';
 
@@ -21,12 +24,19 @@ function submitForm(data) {
     beforeSend: function() {
       $('#btnSubmit').addClass('disabled');
     },
-    success: function(data) {
-      if (data.success) {
+    success: function(res) {
+      if (res.success) {
         // 登录成功，跳转到 ucenter
         location.href = '/user/dashboard';
       } else {
-        Alert(data.msg, 5000);
+        // TODO: 根据 code 输出相应的消息
+        Alert(res.msg, 5000);
+
+        // 调出验证码
+        if (res.loginTimes >= 3) {
+          getCaptcha();
+          $('#captchaHolder').removeClass('hide');
+        }
       }
     },
     error: function() {
@@ -64,6 +74,7 @@ $('#btnSubmit').on('click', function() {
     let captcha = $('#captcha').val();
     if (Validate.length(captcha, 4)) {
       data.validateCode = captcha;
+      data.token = $('#captcha').data('token');
     } else {
       Alert(Locales.login[locale]['captcha-err-1'], 5000);
       return false;
@@ -71,4 +82,31 @@ $('#btnSubmit').on('click', function() {
   }
 
   submitForm(data);
+});
+
+/**
+ * 获取验证码
+ */
+function getCaptcha() {
+  $.ajax({
+    method: 'GET',
+    url: '/captcha',
+    cache: false,
+    success: function(res) {
+      if (res.success) {
+        $('#captcha').data('token', res.token);
+        $('#captchaImg').attr('src', Config.platform + '/' + res.imageurl);
+      } else {
+        Alert('获取验证码失败', 5000);
+      }
+    },
+    error: function() {
+      Alert('获取验证码失败', 5000);
+    }
+  });
+}
+
+// 点击验证码图片，更新验证码
+$('#captchaImg').on('click', function() {
+  getCaptcha();
 });

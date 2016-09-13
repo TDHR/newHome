@@ -108,7 +108,6 @@
 	"signup-get-sms": "获取验证码",
 	"signup-pwd1": "密码",
 	"signup-pwd2": "确认密码",
-	"signup-angel": "天使码（选填）",
 	"signup-next": "下一步",
 	"signup-real-name": "真实姓名",
 	"signup-id-type": "证件类型",

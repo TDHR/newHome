@@ -5,15 +5,18 @@ var env = process.env.NODE_ENV || 'development';
 module.exports = function() {
   var _helpers = {};
   var tail = '';
+
   // i18n helper函数 __函数不考虑单复数
   _helpers.__ = function() {
     return i18n.__.apply(this, arguments);
   };
+  
   // i18n helper函数 __n函数考虑单复数
   _helpers.__n = function() {
     return i18n.__n.apply(this, arguments);
   };
 
+  // 随机字符串
   if (env !== 'development') {
     tail = '?v=' + Math.random().toString(36).substr(2);
   }
@@ -21,6 +24,7 @@ module.exports = function() {
     return tail;
   };
 
+  // 基本运算
   _helpers.math = function(lvalue, operator, rvalue) {
     lvalue = parseFloat(lvalue);
     rvalue = parseFloat(rvalue);
@@ -33,10 +37,12 @@ module.exports = function() {
     }[operator];
   };
 
+  // 处理姓名，除姓之外，全部处理为星号
   _helpers.handleName = function(name) {
     return name.substr(0, 1) + name.substr(1).replace(/./g, '*');
   };
 
+  // 增强版 if
   _helpers.ifCond = function(v1, operator, v2, options) {
     switch (operator) {
       case '===':
@@ -64,6 +70,7 @@ module.exports = function() {
     return options.inverse(this);
   };
 
+  // for 循环
   _helpers.times = function(n, start, block) {
     var accum = '';
     start = start || 0;
@@ -79,6 +86,7 @@ module.exports = function() {
     return accum;
   };
 
+  // 格式化时间戳
   _helpers.dateFormat = function(timestamp, type) {
     var fix = type === 'unix' ? 1000 : 1;
     var date = new Date(timestamp * fix);

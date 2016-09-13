@@ -5,6 +5,7 @@ var conf = require('./gulp/conf');
 var merge = require('merge-stream');
 var mergeJson = require('gulp-merge-json');
 var plumber = require('gulp-plumber');
+var concat = require('gulp-concat');
 
 wrench.readdirSyncRecursive('./gulp').filter(function(file) {
   return (/\.(js|coffee)$/i).test(file);
@@ -25,10 +26,23 @@ gulp.task('locales', function() {
   return merge(lang[0], lang[1]);
 });
 
-gulp.task('dev', ['cleanDev', 'tpl', 'locales'], function() {
+// 生成 config 文件
+gulp.task('prodCfg', function() {
+    return gulp.src(path.join(conf.paths.src, '/scripts/config/config-prod.js'))
+        .pipe(concat('config-now.js'))
+        .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
+});
+
+gulp.task('devCfg', function() {
+    return gulp.src(path.join(conf.paths.src, '/scripts/config/config-dev.js'))
+        .pipe(concat('config-now.js'))
+        .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
+});
+
+gulp.task('dev', ['cleanDev', 'tpl', 'locales', 'devCfg'], function() {
   gulp.start('development');
 });
 
-gulp.task('prod', ['cleanDist', 'tpl', 'locales'], function() {
+gulp.task('prod', ['cleanDist', 'tpl', 'locales', 'prodCfg'], function() {
   gulp.start('production');
 });

@@ -108,7 +108,6 @@
 	"signup-get-sms": "Get the code",
 	"signup-pwd1": "Password",
 	"signup-pwd2": "Confirm password",
-	"signup-angel": "Angel Code (optional)",
 	"signup-next": "Next",
 	"signup-real-name": "Real name",
 	"signup-id-type": "Type of certificate",

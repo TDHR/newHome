@@ -1,21 +1,15 @@
 var request = require('superagent');
-var async = require('async');
 var config = require('../../config/config');
 
-// 注册页面
-exports.index = function(req, res) {
-  res.render('platform/signup', {
-    nav: 'signup'
-  });
-};
-
 // 注册接口
-exports.signup = function(req, res) {
+exports.default = function(req, res) {
   request
-    .post(config.platform + '/api/vipuser/register')
+    .post(config.platform + '/api/vipuser/getphonevalidcode')
     .set('Content-Type', 'application/x-www-form-urlencoded')
     .set('Accept', 'application/json')
-    .send(req.body)
+    .send({
+      phoneNum: req.body.phoneNum
+    })
     .end(function(err, result) {
       var body = result.body;
       return res.json({

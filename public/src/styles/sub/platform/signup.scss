@@ -39,6 +39,11 @@
         }
       }
     }
+    .btn-sms {
+      &.disabled {
+        color: #999;
+      }
+    }
   }
   @media (max-width: 768px) {
     .form-big-holder {

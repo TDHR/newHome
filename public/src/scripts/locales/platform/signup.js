@@ -13,7 +13,10 @@ export default {
     'photo-err-2': '请选择身份证正面照片',
     'photo-err-3': '请选择身份证反面照片',
     'photo-err-4': '请选择正面半身照',
-    'terms-err-1': '阅读并同意瑞资的服务条款后，才能完成注册'
+    'terms-err-1': '阅读并同意瑞资的服务条款后，才能完成注册',
+    'phoneCode': '获取验证码',
+    'phoneCode-err': '获取验证码失败，请稍后重试',
+    'phoneCode-count': '再次获取'
   },
   en: {
     'login-err-1': 'Submit failed, please try again later',
@@ -29,6 +32,9 @@ export default {
     'photo-err-2': 'Please choose the front of the photo ID',
     'photo-err-3': 'Please choose the back of the photo ID',
     'photo-err-4': 'Please choose the front half-length photo',
-    'terms-err-1': 'Read and agree to the Terms of Service to complete the registration'
+    'terms-err-1': 'Read and agree to the Terms of Service to complete the registration',
+    'phoneCode': 'Get the code',
+    'phoneCode-err': 'Get the verification code failed, please try again later',
+    'phoneCode-count': 'Get again'
   }
 };

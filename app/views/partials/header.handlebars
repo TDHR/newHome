@@ -4,16 +4,16 @@
       <div class="container">
         <div class="navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            {{!-- <li {{#ifCond nav '===' 'ucenter'}}class="active"{{/ifCond}}>
-              <a href="/user/dashboard">王大锤</a>
+            <li class="hasLogged hide {{#ifCond nav '===' 'ucenter'}} active{{/ifCond}}">
+              <a href="/user/dashboard">我的资产</a>
             </li>
             <li>
-              <a>[退出]</a>
-            </li> --}}
-            <li {{#ifCond nav '===' 'signup'}}class="active"{{/ifCond}}>
+              <a href="/logout" class="hasLogged hide">[退出]</a>
+            </li>
+            <li class="notLogged hide {{#ifCond nav '===' 'signup'}} active{{/ifCond}}">
               <a href="/signup">{{__ 'nav-signup'}}</a>
             </li>
-            <li {{#ifCond nav '===' 'login'}}class="active"{{/ifCond}}>
+            <li class="notLogged hide {{#ifCond nav '===' 'login'}} active{{/ifCond}}">
               <a href="/login">{{__ 'nav-login'}}</a>
             </li>
             <li class="dropdown">
