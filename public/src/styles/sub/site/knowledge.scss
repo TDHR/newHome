@@ -3,8 +3,9 @@
     margin-top: 70px;
     >li {
       position: relative;
-      padding-left: 160px;
-      margin-bottom: 50px;
+      padding: 0 0 36px 180px;
+      margin-bottom: 36px;
+      border-bottom: 1px solid #e6e6e6;
       >a:hover {
         .article {
           .article-title {
@@ -16,9 +17,9 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 140px;
-        height: 80px;
-        line-height: 80px;
+        width: 160px;
+        height: 110px;
+        line-height: 110px;
         overflow: hidden;
         box-shadow: 0 0 5px rgba(0, 0, 0, .15);
         >img {
@@ -26,20 +27,19 @@
         }
       }
       .article {
+        color: #000;
+        min-height: 118px;
         .article-title {
-          color: #000;
-          font-size: 16px;
+          font-size: 18px;
         }
         .date {
-          margin-top: 2px;
-          color: #929ba0;
-          font-size: 12px;
+          margin-top: 5px;
+          font-size: 14px;
         }
         .summary {
-          height: 36px;
-          margin-top: 4px;
+          height: 38px;
+          margin-top: 20px;
           overflow: hidden;
-          color: #333;
           font-size: 14px;
         }
       }
@@ -52,22 +52,22 @@
     margin: 10px 0;
   }
   .article-list {
-    margin: 70px 0;
-    >li {
-      .article {
-        margin-bottom: 40px;
-        .title {
-          font-size: 18px;
-          padding-top: 10px;
-          margin-top: 5px;
-        }
-        .content {
-          padding-bottom: 40px;
-          margin-top: 12px;
-          font-size: 14px;
-          color: #333;
-          border-bottom: 1px solid #66bfff;
-        }
+    margin: 100px 0 0;
+    .article {
+      padding: 60px 0;
+      &:nth-child(odd) {
+        background-color: #fafafa;
+      }
+      .title {
+        font-size: 24px;
+        padding-top: 10px;
+        margin-top: 5px;
+        text-align: center;
+      }
+      .content {
+        padding-bottom: 40px;
+        margin-top: 36px;
+        font-size: 16px;
       }
     }
   }

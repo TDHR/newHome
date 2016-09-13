@@ -1,32 +1,32 @@
 .page-team {
-  .cards {
-    margin: 70px 0;
-  }
   .card {
-    padding-bottom: 30px;
-    margin: 70px 0;
-    border-bottom: 1px dashed #bcbcbc;
+    padding: 90px 0;
+    &:nth-child(even) {
+      background-color: #fafafa;
+    }
     .avatar {
-      display: block;
-      width: 220px;
-      max-width: 100%;
-      margin: 0 auto 20px;
-      border-radius: 110px;
+      text-align: center;
+      >img {
+        width: 140px;
+        max-width: 100%;
+        border-radius: 110px;
+      }
     }
     .name {
+      margin-top: 20px;
       font-size: 28px;
-      color: $color-blue;
+      text-align: center;
     }
     .office {
+      margin-bottom: 30px;
       font-size: 16px;
-      margin: 5px 0 20px;
+      text-align: center;
     }
     .info {
-      padding-left: 22px;
-      color: #929ba0;
-      list-style-type: disc;
+      padding: 20px 0 0 20px;
       >li {
-        margin: 0 0 10px;
+        margin: 0 0 24px;
+        line-height: 24px;
       }
     }
   }
