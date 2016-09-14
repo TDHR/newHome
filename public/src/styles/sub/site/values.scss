@@ -14,7 +14,15 @@
       font-size: 16px;
       color: #666;
       >p {
-        margin: 10px 0 0;
+        margin: 15px 0 0;
+        line-height: 28px;
+      }
+      .note-sign {
+        color: $color-blue;
+      }
+      .note {
+        font-size: 14px;
+        color: #666;
       }
     }
   }

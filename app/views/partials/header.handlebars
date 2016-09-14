@@ -5,10 +5,10 @@
         <div class="navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="hasLogged hide {{#ifCond nav '===' 'ucenter'}} active{{/ifCond}}">
-              <a href="/user/dashboard">我的资产</a>
+              <a href="/user/dashboard">{{__ 'my-assets'}}</a>
             </li>
             <li>
-              <a href="/logout" class="hasLogged hide">[退出]</a>
+              <a href="/logout" class="hasLogged hide">{{__ 'quit'}}</a>
             </li>
             <li class="notLogged hide {{#ifCond nav '===' 'signup'}} active{{/ifCond}}">
               <a href="/signup">{{__ 'nav-signup'}}</a>

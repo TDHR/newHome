@@ -7,7 +7,7 @@ var reset = require('./../controllers/reset');
 var dashboard = require('./../controllers/dashboard');
 var info = require('./../controllers/info');
 var notification = require('./../controllers/notification');
-var safety = require('./../controllers/safety');
+var security = require('./../controllers/security');
 var phoneCode = require('./../controllers/phone-code');
 
 module.exports = function(app, auth) {
@@ -60,11 +60,11 @@ module.exports = function(app, auth) {
   app.get('/user/info', auth.needToLogin, info.index);
 
   // 账户安全
-  app.get('/user/safety', auth.needToLogin, safety.index);
+  app.get('/user/security', auth.needToLogin, security.index);
 
   // 修改密码
-  app.get('/modify-password', auth.needToLogin, safety.modifyPwd);
+  app.get('/modify-password', auth.needToLogin, security.modifyPwd);
 
   // 查看实名认证信息
-  app.get('/check-id', auth.needToLogin, safety.checkId);
+  app.get('/check-id', auth.needToLogin, security.checkId);
 };

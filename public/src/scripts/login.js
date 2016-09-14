@@ -29,8 +29,8 @@ function submitForm(data) {
         // 登录成功，跳转到 ucenter
         location.href = '/user/dashboard';
       } else {
-        // TODO: 根据 code 输出相应的消息
-        Alert(res.msg, 5000);
+        // 根据错误码输出相应的提示
+        Alert(Locales.login[locale]['error-code-' + res.code], 5000);
 
         // 调出验证码
         if (res.loginTimes >= 3) {

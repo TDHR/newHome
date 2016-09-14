@@ -1,18 +1,18 @@
 <div class="sidebar">
   <ul class="sidenav">
-    <li class="nav-head">个人中心</li>
+    <li class="nav-head">{{__ 'sidebar-personal'}}</li>
     <li class="nav-item {{#ifCond nav '===' 'dashboard'}}active{{/ifCond}}">
-      <a href="/user/dashboard">我的资产</a>
+      <a href="/user/dashboard">{{__ 'sidebar-my-assets'}}</a>
     </li>
-    <li class="nav-item {{#ifCond nav '===' 'notification'}}active{{/ifCond}}">
-      <a href="/notification">系统通知</a>
-    </li>
-    <li class="nav-head">安全中心</li>
+    {{!-- <li class="nav-item {{#ifCond nav '===' 'notification'}}active{{/ifCond}}">
+      <a href="/notification">{{__ 'sidebar-notification'}}</a>
+    </li> --}}
+    <li class="nav-head">{{__ 'sidebar-security'}}</li>
     <li class="nav-item {{#ifCond nav '===' 'info'}}active{{/ifCond}}">
-      <a href="/user/info">个人信息</a>
+      <a href="/user/info">{{__ 'sidebar-information'}}</a>
     </li>
-    <li class="nav-item {{#ifCond nav '===' 'safety'}}active{{/ifCond}}">
-      <a href="/user/safety">账户安全</a>
+    <li class="nav-item {{#ifCond nav '===' 'security'}}active{{/ifCond}}">
+      <a href="/user/security">{{__ 'sidebar-account'}}</a>
     </li>
   </ul>
 </div>

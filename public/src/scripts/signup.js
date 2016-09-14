@@ -94,8 +94,8 @@ function submitForm(photos) {
         $('#formHolder').addClass('hide');
         $('#successHolder').removeClass('hide');
       } else {
-        // TODO: 根据错误码输出相应的提示
-        Alert(res.msg, 5000);
+        // 根据错误码输出相应的提示
+        Alert(Locales.signup[locale]['error-code-' + res.code], 5000);
       }
     },
     error: function() {
@@ -131,8 +131,8 @@ function uploadPhoto() {
       if (res.success) {
         submitForm(res);
       } else {
-        // TODO: 根据错误码输出相应的提示
-        Alert(res.msg, 5000);
+        // 仅支持JPG、GIF、PNG、JPEG，文件小于4MB
+        Alert(Locales.signup[locale]['photo-err-1'], 5000);
         $('#btnSubmit').removeClass('disabled');
       }
     },
