@@ -11,44 +11,40 @@
               <div class="row">
                 <div class="col-md-9">
                   <span class="glyphicon glyphicon-ok"></span>
-                  登录密码
+                  {{__ 'security-login-password'}}
                 </div>
                 <div class="col-md-3 text-right">
-                  <a href="/modify-password">修改</a>
+                  <a href="/modify-password">{{__ 'security-modify'}}</a>
                 </div>
               </div>
             </div>
-            <div class="panel-body">
-              互联网账号存在被盗风险，建议定期更改密码以保护账户安全。
-            </div>
+            <div class="panel-body">{{__ 'security-login-password-helper'}}</div>
           </div>
           <div class="panel panel-success">
             <div class="panel-heading">
                <div class="row">
                   <div class="col-md-9">
                     <span class="glyphicon glyphicon-ok"></span>
-                    实名认证
+                    {{__ 'security-realname-verification'}}
                   </div>
                   <div class="col-md-3 text-right">
-                    <a href="/check-id">查看</a>
+                    <a href="/view-id">{{__ 'security-view'}}</a>
                   </div>
                </div>
             </div>
-            <div class="panel-body">
-              你已通过实名认证。
-            </div>
+            <div class="panel-body">{{__ 'security-view-helper'}}</div>
           </div>
         </div>
         <div class="record-list table-responsive">
           <table class="table table-striped table-hover">
             <thead>
               <tr>
-                <td>登录记录（最近十次）</td>
+                <td>{{__ 'security-login-records'}}</td>
               </tr>
               <tr>
-                <th>登录时间</th>
-                <th>登录 IP</th>
-                <th>所在地</th>
+                <th>{{__ 'security-login-time'}}</th>
+                <th>{{__ 'security-login-ip'}}</th>
+                <th>{{__ 'security-login-location'}}</th>
               </tr>
             </thead>
             <tbody>

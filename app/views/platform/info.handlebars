@@ -7,24 +7,24 @@
       <div class="col-md-10">
         <form class="form-normal">
           <div class="form-group">
-            <label for="nickname">昵称</label>
+            <label for="nickname">{{__ 'info-nickname'}}</label>
             <input type="text" class="form-control" id="nickname">
           </div>
           <div class="form-group">
-            <label>性别</label>
+            <label>{{__ 'info-gender'}}</label>
             <div>
               <label class="radio-inline">
-                <input type="radio" name="gender" value="1"> 男
+                <input type="radio" name="gender" value="1"> {{__ 'info-gender-type-1'}}
               </label>
               <label class="radio-inline">
-                <input type="radio" name="gender" value="2"> 女
+                <input type="radio" name="gender" value="2"> {{__ 'info-gender-type-2'}}
               </label>
               <label class="radio-inline">
-                <input type="radio" name="gender" value="0" checked> 保密
+                <input type="radio" name="gender" value="0" checked> {{__ 'info-gender-type-3'}}
               </label>
             </div>
           </div>
-          <button id="btnSubmit" type="button" class="btn btn-primary btn-submit">保存</button>
+          <button id="btnSubmit" type="button" class="btn btn-primary btn-submit">{{__ 'info-save'}}</button>
         </form>
       </div>
     </div>

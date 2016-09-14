@@ -66,5 +66,5 @@ module.exports = function(app, auth) {
   app.get('/modify-password', auth.needToLogin, security.modifyPwd);
 
   // 查看实名认证信息
-  app.get('/check-id', auth.needToLogin, security.checkId);
+  app.get('/view-id', auth.needToLogin, security.view);
 };

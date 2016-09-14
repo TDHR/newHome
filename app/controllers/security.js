@@ -13,8 +13,8 @@ exports.modifyPwd = function(req, res) {
 };
 
 // 查看实名认证信息
-exports.checkId = function(req, res) {
-  res.render('platform/check-id', {
+exports.view = function(req, res) {
+  res.render('platform/view-id', {
     nav: 'security'
   });
 };
