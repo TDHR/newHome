@@ -1,6 +1,6 @@
 # gold-rock
 
-瑞资官方网站
+瑞资用户平台
 
 
 ## Code Guide
