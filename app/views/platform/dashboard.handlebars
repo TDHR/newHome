@@ -1,14 +1,14 @@
 <div class="page-dashboard">
   <div class="container">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-2 col-sm-2">
         {{> sidebar}}
       </div>
-      <div class="col-md-10">
+      <div class="col-md-10 col-sm-10">
         <div class="overview">
           <div class="info">
-            <div class="nickname">Hello, {{userInfo.nickName}}</div>
-            <div class="asset">{{__ 'dashboard-total-assets'}}：0.00 ABC</div>
+            <div class="nickname">Hello, {{user.nickName}}</div>
+            <div class="asset">{{__ 'dashboard-total-assets'}}：{{asset.asset}} ABC</div>
           </div>
         </div>
         {{#if wallet}}

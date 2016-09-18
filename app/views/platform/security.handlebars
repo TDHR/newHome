@@ -1,10 +1,10 @@
 <div class="page-security">
   <div class="container">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-2 col-sm-2">
         {{> sidebar}}
       </div>
-      <div class="col-md-10">
+      <div class="col-md-10 col-sm-10">
         <div class="panel-list">
           <div class="panel panel-success">
             <div class="panel-heading">
@@ -14,21 +14,30 @@
                   {{__ 'security-login-password'}}
                 </div>
                 <div class="col-md-3 text-right">
-                  <a href="/modify-password">{{__ 'security-modify'}}</a>
+                  <a href="/user/modify-password">{{__ 'security-modify'}}</a>
                 </div>
               </div>
             </div>
             <div class="panel-body">{{__ 'security-login-password-helper'}}</div>
           </div>
+          {{#if user.certificationStatus}}
           <div class="panel panel-success">
+          {{else}}
+          <div class="panel panel-danger">
+          {{/if}}
             <div class="panel-heading">
                <div class="row">
                   <div class="col-md-9">
+                    {{#if user.certificationStatus}}
                     <span class="glyphicon glyphicon-ok"></span>
                     {{__ 'security-realname-verification'}}
+                    {{else}}
+                    <span class="glyphicon glyphicon-remove"></span>
+                    {{__ 'security-realname-verification-fail'}}
+                    {{/if}}
                   </div>
                   <div class="col-md-3 text-right">
-                    <a href="/view-id">{{__ 'security-view'}}</a>
+                    <a href="/user/view-id">{{__ 'security-view'}}</a>
                   </div>
                </div>
             </div>
@@ -48,21 +57,13 @@
               </tr>
             </thead>
             <tbody>
+              {{#each loginInfo}}
               <tr>
-                <td>2016-09-02 12:12:08</td>
-                <td>123.122.121.124</td>
-                <td>北京</td>
+                <td>{{dateFormat this.loginTime}}</td>
+                <td>{{#if this.ip}}{{this.ip}}{{else}}-{{/if}}</td>
+                <td>{{#if this.location}}{{this.location}}{{else}}-{{/if}}</td>
               </tr>
-              <tr>
-                <td>2016-09-02 11:12:08</td>
-                <td>123.122.121.124</td>
-                <td>北京</td>
-              </tr>
-              <tr>
-                <td>2016-09-02 10:12:08</td>
-                <td>123.122.121.124</td>
-                <td>北京</td>
-              </tr>
+              {{/each}}
             </tbody>
           </table>
         </div>

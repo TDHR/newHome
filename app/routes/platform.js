@@ -58,13 +58,17 @@ module.exports = function(app, auth) {
   
   // 个人信息
   app.get('/user/info', auth.needToLogin, info.index);
+  
+  // 更新个人信息
+  app.post('/user/update-info', auth.needToLogin, info.update);
 
   // 账户安全
   app.get('/user/security', auth.needToLogin, security.index);
 
   // 修改密码
-  app.get('/modify-password', auth.needToLogin, security.modifyPwd);
+  app.get('/user/modify-password', auth.needToLogin, security.pwd);
+  app.post('/user/modify-password', auth.needToLogin, security.modifyPwd);
 
   // 查看实名认证信息
-  app.get('/view-id', auth.needToLogin, security.view);
+  app.get('/user/view-id', auth.needToLogin, security.view);
 };

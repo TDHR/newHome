@@ -1,4 +1,11 @@
 .page-reset {
+  .form-big-holder {
+    .btn-sms {
+      &.disabled {
+        color: #999;
+      }
+    }
+  }
   #successHolder {
     padding: 70px 0;
     text-align: center;

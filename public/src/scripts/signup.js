@@ -40,15 +40,15 @@ $('#btnSmsCode').on('click', function() {
     },
     success: function(res) {
       if (!res.success) {
-        // 获取验证码失败，请稍后重试
-        Alert(Locales.signup[locale]['phoneCode-err'], 5000);
+        // 根据错误码输出相应的提示
+        Alert(Locales.signup[locale]['phoneCode-err-' + res.code], 5000);
         // 还原「获取验证码」
         that.removeClass('disabled').html(Locales.signup[locale].phoneCode);
       }
     },
     error: function() {
       // 获取验证码失败，请稍后重试
-      Alert(Locales.signup[locale]['phoneCode-err'], 5000);
+      Alert(Locales.signup[locale]['phoneCode-err-1'], 5000);
       // 还原「获取验证码」
       that.removeClass('disabled').html(Locales.signup[locale].phoneCode);
     }
@@ -181,7 +181,7 @@ $('#btnNext').on('click', function() {
   $('#stepTitle2').addClass('active');
 });
 
-// 登录按钮
+// 注册按钮
 $('#btnSubmit').on('click', function() {
   if ($(this).hasClass('disabled')) {
     return false;

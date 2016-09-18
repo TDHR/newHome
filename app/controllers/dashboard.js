@@ -6,6 +6,7 @@ var config = require('../../config/config');
 exports.index = function(req, res) {
   var userToken = req.cookies.userToken;
   async.auto({
+    // 获取用户信息
     getUserInfo: function(cb) {
       request
         .get(config.platform + '/api/vipuser/getuserinfo?token=' + userToken)
@@ -14,16 +15,31 @@ exports.index = function(req, res) {
         .end(function(err, result) {   
           cb(null, result);
         });
+    },
+    // 获取资产
+    getAsset: function(cb) {
+      request
+        .get(config.platform + '/api/vipuser/getasset?token=' + userToken)
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .set('Accept', 'application/json')
+        .end(function(err, result) {   
+          cb(null, result);
+        });
     }
   }, function(err, results) {
-    var userInfo = results.getUserInfo.body;
-    if (userInfo.code === 1) {
+    var user = results.getUserInfo.body;
+    var asset = results.getAsset.body;
+
+    // 未登录、登录超时
+    if (user.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
+
     res.render('platform/dashboard', {
       nav: 'dashboard',
-      userInfo: userInfo.data
+      user: user.data,
+      asset: asset.data
     });
   });
 };

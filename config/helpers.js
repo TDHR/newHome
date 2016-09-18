@@ -10,7 +10,7 @@ module.exports = function() {
   _helpers.__ = function() {
     return i18n.__.apply(this, arguments);
   };
-  
+
   // i18n helper函数 __n函数考虑单复数
   _helpers.__n = function() {
     return i18n.__n.apply(this, arguments);
@@ -87,10 +87,22 @@ module.exports = function() {
   };
 
   // 格式化时间戳
-  _helpers.dateFormat = function(timestamp, type) {
-    var fix = type === 'unix' ? 1000 : 1;
+  _helpers.dateFormat = function(timestamp, type, unix) {
+    var fix = unix === 'unix' ? 1000 : 1;
     var date = new Date(timestamp * fix);
-    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+    switch (type) {
+      case 'ymd':
+        result = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        break;
+
+      case 'hms':
+        result = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        break;
+
+      default:
+        result = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+    }
+    return result;
   };
 
   return _helpers;
