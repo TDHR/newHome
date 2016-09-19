@@ -37,9 +37,32 @@ module.exports = function() {
     }[operator];
   };
 
-  // 处理姓名，除姓之外，全部处理为星号
-  _helpers.handleName = function(name) {
-    return name.substr(0, 1) + name.substr(1).replace(/./g, '*');
+  // 处理字符串（加星号）
+  _helpers.handleText = function(value, type) {
+    var result = '';
+    switch (type) {
+      // 除第一个字，全部处理为星号
+      case '1':
+        result = value.substr(0, 1) + value.substr(1).replace(/./g, '*');
+        break;
+
+      // 除了最后一个字，全部处理为星号
+      case '2':
+        result = value.replace(/.(?=.)/g, '*');;
+        break;
+
+      // 处理身份证，除了前两位和后四位，全部处理为星号
+      case '3':
+        result = value.replace(/(\d{2})\d{12}(\d{4})/, "$1************$2");
+        break;
+
+      // 处理手机号码，中间四位处理为星号
+      case '4':
+        result = value.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
+        break;
+    }
+
+    return result;
   };
 
   // 增强版 if

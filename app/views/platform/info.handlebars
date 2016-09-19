@@ -7,6 +7,10 @@
       <div class="col-md-10 col-sm-10">
         <form id="form" class="form-normal">
           <div class="form-group">
+            <label for="nickName">{{__ 'info-phone'}}</label>
+            <input type="text" class="form-control" value="{{handleText user.phoneNum "4"}}" disabled >
+          </div>
+          <div class="form-group">
             <label for="nickName">{{__ 'info-nickname'}}</label>
             <input type="text" class="form-control" id="nickName" name="nickName" value="{{user.nickName}}">
           </div>

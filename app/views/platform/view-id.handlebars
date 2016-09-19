@@ -5,7 +5,12 @@
         {{> sidebar}}
       </div>
       <div class="col-md-10 col-sm-10">
-        查看实名认证
+        <div class="list">
+          <p>{{__ 'view-realname'}}：{{handleText user.realName "2"}}</p>
+          <p>{{__ 'view-id-type'}}：{{__ 'view-id-type-1'}}{{#ifCond user.idType "===" 1}}{{__ 'view-id-type-1'}}{{/ifCond}}</p>
+          <p>{{__ 'view-id-num'}}：{{handleText user.idNum "3"}}</p>
+          <p>{{__ 'view-auth-time'}}：{{dateFormat user.certificationTime}}</p>
+        </div>
       </div>
     </div>
   </div>

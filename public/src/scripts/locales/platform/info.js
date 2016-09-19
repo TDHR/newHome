@@ -13,6 +13,6 @@ export default {
     'success': 'Submit success',
     'error-code-1': 'Abnormal data format, make sure and try again',
     'error-code-2': 'Please login first',
-    'error-code-3': 'Submit failed, please try again later',
+    'error-code-3': 'Submit failed, please try again later'
   }
 };

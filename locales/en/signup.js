@@ -2,7 +2,7 @@
   "signup-step1": "Register",
   "signup-step2": "Verified",
   "signup-phone": "Phone",
-  "signup-sms": "Verification code SMS",
+  "signup-sms": "SMS verification code",
   "signup-get-sms": "Get the code",
   "signup-pwd1": "Password",
   "signup-pwd2": "Confirm password",

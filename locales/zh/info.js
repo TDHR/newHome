@@ -1,4 +1,5 @@
 {
+  "info-phone": "手机号码",
   "info-nickname": "昵称",
   "info-gender": "性别",
   "info-gender-type-1": "男",

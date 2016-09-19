@@ -1,4 +1,5 @@
 {
+  "info-phone": "Phone number",
   "info-nickname": "Nickname",
   "info-gender": "Gender",
   "info-gender-type-1": "Male",

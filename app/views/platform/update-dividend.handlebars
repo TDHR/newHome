@@ -5,10 +5,25 @@
         {{> sidebar}}
       </div>
       <div class="col-md-10 col-sm-10">
-        <form class="form-normal">
+        <form id="form" class="form-normal">
           <div class="form-group">
-            <label for="btcAddress">{{__ 'dividend-btc-address'}}</label>
-            <input type="text" class="form-control" id="btcAddress">
+            <label for="address">{{__ 'dividend-btc-address'}}</label>
+            <input type="text" class="form-control" id="address" name="address" value="{{bonus.address}}">
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-7 col-sm-7">
+                <label for="phoneValidCode">{{__ "dividend-sms"}}</label>
+                <div class="row">
+                  <div class="col-md-8 col-sm-8 col-xs-7">
+                    <input type="text" class="form-control" id="phoneValidCode" name="phoneValidCode" data-phonenum="{{user.phoneNum}}">
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-5">
+                    <a id="btnSmsCode" class="btn-sms">{{__ "dividend-get-sms"}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <button id="btnSubmit" type="button" class="btn btn-primary btn-submit">{{__ 'dividend-save'}}</button>
         </form>

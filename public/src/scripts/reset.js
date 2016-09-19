@@ -29,7 +29,7 @@ $('#btnSmsCode').on('click', function() {
 
   $.ajax({
     method: 'POST',
-    url: 'phoneCode',
+    url: '/phoneCode',
     data: {
       phoneNum: phoneNum
     },
@@ -105,7 +105,7 @@ function submitForm() {
   });
 }
 
-// 重置按钮
+// 提交按钮
 $('#btnSubmit').on('click', function() {
   if ($(this).hasClass('disabled')) {
     return false;

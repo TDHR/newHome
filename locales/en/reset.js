@@ -1,6 +1,6 @@
 {
   "reset-phone": "Phone",
-  "reset-sms": "Verification code SMS",
+  "reset-sms": "SMS verification code",
   "reset-get-sms": "Get the code",
   "reset-pwd1": "New password",
   "reset-pwd2": "Confirm password",
