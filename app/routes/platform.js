@@ -1,6 +1,3 @@
-/**
- * Module dependencies.
- */
 var login = require('./../controllers/login');
 var signup = require('./../controllers/signup');
 var reset = require('./../controllers/reset');

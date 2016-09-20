@@ -1,6 +1,3 @@
-/**
- * Module dependencies.
- */
 var site = require('./../controllers/site');
 
 module.exports = function(app, auth) {
