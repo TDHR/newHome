@@ -1,3 +1,3 @@
 export default {
-  platform: 'http://192.168.2.103:8080/wwReits'
+  platform: 'http://123.207.165.134:8080/reits'
 };
