@@ -105,7 +105,7 @@
 	"nav-login": "Login",
 	"nav-signup": "Sign up",
 	"nav-block-explorer": "Block explorer",
-	"footer-copyright": "&#169; 2016 REITs (Beijing) FinTech Co., Ltd. All Rights Reserved&nbsp;&nbsp; &#124; &nbsp;&nbsp;京ICP备16039726号",
+	"footer-copyright": "&#169; 2016 REITs (Beijing) FinTech Co., Ltd. All Rights Reserved&nbsp;&nbsp; &#124; &nbsp;&nbsp;京ICP备16039726号-1",
 	"browsehappy": "Your browser is ancient! <a href=\"http://browsehappy.com/\">Upgrade to a different browser</a> to experience this site.",
 	"my-assets": "My Assets",
 	"quit": "Quit",
