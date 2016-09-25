@@ -3,6 +3,7 @@ npm-debug.log
 public/dist
 public/dev
 public/tmp
+public/src/scripts/config/config-now.js
 logs
 .tmp
 .DS_Store
