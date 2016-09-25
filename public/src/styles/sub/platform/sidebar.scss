@@ -1,0 +1,25 @@
+.sidebar {
+  .sidenav {
+    margin-bottom: 30px;
+    .nav-head {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-weight: 700;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    .nav-item {
+      margin-bottom: 8px;
+      &.active {
+        >a {
+          color: $color-blue;
+        }
+      }
+      >a {
+        display: block;
+        color: #777;
+      }
+    }
+  }
+}

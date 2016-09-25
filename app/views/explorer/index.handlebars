@@ -27,7 +27,7 @@
               {{#each data.positions}}
               <tr>
                 <td><a href="/explorer/{{../chainID}}/user/{{this.owner_id}}">{{this.owner_id}}</a></td>
-                <td>{{handleName this.real_name}}</td>
+                <td>{{handleText this.real_name "2"}}</td>
                 <td>{{this.liquidity}}</td>
                 <td>{{this.freeze}}</td>
                 <td>{{this.packing}}</td>
