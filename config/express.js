@@ -37,7 +37,6 @@ module.exports = function(app, config) {
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'handlebars');
 
-  // app.use(favicon(config.root + '/public/img/favicon.ico'));
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
@@ -46,10 +45,11 @@ module.exports = function(app, config) {
   app.use(compress());
   app.use(express.static(config.public));
   app.use(methodOverride());
-
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  controllers.forEach(function(controller) {
-    require(controller)(app);
+  
+  var auth = require('../config/auth');
+  var routes = glob.sync(config.root + '/app/routes/*.js');
+  routes.forEach(function(route) {
+    require(route)(app, auth);
   });
 
   app.use(function(req, res, next) {

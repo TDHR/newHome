@@ -1,0 +1,23 @@
+{
+  "signup-step1": "Register",
+  "signup-step2": "Verified",
+  "signup-phone": "Phone",
+  "signup-sms": "SMS verification code",
+  "signup-get-sms": "Get the code",
+  "signup-pwd1": "Password",
+  "signup-pwd2": "Confirm password",
+  "signup-next": "Next",
+  "signup-real-name": "Real name",
+  "signup-id-type": "Type of certificate",
+  "signup-id-type-1": "ID card",
+  "signup-id-num": "ID Number",
+  "signup-photo1": "Front side photo ID",
+  "signup-photo2": "Back side photo ID",
+  "signup-photo3": "Front side half-length photo (handheld ID card)",
+  "signup-photo-help1": "Only supports JPG, GIF, PNG, JPG, less than 5MB",
+  "signup-photo-help2": "Make sure that your identity and appearance are clearly visible",
+  "signup-terms": "I have read and agree to the <a href=\"/terms\" target=\"_blank\">terms of service</a>",
+  "signup-register": "Signup",
+  "signup-success1": "Registration success",
+  "signup-success2": "<a href=\"/login\">Login now</a>"
+}

@@ -11,6 +11,6 @@
   "values-card3-content1": "With its feature such as tamper-proof, alter-proof of the distributed ledger on block chain, our platform requires the issuers of ABS(REITs) to report the operation results of their core commercial real estate underlining the ABS(REITs) regularly on the block chain. This helps improve transparency, solve the issues on decentralized trust, and substantially reduce the cost of finance and transaction.",
   "values-card3-content2": "As our block chain technology offers users access to a key source of liquidity and digital assets backed by block chain can be exchanged world- wide in just a few seconds, our platform will make the cross-border trade and investment a pleasant experience and fuel interest of global investors.",
   "values-card4-title": "Intelligent Solutions",
-  "values-card4-content1": "Our smart contract* solution makes it possible to automate equity issuance and trade financial derivatives.",
-  "values-card4-content2": "*A smart contract is an agreement whose execution is both automatable and enforceable. Automatable by computer, although some parts may require human input and control. Enforceable by either legal enforcement of rights and obligations or tamper-proof execution."
+  "values-card4-content1": "Our smart contract<span class=\"note-sign\">*</span> solution makes it possible to automate equity issuance and trade financial derivatives.",
+  "values-card4-content2": "<span class=\"note-sign\">*</span>A smart contract is an agreement whose execution is both automatable and enforceable. Automatable by computer, although some parts may require human input and control. Enforceable by either legal enforcement of rights and obligations or tamper-proof execution."
 }

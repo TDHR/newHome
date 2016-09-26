@@ -1,8 +1,5 @@
 node_modules
 npm-debug.log
-public/dist
-public/dev
-public/tmp
 logs
 .tmp
 .DS_Store
@@ -10,3 +7,7 @@ logs
 .env
 .c9
 *.orig
+public/dist
+public/dev
+public/tmp
+public/src/scripts/config/config-now.js

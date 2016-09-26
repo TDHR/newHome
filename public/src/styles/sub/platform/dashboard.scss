@@ -1,0 +1,33 @@
+.page-dashboard {
+  margin: 50px 0 70px;
+  .overview {
+    .info {
+      padding: 15px;
+      background-color: #f6f6f6;
+      border-radius: 4px;
+      .nickname {
+      }
+      .asset {
+        margin-top: 5px;
+      }
+    }
+  }
+  .wallet {
+    margin-top: 40px;
+  }
+  .wallet-less {
+    margin-top: 40px;
+    padding: 30px 15px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  .dividend {
+    padding: 15px;
+    margin-top: 40px;
+    background-color: #f6f6f6;
+    border-radius: 4px;
+  }
+  .dividend-less {
+    padding: 30px 15px;
+  }
+}

@@ -1,0 +1,34 @@
+{{> banner-other}}
+<div class="page-contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="cards">
+          <div class="card">
+            <div class="name">{{__ 'contact-card1-name'}}</div>
+            <p class="text">{{__ 'contact-card1-text1'}}</p>
+            <p class="text">{{__ 'contact-card1-text2'}}</p>
+            <p class="text">{{__ 'contact-card1-text3'}}</p>
+          </div>
+          <div class="card">
+            <div class="name">{{__ 'contact-social'}}</div>
+            <p class="text">
+              <a href="http://weibo.com/u/5999479802" target="_blank">{{__ 'contact-weibo'}} <span class="glyphicon glyphicon-link"></span></a>
+            </p>
+            <p class="text">
+              <a id="wechat">{{__ 'contact-wechat'}} <span class="glyphicon glyphicon-qrcode"></span></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="wechatQr" class="wechat hide">
+    <span id="hideBtn" class="glyphicon glyphicon-remove-circle"></span>
+    <img src="/images/wechat.png">
+  </div>
+</div>
+
+{{> footer}}
+{{> scripts}}
+<script src="/scripts/contact.js{{fileTail}}"></script>
