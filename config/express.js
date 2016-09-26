@@ -14,18 +14,51 @@ module.exports = function(app, config) {
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env === 'development';
 
-  // i18next init
-  i18n.configure({
-    locales: ['zh', 'en'],
-    cookie: 'REITsLocale',
-    directory: config.root + '/locales',
-    defaultLocale: 'zh',
-    updateFiles: false,
-    extension: '.js'
-  });
-
   app.use(cookieParser());
-  app.use(i18n.init);
+
+  // 添加setLocale中间件，注意必须在session之后
+  app.use(setLocale);
+
+  // 定义setLocale中间件
+  function setLocale(req, res, next) {
+    var languages = ['zh', 'en'];
+    var locale;
+
+    // i18next init
+    i18n.configure({
+      locales: languages,
+      fallbacks: { 'zh': 'zh-en', 'en': 'en-us' },
+      defaultLocale: 'zh',
+      cookie: 'REITsLocale',
+      directory: config.root + '/locales',
+      updateFiles: false,
+      extension: '.js',
+      register: res
+    });
+
+    if (req.cookies['REITsLocale']) { // 获取cookie中的locale数据
+      locale = req.cookies['REITsLocale'];
+    } else if (req.acceptsLanguages()) { // 获取浏览器的偏好语言，这个函数是express提供的
+      var first = req.acceptsLanguages()[0];
+      if (!first.indexOf('zh')) {
+        locale = 'zh';
+      } else if (!first.indexOf('en')) {
+        locale = 'en';
+      } else {
+        locale = 'zh';
+      }
+    } else { // 没有语言偏好的时候网站使用的语言为中文
+      locale = 'zh';
+    }
+    // 如果cookie中没有保存语言偏好
+    if (!req.cookies['REITsLocale']) {
+      res.cookie('REITsLocale', locale);
+    }
+
+    // 设置i18n对这个请求所使用的语言
+    res.setLocale(locale);
+    next();
+  };
 
   app.engine('handlebars', exphbs({
     layoutsDir: config.root + '/app/views/layouts/',
@@ -45,7 +78,7 @@ module.exports = function(app, config) {
   app.use(compress());
   app.use(express.static(config.public));
   app.use(methodOverride());
-  
+
   var auth = require('../config/auth');
   var routes = glob.sync(config.root + '/app/routes/*.js');
   routes.forEach(function(route) {
