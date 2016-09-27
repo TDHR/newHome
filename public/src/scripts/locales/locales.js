@@ -11,6 +11,7 @@ export default {
   login: Login,
   signup: Signup,
   reset: Reset,
+  info: Info,
   security: Security,
   dividend: Dividend
 };
