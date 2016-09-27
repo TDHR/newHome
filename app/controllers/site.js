@@ -57,7 +57,7 @@ exports.articles = function(req, res) {
   request
     .get(config.weixin + '/ArticleOut/GetList')
     .send({
-      language: req.getLocale() || 'zh',
+      language: res.getLocale() || 'zh',
       page: page,
       limit: limit
     })
@@ -81,7 +81,7 @@ exports.article = function(req, res) {
   request
     .get(config.weixin + '/ArticleOut/GetDetail')
     .send({
-      language: req.getLocale() || 'zh',
+      language: res.getLocale() || 'zh',
       id: req.params.articleID
     })
     .end(function(err, result) {
