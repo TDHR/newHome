@@ -9,7 +9,7 @@ export default {
     'real-name-err-1': '请输入真实姓名',
     'id-num-err-1': '请输入正确的身份证号码',
     'browser-tips': '你的浏览器太古老了，请使用更现代的浏览器访问本网站',
-    'photo-err-1': '仅支持JPG、GIF、PNG、JPEG，文件小于4MB',
+    'photo-err-1': '仅支持JPG、GIF、PNG、JPEG，文件小于10MB',
     'photo-err-2': '请选择身份证正面照片',
     'photo-err-3': '请选择身份证反面照片',
     'photo-err-4': '请选择正面半身照',

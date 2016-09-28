@@ -14,7 +14,7 @@
   "signup-photo1": "身份证正面",
   "signup-photo2": "身份证背面",
   "signup-photo3": "正面半身照（手持身份证）",
-  "signup-photo-help1": "仅支持JPG、GIF、PNG、JPEG，文件小于5MB",
+  "signup-photo-help1": "仅支持JPG、GIF、PNG、JPEG，文件小于10MB",
   "signup-photo-help2": "请确保身份证和你的样貌都清晰可见",
   "signup-terms": "我已阅读并同意瑞资的 <a href=\"/terms\" target=\"_blank\">服务条款</a>",
   "signup-register": "注册",
