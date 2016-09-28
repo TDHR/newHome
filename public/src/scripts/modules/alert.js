@@ -19,7 +19,7 @@ export default (msg, countdown, type) => {
   } else {
     holder.removeClass('hide');
   }
-  inside.attr('class', `alert alert-default ${type}`);
+  inside.attr('class', `alert ${type}`);
   inside.html(html);
 
   let hideAlert = () => {
