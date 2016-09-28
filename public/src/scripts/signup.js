@@ -131,7 +131,7 @@ function uploadPhoto() {
       if (res.success) {
         submitForm(res);
       } else {
-        // 仅支持JPG、GIF、PNG、JPEG，文件小于4MB
+        // 根据相应的错误码进行提示
         Alert(Locales.signup[locale]['photo-err-1'], 5000);
         $('#btnSubmit').removeClass('disabled');
       }
