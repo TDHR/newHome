@@ -11,7 +11,7 @@ var config = {
     },
     port: process.env.PORT || 3000,
     weixin: 'http://app.reitschain.com',
-    platform: 'http://192.168.2.225:8080/reits'
+    platform: 'http://192.168.2.179:8080/reits'
   },
   production: {
     root: rootPath,

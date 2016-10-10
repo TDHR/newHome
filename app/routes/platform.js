@@ -69,4 +69,8 @@ module.exports = function(app, auth) {
 
   // 查看实名认证信息
   app.get('/user/view-id', auth.needToLogin, security.view);
+
+  // 更新实名认证信息
+  app.get('/user/update-verification', auth.needToLogin, security.verification);
+  app.post('/user/update-verification', auth.needToLogin, security.updateVerification);
 };
