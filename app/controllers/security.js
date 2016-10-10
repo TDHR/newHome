@@ -12,7 +12,7 @@ exports.index = function(req, res) {
         .get(config.platform + '/api/vipuser/getuserinfo?token=' + userToken)
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .set('Accept', 'application/json')
-        .end(function(err, result) {   
+        .end(function(err, result) {
           cb(null, result);
         });
     },
@@ -22,7 +22,7 @@ exports.index = function(req, res) {
         .get(config.platform + '/api/vipuser/getloginlog?token=' + userToken)
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .set('Accept', 'application/json')
-        .end(function(err, result) {   
+        .end(function(err, result) {
           cb(null, result);
         });
     }
@@ -76,7 +76,7 @@ exports.view = function(req, res) {
         .get(config.platform + '/api/vipuser/getuserinfo?token=' + userToken)
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .set('Accept', 'application/json')
-        .end(function(err, result) {   
+        .end(function(err, result) {
           cb(null, result);
         });
     }
@@ -93,3 +93,27 @@ exports.view = function(req, res) {
     });
   });
 };
+
+// 「更新实名认证」页面
+exports.verification = function(req, res) {
+  res.render('platform/update-verification', {
+    nav: 'security'
+  });
+};
+
+// 「更新实名认证」接口
+exports.updateVerification = function(req, res) {
+  request
+    .post(config.platform + '/api/vipuser/updateuserimage')
+    .set('Content-Type', 'application/x-www-form-urlencoded')
+    .set('Accept', 'application/json')
+    .send(req.body)
+    .end(function(err, result) {
+      var body = result.body;
+      return res.json({
+        success: body.success,
+        code: body.code,
+        msg: body.message
+      });
+    });
+}
