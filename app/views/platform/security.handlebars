@@ -20,25 +20,41 @@
             </div>
             <div class="panel-body">{{__ 'security-login-password-helper'}}</div>
           </div>
-          {{#if user.certificationStatus}}
-          <div class="panel panel-success">
-          {{else}}
+          {{#ifCond user.certificationStatus "===" 0}}
           <div class="panel panel-danger">
-          {{/if}}
+          {{/ifCond}}
+          {{#ifCond user.certificationStatus "===" 1}}
+          <div class="panel panel-warning">
+          {{/ifCond}}
+          {{#ifCond user.certificationStatus "===" 2}}
+          <div class="panel panel-success">
+          {{/ifCond}}
             <div class="panel-heading">
                <div class="row">
-                  <div class="col-md-9">
-                    {{#if user.certificationStatus}}
-                    <span class="glyphicon glyphicon-ok"></span>
-                    {{__ 'security-realname-verification'}}
-                    {{else}}
-                    <span class="glyphicon glyphicon-remove"></span>
-                    {{__ 'security-realname-verification-fail'}}
-                    {{/if}}
-                  </div>
-                  <div class="col-md-3 text-right">
-                    <a href="/user/view-id">{{__ 'security-view'}}</a>
-                  </div>
+                  {{#ifCond user.certificationStatus "===" 0}}
+                    <div class="col-md-9">
+                      <span class="glyphicon glyphicon-remove"></span>
+                      {{__ 'security-realname-verification-fail'}}
+                    </div>
+                    <div class="col-md-3 text-right">
+                      <a href="/user/update-verification">{{__ 'security-update'}}</a>
+                    </div>
+                  {{/ifCond}}
+                  {{#ifCond user.certificationStatus "===" 1}}
+                    <div class="col-md-9">
+                      <span class="glyphicon glyphicon-filter"></span>
+                      {{__ 'security-realname-verification-ing'}}
+                    </div>
+                  {{/ifCond}}
+                  {{#ifCond user.certificationStatus "===" 2}}
+                    <div class="col-md-9">
+                      <span class="glyphicon glyphicon-ok"></span>
+                      {{__ 'security-realname-verification'}}
+                    </div>
+                    <div class="col-md-3 text-right">
+                      <a href="/user/view-id">{{__ 'security-view'}}</a>
+                    </div>
+                  {{/ifCond}}
                </div>
             </div>
             <div class="panel-body">{{__ 'security-view-helper'}}</div>

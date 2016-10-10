@@ -14,6 +14,8 @@ module.exports = function(app, config) {
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env === 'development';
 
+  app.set('trust proxy', 'loopback');
+  
   app.use(cookieParser());
 
   // 添加setLocale中间件，注意必须在session之后

@@ -13,6 +13,8 @@
         </div>
         {{#if wallet}}
         <div class="wallet table-responsive">
+          {{!-- 认证状态：{{user.certificationStatus}} --}}
+          {{!-- 认证成功前，不能操作钱包 --}}
           <table class="table table-striped table-hover">
             <thead>
               <tr>
