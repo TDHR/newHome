@@ -28,6 +28,8 @@
   "home-team-office3": "COO",
   "home-team-name4": "Grace Lin",
   "home-team-office4": "CEO Assistant",
+  "home-team-name5": "Guoyun Jing",
+  "home-team-office5": "Operations Director",
   "home-knowledge-title": "REITs knowledge",
   "home-knowledge-article1-title": "What is REITs?",
   "home-knowledge-article1-content1": "A REIT, or Real Estate Investment Trust, is a company that owns or finances income-producing real estate. Modeled after mutual funds, REITs provide investors of all types regular income streams, diversification and long-term capital appreciation. Its basic connotation operation is to raise funds from investors, and set up real estate investment trust fund, then invest in real estate, real estate related rights, real estate related securities, or other approved the underlying investment by competent authorities. In the same time issue REITs Benefit Securities, in order to clarify the investor’s right to the trust property, the interests of the REITs that received will be shared between the beneficiaries according to the terms of the REITs contract.",
