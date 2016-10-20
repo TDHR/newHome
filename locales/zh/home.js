@@ -28,6 +28,8 @@
   "home-team-office3": "首席运营官",
   "home-team-name4": "林小晓",
   "home-team-office4": "总裁助理",
+  "home-team-name5": "景国云",
+  "home-team-office5": "运营总监",
   "home-knowledge-title": "不动产信托投资知识",
   "home-knowledge-article1-title": "什么是REITs?",
   "home-knowledge-article1-content1": "REITs，或房地产投资信托基金，是一种专门投资于房地产行业的投资基金。房地产投资信托基金（REITs）的构想来自于共同基金（Mutual Fund），其运作的基本内涵是由受托机构向投资人募集资金，成立房地产投资信托基金，然后用以投资房地产、房地产相关权利、房地产相关有价证券、或其它主管机构核准投资的标的。同时发行房地产投资信托基金受益证券，以明确投资人对于信托财产的权利，REITs 所得到的利益由全体受益人依照房地产投资信托基金契约的约定共享。",
