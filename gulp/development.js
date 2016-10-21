@@ -83,7 +83,7 @@ gulp.task('devServer', function() {
 
 // clean dev file
 gulp.task('cleanDev', function() {
-  del([path.join(conf.paths.dev, '/*')]);
+  return del.sync([path.join(conf.paths.dev, '/*')]);
 });
 
 // livereload

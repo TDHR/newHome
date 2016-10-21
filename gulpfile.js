@@ -43,6 +43,6 @@ gulp.task('dev', ['cleanDev', 'tpl', 'locales', 'devCfg'], function() {
   gulp.start('development');
 });
 
-gulp.task('prod', ['cleanDist', 'tpl', 'locales', 'prodCfg'], function() {
+gulp.task('prod', ['cleanTmp', 'tpl', 'locales', 'prodCfg'], function() {
   gulp.start('production');
 });
