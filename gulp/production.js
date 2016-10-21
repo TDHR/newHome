@@ -57,19 +57,24 @@ gulp.task('prodLibs', function() {
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/libs')));
 });
 
+// clean tmp file
+gulp.task('cleanTmp', function() {
+  return del.sync([path.join(conf.paths.tmp, '/*')]);
+});
+
+
 // clean dist file
 gulp.task('cleanDist', function() {
-  del([path.join(conf.paths.dist, '/*')]);
+  return del.sync([path.join(conf.paths.dist, '/*')]);
 });
 
 // copy tmp to dist
-gulp.task('renewDist', function() {
+gulp.task('renewDist', ['cleanDist'], function() {
   return gulp.src(path.join(conf.paths.tmp, '/**'))
     .pipe(gulp.dest(conf.paths.dist));
 });
 
 gulp.task('production', ['prodImages', 'prodStyles', 'prodScripts', 'prodLibs'], function() {
-  gulp.start('cleanDist');
   gulp.start('renewDist');
   util.log(util.colors.green('Build success!'));
 });
