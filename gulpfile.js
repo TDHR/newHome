@@ -28,15 +28,15 @@ gulp.task('locales', function() {
 
 // 生成 config 文件
 gulp.task('prodCfg', function() {
-    return gulp.src(path.join(conf.paths.src, '/scripts/config/config-prod.js'))
-        .pipe(concat('config-now.js'))
-        .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
+  return gulp.src(path.join(conf.paths.src, '/scripts/config/config-prod.js'))
+    .pipe(concat('config-now.js'))
+    .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
 });
 
 gulp.task('devCfg', function() {
-    return gulp.src(path.join(conf.paths.src, '/scripts/config/config-dev.js'))
-        .pipe(concat('config-now.js'))
-        .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
+  return gulp.src(path.join(conf.paths.src, '/scripts/config/config-dev.js'))
+    .pipe(concat('config-now.js'))
+    .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
 });
 
 gulp.task('dev', ['cleanDev', 'tpl', 'locales', 'devCfg'], function() {
