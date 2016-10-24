@@ -6,7 +6,7 @@
         {{#if data.title}}
         <div class="article">
           <div class="title">{{data.title}}</div>
-          <div class="date">{{dateFormat data.date 'unix'}}</div>
+          <div class="date">{{dateFormat data.date 'ymd' 'unix'}}</div>
           <div class="summary">{{__ 'article-summary'}}{{data.summary}}</div>
           <div class="content">{{{data.content}}}</div>
         </div>
