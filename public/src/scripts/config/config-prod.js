@@ -1,3 +1,3 @@
 export default {
-  platform: 'https://box.reischain.com/reits'
+  platform: 'https://box.reitschain.com/reits'
 };
