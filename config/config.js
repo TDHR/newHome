@@ -21,7 +21,7 @@ var config = {
     },
     port: process.env.PORT || 3000,
     weixin: 'http://app.reitschain.com',
-    platform: 'http://123.207.165.134:8080/reits'
+    platform: 'https://box.reischain.com/reits'
   }
 };
 
