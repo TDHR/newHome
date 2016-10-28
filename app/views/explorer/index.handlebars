@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+
 <div class="page-explorer">
   <div class="base-info">
     <div id="particlesJs" class="particles-js"></div>
@@ -45,35 +47,119 @@
     </div>
     <div class="turnover">
       <h4>换手率</h4>
-      <div id="chartsTurnover"></div>
+      <div class="turnoverDate">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <div class="input-group">
+              <input id="startDate" class="form-control input-sm" type="text" readonly>
+              <div class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </div>
+            </div>
+            <span>~</span>
+            <div class="input-group">
+              <input id="endDate" class="form-control input-sm" type="text" readonly>
+              <div class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="turnoverChart"></div>
     </div>
     <div class="trading-list">
       <h4>交易量排行</h4>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>持仓人ID</th>
-              <th>交易量</th>
-              <th>余额</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#if dayTrans}}
-              {{#each dayTrans}}
-              <tr>
-                <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
-                <td>{{this.trans}}</td>
-                <td>{{this.balance}}</td>
-              </tr>
-              {{/each}}
-            {{else}}
-            <tr>
-              <td class="text-center" colspan="6">暂无数据</td>
-            </tr>
-            {{/if}}
-          </tbody>
-        </table>
+      <ul class="nav nav-tabs trading-nav" role="tablist">
+        <li role="presentation" class="active"><a href="#tradingDay" role="tab" data-toggle="tab">日排行</a></li>
+        <li role="presentation"><a href="#tradingWeek" role="tab" data-toggle="tab">周排行</a></li>
+        <li role="presentation"><a href="#tradingMonth" role="tab" data-toggle="tab">月排行</a></li>
+      </ul>
+      <div class="tab-content trading-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="tradingDay">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>持仓人ID</th>
+                  <th>交易量</th>
+                  <th>余额</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if dayTrans}}
+                  {{#each dayTrans}}
+                  <tr>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
+                    <td>{{this.trans}}</td>
+                    <td>{{this.balance}}</td>
+                  </tr>
+                  {{/each}}
+                {{else}}
+                <tr>
+                  <td class="text-center" colspan="6">暂无数据</td>
+                </tr>
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tradingWeek">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>持仓人ID</th>
+                  <th>交易量</th>
+                  <th>余额</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if weekTrans}}
+                  {{#each weekTrans}}
+                  <tr>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
+                    <td>{{this.trans}}</td>
+                    <td>{{this.balance}}</td>
+                  </tr>
+                  {{/each}}
+                {{else}}
+                <tr>
+                  <td class="text-center" colspan="6">暂无数据</td>
+                </tr>
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tradingMonth">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>持仓人ID</th>
+                  <th>交易量</th>
+                  <th>余额</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if monthTrans}}
+                  {{#each monthTrans}}
+                  <tr>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
+                    <td>{{this.trans}}</td>
+                    <td>{{this.balance}}</td>
+                  </tr>
+                  {{/each}}
+                {{else}}
+                <tr>
+                  <td class="text-center" colspan="6">暂无数据</td>
+                </tr>
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -82,5 +168,6 @@
 {{> footer}}
 {{> scripts}}
 <script src="/libs/particles.min.js"></script>
+<script src="/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 <script src="/libs/highstock.js"></script>
 <script src="/scripts/explorer.js{{fileTail}}"></script>

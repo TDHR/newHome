@@ -17,7 +17,7 @@
     .name {
       margin-top: 80px;
       text-align: center;
-      font-size: 28px;
+      font-size: 26px;
       text-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     }
     .circulation {
@@ -34,12 +34,22 @@
     }
   }
   .positions-list {
-    margin-top: 50px;
+    margin-top: 60px;
   }
   .turnover {
-    margin-top: 50px;
+    margin-top: 60px;
+    .turnoverDate {
+      margin-top: 10px;
+      text-align: right;
+    }
   }
   .trading-list {
-    margin-top: 50px;
+    margin-top: 60px;
+    .trading-nav {
+      margin-top: 20px;
+    }
+    .trading-content {
+      margin-top: 10px;
+    }
   }
 }
