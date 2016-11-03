@@ -9,8 +9,8 @@ exports.index = function(req, res) {
     // 获取用户信息
     getUserInfo: function(cb) {
       request
-        .get(config.platform + '/api/vipuser/getuserinfo?token=' + userToken)
-        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({token: userToken})
         .set('Accept', 'application/json')
         .end(function(err, result) {   
           cb(null, result);

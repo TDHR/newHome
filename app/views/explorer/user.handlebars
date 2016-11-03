@@ -1,5 +1,9 @@
 <div class="page-explorer-user">
   <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/explorer/asset/{{assetId}}">首页</a></li>
+      <li class="active">持仓人详情</li>
+    </ol>
     <div class="user-info">
       <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-6">
@@ -30,8 +34,8 @@
             </tr>
           </thead>
           <tbody>
-            {{#if wallets}}
-              {{#each wallets}}
+            {{#if wallet.list}}
+              {{#each wallet.list}}
               <tr>
                 <td>{{this.address}}</td>
                 <td>{{this.balance}}</td>
@@ -92,7 +96,7 @@
             {{#if tx.list}}
               {{#each tx.list}}
               <tr>
-                <td><a href="/explorer/tx/{{this.txid}}">{{this.txid}}</a></td>
+                <td><a href="/explorer/asset/{{../assetId}}/tx/{{this.txId}}">{{this.txId}}</a></td>
                 <td>{{this.value}}</td>
                 <td>{{dateFormat this.time 'default' 'unix'}}</td>
               </tr>
@@ -105,8 +109,8 @@
           </tbody>
         </table>
       </div>
-      {{#ifCond tx.total '>' 1}}
-        <div id="paginationHolder" class="pagination-holder" data-total={{tx.total}} data-current={{tx.current}}></div>
+      {{#ifCond tx.pageCount '>' 1}}
+        <div id="paginationHolder" class="pagination-holder" data-total={{tx.pageCount}} data-current={{tx.pageIndex}}></div>
       {{/ifCond}}
     </div>
   </div>

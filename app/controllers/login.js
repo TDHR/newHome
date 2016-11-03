@@ -19,7 +19,8 @@ exports.login = function(req, res) {
     getIpInfo: function(cb) {
       if (ip) {
         request
-          .get('http://ip.taobao.com/service/getIpInfo.php?ip=' + ip)
+          .get('http://ip.taobao.com/service/getIpInfo.php')
+          .query({ip: ip})
           .set('Accept', 'application/json')
           .end(function(err, result) {
             if (err) {
@@ -78,7 +79,6 @@ exports.login = function(req, res) {
 exports.captcha = function(req, res) {
   request
     .get(config.platform + '/api/login/getvalidcode')
-    .set('Content-Type', 'application/x-www-form-urlencoded')
     .set('Accept', 'application/json')
     .end(function(err, result) {
       var body = result.body;
@@ -96,7 +96,6 @@ exports.captcha = function(req, res) {
 exports.logout = function(req, res) {
   request
     .get(config.platform + '/api/login/dologinout')
-    .set('Content-Type', 'application/x-www-form-urlencoded')
     .set('Accept', 'application/json')
     .end(function(err, result) {
       //清除 cookie

@@ -3,9 +3,9 @@
 <div class="page-explorer">
   <div class="base-info">
     <div id="particlesJs" class="particles-js"></div>
-    <div class="container ">
+    <div class="container">
       <div class="name">
-        {{base.name}}（{{base.name-en}}）
+        {{base.name}}（{{base.name_en}}）
       </div>
       <div class="circulation">
         <span>{{__ "explorer-total-circulation"}}</span>{{base.circulation}}
@@ -28,8 +28,8 @@
             </tr>
           </thead>
           <tbody>
-            {{#if tops}}
-              {{#each tops}}
+            {{#if tops.list}}
+              {{#each tops.list}}
               <tr>
                 <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
                 <td>{{handleText this.realName "2"}}</td>
@@ -87,8 +87,8 @@
                 </tr>
               </thead>
               <tbody>
-                {{#if dayTrans}}
-                  {{#each dayTrans}}
+                {{#if dayTrans.list}}
+                  {{#each dayTrans.list}}
                   <tr>
                     <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
                     <td>{{this.trans}}</td>
@@ -115,8 +115,8 @@
                 </tr>
               </thead>
               <tbody>
-                {{#if weekTrans}}
-                  {{#each weekTrans}}
+                {{#if weekTrans.list}}
+                  {{#each weekTrans.list}}
                   <tr>
                     <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
                     <td>{{this.trans}}</td>
@@ -143,8 +143,8 @@
                 </tr>
               </thead>
               <tbody>
-                {{#if monthTrans}}
-                  {{#each monthTrans}}
+                {{#if monthTrans.list}}
+                  {{#each monthTrans.list}}
                   <tr>
                     <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
                     <td>{{this.trans}}</td>

@@ -168,8 +168,8 @@ function getTurnover(begin, end) {
     },
     success: function(res) {
       if (res.success) {
-        if (res.data && res.data.length) {
-          let turnover = res.data;
+        if (res.data.list && res.data.list.length) {
+          let turnover = res.data.list;
           let chartData = [];
           // 将数据转换为数组，处理 unix 时间戳
           for (var i = 0; i < turnover.length; i++) {

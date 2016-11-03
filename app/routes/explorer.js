@@ -11,5 +11,5 @@ module.exports = function(app, auth) {
   app.get('/explorer/asset/:assetId/user/:userId/:tx?/:txPageNum?', explorer.user);
 
   // 页面：交易详情
-  app.get('/explorer/tx/:txId', explorer.tx);
+  app.get('/explorer/asset/:assetId/tx/:txId', explorer.tx);
 };
