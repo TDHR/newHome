@@ -21,6 +21,9 @@
     display: block;
     padding-top: 14px;
     font-size: 13px;
+    &.disabled {
+      color: #999;
+    }
   }
   .cpptcha-img {
     width: 100px;
@@ -34,12 +37,16 @@
     margin-top: 10px;
     text-align: right;
   }
+  .help-block {
+    font-size: 12px;
+  }
 }
 
 .form-normal {
   .form-group {
     margin-bottom: 20px;
-    input, select {
+    input,
+    select {
       max-width: 380px;
     }
   }
@@ -47,6 +54,12 @@
     display: block;
     padding-top: 8px;
     font-size: 13px;
+    &.disabled {
+      color: #999;
+    }
+  }
+  .help-block {
+    font-size: 12px;
   }
   .btn-submit {
     margin-top: 10px;

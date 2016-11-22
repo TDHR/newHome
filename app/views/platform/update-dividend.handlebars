@@ -5,17 +5,33 @@
         {{> sidebar}}
       </div>
       <div class="col-md-10 col-sm-10">
+        <ol class="breadcrumb platform-breadcrumb">
+          <li><a href="/user/dashboard">{{__ 'sidebar-my-assets'}}</a></li>
+          <li class="active">{{__ "dividend-title"}}</li>
+        </ol>
         <form id="form" class="form-normal">
           <div class="form-group">
-            <label for="address">{{__ 'dividend-btc-address'}}</label>
-            <input type="text" class="form-control" id="address" name="address" value="{{bonus.address}}">
+            <label for="type">{{__ "dividend-type"}}</label>
+            <select name="type" id="type" class="form-control readonly" disabled >
+              <option value="btc">BTC</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="address">{{__ 'dividend-address'}}</label>
+            {{#if haobtcProfile.ok}}
+              <input type="text" class="form-control" id="address" name="address" value="{{haobtcProfile.user_info.address}}">
+              <span class="help-block"><b>{{__ 'dividend-address-help-haobtc'}}</b>，{{__ 'dividend-address-help'}}</span>
+            {{else}}
+              <input type="text" class="form-control" id="address" name="address" value="{{bonus.address}}">
+              <span class="help-block">{{__ 'dividend-address-help'}}</span>
+            {{/if}}
           </div>
           <div class="form-group">
             <div class="row">
               <div class="col-md-7 col-sm-7">
                 <label for="phoneValidCode">{{__ "dividend-sms"}}</label>
                 <div class="row">
-                  <div class="col-md-8 col-sm-8 col-xs-7">
+                  <div class="col-md-6 col-sm-7 col-xs-7">
                     <input type="text" class="form-control" id="phoneValidCode" name="phoneValidCode" data-phonenum="{{user.phoneNum}}">
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-5">
@@ -25,7 +41,7 @@
               </div>
             </div>
           </div>
-          <button id="btnSubmit" type="button" class="btn btn-primary btn-submit">{{__ 'dividend-save'}}</button>
+          <button id="btnSubmit" type="button" class="btn btn-primary btn-submit">{{__ 'dividend-submit'}}</button>
         </form>
       </div>
     </div>

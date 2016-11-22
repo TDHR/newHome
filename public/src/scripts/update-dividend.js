@@ -93,18 +93,19 @@ function submitForm() {
     },
     success: function(res) {
       if (res.success) {
-        Alert(Locales.dividend[locale].success, 5000, 'success');
+        Alert(Locales.dividend[locale].success, 5000, 'success', function() {
+          location.href = '/user/dashboard';
+        });
       } else {
         // 根据错误码输出相应的提示
         Alert(Locales.dividend[locale]['error-code-' + res.code], 5000);
+        $('#btnSubmit').removeClass('disabled');
       }
     },
     error: function() {
       Alert(Locales.dividend[locale]['submit-err-1'], 5000);
-    },
-    complete: function() {
       $('#btnSubmit').removeClass('disabled');
-    }
+    },
   });
 }
 

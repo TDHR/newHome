@@ -5,6 +5,8 @@ var config = require('../../config/config');
 // 我的资产
 exports.index = function(req, res) {
   var userToken = req.cookies.userToken;
+  // haobtc
+  var code = req.query.code;
   async.auto({
     // 获取用户信息
     getUserInfo: function(cb) {
@@ -47,12 +49,18 @@ exports.index = function(req, res) {
       return res.redirect('/login');
     }
 
-    res.render('platform/dashboard', {
-      nav: 'dashboard',
-      user: user.data,
-      asset: asset.data,
-      bonus: bonus.data
-    });
+    // 从haobtc返回了相应数据
+    if (code) {
+        return res.redirect('/user/update-dividend?code=' + code);
+    } else {
+      res.render('platform/dashboard', {
+        nav: 'dashboard',
+        user: user.data,
+        asset: asset.data,
+        bonus: bonus.data,
+        haobtcClientId: config.haobtcClientId
+      });
+    }
   });
 };
 
@@ -73,6 +81,10 @@ exports.bindWallet = function(req, res) {
 // 「修改分红地址」页面
 exports.dividend = function(req, res) {
   var userToken = req.cookies.userToken;
+
+  // haobtc
+  var code = req.query.code;
+
   async.auto({
     // 获取用户信息
     getUserInfo: function(cb) {
@@ -93,10 +105,47 @@ exports.dividend = function(req, res) {
         .end(function(err, result) {
           cb(null, result);
         });
-    }
+    },
+    getHaobtcToken: ['getBonusAddress', function(results, cb) {
+      if (code) {
+        request
+          .post('https://haobtc.com/auth/oauth/get_token/')
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+          .set('Accept', 'application/json')
+          .send({
+            client_id: config.haobtcClientId,
+            client_secret: config.haobtcClientSecret,
+            code: code
+          })
+          .end(function(err, result) {
+            cb(null, result);
+          });
+      } else {
+        cb(null, {body: {
+          ok: false
+        }});
+      }
+    }],
+    getHaobtcProfile: ['getHaobtcToken', function(results, cb) {
+      var haobtcToken = results.getHaobtcToken.body;
+      if (haobtcToken.ok) {
+        request
+          .get('https://haobtc.com/api/v1/user/profile/')
+          .query({access_token: haobtcToken.access_token})
+          .set('Accept', 'application/json')
+          .end(function(err, result) {
+            cb(null, result);
+          });
+      } else {
+        cb(null, {body: {
+          ok: false
+        }});
+      }
+    }]
   }, function(err, results) {
     var user = results.getUserInfo.body;
     var bonus = results.getBonusAddress.body;
+    var haobtcProfile = results.getHaobtcProfile.body;
 
     // 未登录、登录超时
     if (user.code === 1) {
@@ -107,7 +156,8 @@ exports.dividend = function(req, res) {
     res.render('platform/update-dividend', {
       nav: 'dashboard',
       user: user.data,
-      bonus: bonus.data
+      bonus: bonus.data,
+      haobtcProfile: haobtcProfile
     });
   });
 };

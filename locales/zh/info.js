@@ -5,5 +5,5 @@
   "info-gender-type-1": "男",
   "info-gender-type-2": "女",
   "info-gender-type-3": "保密",
-  "info-save": "保存"
+  "info-submit": "提交"
 }

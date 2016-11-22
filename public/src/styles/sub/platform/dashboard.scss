@@ -20,6 +20,39 @@
     padding: 30px 15px;
     border-top: 1px solid #e6e6e6;
     border-bottom: 1px solid #e6e6e6;
+    .tips {
+      color: #999;
+    }
+  }
+  .dividend-address {
+    margin-top: 4px;
+    .box {
+      height: 110px;
+      padding: 20px 15px;
+      margin-top: 18px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      text-align: center;
+      .glyphicon {
+        display: block;
+        margin-bottom: 14px;
+        font-size: 26px;
+      }
+    }
+    .box-green {
+      color: #3c763d;
+      border-color: #d6e9c6;
+      .glyphicon {
+        color: #d6e9c6;
+      }
+    }
+    .box-yellow {
+      color: #8a6d3b;
+      border-color: #faebcc;
+      .glyphicon {
+        color: #faebcc;
+      }
+    }
   }
   .dividend {
     padding: 15px;
@@ -29,5 +62,8 @@
   }
   .dividend-less {
     padding: 30px 15px;
+    .tips {
+      color: #999;
+    }
   }
 }
