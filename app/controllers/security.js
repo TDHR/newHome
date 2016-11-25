@@ -35,6 +35,7 @@ exports.index = function(req, res) {
       return res.redirect('/login');
     }
     res.render('platform/security', {
+      layout: 'platform',
       nav: 'security',
       user: user.data,
       loginInfo: loginInfo.data
@@ -45,6 +46,7 @@ exports.index = function(req, res) {
 // 「修改密码」页面
 exports.pwd = function(req, res) {
   res.render('platform/modify-password', {
+    layout: 'platform',
     nav: 'security'
   });
 };
@@ -69,6 +71,7 @@ exports.modifyPwd = function(req, res) {
 // 「修改手机」页面
 exports.phone = function(req, res) {
   res.render('platform/modify-phone', {
+    layout: 'platform',
     nav: 'security'
   });
 };
@@ -112,6 +115,7 @@ exports.viewId = function(req, res) {
       return res.redirect('/login');
     }
     res.render('platform/view-id', {
+      layout: 'platform',
       nav: 'security',
       user: user.data
     });
@@ -121,6 +125,7 @@ exports.viewId = function(req, res) {
 // 「更新实名认证」页面
 exports.verifyId = function(req, res) {
   res.render('platform/verify-id', {
+    layout: 'platform',
     nav: 'security'
   });
 };
@@ -146,6 +151,7 @@ exports.verifyIdPost = function(req, res) {
 exports.viewBankCard = function(req, res) {
   var userToken = req.cookies.userToken;
   res.render('platform/view-bank-card', {
+    layout: 'platform',
     nav: 'security'
   });
 };
@@ -153,6 +159,7 @@ exports.viewBankCard = function(req, res) {
 // 「银行卡认证」页面
 exports.verifyBankCard = function(req, res) {
   res.render('platform/verify-bank-card', {
+    layout: 'platform',
     nav: 'security'
   });
 };
@@ -165,6 +172,7 @@ exports.verifyBankCardPost = function(req, res) {
 // 「风险承受能力评估」页面
 exports.riskTolerance = function(req, res) {
   res.render('platform/risk-tolerance', {
+    layout: 'platform',
     nav: 'security'
   });
 };

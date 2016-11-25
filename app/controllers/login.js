@@ -5,6 +5,7 @@ var config = require('../../config/config');
 // 登录页面
 exports.index = function(req, res) {
   res.render('platform/login', {
+    layout: 'platform',
     nav: 'login'
   });
 };

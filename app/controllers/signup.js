@@ -5,6 +5,7 @@ var config = require('../../config/config');
 // 注册页面
 exports.index = function(req, res) {
   res.render('platform/signup', {
+    layout: 'platform',
     nav: 'signup'
   });
 };

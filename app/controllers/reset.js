@@ -5,6 +5,7 @@ var config = require('../../config/config');
 // 「忘记密码」页面
 exports.index = function(req, res) {
   res.render('platform/reset', {
+    layout: 'platform',
     nav: 'reset'
   });
 };

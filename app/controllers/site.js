@@ -95,3 +95,10 @@ exports.article = function(req, res) {
       });
     });
 };
+
+// 关于 POS
+exports.helpPos = function(req, res) {
+  res.render('site/help-pos', {
+    nav: ''
+  });
+};

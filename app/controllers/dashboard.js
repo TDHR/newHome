@@ -54,6 +54,7 @@ exports.index = function(req, res) {
         return res.redirect('/user/update-dividend?code=' + code);
     } else {
       res.render('platform/dashboard', {
+        layout: 'platform',
         nav: 'dashboard',
         user: user.data,
         asset: asset.data,
@@ -67,6 +68,7 @@ exports.index = function(req, res) {
 // 钱包详情
 exports.wallet = function(req, res) {
   res.render('platform/wallet', {
+    layout: 'platform',
     nav: 'dashboard'
   });
 };
@@ -74,6 +76,7 @@ exports.wallet = function(req, res) {
 // 绑定钱包
 exports.bindWallet = function(req, res) {
   res.render('platform/bind-wallet', {
+    layout: 'platform',
     nav: 'dashboard'
   });
 };
@@ -154,6 +157,7 @@ exports.dividend = function(req, res) {
     }
 
     res.render('platform/update-dividend', {
+      layout: 'platform',
       nav: 'dashboard',
       user: user.data,
       bonus: bonus.data,

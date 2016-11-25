@@ -24,6 +24,7 @@ exports.index = function(req, res) {
       return res.redirect('/login');
     }
     res.render('platform/info', {
+      layout: 'platform',
       nav: 'info',
       user: user.data
     });
