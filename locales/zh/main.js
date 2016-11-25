@@ -16,5 +16,9 @@
   "footer-copyright": "&#169; 2016 REITs (Beijing) FinTech Co., Ltd. All Rights Reserved&nbsp;&nbsp; &#124; &nbsp;&nbsp;京ICP备16039726号-1",
   "browsehappy": "你的浏览器太古老啦! 请<a href=\"http://browsehappy.com/\">升级</a>到其它现代浏览器，以便正常访问本网站。",
   "my-assets": "我的资产",
-  "quit": "退出"
+  "quit": "退出",
+  "submit": "提交",
+  "modify": "修改",
+  "view": "查看",
+  "verify": "认证"
 }

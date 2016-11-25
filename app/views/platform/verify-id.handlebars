@@ -1,0 +1,36 @@
+<div class="page-verify-id">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-2">
+        {{> sidebar}}
+      </div>
+      <div class="col-md-10 col-sm-10">
+        <ol class="breadcrumb platform-breadcrumb">
+          <li><a href="/user/security">{{__ 'sidebar-security'}}</a></li>
+          <li class="active">{{__ "verify-id-title"}}</li>
+        </ol>
+        <form id="form" class="form-normal">
+          <div class="form-group">
+            <label for="idPhoto1">{{__ 'verify-id-photo1'}}</label>
+            <input type="file" class="form-control" id="idPhoto1">
+            <span class="help-block">{{__ 'verify-id-photo-help1'}}</span>
+          </div>
+          <div class="form-group">
+            <label for="idPhoto2">{{__ 'verify-id-photo2'}}</label>
+            <input type="file" class="form-control" id="idPhoto2">
+          </div>
+          <div class="form-group">
+            <label for="photo">{{__ 'verify-id-photo3'}}</label>
+            <input type="file" class="form-control" id="photo">
+            <span class="help-block">{{__ 'verify-id-photo-help2'}}</span>
+          </div>
+          <button id="btnSubmit" type="button" class="btn btn-primary btn-submit">{{__ 'submit'}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> footer}}
+{{> scripts}}
+<script src="/scripts/verify-id.js{{fileTail}}"></script>

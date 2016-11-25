@@ -20,8 +20,12 @@
 @import 'sub/platform/wallet';
 @import 'sub/platform/bind-wallet';
 @import 'sub/platform/update-dividend';
+@import 'sub/platform/verify-id';
 @import 'sub/platform/view-id';
+@import 'sub/platform/verify-bank-card';
+@import 'sub/platform/view-bank-card';
 @import 'sub/platform/modify-password';
-@import 'sub/platform/update-verification';
+@import 'sub/platform/modify-phone';
+@import 'sub/platform/risk-tolerance';
 @import 'sub/explorer/index';
 @import 'sub/explorer/angels';

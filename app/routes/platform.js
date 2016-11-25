@@ -67,10 +67,25 @@ module.exports = function(app, auth) {
   app.get('/user/modify-password', auth.needToLogin, security.pwd);
   app.post('/user/modify-password', auth.needToLogin, security.modifyPwd);
 
+  // 修改手机
+  app.get('/user/modify-phone', auth.needToLogin, security.phone);
+  app.post('/user/modify-phone', auth.needToLogin, security.modifyPhone);
+
   // 查看实名认证信息
-  app.get('/user/view-id', auth.needToLogin, security.view);
+  app.get('/user/view-id', auth.needToLogin, security.viewId);
 
   // 更新实名认证信息
-  app.get('/user/update-verification', auth.needToLogin, security.verification);
-  app.post('/user/update-verification', auth.needToLogin, security.updateVerification);
+  app.get('/user/verify-id', auth.needToLogin, security.verifyId);
+  app.post('/user/verify-id', auth.needToLogin, security.verifyIdPost);
+
+  // 查看银行卡认证
+  app.get('/user/view-bank-card', auth.needToLogin, security.viewBankCard);
+
+  // 银行卡认证
+  app.get('/user/verify-bank-card', auth.needToLogin, security.verifyBankCard);
+  app.post('/user/verify-bank-card', auth.needToLogin, security.verifyBankCardPost);
+
+  // 风险承受能力评估
+  app.get('/user/risk-tolerance', auth.needToLogin, security.riskTolerance);
+  app.post('/user/risk-tolerance', auth.needToLogin, security.riskTolerancePost);
 };

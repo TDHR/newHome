@@ -66,8 +66,32 @@ exports.modifyPwd = function(req, res) {
     });
 };
 
+// 「修改手机」页面
+exports.phone = function(req, res) {
+  res.render('platform/modify-phone', {
+    nav: 'security'
+  });
+};
+
+// 「修改手机」接口
+exports.modifyPhone = function(req, res) {
+  // request
+  //   .post(config.platform + '/api/vipuser/updatepassword')
+  //   .set('Content-Type', 'application/x-www-form-urlencoded')
+  //   .set('Accept', 'application/json')
+  //   .send(req.body)
+  //   .end(function(err, result) {
+  //     var body = result.body;
+  //     return res.json({
+  //       success: body.success,
+  //       code: body.code,
+  //       msg: body.message
+  //     });
+  //   });
+};
+
 // 查看实名认证信息
-exports.view = function(req, res) {
+exports.viewId = function(req, res) {
   var userToken = req.cookies.userToken;
   async.auto({
     // 获取用户信息
@@ -95,14 +119,14 @@ exports.view = function(req, res) {
 };
 
 // 「更新实名认证」页面
-exports.verification = function(req, res) {
-  res.render('platform/update-verification', {
+exports.verifyId = function(req, res) {
+  res.render('platform/verify-id', {
     nav: 'security'
   });
 };
 
 // 「更新实名认证」接口
-exports.updateVerification = function(req, res) {
+exports.verifyIdPost = function(req, res) {
   request
     .post(config.platform + '/api/vipuser/updateuserimage')
     .set('Content-Type', 'application/x-www-form-urlencoded')
@@ -117,3 +141,35 @@ exports.updateVerification = function(req, res) {
       });
     });
 }
+
+// 查看银行卡信息
+exports.viewBankCard = function(req, res) {
+  var userToken = req.cookies.userToken;
+  res.render('platform/view-bank-card', {
+    nav: 'security'
+  });
+};
+
+// 「银行卡认证」页面
+exports.verifyBankCard = function(req, res) {
+  res.render('platform/verify-bank-card', {
+    nav: 'security'
+  });
+};
+
+// 「银行卡认证」接口
+exports.verifyBankCardPost = function(req, res) {
+  
+}
+
+// 「风险承受能力评估」页面
+exports.riskTolerance = function(req, res) {
+  res.render('platform/risk-tolerance', {
+    nav: 'security'
+  });
+};
+
+// 「风险承受能力评估」提交接口
+exports.riskTolerancePost = function(req, res) {
+
+};

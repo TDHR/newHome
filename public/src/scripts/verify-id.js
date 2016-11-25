@@ -26,7 +26,7 @@ function submitForm(photos) {
   data.photo = photos.photo;
   $.ajax({
     method: 'POST',
-    url: '/user/update-verification',
+    url: '/user/verify-id',
     data: data,
     cache: false,
     success: function(res) {

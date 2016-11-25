@@ -11,7 +11,7 @@ var config = {
     },
     port: process.env.PORT || 3000,
     weixin: 'http://app.reitschain.com',
-    platform: 'http://192.168.2.206:8080/reits',
+    platform: 'http://192.168.2.184:8080/reits',
     haobtcClientId: '292716efb54f42cb88a6',
     haobtcClientSecret: '5e7de2e903644ccb863d9499d4a9c2bf2399b19a'
   },

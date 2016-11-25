@@ -6,6 +6,7 @@
       </div>
       <div class="col-md-10 col-sm-10">
         <div class="panel-list">
+          {{!-- 登录密码 --}}
           <div class="panel panel-success">
             <div class="panel-heading">
               <div class="row">
@@ -14,12 +15,28 @@
                   {{__ 'security-login-password'}}
                 </div>
                 <div class="col-md-3 text-right">
-                  <a href="/user/modify-password">{{__ 'security-modify'}}</a>
+                  <a href="/user/modify-password">{{__ 'modify'}}</a>
                 </div>
               </div>
             </div>
             <div class="panel-body">{{__ 'security-login-password-helper'}}</div>
           </div>
+          {{!-- 手机号码 --}}
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-9">
+                  <span class="glyphicon glyphicon-ok"></span>
+                  {{__ 'security-phone'}}
+                </div>
+                <div class="col-md-3 text-right">
+                  <a href="/user/modify-phone">{{__ 'modify'}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">{{__ 'security-phone-helper'}}</div>
+          </div>
+          {{!-- 实名认证 --}}
           {{#ifCond user.certificationStatus "===" 0}}
           <div class="panel panel-danger">
           {{/ifCond}}
@@ -34,10 +51,10 @@
                   {{#ifCond user.certificationStatus "===" 0}}
                     <div class="col-md-9">
                       <span class="glyphicon glyphicon-remove"></span>
-                      {{__ 'security-realname-verification-fail'}}
+                      {{__ 'security-realname-verification-failed'}}
                     </div>
                     <div class="col-md-3 text-right">
-                      <a href="/user/update-verification">{{__ 'security-update'}}</a>
+                      <a href="/user/verify-id">{{__ 'verify'}}</a>
                     </div>
                   {{/ifCond}}
                   {{#ifCond user.certificationStatus "===" 1}}
@@ -52,36 +69,67 @@
                       {{__ 'security-realname-verification'}}
                     </div>
                     <div class="col-md-3 text-right">
-                      <a href="/user/view-id">{{__ 'security-view'}}</a>
+                      <a href="/user/view-id">{{__ 'view'}}</a>
                     </div>
                   {{/ifCond}}
                </div>
             </div>
             <div class="panel-body">{{__ 'security-view-helper'}}</div>
           </div>
+          {{!-- 银行卡认证 --}}
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-9">
+                  <span class="glyphicon glyphicon-filter"></span>
+                  {{__ 'security-bank-card-unverified'}}
+                </div>
+                <div class="col-md-3 text-right">
+                  <a href="/user/verify-bank-card">{{__ 'verify'}}</a>
+                  <a href="/user/view-bank-card">{{__ 'view'}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">{{__ 'security-bank-card-helper'}}</div>
+          </div>
+          {{!-- 风险承受能力评估 --}}
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-md-9">
+                  <span class="glyphicon glyphicon-filter"></span>
+                  {{__ 'security-risk-not-assessed'}}
+                </div>
+                <div class="col-md-3 text-right">
+                  <a href="/user/risk-tolerance">{{__ 'security-risk-assess'}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="panel-body">{{__ 'security-risk-helper'}}</div>
+          </div>
         </div>
-        <div class="record-list table-responsive">
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <td>{{__ 'security-login-records'}}</td>
-              </tr>
-              <tr>
-                <th>{{__ 'security-login-time'}}</th>
-                <th>{{__ 'security-login-ip'}}</th>
-                <th>{{__ 'security-login-location'}}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each loginInfo}}
-              <tr>
-                <td>{{dateFormat this.loginTime}}</td>
-                <td>{{#if this.ip}}{{this.ip}}{{else}}-{{/if}}</td>
-                <td>{{#if this.location}}{{this.location}}{{else}}-{{/if}}</td>
-              </tr>
-              {{/each}}
-            </tbody>
-          </table>
+        <div class="record-list">
+          <div class="record-title">{{__ 'security-login-records'}}</div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>{{__ 'security-login-time'}}</th>
+                  <th>{{__ 'security-login-ip'}}</th>
+                  <th>{{__ 'security-login-location'}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each loginInfo}}
+                <tr>
+                  <td>{{dateFormat this.loginTime}}</td>
+                  <td>{{#if this.ip}}{{this.ip}}{{else}}-{{/if}}</td>
+                  <td>{{#if this.location}}{{this.location}}{{else}}-{{/if}}</td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
