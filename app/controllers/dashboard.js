@@ -11,8 +11,8 @@ exports.index = function(req, res) {
     // 获取用户信息
     getUserInfo: function(cb) {
       request
-        .get(config.platform + '/api/vipuser/getuserinfo?token=' + userToken)
-        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({token: userToken})
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -21,8 +21,8 @@ exports.index = function(req, res) {
     // 获取资产
     getAsset: function(cb) {
       request
-        .get(config.platform + '/api/vipuser/getasset?token=' + userToken)
-        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .get(config.platform + '/api/vipuser/getasset')
+        .query({token: userToken})
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -31,8 +31,8 @@ exports.index = function(req, res) {
     // 分红地址
     getBonusAddress: function(cb) {
       request
-        .get(config.platform + '/api/vipuser/getbonusaddress?token=' + userToken)
-        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .get(config.platform + '/api/vipuser/getbonusaddress')
+        .query({token: userToken})
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -92,8 +92,8 @@ exports.dividend = function(req, res) {
     // 获取用户信息
     getUserInfo: function(cb) {
       request
-        .get(config.platform + '/api/vipuser/getuserinfo?token=' + userToken)
-        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({token: userToken})
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -102,8 +102,8 @@ exports.dividend = function(req, res) {
     // 分红地址
     getBonusAddress: function(cb) {
       request
-        .get(config.platform + '/api/vipuser/getbonusaddress?token=' + userToken)
-        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .get(config.platform + '/api/vipuser/getbonusaddress')
+        .query({token: userToken})
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);

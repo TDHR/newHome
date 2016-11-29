@@ -1,0 +1,47 @@
+<div class="page-explorer-tx">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/explorer/asset/{{assetId}}">首页</a></li>
+      <li class="active">交易详情</li>
+    </ol>
+    <div class="info">
+      <h4>交易详情</h4>
+      <div class="detail">
+        <div><span>Hash：</span>{{txId}}</div>
+        <div><span>交易总额：</span>{{total}}</div>
+        <div><span>交易时间：</span>{{dateFormat info.time 'default' 'unix'}}</div>
+        <div><span>确认次数：</span>{{info.confirmations}}</div>
+      </div>
+    </div>
+    {{#if info.list}}
+    <div class="address-list">
+      <div class="row">
+        <div class="col-md-5">
+          {{#each info.list}}
+            {{#ifCond this.way '===' -1}}
+              <div class="list-item clearfix">
+                <div class="address" title="{{this.address}}">{{this.address}}</div>
+                <div class="amount amount-from">{{this.amount}}</div>
+              </div>
+            {{/ifCond}}
+          {{/each}}
+        </div>
+        <div class="col-md-2 address-arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
+        <div class="col-md-5">
+          {{#each info.list}}
+            {{#ifCond this.way '===' 1}}
+              <div class="list-item clearfix">
+                <div class="address" title="{{this.address}}">{{this.address}}</div>
+                <div class="amount amount-to">{{this.amount}}</div>
+              </div>
+            {{/ifCond}}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
+
+{{> footer}}
+{{> scripts}}

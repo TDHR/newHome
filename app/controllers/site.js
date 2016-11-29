@@ -56,7 +56,7 @@ exports.articles = function(req, res) {
   var limit = req.query.limit || 4;
   request
     .get(config.weixin + '/ArticleOut/GetList')
-    .send({
+    .query({
       language: res.getLocale() || 'zh',
       page: page,
       limit: limit
@@ -80,7 +80,7 @@ exports.articles = function(req, res) {
 exports.article = function(req, res) {
   request
     .get(config.weixin + '/ArticleOut/GetDetail')
-    .send({
+    .query({
       language: res.getLocale() || 'zh',
       id: req.params.articleID
     })
