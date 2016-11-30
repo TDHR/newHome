@@ -1,4 +1,8 @@
 {
+  "verify-real-name": "真实姓名",
+  "verify-id-type": "证件类型",
+  "verify-id-type-1": "身份证",
+  "verify-id-num": "证件号码",
   "verify-id-title": "实名认证",
   "verify-id-photo1": "身份证正面",
   "verify-id-photo2": "身份证背面",

@@ -98,7 +98,7 @@ gulp.task('watch', function() {
   gulp.watch(path.join(conf.paths.src, '/styles/**/*.scss'), ['devStyles', 'livereload']);
   gulp.watch(path.join(conf.paths.src, '/scripts/*.js'), ['devScripts', 'livereload']);
   gulp.watch(path.join(conf.paths.src, '/scripts/**/*.js'), ['devScripts', 'livereload']);
-  gulp.watch(path.join(conf.paths.locales, '/**/*.js'), ['locales', 'livereload']);
+  gulp.watch(path.join(conf.paths.locales, '/**/**/*.js'), ['locales', 'livereload']);
   gulp.watch(path.join(conf.paths.src, '/tpl/**/*.html'), ['tpl']);
 });
 

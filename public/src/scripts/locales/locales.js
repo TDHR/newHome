@@ -3,7 +3,8 @@ import Login from './platform/login';
 import Signup from './platform/signup';
 import Reset from './platform/reset';
 import Info from './platform/info';
-import Security from './platform/security';
+import VerifyId from './platform/verify-id';
+import ModifyPassword from './platform/modify-password';
 import Dividend from './platform/dividend';
 
 export default {
@@ -12,6 +13,7 @@ export default {
   signup: Signup,
   reset: Reset,
   info: Info,
-  security: Security,
+  verifyId: VerifyId,
+  modifyPassword: ModifyPassword,
   dividend: Dividend
 };

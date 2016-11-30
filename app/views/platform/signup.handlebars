@@ -1,82 +1,42 @@
 <div class="page-signup">
   <div id="formHolder" class="container">
     <div class="form-big-holder">
-      <div class="steps">
-        <div class="row">
-          <div id="stepTitle1" class="step col-md-6 col-sm-6 active">
-            <span class="num">1</span>
-            <span class="text">{{__ 'signup-step1'}}</span>
-          </div>
-          <div id="stepTitle2" class="step col-md-6 col-sm-6">
-            <span class="num">2</span>
-            <span class="text">{{__ 'signup-step2'}}</span>
-          </div>
-        </div>
-      </div>
       <form id="form" class="form-big">
-        <div id="step1">
-          <div class="form-group">
-            <label for="phoneNum">{{__ 'signup-phone'}}</label>
-            <input type="text" class="form-control input-lg" id="phoneNum" name="phoneNum">
-          </div>
-          <div class="form-group">
-            <label for="phoneValidCode">{{__ 'signup-sms'}}</label>
-            <div class="row">
-              <div class="col-md-8 col-sm-8 col-xs-7">
-                <input type="text" class="form-control input-lg" id="phoneValidCode" name="phoneValidCode">
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-5">
-                <a id="btnSmsCode" class="btn-sms">{{__ 'signup-get-sms'}}</a>
-              </div>
+        <div class="form-group">
+          <label for="phoneNum">{{__ 'signup-phone'}}</label>
+          <input type="text" class="form-control input-lg" id="phoneNum" name="phoneNum">
+        </div>
+        <div class="form-group">
+          <label for="phoneValidCode">{{__ 'signup-sms'}}</label>
+          <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-7">
+              <input type="text" class="form-control input-lg" id="phoneValidCode" name="phoneValidCode">
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-5">
+              <a id="btnSmsCode" class="btn-sms">{{__ 'signup-get-sms'}}</a>
             </div>
           </div>
-          <div class="form-group">
-            <label for="password">{{__ 'signup-pwd1'}}</label>
-            <input type="password" class="form-control input-lg" id="password" name="password">
-          </div>
-          <div class="form-group">
-            <label for="confirmPassword">{{__ 'signup-pwd2'}}</label>
-            <input type="password" class="form-control input-lg" id="confirmPassword">
-          </div>
-          <button id="btnNext" type="button" class="btn btn-success btn-lg btn-block btn-submit">{{__ 'signup-next'}}</button>
         </div>
-        <div id="step2" class="hide">
-          <div class="form-group">
-            <label for="realName">{{__ 'signup-real-name'}}</label>
-            <input type="text" class="form-control input-lg" id="realName" name="realName">
-          </div>
-          <div class="form-group">
-            <label for="idType">{{__ 'signup-id-type'}}</label>
-            <select id="idType" class="form-control input-lg disabled" name="idType">
-              <option value="1" selected >{{__ 'signup-id-type-1'}}</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="idNum">{{__ 'signup-id-num'}}</label>
-            <input type="text" class="form-control input-lg" id="idNum" name="idNum">
-          </div>
-          <div class="form-group">
-            <label for="idPhoto1">{{__ 'signup-photo1'}}</label>
-            <input type="file" class="form-control input-lg" id="idPhoto1">
-            <span class="help-block">{{__ 'signup-photo-help1'}}</span>
-          </div>
-          <div class="form-group">
-            <label for="idPhoto2">{{__ 'signup-photo2'}}</label>
-            <input type="file" class="form-control input-lg" id="idPhoto2">
-          </div>
-          <div class="form-group">
-            <label for="photo">{{__ 'signup-photo3'}}</label>
-            <input type="file" class="form-control input-lg" id="photo">
-            <span class="help-block">{{__ 'signup-photo-help2'}}</span>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input id="terms" type="checkbox">
-              {{{__ 'signup-terms'}}}
-            </label>
-          </div>
-          <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">{{__ 'signup-register'}}</button>
+        <div class="form-group">
+          <label for="password">{{__ 'signup-pwd1'}}</label>
+          <input type="password" class="form-control input-lg" id="password" name="password">
         </div>
+        <div class="form-group">
+          <label for="confirmPassword">{{__ 'signup-pwd2'}}</label>
+          <input type="password" class="form-control input-lg" id="confirmPassword">
+        </div>
+        <div class="form-group">
+          <label for="invitationCode">{{__ 'invitation-code'}}</label>
+          <input type="text" class="form-control input-lg" id="invitationCode" name="invitationCode">
+          <span class="help-block">{{__ 'optional'}}</span>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input id="terms" type="checkbox">
+            {{{__ 'signup-terms'}}}
+          </label>
+        </div>
+        <button id="btnSubmit" type="button" class="btn btn-primary btn-lg btn-block btn-submit">{{__ 'signup-register'}}</button>
       </form>
     </div>
   </div>

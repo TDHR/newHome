@@ -6,6 +6,7 @@ var info = require('./../controllers/info');
 var notification = require('./../controllers/notification');
 var security = require('./../controllers/security');
 var phoneCode = require('./../controllers/phone-code');
+var invitation = require('./../controllers/invitation-to-reward');
 
 module.exports = function(app, auth) {
   // 登录页面
@@ -88,4 +89,7 @@ module.exports = function(app, auth) {
   // 风险承受能力评估
   app.get('/user/risk-tolerance', auth.needToLogin, security.riskTolerance);
   app.post('/user/risk-tolerance', auth.needToLogin, security.riskTolerancePost);
+
+  // 邀请奖励
+  app.get('/user/invitation-to-reward', auth.needToLogin, invitation.index);
 };

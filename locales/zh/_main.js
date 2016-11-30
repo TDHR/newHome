@@ -1,8 +1,9 @@
 {
   "language": "中文",
   "language-code": "zh",
-  "title": "瑞资（北京）",
+  "title": "瑞资",
   "reits-chain": "瑞资链",
+  "user-center": "用户中心",
   "nav-home": "首页",
   "nav-values": "核心价值",
   "nav-service": "服务",
@@ -20,5 +21,7 @@
   "submit": "提交",
   "modify": "修改",
   "view": "查看",
-  "verify": "认证"
+  "verify": "认证",
+  "invitation-code": "邀请码",
+  "optional": "非必填"
 }

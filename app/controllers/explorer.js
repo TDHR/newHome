@@ -83,6 +83,7 @@ exports.index = function(req, res) {
     var monthTrans = results.getMonthTransTops.body;
 
     res.render('explorer/index', {
+      layout: 'explorer',
       nav: 'explorer',
       assetId: assetId,
       base: base.data,
@@ -175,6 +176,7 @@ exports.user = function(req, res) {
     var tx = results.getTx.body;
 
     res.render('explorer/user', {
+      layout: 'explorer',
       nav: 'explorer',
       assetId: assetId,
       userId: userId,
@@ -217,6 +219,7 @@ exports.tx = function(req, res) {
     }
 
     res.render('explorer/tx', {
+      layout: 'explorer',
       nav: 'explorer',
       assetId: assetId,
       info: info.data,

@@ -11,7 +11,7 @@ export default {
     'error-code-2': '提交失败，请稍后重试',
     'error-code-3': '验证码无效，请稍后重试',
     'error-code-4': '验证码输入错误，请重试',
-    'success': '提交成功！5秒后将自动跳回主页'
+    'success': '提交成功！5秒后将自动跳转'
   },
   en: {
     'submit-err-1': 'Submit failed, please try again later',
@@ -25,6 +25,6 @@ export default {
     'error-code-2': 'Submit failed, please try again later',
     'error-code-3': 'Invalid verification code, please try again later',
     'error-code-4': 'Verification code input errors, please try again',
-    'success': 'Submit success! After 5 seconds will automatically jump back to the home page'
+    'success': 'Submitted successfully! After 5 seconds will automatically jump'
   }
 };

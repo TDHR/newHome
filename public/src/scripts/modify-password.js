@@ -31,14 +31,16 @@ function submitForm() {
     },
     success: function(res) {
       if (res.success) {
-        Alert(Locales.security[locale].success, 5000, 'success');
+        Alert(Locales.modifyPassword[locale].success, 5000, 'success', function() {
+          location.href = '/user/dashboard';
+        });
       } else {
         // 根据错误码输出相应的提示
-        Alert(Locales.security[locale]['error-code-' + res.code], 5000);
+        Alert(Locales.modifyPassword[locale]['error-code-' + res.code], 5000);
       }
     },
     error: function() {
-      Alert(Locales.security[locale]['submit-err-1'], 5000);
+      Alert(Locales.modifyPassword[locale]['submit-err-1'], 5000);
     },
     complete: function() {
       $('#btnSubmit').removeClass('disabled');
@@ -54,24 +56,24 @@ $('#btnSubmit').on('click', function() {
 
   let oldPassword = $('#oldPassword').val();
   if (!Validate.length(oldPassword, 6)) {
-    Alert(Locales.security[locale]['old-pwd-err-1'], 5000);
+    Alert(Locales.modifyPassword[locale]['old-pwd-err-1'], 5000);
     return false;
   }
 
   let newPassword = $('#newPassword').val();
   if (!Validate.length(newPassword, 6)) {
-    Alert(Locales.security[locale]['new-pwd-err-1'], 5000);
+    Alert(Locales.modifyPassword[locale]['new-pwd-err-1'], 5000);
     return false;
   }
 
   let confirmPassword = $('#confirmPassword').val();
   if (Validate.length(confirmPassword, 6)) {
     if (newPassword !== confirmPassword) {
-      Alert(Locales.security[locale]['confirm-pwd-err-1'], 5000);
+      Alert(Locales.modifyPassword[locale]['confirm-pwd-err-1'], 5000);
       return false;
     }
   } else {
-    Alert(Locales.security[locale]['confirm-pwd-err-2'], 5000);
+    Alert(Locales.modifyPassword[locale]['confirm-pwd-err-2'], 5000);
     return false;
   }
 

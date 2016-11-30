@@ -17,10 +17,8 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
 gulp.task('locales', function() {
   var lang = ['zh', 'en'];
   for (var i = 0; i < lang.length; i++) {
-    lang[i] = lang[i] = gulp.src(path.join(conf.paths.locales, '/' + lang[i] + '/*.js'))
-      .pipe(plumber())
+    lang[i] = gulp.src(path.join(conf.paths.locales, '/' + lang[i] + '/**/*.js'))
       .pipe(mergeJson(lang[i] + '.js'))
-      .pipe(plumber.stop())
       .pipe(gulp.dest(path.join(conf.paths.locales)));
   }
   return merge(lang[0], lang[1]);

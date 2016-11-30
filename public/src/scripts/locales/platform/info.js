@@ -10,9 +10,9 @@ export default {
   en: {
     'submit-err-1': 'Submit failed, please try again later',
     'nickname-err-1': 'Please enter the nickname',
-    'success': 'Submit success',
+    'success': 'Submitted successfully',
     'error-code-1': 'Abnormal data format, make sure and try again',
     'error-code-2': 'Please login first',
-    'error-code-3': 'Submit failed, please try again later'
+    'error-code-3': 'Submission failed, please try again later'
   }
 };

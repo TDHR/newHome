@@ -19,7 +19,7 @@ let locale = Cookies.get('REITsLocale');
  * @param [object] photos
  */
 function submitForm(photos) {
-  let data = {};
+  let data = $('#form').serializeObject();
   data.token = Cookies.get('userToken');
   data.idPhoto1 = photos.idPhoto1;
   data.idPhoto2 = photos.idPhoto2;
@@ -31,14 +31,16 @@ function submitForm(photos) {
     cache: false,
     success: function(res) {
       if (res.success) {
-        Alert(Locales.security[locale]['success'], 5000, 'success');
+        Alert(Locales.verifyId[locale].success, 5000, 'success', function() {
+          location.href = '/user/dashboard';
+        });
       } else {
         // 根据错误码输出相应的提示
-        Alert(Locales.security[locale]['photo-error-code-' + res.code], 5000);
+        Alert(Locales.verifyId[locale]['error-code-' + res.code], 5000);
       }
     },
     error: function() {
-      Alert(Locales.security[locale]['submit-err-1'], 5000);
+      Alert(Locales.verifyId[locale]['submit-err-1'], 5000);
     },
     complete: function() {
       $('#btnSubmit').removeClass('disabled');
@@ -72,12 +74,12 @@ function uploadPhoto() {
         submitForm(res);
       } else {
         // 根据相应的错误码进行提示
-        Alert(Locales.security[locale]['photo-err-1'], 5000);
+        Alert(Locales.verifyId[locale]['photo-err-1'], 5000);
         $('#btnSubmit').removeClass('disabled');
       }
     },
     error: function() {
-      Alert(Locales.security[locale]['submit-err-1'], 5000);
+      Alert(Locales.verifyId[locale]['submit-err-1'], 5000);
       $('#btnSubmit').removeClass('disabled');
     }
   });
@@ -89,9 +91,21 @@ $('#btnSubmit').on('click', function() {
     return false;
   }
 
+  let realName = $('#realName').val();
+  if (!realName) {
+    Alert(Locales.verifyId[locale]['real-name-err-1'], 5000);
+    return false;
+  }
+
+  let idNum = $('#idNum').val();
+  if (!Validate.length(idNum, 18)) {
+    Alert(Locales.verifyId[locale]['id-num-err-1'], 5000);
+    return false;
+  }
+
   // 验证浏览器是否支持图片上传
   if (!window.FormData || typeof XMLHttpRequest === 'undefined' || typeof FileReader === "undefined") {
-    Alert(Locales.security[locale]['browser-tips']);
+    Alert(Locales.verifyId[locale]['browser-tips']);
     return false;
   }
 
@@ -99,11 +113,11 @@ $('#btnSubmit').on('click', function() {
   if (photo1.val()) {
     photo1 = photo1[0];
     if (!Validate.image(photo1.value)) {
-      Alert(Locales.security[locale]['photo-err-1'], 5000);
+      Alert(Locales.verifyId[locale]['photo-err-1'], 5000);
       return false;
     }
   } else {
-    Alert(Locales.security[locale]['photo-err-2'], 5000);
+    Alert(Locales.verifyId[locale]['photo-err-2'], 5000);
     return false;
   }
 
@@ -111,11 +125,11 @@ $('#btnSubmit').on('click', function() {
   if (photo2.val()) {
     photo2 = photo2[0];
     if (!Validate.image(photo2.value)) {
-      Alert(Locales.security[locale]['photo-err-1'], 5000);
+      Alert(Locales.verifyId[locale]['photo-err-1'], 5000);
       return false;
     }
   } else {
-    Alert(Locales.security[locale]['photo-err-3'], 5000);
+    Alert(Locales.verifyId[locale]['photo-err-3'], 5000);
     return false;
   }
 
@@ -123,11 +137,11 @@ $('#btnSubmit').on('click', function() {
   if (photo3.val()) {
     photo3 = photo3[0];
     if (!Validate.image(photo3.value)) {
-      Alert(Locales.security[locale]['photo-err-1'], 5000);
+      Alert(Locales.verifyId[locale]['photo-err-1'], 5000);
       return false;
     }
   } else {
-    Alert(Locales.security[locale]['photo-err-4'], 5000);
+    Alert(Locales.verifyId[locale]['photo-err-4'], 5000);
     return false;
   }
 

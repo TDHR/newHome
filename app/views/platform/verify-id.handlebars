@@ -11,6 +11,20 @@
         </ol>
         <form id="form" class="form-normal">
           <div class="form-group">
+            <label for="realName">{{__ 'verify-real-name'}}</label>
+            <input type="text" class="form-control" id="realName" name="realName">
+          </div>
+          <div class="form-group">
+            <label for="idType">{{__ 'verify-id-type'}}</label>
+            <select id="idType" class="form-control disabled" name="idType">
+              <option value="1" selected >{{__ 'verify-id-type-1'}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="idNum">{{__ 'verify-id-num'}}</label>
+            <input type="text" class="form-control" id="idNum" name="idNum">
+          </div>
+          <div class="form-group">
             <label for="idPhoto1">{{__ 'verify-id-photo1'}}</label>
             <input type="file" class="form-control" id="idPhoto1">
             <span class="help-block">{{__ 'verify-id-photo-help1'}}</span>

@@ -1,0 +1,58 @@
+<div class="page-invitation-to-reward">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-sm-2">
+        {{> sidebar}}
+      </div>
+      <div class="col-md-10 col-sm-10">
+        <div class="intro">
+          <p class="title">邀请好友注册，即可获得xxx</p>
+          <p class="rule">规则：好友使用邀请码完成注册，并且通过了实名认证，那么系统将会自动发放奖励到你的账户。</p>
+        </div>
+        <div class="code">
+          <p>方法一：好友在注册时填写你的邀请码</p>
+          <div class="box">abcdefghijklmn</div>
+        </div>
+        <div class="url">
+          <p>方法二：复制下方链接发送给好友</p>
+          <input type="text" class="form-control url-holder" readonly="readonly" value="https://www.reitschain.com/signup?invite=abcdefghijklmn">
+        </div>
+        <div class="invite-list">
+          <div class="title">我的邀请</div>
+          <div class="list table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>手机号码</th>
+                  <th>状态</th>
+                  <th>注册时间</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>185****1234</td>
+                  <td>未实名认证</td>
+                  <td>2016-12-01 16:33:33</td>
+                </tr>
+                <tr>
+                  <td>185****1234</td>
+                  <td>实名认证审核中</td>
+                  <td>2016-12-01 16:33:33</td>
+                </tr>
+                <tr>
+                  <td>185****1234</td>
+                  <td>邀请成功</td>
+                  <td>2016-12-01 16:33:33</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="paginationHolder" class="pagination-holder" data-total="" data-current="">分页</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> footer}}
+{{> scripts}}

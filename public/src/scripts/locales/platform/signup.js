@@ -6,8 +6,6 @@ export default {
     'pwd-err-1': '请输入不小于6位的密码',
     'confirm-pwd-err-1': '两次密码不一致',
     'confirm-pwd-err-2': '请输入不小于6位的确认密码',
-    'real-name-err-1': '请输入真实姓名',
-    'id-num-err-1': '请输入正确的身份证号码',
     'browser-tips': '你的浏览器太古老了，请使用更现代的浏览器访问本网站',
     'photo-err-1': '仅支持JPG、GIF、PNG、JPEG，文件小于10MB',
     'photo-err-2': '请选择身份证正面照片',
@@ -21,13 +19,11 @@ export default {
     'error-code-1': '数据格式异常，请确认后重试',
     'error-code-2': '短信验证码错误',
     'error-code-3': '短信验证码错误',
-    'error-code-4': '实名验证失败，请确认后重试',
-    'error-code-5': '保存注册信息失败，请稍后重试',
-    'error-code-6': '此手机号码已经被注册',
-    'error-code-7': '此身份号码已经被注册'
+    'error-code-4': '保存注册信息失败，请稍后重试',
+    'error-code-5': '此手机号码已经被注册'
   },
   en: {
-    'submit-err-1': 'Submit failed, please try again later',
+    'submit-err-1': 'Submission failed, please try again later',
     'phone-err-1': 'Please enter the correct phone number',
     'sms-err-1': 'Please enter the verification code SMS',
     'pwd-err-1': 'Please enter a password at least six characters',
@@ -48,9 +44,7 @@ export default {
     'error-code-1': 'Abnormal data format, make sure and try again',
     'error-code-2': 'SMS verification code error',
     'error-code-3': 'SMS verification code error',
-    'error-code-4': 'Real-name verification failed. Please try again confirm',
-    'error-code-5': 'Save the registration information failed. Please try again later',
-    'error-code-6': 'This phone number has been registered',
-    'error-code-7': 'This identification number has already been registered'
+    'error-code-4': 'Save the registration information failed. Please try again later',
+    'error-code-5': 'This phone number has been registered'
   }
 };

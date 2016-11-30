@@ -1,7 +1,8 @@
 {
   "language": "English",
   "language-code": "en",
-  "title": "REITs (Beijing)",
+  "title": "REITs",
+  "user-center": "User Center",
   "reits-chain": "REITs Chain",
   "nav-home": "Home",
   "nav-values": "Values",
@@ -20,5 +21,7 @@
   "submit": "Submit",
   "modify": "Modify",
   "view": "View",
-  "verify": "Verify"
+  "verify": "Verify",
+  "invitation-code": "Invitation code",
+  "optional": "Optional"
 }
