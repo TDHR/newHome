@@ -2,6 +2,7 @@
   "language": "中文",
   "language-code": "zh",
   "title": "瑞资",
+  "platform-title": "瑞资用户中心",
   "reits-chain": "瑞资链",
   "user-center": "用户中心",
   "nav-home": "首页",
