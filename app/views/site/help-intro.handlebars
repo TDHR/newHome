@@ -1,3 +1,88 @@
-<div class="page-help-intro">
-  intro
-</div>
+<!doctype html>
+<!--[if lte IE 7]> <html class="ie7"> <![endif]-->
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="瑞资科技致力于ABC(Asset-Backed-Chain)的搭建,运用区块链技术为资产证券化和房地产投融资服务提供一站式的解决方案；利用区块链公开透明和数字资产高流动性和跨境流动的特点,创建一个面向全球的数字资产交易平台。">
+  <meta name="keywords" content="瑞资,瑞资链,瑞资北京,REITs,REITsChain,资产证券化,房地产投融资服务,区块链,区块链金融,中国REITs">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <title>{{__ 'title'}}</title>
+  <link rel="stylesheet" href="/libs/reveal/css/reveal.css">
+  <link rel="stylesheet" href="/libs/reveal/css/theme/night.css">
+  <link rel="stylesheet" href="/styles/default.css{{fileTail}}">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.min.js"></script>
+    <script src="/libs/respond.min.js"></script>
+  <![endif]-->
+  {{#if ENV_DEVELOPMENT}}
+    <script src="http://localhost:35729/livereload.js"></script>
+  {{/if}}
+</head>
+<body class="page-help-intro">
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h2 class="theme-color">瑞资链的运作机制</h2>
+        <p class="theme-color">© 2016 REITs (Beijing) FinTech Co., Ltd. All Rights Reserved</p>
+      </section>
+
+      <section data-transition="zoom-in fade-out">
+        <h3>1. 资产发行</h3>
+      </section>
+      
+      <section data-transition="convex">
+        <ol>
+          <li>基金公司携项目向瑞资发出资产发行申请</li>
+          <li>瑞资委托第三方机构（会计事务所、律师事务所等）对该公司及项目展开调查</li>
+          <li>第三方机构在瑞资链（区块链）上对通过调查的项目进行授信认证</li>
+          <li>瑞资发行相应资产到区块链，并将该项目上架至瑞资链金交所，项目在此进入资金募集阶段</li>
+        </ol>
+      </section>
+
+      <section data-transition="zoom-in fade-out">
+        <h3>2. 募集</h3>
+      </section>
+
+      <section data-transition="convex">
+        <ol>
+          <li>瑞资用户可在瑞资链金交所中选择中意的项目进行认购</li>
+          <li>认购的总数额达到目标时，项目便募集成功</li>
+          <li>处理完各项必要手续后，瑞资将分配相应的资产到认购用户的钱包中</li>
+        </ol> 
+      </section>
+
+      <section data-transition="zoom-in fade-out">
+        <h3>3. 收益</h3>
+      </section>
+
+      <section data-transition="convex">
+        <ul>
+          <li>用户自行在第三方市场中交易持有的资产</li>
+          <li>基金公司根据承诺，在规定的时间对资产持有者进行分红</li>
+          <li>项目到期，资产退出市场，基金公司从资产持有者手中赎回资产</li>
+        </ul>
+      </section>
+      
+      <section data-transition="zoom-in fade-out">
+        <h3>谢谢观看</h3>
+      </section>
+      
+    </div>
+  </div>
+  <script src="/libs/reveal/js/reveal.js"></script>
+  <script src="/scripts/help-intro.js{{fileTail}}"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-82585504-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
