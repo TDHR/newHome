@@ -27,4 +27,7 @@ module.exports = function(app, auth) {
 
   // 文章内容
   app.get('/knowledge/article/:articleID', site.article);
+
+  // 帮助-介绍运作机制
+  app.get('/help/intro', site.helpIntro);
 };
