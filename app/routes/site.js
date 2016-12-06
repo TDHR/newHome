@@ -29,5 +29,5 @@ module.exports = function(app, auth) {
   app.get('/knowledge/article/:articleID', site.article);
 
   // 关于 POS
-  app.get('/help-pos', site.helpPos);
+  app.get('/help/pos', site.helpPos);
 };
