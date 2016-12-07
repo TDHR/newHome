@@ -32,40 +32,92 @@
       </section>
 
       <section data-transition="zoom-in fade-out">
-        <h3>1. 资产发行</h3>
+        <h2 class="theme-color">资产发行</h2>
       </section>
       
       <section data-transition="convex">
-        <ol>
-          <li>基金公司携项目向瑞资发出资产发行申请</li>
-          <li>瑞资委托第三方机构（会计事务所、律师事务所等）对该公司及项目展开调查</li>
-          <li>第三方机构在瑞资链（区块链）上对通过调查的项目进行授信认证</li>
-          <li>瑞资发行相应资产到区块链，并将该项目上架至瑞资链金交所，项目在此进入资金募集阶段</li>
-        </ol>
-      </section>
-
-      <section data-transition="zoom-in fade-out">
-        <h3>2. 募集</h3>
+        <div class="icon-holder">
+          <img id="iconSignUp" class="intro-icon" src="/images/intro-icon-signup.png">
+        </div>
+        <div class="text">1. 基金公司携项目向瑞资提出资产发行申请</div>
       </section>
 
       <section data-transition="convex">
-        <ol>
-          <li>瑞资用户可在瑞资链金交所中选择中意的项目进行认购</li>
-          <li>认购的总数额达到目标时，项目便募集成功</li>
-          <li>处理完各项必要手续后，瑞资将分配相应的资产到认购用户的钱包中</li>
-        </ol> 
-      </section>
-
-      <section data-transition="zoom-in fade-out">
-        <h3>3. 收益</h3>
+        <div class="icon-holder">
+          <img id="iconSurvey" class="intro-icon" src="/images/intro-icon-survey.png">
+        </div>
+        <div class="text">2. 瑞资委托第三方机构（会计事务所、律师事务所、资产评估机构、信用评级机构等）对该公司及项目展开调查</div>
       </section>
 
       <section data-transition="convex">
-        <ul>
-          <li>用户自行在第三方市场中交易持有的资产</li>
-          <li>基金公司根据承诺，在规定的时间对资产持有者进行分红</li>
-          <li>项目到期，资产退出市场，基金公司从资产持有者手中赎回资产</li>
-        </ul>
+        <div class="icon-holder">
+          <img id="iconCheck" class="intro-icon" src="/images/intro-icon-check.png">
+        </div>
+        <div class="text">3. 第三方机构在瑞资链（区块链）上归集和公证项目的相关调查报告，瑞资据此判定项目是否合格</div>
+      </section>
+
+      <section data-transition="convex">
+        <div class="icon-holder">
+          <img id="iconFinance" class="intro-icon" src="/images/intro-icon-finance.png">
+        </div>
+        <div class="text">4. 瑞资发行合格项目的资产到区块链，并将该项目上架至瑞资链金交所，项目在此进入资金募集阶段</div>
+      </section>
+
+      <section data-transition="zoom-in fade-out">
+        <h2 class="theme-color">募集</h2>
+      </section>
+      
+      <section data-transition="convex">
+        <div class="icon-holder">
+          <img id="iconChose" class="intro-icon" src="/images/intro-icon-chose.png">
+        </div>
+        <div class="text">1. 瑞资用户可在瑞资链金交所中选择中意的项目进行认购</div>
+      </section>
+
+      <section data-transition="convex">
+        <div class="icon-holder">
+          <div id="iconProgress">
+            <span class="percentage">0%</span>
+            <span class="bar"></span>
+          </div>
+        </div>
+        <div class="text">2. 认购的总数额达到目标值，项目募集成功</div>
+      </section>
+      
+      <section data-transition="convex">
+        <div class="icon-holder">
+          <img id="iconWallet" class="intro-icon" src="/images/intro-icon-wallet.png">
+          <img class="icon-coin1 intro-coin" src="/images/intro-icon-rts.png">
+          <img class="icon-coin2 intro-coin" src="/images/intro-icon-rts.png">
+          <img class="icon-coin3 intro-coin" src="/images/intro-icon-rts.png">
+        </div>
+        <div class="text">3. 处理完各项必要手续后，瑞资将分配相应的资产到认购用户的「钱包」中</div>
+      </section>
+
+      <section data-transition="zoom-in fade-out">
+        <h2 class="theme-color">收益</h2>
+      </section>
+      
+      <section data-transition="convex">
+        <div class="pic-holder">
+          <img id="picTrade" class="intro-pic" src="/images/intro-trade.png">
+        </div>
+        <div class="text">1. 用户自行在第三方市场中交易持有的资产</div>
+      </section>
+
+      <section data-transition="convex">
+        <div class="pic-holder">
+          <img id="picTrade" class="intro-pic" src="/images/intro-trade.png">
+        </div>
+        <div class="text">2. 基金公司根据承诺，在规定的时间对资产持有者进行分红</div>
+      </section>
+
+      <section data-transition="convex">
+        <div class="pic-holder repurchase-holder">
+          <img id="picRts" class="intro-pic" src="/images/intro-icon-rts.png">
+          <img id="picRmb" class="intro-pic" src="/images/intro-icon-rmb.png">
+        </div>
+        <div class="text">3. 项目到期，资产退出市场，基金公司从资产持有者手中按资产退出价格进行回购</div>
       </section>
       
       <section data-transition="zoom-in fade-out">
@@ -74,6 +126,7 @@
       
     </div>
   </div>
+  <script src="/libs/jquery.min.js"></script>
   <script src="/libs/reveal/js/reveal.js"></script>
   <script src="/scripts/help-intro.js{{fileTail}}"></script>
   <script>
