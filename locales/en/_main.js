@@ -2,7 +2,7 @@
   "language": "English",
   "language-code": "en",
   "title": "REITs",
-  "platform-title": "REITsChain User Center",
+  "platform-title": "REITsChain User Center(Alpha)",
   "user-center": "User Center",
   "reits-chain": "REITs Chain",
   "nav-home": "Home",
