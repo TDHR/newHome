@@ -3,9 +3,19 @@ var async = require('async');
 var config = require('../../config/config');
 
 /**
- * [页面：区块链浏览器]
+ * [区块链浏览器首页]
  */
 exports.index = function(req, res) {
+  res.render('explorer/index', {
+    layout: 'explorer',
+    nav: 'explorer'
+  });
+};
+
+/**
+ * [资产详情]
+ */
+exports.asset = function(req, res) {
   // 资产id
   var assetId = +req.params.assetId;
   async.auto({
@@ -13,7 +23,7 @@ exports.index = function(req, res) {
     getBaseInfo: function(cb) {
       request
         .get(config.platform + '/papi/chainhome/getbaseinfo')
-        .query({assetId: assetId})
+        .query({ assetId: assetId })
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -82,7 +92,7 @@ exports.index = function(req, res) {
     var weekTrans = results.getWeekTransTops.body;
     var monthTrans = results.getMonthTransTops.body;
 
-    res.render('explorer/index', {
+    res.render('explorer/asset', {
       layout: 'explorer',
       nav: 'explorer',
       assetId: assetId,
@@ -136,7 +146,7 @@ exports.user = function(req, res) {
           userId: userId
         })
         .set('Accept', 'application/json')
-        .end(function(err, result) {   
+        .end(function(err, result) {
           cb(null, result);
         });
     },
@@ -202,7 +212,7 @@ exports.tx = function(req, res) {
           txId: txId
         })
         .set('Accept', 'application/json')
-        .end(function(err, result) {   
+        .end(function(err, result) {
           cb(null, result);
         });
     }

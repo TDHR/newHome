@@ -1,8 +1,10 @@
 var explorer = require('./../controllers/explorer');
 
 module.exports = function(app, auth) {
-  // 页面：区块链浏览器
-  app.get('/explorer/asset/:assetId', explorer.index);
+  app.get('/explorer', explorer.index);
+
+  // 资产首页
+  app.get('/explorer/asset/:assetId', explorer.asset);
 
   // 获取换手率数据
   app.get('/explorer/turnover', explorer.turnover);
