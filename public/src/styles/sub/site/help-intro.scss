@@ -1,0 +1,351 @@
+.page-help-intro {
+  padding: 0;
+  margin: 0;
+  .theme-color {
+    color: #e7ad52;
+  }
+  .language-menu {
+    position: fixed;
+    z-index: 3;
+    top: 15px;
+    right: 15px;
+    width: 100px;
+    text-align: right;
+    >a {
+      color: #fff;
+      >img {
+        vertical-align: text-top;
+        margin-right: 4px;
+      }
+    }
+  }
+  .text {
+    font-size: 30px;
+  }
+  @media (max-width: 480px) {
+    .text {
+      font-size: 50px;
+      text-align: left;
+    }
+  }
+  .icon-holder {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .intro-icon {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    margin: -90px 0 0 -90px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    opacity: 0;
+  }
+  .pic-holder {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto 50px;
+    background-color: #e5eaf3;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .intro-pic {
+    position: absolute;
+    margin: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  .assets-holder {
+    position: relative;
+    width: 600px;
+    height: 320px;
+    margin: 0 auto 50px;
+  }
+  .intro-pic-asset1 {
+    z-index: 3;
+    top: 100%;
+    left: 50%;
+    width: 320px;
+    height: 320px;
+    max-width: 320px;
+    max-height: 320px;
+    margin: -160px 0 0 -160px;
+    opacity: 0;
+    border-radius: 50%;
+  }
+  .intro-pic-asset2 {
+    z-index: 2;
+    top: 100%;
+    left: 50%;
+    width: 320px;
+    height: 320px;
+    max-width: 320px;
+    max-height: 320px;
+    margin: -160px 0 0 -160px;
+    opacity: 0;
+    border-radius: 50%;
+  }
+  .intro-pic-asset1.show-it {
+    top: 50%;
+    margin-left: -300px;
+    opacity: 1;
+    transition: top .8s ease-in, opacity 1s ease-in, margin-left 1.2s ease-in;
+  }
+  .intro-pic-asset2.show-it {
+    top: 50%;
+    margin-left: -20px;
+    opacity: 1;
+    transition: top .8s ease-in, opacity 1s ease-in, margin-left 1.2s ease-in;
+  }
+  #iconSurvey.show-it {
+    top: 50%;
+    opacity: 1;
+    transition: top .8s ease-in, opacity 1.6s ease-in;
+  }
+  #iconCheck.show-it {
+    top: 50%;
+    opacity: 1;
+    transition: top .8s ease-in, opacity 1.6s ease-in;
+  }
+  #iconFinance.show-it {
+    top: 50%;
+    opacity: 1;
+    transition: top .8s ease-in, opacity 1.6s ease-in;
+    animation: spin 12s infinite linear;
+  }
+  #iconChose.show-it {
+    top: 50%;
+    opacity: 1;
+    transition: top .8s ease-in, opacity 1.6s ease-in;
+    animation: zoomin 2s infinite;
+  }
+  #iconProgress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 20px 0 0 -110px;
+    width: 220px;
+    height: 30px;
+    background-color: #eee;
+    border-radius: 15px;
+    >span {
+      position: absolute;
+    }
+    .percentage {
+      top: -50px;
+      left: 50%;
+      margin-left: -36px;
+      font-size: 32px;
+      color: #f57c00;
+    }
+    .bar {
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 30px;
+      background-color: #f57c00;
+      background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+      background-size: 40px 40px;
+      border-radius: 15px;
+    }
+  }
+  #iconWallet.intro-icon {
+    z-index: 3;
+    opacity: 0;
+    margin-top: -60px;
+  }
+  #iconWallet.show-it {
+    top: 50%;
+    opacity: 1;
+    transition: top .8s ease-in, opacity 1.6s ease-in;
+  }
+  .intro-coin {
+    position: absolute;
+    z-index: 2;
+    background: none;
+    border: none;
+    box-shadow: none;
+    opacity: 0;
+  }
+  .icon-wallet-coin {
+    top: 0;
+    left: 50%;
+    width: 66px;
+    height: 66px;
+    margin-left: -35px;
+  }
+  .icon-wallet-coin.coin-drop {
+    top: 80px;
+    opacity: 1;
+    transition: top 1s ease-in, opacity .8s ease-in;
+  }
+  #picTrade {
+    top: 50%;
+    height: 50%;
+    width: 440px;
+    height: 303px;
+    margin: -151px 0 0 -220px;
+    transform: rotate(360deg) scale(0);
+  }
+  #picTrade.show-it {
+    transform: rotate(0) scale(1);
+    transition: transform .6s ease-in;
+  }
+  .icon-catcher {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  @keyframes catch {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 100%;
+      margin-left: -80px;
+    }
+  }
+  .icon-catcher.show-it {
+    animation: catch 3s infinite ease-in-out;
+    animation-direction: alternate;
+  }
+  .icon-catcher-coin {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    opacity: 0;
+  }
+  @keyframes rain {
+    0% {
+      opacity: 0;
+      top: 0;
+    }
+    99% {
+      top: 300px;
+      opacity: 1;
+    }
+    100% {
+      top: 300px;
+      opacity: 0;
+    }
+  }
+  @for $i from 1 to 8 {
+    .icon-catcher-coin#{$i}.show-it {
+      @if $i < 3 {
+        top: 30px;
+        left: $i * 50px + 50px;
+        animation: rain ($i * .69s) infinite ease-in;
+      }
+      @else {
+        left: $i * 60px + 50px;
+        animation: rain ($i * .23s) infinite ease-in;
+      }
+    }
+  }
+  @keyframes rotateY1 {
+    0% {
+      visibility: visible;
+      transform: rotateY(-90deg);
+    }
+    50% {
+      visibility: hidden;
+      transform: rotateY(90deg);
+    }
+    100% {
+      visibility: hidden;
+    }
+  }
+  @keyframes rotateY2 {
+    0% {
+      visibility: hidden;
+      transform: rotateY(-90deg);
+    }
+    50% {
+      transform: rotateY(-90deg);
+    }
+    100% {
+      visibility: visible;
+      transform: rotateY(90deg);
+    }
+  }
+  #picRts {
+    top: 50%;
+    height: 50%;
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+    visibility: visible;
+  }
+  #picRmb {
+    top: 50%;
+    height: 50%;
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+    visibility: hidden;
+  }
+  #picRts.rotatey {
+    animation: rotateY1 4s infinite linear;
+  }
+  #picRmb.rotatey {
+    animation: rotateY2 4s infinite linear;
+  }
+  .contact {
+    width: 800px;
+    height: 300px;
+    margin: 70px auto 0;
+    .wechat {
+      float: left;
+      width: 300px;
+      height: 230px;
+      >img {
+        width: 220px;
+        margin: 5px 0 0;
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+      >p {
+        margin: 5px 0;
+      }
+    }
+    .website {
+      float: right;
+      width: 499px;
+      height: 230px;
+      padding-left: 35px;
+      border-left: 1px solid #ededed;
+      text-align: left;
+      a {
+        color: #fff;
+      }
+      >div {
+        margin-bottom: 26px;
+        white-space: nowrap;
+      }
+    }
+  }
+}
