@@ -8,7 +8,7 @@
   "dashboard-address-tips": "You have not added a Dividend Address.",
   "dashboard-address-signup1": "Have not address? Sign in",
   "dashboard-address-signup2": "easily get.",
-  "dashboard-address-update": "Already have a address, <a href=\"/user/update-dividend\">click here to add</a>",
+  "dashboard-address-update": "Already have a address, click here to add",
   "dashboard-dividend-address": "Dividend Address",
   "dashboard-dividend-currency-type": "Currency type",
   "dashboard-dividend-currency-address": "Address",

@@ -24,5 +24,7 @@
   "view": "View",
   "verify": "Verify",
   "invitation-code": "Invitation code",
-  "optional": "Optional"
+  "optional": "Optional",
+  "download": "Download",
+  "stay-tuned": "Stay tuned"
 }

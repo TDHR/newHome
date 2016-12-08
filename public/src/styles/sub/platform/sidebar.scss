@@ -1,6 +1,11 @@
 .sidebar {
   .sidenav {
     margin-bottom: 30px;
+    >li {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+    }
     .nav-head {
       margin-top: 20px;
       margin-bottom: 8px;
@@ -10,10 +15,12 @@
       }
     }
     .nav-item {
+      padding-left: 16px;
       margin-bottom: 8px;
       &.active {
+        background-color: $color-blue;
         >a {
-          color: $color-blue;
+          color: #fff;
         }
       }
       >a {

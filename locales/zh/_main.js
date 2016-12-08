@@ -24,5 +24,7 @@
   "view": "查看",
   "verify": "认证",
   "invitation-code": "邀请码",
-  "optional": "非必填"
+  "optional": "非必填",
+  "download": "下载",
+  "stay-tuned": "敬请关注"
 }

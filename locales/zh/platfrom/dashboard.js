@@ -8,7 +8,7 @@
   "dashboard-address-tips": "你还没有添加分红地址",
   "dashboard-address-signup1": "还没有地址？在",
   "dashboard-address-signup2": "注册即可轻松获取",
-  "dashboard-address-update": "已有地址，<a href=\"/user/update-dividend\">点此添加</a>",
+  "dashboard-address-update": "已有地址，点此添加",
   "dashboard-dividend-address": "分红地址",
   "dashboard-dividend-currency-type": "货币类型",
   "dashboard-dividend-currency-address": "地址",

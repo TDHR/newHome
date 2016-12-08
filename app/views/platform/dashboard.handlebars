@@ -1,10 +1,10 @@
 <div class="page-dashboard">
   <div class="container">
     <div class="row">
-      <div class="col-md-2 col-sm-2">
+      <div class="col-md-3 col-sm-3">
         {{> sidebar}}
       </div>
-      <div class="col-md-10 col-sm-10">
+      <div class="col-md-9 col-sm-9">
         <div class="overview">
           <div class="info">
             <div class="nickname">{{__ 'dashboard-hello'}}{{user.nickName}}</div>
@@ -28,43 +28,68 @@
             </div>
           </div>
         </div>
-        {{#if wallet}}
-        <div class="wallet table-responsive">
-          {{!-- 认证状态：{{user.certificationStatus}} --}}
-          {{!-- 认证成功前，不能操作钱包 --}}
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <td class="text-right" colspan="2">
-                  <a href="/user/bind-wallet">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    绑定钱包
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>钱包地址</th>
-                <th>余额</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <a href="/wallet/">-</a>
-                </td>
-                <td>-</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        {{else}}
-        <div class="wallet-less">
+        <div class="wallet">
+          {{#if wallet}}
+          <div class="table-responsive">
+            {{!-- 认证状态：{{user.certificationStatus}} --}}
+            {{!-- 认证成功前，不能操作钱包 --}}
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <td class="text-right" colspan="2">
+                    <a href="/user/bind-wallet">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      绑定钱包
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th>钱包地址</th>
+                  <th>余额</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a href="/wallet/">-</a>
+                  </td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {{else}}
           <div class="tips">
             <p>{{__ 'dashboard-wallet-tips1'}}</p>
             <p>{{__ 'dashboard-wallet-tips2'}}</p>
           </div>
+          {{/if}}
+          {{!-- <div class="download">
+            <div class="row">
+              <div class="col-md-3 col-sm-4">
+                <div class="box">
+                  <img src="/images/windows.png" alt="windows">
+                  <div class="name">Windows</div>
+                  <a href="#" class="btn btn-blue btn-xs">{{__ 'download'}}</a>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <div class="box">
+                  <img src="/images/linux.png" alt="Linux">
+                  <div class="name">Linux</div>
+                  <div class="development">{{__ 'stay-tuned'}}</div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-4">
+                <div class="box">
+                  <img src="/images/mac.png" alt="Mac">
+                  <div class="name">Mac</div>
+                  <div class="development">{{__ 'stay-tuned'}}</div>
+                </div>
+              </div>
+            </div>  
+          </div> --}}
         </div>
-        {{/if}}
         {{#if bonus.address}}
           <div class="dividend">
             <div class="dividend-title">{{__ 'dashboard-dividend-address'}}</div>
@@ -94,16 +119,20 @@
             <div class="tips">{{{__ 'dashboard-address-tips'}}}</div>
             <div class="row dividend-address">
               <div class="col-md-6 col-sm-6">
-                <div class="box box-green">
-                  <i class="glyphicon glyphicon-plus-sign"></i>
-                  <p>{{{__ 'dashboard-address-update'}}}</p>
-                </div>
+                <a href="/user/update-dividend">
+                  <div class="box box-green">
+                    <i class="glyphicon glyphicon-plus-sign"></i>
+                    <p>{{{__ 'dashboard-address-update'}}}</p>
+                  </div>
+                </a>
               </div>
               <div class="col-md-6 col-sm-6">
-                <div class="box box-yellow">
-                  <i class="glyphicon glyphicon-hand-right"></i>
-                  <p>{{__ 'dashboard-address-signup1'}} <a href="https://haobtc.com/auth/oauth/authorize/?response_type=code&client_id={{haobtcClientId}}">HaoBTC</a> {{__ 'dashboard-address-signup2'}}</p>
-                </div>
+                <a href="https://haobtc.com/auth/oauth/authorize/?response_type=code&client_id={{haobtcClientId}}">
+                  <div class="box box-yellow">
+                    <i class="glyphicon glyphicon-circle-arrow-right"></i>
+                    <p>{{__ 'dashboard-address-signup1'}} HaoBTC {{__ 'dashboard-address-signup2'}}</p>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
