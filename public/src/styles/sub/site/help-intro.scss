@@ -223,7 +223,7 @@
     }
   }
   .icon-catcher.show-it {
-    animation: catch 3s infinite ease-in-out;
+    animation: catch 4.5s infinite ease-in-out;
     animation-direction: alternate;
   }
   .icon-catcher-coin {
@@ -257,11 +257,11 @@
       @if $i < 3 {
         top: 30px;
         left: $i * 50px + 50px;
-        animation: rain ($i * .69s) infinite ease-in;
+        animation: rain ($i * .79s) infinite ease-in;
       }
       @else {
         left: $i * 60px + 50px;
-        animation: rain ($i * .23s) infinite ease-in;
+        animation: rain ($i * .57s) infinite ease-in;
       }
     }
   }
