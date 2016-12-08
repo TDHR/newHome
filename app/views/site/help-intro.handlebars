@@ -24,54 +24,60 @@
   {{/if}}
 </head>
 <body class="page-help-intro">
+  <div class="language-menu">
+    <a id="languageBtn" data-language="{{__ 'language-code'}}">
+      <img src="/images/{{__ 'language-code'}}.png">{{__ 'language'}}
+    </a>
+  </div>
   <div class="reveal">
     <div class="slides">
       <section>
-        <h2 class="theme-color">瑞资链的运作机制</h2>
+        <h2 class="theme-color">{{__ 'help-intro-main-title'}}</h2>
         <p class="theme-color">© 2016 REITs (Beijing) FinTech Co., Ltd. All Rights Reserved</p>
       </section>
 
       <section data-transition="zoom-in fade-out">
-        <h2 class="theme-color">资产发行</h2>
+        <h2 class="theme-color">{{__ 'help-intro-issue-assets'}}</h2>
       </section>
       
       <section data-transition="convex">
-        <div class="icon-holder">
-          <img id="iconSignUp" class="intro-icon" src="/images/intro-icon-signup.png">
+        <div class="assets-holder">
+          <img id="picAsset1" class="intro-pic intro-pic-asset1" src="/images/intro-pic-asset1.jpg">
+          <img id="picAsset2" class="intro-pic intro-pic-asset2" src="/images/intro-pic-asset2.jpg">
         </div>
-        <div class="text">1. 基金公司携项目向瑞资提出资产发行申请</div>
+        <div class="text">1. {{__ 'help-intro-issue-assets-1'}}</div>
       </section>
 
       <section data-transition="convex">
         <div class="icon-holder">
           <img id="iconSurvey" class="intro-icon" src="/images/intro-icon-survey.png">
         </div>
-        <div class="text">2. 瑞资委托第三方机构（会计事务所、律师事务所、资产评估机构、信用评级机构等）对该公司及项目展开调查</div>
+        <div class="text">2. {{__ 'help-intro-issue-assets-2'}}</div>
       </section>
 
       <section data-transition="convex">
         <div class="icon-holder">
           <img id="iconCheck" class="intro-icon" src="/images/intro-icon-check.png">
         </div>
-        <div class="text">3. 第三方机构在瑞资链（区块链）上归集和公证项目的相关调查报告，瑞资据此判定项目是否合格</div>
+        <div class="text">3. {{__ 'help-intro-issue-assets-3'}}</div>
       </section>
 
       <section data-transition="convex">
         <div class="icon-holder">
           <img id="iconFinance" class="intro-icon" src="/images/intro-icon-finance.png">
         </div>
-        <div class="text">4. 瑞资发行合格项目的资产到区块链，并将该项目上架至瑞资链金交所，项目在此进入资金募集阶段</div>
+        <div class="text">4. {{__ 'help-intro-issue-assets-4'}}</div>
       </section>
 
       <section data-transition="zoom-in fade-out">
-        <h2 class="theme-color">募集</h2>
+        <h2 class="theme-color">{{__ 'help-intro-fund-raising'}}</h2>
       </section>
       
       <section data-transition="convex">
         <div class="icon-holder">
           <img id="iconChose" class="intro-icon" src="/images/intro-icon-chose.png">
         </div>
-        <div class="text">1. 瑞资用户可在瑞资链金交所中选择中意的项目进行认购</div>
+        <div class="text">1. {{__ 'help-intro-fund-raising-1'}}</div>
       </section>
 
       <section data-transition="convex">
@@ -81,35 +87,40 @@
             <span class="bar"></span>
           </div>
         </div>
-        <div class="text">2. 认购的总数额达到目标值，项目募集成功</div>
+        <div class="text">2. {{__ 'help-intro-fund-raising-2'}}</div>
       </section>
       
       <section data-transition="convex">
         <div class="icon-holder">
           <img id="iconWallet" class="intro-icon" src="/images/intro-icon-wallet.png">
-          <img class="icon-coin1 intro-coin" src="/images/intro-icon-rts.png">
-          <img class="icon-coin2 intro-coin" src="/images/intro-icon-rts.png">
-          <img class="icon-coin3 intro-coin" src="/images/intro-icon-rts.png">
+          <img id="iconWalletCoin" class="icon-wallet-coin intro-coin" src="/images/intro-icon-rts.png">
         </div>
-        <div class="text">3. 处理完各项必要手续后，瑞资将分配相应的资产到认购用户的「钱包」中</div>
+        <div class="text">3. {{__ 'help-intro-fund-raising-3'}}</div>
       </section>
 
       <section data-transition="zoom-in fade-out">
-        <h2 class="theme-color">收益</h2>
+        <h2 class="theme-color">{{__ 'help-intro-income'}}</h2>
       </section>
       
       <section data-transition="convex">
         <div class="pic-holder">
           <img id="picTrade" class="intro-pic" src="/images/intro-trade.png">
         </div>
-        <div class="text">1. 用户自行在第三方市场中交易持有的资产</div>
+        <div class="text">1. {{__ 'help-intro-income-1'}}</div>
       </section>
 
       <section data-transition="convex">
         <div class="pic-holder">
-          <img id="picTrade" class="intro-pic" src="/images/intro-trade.png">
+          <img id="iconCatcher" class="icon-catcher" src="/images/intro-icon-catcher.png">
+          <img class="icon-catcher-coin icon-catcher-coin1" src="/images/intro-icon-btc.png">
+          <img class="icon-catcher-coin icon-catcher-coin2" src="/images/intro-icon-btc.png">
+          <img class="icon-catcher-coin icon-catcher-coin3" src="/images/intro-icon-btc.png">
+          <img class="icon-catcher-coin icon-catcher-coin4" src="/images/intro-icon-btc.png">
+          <img class="icon-catcher-coin icon-catcher-coin5" src="/images/intro-icon-btc.png">
+          <img class="icon-catcher-coin icon-catcher-coin6" src="/images/intro-icon-btc.png">
+          <img class="icon-catcher-coin icon-catcher-coin7" src="/images/intro-icon-btc.png">
         </div>
-        <div class="text">2. 基金公司根据承诺，在规定的时间对资产持有者进行分红</div>
+        <div class="text">2. {{__ 'help-intro-income-2'}}</div>
       </section>
 
       <section data-transition="convex">
@@ -117,11 +128,31 @@
           <img id="picRts" class="intro-pic" src="/images/intro-icon-rts.png">
           <img id="picRmb" class="intro-pic" src="/images/intro-icon-rmb.png">
         </div>
-        <div class="text">3. 项目到期，资产退出市场，基金公司从资产持有者手中按资产退出价格进行回购</div>
+        <div class="text">3. {{__ 'help-intro-income-3'}}</div>
       </section>
       
       <section data-transition="zoom-in fade-out">
-        <h3>谢谢观看</h3>
+        <h3>{{__ 'help-intro-thanks'}}</h3>
+        <div class="contact">
+          <div class="wechat">
+            <img src="/images/wechat.png">
+          </div>
+          <div class="website">
+            <div class="company">{{__ 'help-intro-company'}}</div>
+            <div>
+              {{__ 'help-intro-website'}}
+              <a href="https://reitschain.com">https://reitschain.com</a>
+            </div>
+            <div>
+              {{__ 'help-intro-tel'}}
+              <a href="tel:010-89943073">010-89943073</a>
+            </div>
+            <div>
+              {{__ 'help-intro-email'}}
+              <a href="mailTo:bd@reitsfax.com">bd@reitsfax.com</a>
+            </div>
+          </div>
+        </div>
       </section>
       
     </div>
