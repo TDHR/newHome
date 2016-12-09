@@ -28,7 +28,7 @@ module.exports = function(app, auth) {
   app.post('/signup', signup.signup);
 
   // 发送手机验证码
-  app.post('/phoneCode', phoneCode.default);
+  app.post('/phone-code', phoneCode.default);
 
   // 忘记密码页面
   app.get('/reset', auth.doNotNeedLogin, reset.index)

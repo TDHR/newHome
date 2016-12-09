@@ -29,7 +29,7 @@ $('#btnSmsCode').on('click', function() {
 
   $.ajax({
     method: 'POST',
-    url: '/phoneCode',
+    url: '/phone-code',
     data: {
       phoneNum: phoneNum
     },
