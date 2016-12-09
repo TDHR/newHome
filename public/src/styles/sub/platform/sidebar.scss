@@ -17,6 +17,9 @@
     .nav-item {
       padding-left: 16px;
       margin-bottom: 8px;
+      &:hover {
+        background-color: #edf7ff;
+      }
       &.active {
         background-color: $color-blue;
         >a {

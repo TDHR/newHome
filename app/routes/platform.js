@@ -91,5 +91,5 @@ module.exports = function(app, auth) {
   app.post('/user/risk-tolerance', auth.needToLogin, security.riskTolerancePost);
 
   // 邀请奖励
-  app.get('/user/invitation-to-reward', auth.needToLogin, invitation.index);
+  app.get('/user/invitation-to-reward/:page?/:pageNum?', auth.needToLogin, invitation.index);
 };

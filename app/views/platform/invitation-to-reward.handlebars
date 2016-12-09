@@ -11,11 +11,11 @@
         </div>
         <div class="code">
           <p>方法一：好友在注册时填写你的邀请码</p>
-          <div class="box">abcdefghijklmn</div>
+          <div class="box">{{code.inviteCode}}</div>
         </div>
         <div class="url">
           <p>方法二：复制下方链接发送给好友</p>
-          <input type="text" class="form-control url-holder" readonly="readonly" value="https://www.reitschain.com/signup?invite=abcdefghijklmn">
+          <input type="text" class="form-control url-holder" readonly="readonly" value="https://www.reitschain.com/signup?invite={{code.inviteCode}}">
         </div>
         <div class="invite-list">
           <div class="title">我的邀请</div>
@@ -29,25 +29,33 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>185****1234</td>
-                  <td>未实名认证</td>
-                  <td>2016-12-01 16:33:33</td>
-                </tr>
-                <tr>
-                  <td>185****1234</td>
-                  <td>实名认证审核中</td>
-                  <td>2016-12-01 16:33:33</td>
-                </tr>
-                <tr>
-                  <td>185****1234</td>
-                  <td>邀请成功</td>
-                  <td>2016-12-01 16:33:33</td>
-                </tr>
+                {{#if list.list}}
+                  {{#each list.list}}
+                    <tr>
+                      <td>{{handleText phoneNum 4}}</td>
+                      {{#ifCond status '===' 0}}
+                        <td>未实名认证</td>
+                      {{/ifCond}}
+                      {{#ifCond status '===' 1}}
+                        <td>实名认证中</td>
+                      {{/ifCond}}
+                      {{#ifCond status '===' 2}}
+                        <td>邀请成功</td>
+                      {{/ifCond}}
+                      <td>{{dateFormat regTime '' 'unix'}}</td>
+                    </tr>
+                  {{/each}}
+                {{else}}
+                  <tr>
+                    <td class="text-center" colspan="3">-</td>
+                  </tr>
+                {{/if}}
               </tbody>
             </table>
           </div>
-          <div id="paginationHolder" class="pagination-holder" data-total="" data-current="">分页</div>
+          {{#ifCond tx.pageCount '>' 1}}
+          <div id="paginationHolder" class="pagination-holder" data-total="{{list.pageCount}}" data-current="{{list.pageIndex}}"></div>
+          {{/ifCond}}
         </div>
       </div>
     </div>
@@ -56,3 +64,5 @@
 
 {{> footer}}
 {{> scripts}}
+<script src="/libs/jquery.bootpag.js"></script>
+<script src="/scripts/invitation-to-reward.js{{fileTail}}"></script>

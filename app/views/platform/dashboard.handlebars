@@ -5,6 +5,11 @@
         {{> sidebar}}
       </div>
       <div class="col-md-9 col-sm-9">
+        {{#ifCond user.certificationStatus '===' 0}}
+          <div class="notice">
+            <div class="alert alert-danger" role="alert">{{{__ 'dashboard-notice-realname'}}}</div>
+          </div>
+        {{/ifCond}}
         <div class="overview">
           <div class="info">
             <div class="nickname">{{__ 'dashboard-hello'}}{{user.nickName}}</div>
@@ -18,11 +23,19 @@
                   </tr>
                 </thead>
                 <tbody>
+                {{#if asset.assets}}
+                  {{#each asset.assets}}
+                    <tr>
+                      <td><a href="/explorer/asset/{{id}}" target="_blank">{{name}} ({{name_en}})</a></td>
+                      <td>{{total}}</td>
+                      <td>{{holdings}}</td>
+                    </tr>
+                  {{/each}}
+                {{else}}
                   <tr>
-                    <td>RTS</td>
-                    <td>11111</td>
-                    <td>{{asset.asset}}</td>
+                    <td class="text-center" colspan="3">-</td>
                   </tr>
+                {{/if}}
                 </tbody>
               </table>
             </div>

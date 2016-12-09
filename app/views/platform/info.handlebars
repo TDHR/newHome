@@ -20,7 +20,7 @@
                 <input type="radio" name="gender" value="2" {{#ifCond user.gender '===' 2}}checked{{/ifCond}}> {{__ 'info-gender-type-2'}}
               </label>
               <label class="radio-inline">
-                <input type="radio" name="gender" value="0" {{#ifCond user.gender '===' 0}}checked{{/ifCond}}> {{__ 'info-gender-type-3'}}
+                <input type="radio" name="gender" value="0" {{#unless user.gender}}checked{{/unless}}> {{__ 'info-gender-type-3'}}
               </label>
             </div>
           </div>

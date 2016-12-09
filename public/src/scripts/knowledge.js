@@ -39,7 +39,6 @@ $.ajax({
   }
 });
 
-
 function setPagination() {
   if ($('#paginationHolder').length) {
     $('.pagination-holder').bootpag({

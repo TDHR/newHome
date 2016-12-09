@@ -1,4 +1,11 @@
 .page-reset {
+  padding: 50px 0;
+  .form-title {
+    max-width: 460px;
+    margin: 0 auto 24px;
+    font-size: 22px;
+    color: #999;
+  }
   .form-big-holder {
     .btn-sms {
       &.disabled {
@@ -9,17 +16,33 @@
   #successHolder {
     padding: 70px 0;
     text-align: center;
+    .layer {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(0, 137, 236, .08);
+      border-radius: 50%;
+      .layer {
+        width: 180px;
+        height: 180px;
+        .layer {
+          width: 140px;
+          height: 140px;
+        }
+      }
+    }
     .glyphicon-ok {
       display: block;
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       margin: 0 auto;
-      font-size: 26px;
-      background-color: #80e080;
+      font-size: 28px;
+      background-color: #0089ec;
       color: #fff;
       border-radius: 50%;
       text-align: center;
-      line-height: 80px;
+      line-height: 100px;
     }
     h3 {
       margin-top: 30px;
