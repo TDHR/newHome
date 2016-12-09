@@ -102,3 +102,10 @@ exports.helpPos = function(req, res) {
     nav: ''
   });
 };
+
+// 帮助-介绍运作机制
+exports.helpIntro = function(req, res) {
+  res.render('site/help-intro', {
+    layout: ''
+  });
+};

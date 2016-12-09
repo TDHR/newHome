@@ -30,4 +30,7 @@ module.exports = function(app, auth) {
 
   // 关于 POS
   app.get('/help/pos', site.helpPos);
+  
+  // 帮助-介绍运作机制
+  app.get('/help/intro', site.helpIntro);
 };

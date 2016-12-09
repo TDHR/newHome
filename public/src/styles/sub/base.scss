@@ -221,3 +221,24 @@ only screen and (min-device-pixel-ratio: 2) {
 .platform-breadcrumb {
   margin-bottom: 40px;
 }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(.9);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(.9);
+  }
+}
