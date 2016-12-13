@@ -1,16 +1,16 @@
 <div class="page-explorer-tx">
   <div class="container">
     <ol class="breadcrumb">
-      <li><a href="/explorer/asset/{{assetId}}">首页</a></li>
-      <li class="active">交易详情</li>
+      <li><a href="/explorer/asset/{{assetId}}">{{__ 'explorer-asset-home-page'}}</a></li>
+      <li class="active">{{__ 'explorer-tx-transaction'}}</li>
     </ol>
     <div class="info">
-      <h4>交易详情</h4>
+      <h4>{{__ 'explorer-tx-transaction'}}</h4>
       <div class="detail">
-        <div><span>Hash：</span>{{txId}}</div>
-        <div><span>交易总额：</span>{{total}}</div>
-        <div><span>交易时间：</span>{{dateFormat info.time 'default' 'unix'}}</div>
-        <div><span>确认次数：</span>{{info.confirmations}}</div>
+        <div><span>{{__ 'explorer-tx-transaction-hash'}}</span>{{txId}}</div>
+        <div><span>{{__ 'explorer-tx-transaction-quantity'}}</span>{{total}}</div>
+        <div><span>{{__ 'explorer-tx-transaction-date'}}</span>{{dateFormat info.time 'default' 'unix'}}</div>
+        <div><span>{{__ 'explorer-tx-transaction-confirmed'}}</span>{{info.confirmations}}</div>
       </div>
     </div>
     {{#if info.list}}

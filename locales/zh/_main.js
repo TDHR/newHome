@@ -26,5 +26,7 @@
   "invitation-code": "邀请码",
   "optional": "非必填",
   "download": "下载",
-  "stay-tuned": "敬请关注"
+  "stay-tuned": "敬请关注",
+  "no-data": "暂无数据",
+  "explorer-asset-home-page": "资产主页"
 }

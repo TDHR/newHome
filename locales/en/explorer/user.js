@@ -1,0 +1,22 @@
+{
+  "explorer-user-holder": "Details of the holder",
+  "explorer-user-holder-id": "Holder ID: ",
+  "explorer-user-holder-name": "Name: ",
+  "explorer-user-holder-holdings": "Holdings: ",
+  "explorer-user-holder-ranking": "Ranking: ",
+  "explorer-user-holder-rate": "Rate: ",
+  "explorer-user-wallet": "Wallet",
+  "explorer-user-wallet-address": "Address",
+  "explorer-user-wallet-balance": "Balance",
+  "explorer-user-dividend": "Dividend record",
+  "explorer-user-dividend-type": "Type",
+  "explorer-user-dividend-quantity": "Quantity",
+  "explorer-user-dividend-transaction-record": "Transaction Record",
+  "explorer-user-dividend-date": "Date",
+  "explorer-user-transactions": "Transactions",
+  "explorer-user-transactions-total": "A total of",
+  "explorer-user-transactions-times": "times",
+  "explorer-user-transactions-id": "Transaction ID",
+  "explorer-user-transactions-quantity": "Quantity",
+  "explorer-user-transactions-date": "Date"
+}
