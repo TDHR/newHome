@@ -11,11 +11,14 @@ export default {
     'error-code-2': '请先登录',
     'error-code-3': '提交失败，请稍后重试',
     'error-code-4': '实名验证失败，请确认后重试',
-    'error-code-5': '此身份号码已经被注册',
+    'error-code-5': '保存信息失败，请稍后重试',
+    'error-code-6': '此身份号码已经被注册',
     'success': '提交成功！5秒后将自动跳转'
   },
   en: {
     'browser-tips': 'Your browser is ancient! Upgrade to a different browser to experience this site',
+    'real-name-err-1': 'Please enter your real name',
+    'id-num-err-1': 'Please enter a valid ID number',
     'photo-err-1': 'Only supports JPG, GIF, PNG, JPG, less than 4MB',
     'photo-err-2': 'Please choose the front of the photo ID',
     'photo-err-3': 'Please choose the back of the photo ID',
@@ -23,8 +26,9 @@ export default {
     'error-code-1': 'Abnormal data format, make sure and try again',
     'error-code-2': 'Please login first',
     'error-code-3': 'Submit failed, please try again later',
-    'error-code-4': 'Real-name verification failed. Please try again confirm',
-    'error-code-5': 'This identification number has already been registered',
+    'error-code-4': 'Real name verification failed. Please try again confirm',
+    'error-code-5': 'Save the information failed. Please try again later',
+    'error-code-6': 'This identification number has already been registered',
     'success': 'Submitted successfully! After 5 seconds will automatically jump'
   }
 };

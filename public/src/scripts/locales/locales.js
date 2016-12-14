@@ -6,6 +6,9 @@ import Info from './platform/info';
 import VerifyId from './platform/verify-id';
 import ModifyPassword from './platform/modify-password';
 import Dividend from './platform/dividend';
+import ModifyPhone from './platform/modify-phone';
+import VerifyBankCard from './platform/verify-bank-card';
+import RiskTolerance from './platform/risk-tolerance';
 
 export default {
   explorer: Explorer,
@@ -15,5 +18,8 @@ export default {
   info: Info,
   verifyId: VerifyId,
   modifyPassword: ModifyPassword,
-  dividend: Dividend
+  dividend: Dividend,
+  modifyPhone: ModifyPhone,
+  verifyBankCard: VerifyBankCard,
+  riskTolerance: RiskTolerance
 };

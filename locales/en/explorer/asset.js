@@ -1,4 +1,6 @@
 {
+  "explorer-asset-total-circulation": "Total circulation: ",
+  "explorer-asset-owners": "Number of holders: ",
   "explorer-asset-positions": "Positions",
   "explorer-asset-positions-id": "Holder ID",
   "explorer-asset-positions-name": "Name",

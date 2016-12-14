@@ -10,10 +10,11 @@
           <li class="active">{{__ "view-bank-card-title"}}</li>
         </ol>
         <div class="list">
-          <p>{{__ 'view-bank-card-number'}}**** 1234</p>
-          <p>{{__ 'view-bank-card-name'}}*某</p>
-          <p>{{__ 'view-bank-card-id'}}51************1111</p>
-          <p>{{__ 'view-bank-card-time'}}2016-11-16 13:27:14</p>
+          <p>{{__ 'view-bank-name'}}{{bank.bankName}}</p>
+          <p>{{__ 'view-bank-card-number'}}{{handleText bank.bankCardNum '5'}}</p>
+          <p>{{__ 'view-bank-card-realname'}}{{handleText bank.name '2'}}</p>
+          <p>{{__ 'view-bank-card-id'}}{{handleText bank.idNumber '3'}}</p>
+          <p>{{__ 'view-bank-card-time'}}{{dateFormat bank.verifTime 'default'}}</p>
         </div>
       </div>
     </div>

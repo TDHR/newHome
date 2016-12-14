@@ -26,11 +26,11 @@
           </div>
           <div class="form-group">
             <label for="weixin">{{__ 'info-weixin'}}</label>
-            <input type="text" class="form-control" id="weixin" name="weixin" value="">
+            <input type="text" class="form-control" id="weixin" name="weixin" value="{{user.weixin}}">
           </div>
           <div class="form-group">
             <label for="qq">QQ</label>
-            <input type="text" class="form-control" id="qq" name="qq" value="">
+            <input type="text" class="form-control" id="qq" name="qq" value="{{user.qq}}">
           </div>
           <button id="btnSubmit" type="button" class="btn btn-primary btn-submit">{{__ 'submit'}}</button>
         </form>

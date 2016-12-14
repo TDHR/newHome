@@ -48,7 +48,7 @@ module.exports = function() {
 
       // 除了最后一个字，全部处理为星号
       case '2':
-        result = value.replace(/.(?=.)/g, '*');;
+        result = value.replace(/.(?=.)/g, '*');
         break;
 
       // 处理身份证，除了前两位和后四位，全部处理为星号
@@ -59,6 +59,11 @@ module.exports = function() {
       // 处理手机号码，中间四位处理为星号
       case '4':
         result = value.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
+        break;
+
+      // 处理银行卡号，除了最后四位，全部处理为星号
+      case '5':
+        result = '**** ' + value.substr(-4, 4);
         break;
     }
 

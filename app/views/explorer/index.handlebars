@@ -2,11 +2,15 @@
   <div class="container">
     <div class="assets">
       <div class="row">
-        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
           <div class="list-group">
             <a class="list-group-item active">{{__ 'explorer-index-list-title'}}</a>
-            <a href="/explorer/asset/0" class="list-group-item">瑞资通（REITs Share）</a>
-            <a href="/explorer/asset/1" class="list-group-item">测试（TEST）</a>
+            {{#each assets.assets}}
+            <a href="/explorer/asset/{{id}}" class="list-group-item">
+              <span class="badge">{{circulation}}</span>
+              {{name}} ({{name_en}})
+            </a>
+            {{/each}}
           </div>
         </div>
       </div>

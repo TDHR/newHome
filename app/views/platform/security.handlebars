@@ -37,8 +37,11 @@
             <div class="panel-body">{{__ 'security-phone-helper'}}</div>
           </div>
           {{!-- 实名认证 --}}
-          {{#ifCond user.certificationStatus "===" 0}}
+          {{#ifCond user.certificationStatus "===" -1}}
           <div class="panel panel-danger">
+          {{/ifCond}}
+          {{#ifCond user.certificationStatus "===" 0}}
+          <div class="panel panel-warning">
           {{/ifCond}}
           {{#ifCond user.certificationStatus "===" 1}}
           <div class="panel panel-warning">
@@ -48,10 +51,19 @@
           {{/ifCond}}
             <div class="panel-heading">
                <div class="row">
-                  {{#ifCond user.certificationStatus "===" 0}}
+                  {{#ifCond user.certificationStatus "===" -1}}
                     <div class="col-md-9">
                       <span class="glyphicon glyphicon-remove"></span>
                       {{__ 'security-realname-verification-failed'}}
+                    </div>
+                    <div class="col-md-3 text-right">
+                      <a href="/user/verify-id">{{__ 'verify'}}</a>
+                    </div>
+                  {{/ifCond}}
+                  {{#ifCond user.certificationStatus "===" 0}}
+                    <div class="col-md-9">
+                      <span class="glyphicon glyphicon-filter"></span>
+                      {{__ 'security-realname-unverified'}}
                     </div>
                     <div class="col-md-3 text-right">
                       <a href="/user/verify-id">{{__ 'verify'}}</a>
@@ -77,35 +89,72 @@
             <div class="panel-body">{{__ 'security-view-helper'}}</div>
           </div>
           {{!-- 银行卡认证 --}}
-          <div class="panel panel-warning">
+          {{#ifCond user.bankCardVerifStatus "===" 0}}
+            <div class="panel panel-warning">
+          {{else}}
+            <div class="panel panel-success">
+          {{/ifCond}}
             <div class="panel-heading">
               <div class="row">
                 <div class="col-md-9">
-                  <span class="glyphicon glyphicon-filter"></span>
-                  {{__ 'security-bank-card-unverified'}}
+                  {{#ifCond user.bankCardVerifStatus "===" 0}}
+                    <span class="glyphicon glyphicon-filter"></span>
+                    {{__ 'security-bank-card-unverified'}}
+                  {{else}}
+                    <span class="glyphicon glyphicon-ok"></span>
+                    {{__ 'security-bank-card-verification'}}
+                  {{/ifCond}}
                 </div>
                 <div class="col-md-3 text-right">
-                  <a href="/user/verify-bank-card">{{__ 'verify'}}</a>
-                  <a href="/user/view-bank-card">{{__ 'view'}}</a>
+                  {{#ifCond user.bankCardVerifStatus "===" 0}}
+                    <a href="/user/verify-bank-card">{{__ 'verify'}}</a>
+                  {{else}}
+                    <a href="/user/view-bank-card">{{__ 'view'}}</a>
+                  {{/ifCond}}
                 </div>
               </div>
             </div>
             <div class="panel-body">{{__ 'security-bank-card-helper'}}</div>
           </div>
           {{!-- 风险承受能力评估 --}}
+          {{#if user.riskInfo}}
+          <div class="panel panel-success">
+          {{else}}
           <div class="panel panel-warning">
+          {{/if}}
             <div class="panel-heading">
               <div class="row">
                 <div class="col-md-9">
+                  {{#if user.riskInfo}}
+                  <span class="glyphicon glyphicon-ok"></span>
+                  {{__ 'security-risk'}}
+                  {{else}}
                   <span class="glyphicon glyphicon-filter"></span>
                   {{__ 'security-risk-not-assessed'}}
+                  {{/if}}
                 </div>
                 <div class="col-md-3 text-right">
                   <a href="/user/risk-tolerance">{{__ 'security-risk-assess'}}</a>
                 </div>
               </div>
             </div>
-            <div class="panel-body">{{__ 'security-risk-helper'}}</div>
+            <div class="panel-body">
+              {{__ 'security-risk-helper'}}
+              <div>{{#if user.riskInfo}}</div>
+              <div>
+                {{#ifCond user.riskInfo.type '===' 0}}
+                <span class="risk-type">{{__ 'security-risk-type'}}{{__ 'security-risk-type0'}}</span>
+                {{/ifCond}}
+                {{#ifCond user.riskInfo.type '===' 1}}
+                <span class="risk-type">{{__ 'security-risk-type'}}{{__ 'security-risk-type1'}}</span>
+                {{/ifCond}}
+                {{#ifCond user.riskInfo.type '===' 2}}
+                <span class="risk-type">{{__ 'security-risk-type'}}{{__ 'security-risk-type2'}}</span>
+                {{/ifCond}}
+                <span class="risk-score">{{__ 'security-risk-score'}}{{user.riskInfo.score}}</span>
+              </div>
+              {{/if}}
+            </div>
           </div>
         </div>
         <div class="record-list">

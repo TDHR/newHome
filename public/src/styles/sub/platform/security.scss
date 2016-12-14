@@ -6,4 +6,15 @@
       margin-bottom: 10px;
     }
   }
+  .panel-body {
+    >div {
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .risk-score {
+      margin-left: 30px;
+    }
+  }
 }

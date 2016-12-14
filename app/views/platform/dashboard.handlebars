@@ -33,7 +33,7 @@
                   {{/each}}
                 {{else}}
                   <tr>
-                    <td class="text-center" colspan="3">-</td>
+                    <td class="text-center" colspan="3">{{__ 'no-data'}}</td>
                   </tr>
                 {{/if}}
                 </tbody>
@@ -103,7 +103,7 @@
             </div>  
           </div> --}}
         </div>
-        {{#if bonus.address}}
+        {{#if bonus.bonus}}
           <div class="dividend">
             <div class="dividend-title">{{__ 'dashboard-dividend-address'}}</div>
             <div class="table-responsive">
@@ -116,13 +116,15 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {{#each bonus.bonus}}
                   <tr>
-                    <td>BTC</td>
-                    <td>{{bonus.address}}</td>
+                    <td>{{type}}</td>
+                    <td>{{address}}</td>
                     <td>
                       <a href="/user/update-dividend">{{__ 'modify'}}</a>
                     </td>
                   </tr>
+                  {{/each}}
                 </tbody>
               </table>
             </div>

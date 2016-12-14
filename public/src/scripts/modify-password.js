@@ -32,7 +32,7 @@ function submitForm() {
     success: function(res) {
       if (res.success) {
         Alert(Locales.modifyPassword[locale].success, 5000, 'success', function() {
-          location.href = '/user/dashboard';
+          location.href = '/user/security';
         });
       } else {
         // 根据错误码输出相应的提示
@@ -48,7 +48,7 @@ function submitForm() {
   });
 }
 
-// 重置按钮
+// 验证表单
 $('#btnSubmit').on('click', function() {
   if ($(this).hasClass('disabled')) {
     return false;

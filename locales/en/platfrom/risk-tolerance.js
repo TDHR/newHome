@@ -1,6 +1,6 @@
 {
   "risk-tolerance-title": "Risk Tolerance",
-  "risk-tolerance-intro": "We will assess your risk tolerance. Based on this evaluation, your risk tolerance will belong to one of three types: conservative, steady type, positive type. In order to provide you with better asset selection, please carefully answer, thank you for your cooperation.",
+  "risk-tolerance-intro": "We will assess your risk tolerance. Based on this evaluation, your risk tolerance will belong to one of three types: conservative, steady, positive. In order to provide you with better asset selection, please carefully answer, thank you for your cooperation.",
   "risk-tolerance-q1-q": "1. What is your current employment situation?",
   "risk-tolerance-q1-a1": "Stable job, a stable income and little change",
   "risk-tolerance-q1-a2": "Stable job, a commission-based income",

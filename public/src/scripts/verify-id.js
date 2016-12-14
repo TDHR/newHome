@@ -32,7 +32,7 @@ function submitForm(photos) {
     success: function(res) {
       if (res.success) {
         Alert(Locales.verifyId[locale].success, 5000, 'success', function() {
-          location.href = '/user/dashboard';
+          location.href = '/user/security';
         });
       } else {
         // 根据错误码输出相应的提示
@@ -85,7 +85,7 @@ function uploadPhoto() {
   });
 }
 
-// 保存按钮
+// 提交按钮
 $('#btnSubmit').on('click', function() {
   if ($(this).hasClass('disabled')) {
     return false;

@@ -10,7 +10,7 @@ exports.index = function(req, res) {
     getUserInfo: function(cb) {
       request
         .get(config.platform + '/api/vipuser/getuserinfo')
-        .query({token: userToken})
+        .query({ token: userToken })
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -20,7 +20,7 @@ exports.index = function(req, res) {
     getLoginInfo: function(cb) {
       request
         .get(config.platform + '/api/vipuser/getloginlog')
-        .query({token: userToken})
+        .query({ token: userToken })
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -34,6 +34,7 @@ exports.index = function(req, res) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
+    console.log(user.data);
     res.render('platform/security', {
       layout: 'platform',
       nav: 'security',
@@ -78,19 +79,19 @@ exports.phone = function(req, res) {
 
 // 「修改手机」接口
 exports.modifyPhone = function(req, res) {
-  // request
-  //   .post(config.platform + '/api/vipuser/updatepassword')
-  //   .set('Content-Type', 'application/x-www-form-urlencoded')
-  //   .set('Accept', 'application/json')
-  //   .send(req.body)
-  //   .end(function(err, result) {
-  //     var body = result.body;
-  //     return res.json({
-  //       success: body.success,
-  //       code: body.code,
-  //       msg: body.message
-  //     });
-  //   });
+  request
+    .post(config.platform + '/api/vipuser/updatephonenumber')
+    .set('Content-Type', 'application/x-www-form-urlencoded')
+    .set('Accept', 'application/json')
+    .send(req.body)
+    .end(function(err, result) {
+      var body = result.body;
+      return res.json({
+        success: body.success,
+        code: body.code,
+        msg: body.message
+      });
+    });
 };
 
 // 查看实名认证信息
@@ -101,7 +102,7 @@ exports.viewId = function(req, res) {
     getUserInfo: function(cb) {
       request
         .get(config.platform + '/api/vipuser/getuserinfo')
-        .query({token: userToken})
+        .query({ token: userToken })
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -130,10 +131,10 @@ exports.verifyId = function(req, res) {
   });
 };
 
-// 「更新实名认证」接口
+// 「实名认证」接口
 exports.verifyIdPost = function(req, res) {
   request
-    .post(config.platform + '/api/vipuser/updateuserimage')
+    .post(config.platform + '/api/vipuser/realnameauth')
     .set('Content-Type', 'application/x-www-form-urlencoded')
     .set('Accept', 'application/json')
     .send(req.body)
@@ -150,9 +151,31 @@ exports.verifyIdPost = function(req, res) {
 // 查看银行卡信息
 exports.viewBankCard = function(req, res) {
   var userToken = req.cookies.userToken;
-  res.render('platform/view-bank-card', {
-    layout: 'platform',
-    nav: 'security'
+
+  async.auto({
+    // 获取银行卡认证信息
+    getBankCard: function(cb) {
+      request
+        .get(config.platform + '/api/vipuser/getbankcardverif')
+        .query({ token: userToken })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }
+  }, function(err, results) {
+    var bank = results.getBankCard.body;
+    // 未登录、登录超时
+    if (bank.code === 1) {
+      res.clearCookie('userToken');
+      return res.redirect('/login');
+    }
+    
+    res.render('platform/view-bank-card', {
+      layout: 'platform',
+      nav: 'security',
+      bank: bank.data
+    });
   });
 };
 
@@ -166,7 +189,19 @@ exports.verifyBankCard = function(req, res) {
 
 // 「银行卡认证」接口
 exports.verifyBankCardPost = function(req, res) {
-  
+  request
+    .post(config.platform + '/api/vipuser/bankcardverif')
+    .set('Content-Type', 'application/x-www-form-urlencoded')
+    .set('Accept', 'application/json')
+    .send(req.body)
+    .end(function(err, result) {
+      var body = result.body;
+      return res.json({
+        success: body.success,
+        code: body.code,
+        msg: body.message
+      });
+    });
 }
 
 // 「风险承受能力评估」页面
@@ -179,5 +214,17 @@ exports.riskTolerance = function(req, res) {
 
 // 「风险承受能力评估」提交接口
 exports.riskTolerancePost = function(req, res) {
-
+  request
+    .post(config.platform + '/api/vipuser/updateriskinfo')
+    .set('Content-Type', 'application/x-www-form-urlencoded')
+    .set('Accept', 'application/json')
+    .send(req.body)
+    .end(function(err, result) {
+      var body = result.body;
+      return res.json({
+        success: body.success,
+        code: body.code,
+        msg: body.message
+      });
+    });
 };

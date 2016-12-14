@@ -40,7 +40,6 @@ exports.index = function(req, res) {
     }
   }, function(err, results) {
     var user = results.getUserInfo.body;
-    console.log(user);
     var asset = results.getAsset.body;
     var bonus = results.getBonusAddress.body;
     // 未登录、登录超时
@@ -48,7 +47,6 @@ exports.index = function(req, res) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-
     // 从haobtc返回了相应数据
     if (code) {
         return res.redirect('/user/update-dividend?code=' + code);

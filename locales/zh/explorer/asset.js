@@ -1,4 +1,6 @@
 {
+  "explorer-asset-total-circulation": "总发行量：",
+  "explorer-asset-owners": "持仓人数：",
   "explorer-asset-positions": "持仓排行",
   "explorer-asset-positions-id": "持仓人ID",
   "explorer-asset-positions-name": "姓名",

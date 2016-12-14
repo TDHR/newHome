@@ -6,9 +6,23 @@ var config = require('../../config/config');
  * [区块链浏览器首页]
  */
 exports.index = function(req, res) {
-  res.render('explorer/index', {
-    layout: 'explorer',
-    nav: 'explorer'
+  async.auto({
+    getAssets: function(cb) {
+      request
+        .get(config.platform + '/papi/chainhome/getassets')
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }
+  }, function(err, results) {
+    var assets = results.getAssets.body;
+    console.log(assets.data);
+    res.render('explorer/index', {
+      layout: 'explorer',
+      nav: 'explorer',
+      assets: assets.data
+    });
   });
 };
 
