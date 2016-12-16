@@ -17,7 +17,7 @@ var config = {
   },
   beta: {
     root: rootPath,
-    public: rootPath + '/public/test',
+    public: rootPath + '/public/beta',
     app: {
       name: 'gold-rock'
     },
