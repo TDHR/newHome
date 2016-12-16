@@ -4,6 +4,7 @@ exports.paths = {
   src: 'public/src',
   dev: 'public/dev',
   dist: 'public/dist',
+  beta: 'public/beta',
   tmp: 'public/tmp',
   locales: 'locales'
 };

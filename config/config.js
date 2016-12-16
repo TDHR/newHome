@@ -15,6 +15,18 @@ var config = {
     haobtcClientId: '292716efb54f42cb88a6',
     haobtcClientSecret: '5e7de2e903644ccb863d9499d4a9c2bf2399b19a'
   },
+  beta: {
+    root: rootPath,
+    public: rootPath + '/public/test',
+    app: {
+      name: 'gold-rock'
+    },
+    port: process.env.PORT || 3000,
+    weixin: 'http://app.reitschain.com',
+    platform: 'http://123.207.164.141:9080/reits',
+    haobtcClientId: 'db2c28fb32e2447c9c47',
+    haobtcClientSecret: '3a7c92de12ba41028411ba8760ef4390b90979be'
+  },
   production: {
     root: rootPath,
     public: rootPath + '/public/dist',

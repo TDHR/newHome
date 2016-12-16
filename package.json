@@ -12,8 +12,11 @@
   "scripts": {
     "dev": "gulp dev",
     "prod": "gulp prod",
+    "beta": "gulp beta",
     "start": "pm2 start ecosystem.json --env production",
-    "restart": "pm2 restart ecosystem.json --env production"
+    "restart": "pm2 restart ecosystem.json --env production",
+    "startBeta": "pm2 start ecosystem.json --env beta",
+    "restartBeta": "pm2 restart ecosystem.json --env beta"
   },
   "repository": {
     "type": "git",

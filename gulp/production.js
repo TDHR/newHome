@@ -57,12 +57,6 @@ gulp.task('prodLibs', function() {
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/libs')));
 });
 
-// clean tmp file
-gulp.task('cleanTmp', function() {
-  return del.sync([path.join(conf.paths.tmp, '/*')]);
-});
-
-
 // clean dist file
 gulp.task('cleanDist', function() {
   return del.sync([path.join(conf.paths.dist, '/*')]);
