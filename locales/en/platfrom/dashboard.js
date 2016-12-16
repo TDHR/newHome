@@ -5,7 +5,7 @@
   "dashboard-asset-holdings": "Holdings",
   "dashboard-wallet-tips1": "You have not been bound wallet.",
   "dashboard-wallet-tips2": "Wallet program is being developed, so stay tuned.",
-  "dashboard-address-tips": "You have not added a Dividend Address.",
+  "dashboard-address-tips": "You have not added a Dividend Address(Currently only supports BTC address).",
   "dashboard-address-signup1": "Have not address? Sign in",
   "dashboard-address-signup2": "easily get.",
   "dashboard-address-update": "Already have a address, click here to add",
