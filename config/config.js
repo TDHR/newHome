@@ -12,8 +12,8 @@ var config = {
     port: process.env.PORT || 3000,
     weixin: 'http://app.reitschain.com',
     platform: 'http://192.168.2.183:8080/reits',
-    haobtcClientId: '292716efb54f42cb88a6',
-    haobtcClientSecret: '5e7de2e903644ccb863d9499d4a9c2bf2399b19a'
+    haobtcClientId: '2e10c0dfb0b54be1a312',
+    haobtcClientSecret: 'a760851fce234b1bae336cbe69c2a4faa200bbe5'
   },
   beta: {
     root: rootPath,
@@ -24,8 +24,8 @@ var config = {
     port: process.env.PORT || 3000,
     weixin: 'http://app.reitschain.com',
     platform: 'http://123.207.164.141:9080/reits',
-    haobtcClientId: 'db2c28fb32e2447c9c47',
-    haobtcClientSecret: '3a7c92de12ba41028411ba8760ef4390b90979be'
+    haobtcClientId: '008c59a9491643f6b5e3',
+    haobtcClientSecret: '49e5757ff78441c894df8020e168dd817296885f'
   },
   production: {
     root: rootPath,
