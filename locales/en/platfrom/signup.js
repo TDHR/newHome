@@ -7,5 +7,5 @@
   "signup-terms": "I have read and agree to the <a href=\"/terms\" target=\"_blank\">terms of service</a>",
   "signup-register": "Signup",
   "signup-success1": "Registration success",
-  "signup-success2": "<a href=\"/login\">Login now</a>"
+  "signup-success2": "seconds after the jump to the <a href=\"/login\">login page</a>"
 }

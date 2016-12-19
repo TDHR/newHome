@@ -7,5 +7,5 @@
   "signup-terms": "我已阅读并同意瑞资的 <a href=\"/terms\" target=\"_blank\">服务条款</a>",
   "signup-register": "注册",
   "signup-success1": "恭喜注册成功",
-  "signup-success2": "立即前往 <a href=\"/login\">登录</a> 吧"
+  "signup-success2": "秒后跳转到 <a href=\"/login\">登录</a>"
 }

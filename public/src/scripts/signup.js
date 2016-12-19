@@ -76,9 +76,23 @@ function countDown() {
 }
 
 /**
- * 提交表单
+ * [提交表单]
  */
 function submitForm() {
+  // 倒计时跳转
+  var jump = (sec) => {
+    clearTimeout(window.jumpCountdown);
+    sec--;
+    if (sec) {
+      $('#jumpCountdown').text(sec);
+      window.jumpCountdown = setTimeout(() => {
+        jump(sec);
+      }, 1000);
+    } else {
+      location.href = '/login';
+    }
+  };
+
   $.ajax({
     method: 'POST',
     url: '/signup',
@@ -88,6 +102,7 @@ function submitForm() {
       if (res.success) {
         $('#formHolder').addClass('hide');
         $('#successHolder').removeClass('hide');
+        jump(5);
       } else {
         // 根据错误码输出相应的提示
         Alert(Locales.signup[locale]['error-code-' + res.code], 5000);

@@ -15,7 +15,15 @@
         </div>
         <div class="url">
           <p>方法二：复制下方链接发送给好友</p>
-          <input type="text" class="form-control url-holder" readonly="readonly" value="https://www.reitschain.com/signup?invite={{code.inviteCode}}">
+          {{#ifCond ENV '===' 'development'}}
+            <input type="text" class="form-control url-holder" readonly="readonly" value="http://localhost:3000/signup?invite={{code.inviteCode}}" onclick="this.select();">
+          {{/ifCond}}
+          {{#ifCond ENV '===' 'beta'}}
+            <input type="text" class="form-control url-holder" readonly="readonly" value="http://test.reitschain.com/signup?invite={{code.inviteCode}}" onclick="this.select();">
+          {{/ifCond}}
+          {{#ifCond ENV '===' 'production'}}
+            <input type="text" class="form-control url-holder" readonly="readonly" value="https://www.reitschain.com/signup?invite={{code.inviteCode}}" onclick="this.select();">
+          {{/ifCond}}
         </div>
         <div class="invite-list">
           <div class="title">我的邀请</div>

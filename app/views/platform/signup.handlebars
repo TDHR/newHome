@@ -28,7 +28,7 @@
         </div>
         <div class="form-group">
           <label for="invitationCode">{{__ 'invitation-code'}}</label>
-          <input type="text" class="form-control input-lg" id="invitationCode" name="invitationCode" value="{{invite}}">
+          <input type="text" class="form-control input-lg" id="invitationCode" name="invitationCode" value="{{invite}}" {{#if invite}}readOnly{{/if}}>
           <span class="help-block">{{__ 'optional'}}</span>
         </div>
         <div class="checkbox">
@@ -50,7 +50,7 @@
       </div>
     </div>
     <h3>{{__ 'signup-success1'}}</h3>
-    <p>{{{__ 'signup-success2'}}}</p>
+    <p><span id="jumpCountdown">5</span>{{{__ 'signup-success2'}}}</p>
   </div>
 </div>
 

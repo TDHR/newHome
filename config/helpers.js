@@ -120,15 +120,15 @@ module.exports = function() {
     var date = new Date(timestamp * fix);
     switch (type) {
       case 'ymd':
-        result = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        result = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
         break;
 
       case 'hms':
-        result = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        result = ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2);
         break;
 
       default:
-        result = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        result = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2);
     }
     return result;
   };
