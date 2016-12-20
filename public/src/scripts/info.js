@@ -51,9 +51,13 @@ function submitForm() {
   });
 }
 
-// 重置按钮
-$('#btnSubmit').on('click', function() {
-  if ($(this).hasClass('disabled')) {
+/**
+ * 验证表单
+ */
+$('#form').on('submit', function(e) {
+  e.preventDefault();
+
+  if ($('#btnSubmit').hasClass('disabled')) {
     return false;
   }
 

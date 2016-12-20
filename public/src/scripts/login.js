@@ -14,7 +14,10 @@ import Alert from './modules/alert';
 // 获取当前的语言类型
 let locale = Cookies.get('REITsLocale');
 
-// 提交表单信息
+/**
+ * 提交表单信息
+ * @param  {Object} data
+ */
 function submitForm(data) {
   $.ajax({
     method: 'POST',
@@ -48,9 +51,13 @@ function submitForm(data) {
   });
 }
 
-// 登录按钮
-$('#btnSubmit').on('click', function() {
-  if ($(this).hasClass('disabled')) {
+/**
+ * 检查表单
+ */
+$('#form').on('submit', function(e) {
+  e.preventDefault();
+
+  if ($('#btnSubmit').hasClass('disabled')) {
     return false;
   }
   let data = {};
