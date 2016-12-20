@@ -15,6 +15,33 @@ import Alert from './modules/alert';
 let locale = Cookies.get('REITsLocale');
 
 /**
+ * [预览图片]
+ * @param  {Object} input
+ * @param {String} sort
+ */
+function previewImage(input, sort) {
+  if (input.files && input.files[0]) {
+    $(`#spin${sort}`).removeClass('hide');
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+      $(`#preview${sort}`).removeClass('hide').attr('src', e.target.result);
+      $(`#spin${sort}`).addClass('hide');
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    $(`#preview${sort}`).addClass('hide').attr('src', '');
+    $(`#spin${sort}`).addClass('hide');
+  }
+}
+
+// 显示预览图片
+$('#idPhoto1, #idPhoto2, #photo').on('change', function() {
+  previewImage(this, $(this).data('sort'));
+});
+
+/**
  * 提交表单
  * @param [object] photos
  */
@@ -47,7 +74,6 @@ function submitForm(photos) {
     }
   });
 }
-
 
 /**
  * 上传图片

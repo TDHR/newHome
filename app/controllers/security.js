@@ -149,7 +149,7 @@ exports.verifyId = function(req, res) {
     }
     // 未进行过实名认证
     if (user.data.certificationStatus !== 0) {
-      return res.redirect('/user/security');
+      // return res.redirect('/user/security');
     }
     res.render('platform/verify-id', {
       layout: 'platform',
