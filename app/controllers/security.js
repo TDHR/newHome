@@ -34,7 +34,6 @@ exports.index = function(req, res) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-    console.log(user.data);
     res.render('platform/security', {
       layout: 'platform',
       nav: 'security',
@@ -115,6 +114,10 @@ exports.viewId = function(req, res) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
+    // 实名认证还未通过审核
+    if (user.data.certificationStatus !== 2) {
+      return res.redirect('/user/security');
+    }
     res.render('platform/view-id', {
       layout: 'platform',
       nav: 'security',
@@ -123,11 +126,35 @@ exports.viewId = function(req, res) {
   });
 };
 
-// 「更新实名认证」页面
+// 「实名认证」页面
 exports.verifyId = function(req, res) {
-  res.render('platform/verify-id', {
-    layout: 'platform',
-    nav: 'security'
+  var userToken = req.cookies.userToken;
+  async.auto({
+    // 获取用户信息
+    getUserInfo: function(cb) {
+      request
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({ token: userToken })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }
+  }, function(err, results) {
+    var user = results.getUserInfo.body;
+    // 未登录、登录超时
+    if (user.code === 1) {
+      res.clearCookie('userToken');
+      return res.redirect('/login');
+    }
+    // 未进行过实名认证
+    if (user.data.certificationStatus !== 0) {
+      return res.redirect('/user/security');
+    }
+    res.render('platform/verify-id', {
+      layout: 'platform',
+      nav: 'security'
+    });
   });
 };
 
@@ -151,8 +178,17 @@ exports.verifyIdPost = function(req, res) {
 // 查看银行卡信息
 exports.viewBankCard = function(req, res) {
   var userToken = req.cookies.userToken;
-
   async.auto({
+    // 获取用户信息
+    getUserInfo: function(cb) {
+      request
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({ token: userToken })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    },
     // 获取银行卡认证信息
     getBankCard: function(cb) {
       request
@@ -164,13 +200,17 @@ exports.viewBankCard = function(req, res) {
         });
     }
   }, function(err, results) {
+    var user = results.getUserInfo.body;
     var bank = results.getBankCard.body;
     // 未登录、登录超时
-    if (bank.code === 1) {
+    if (user.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-    
+    // 未进行过认证
+    if (user.data.bankCardVerifStatus === 0) {
+      return res.redirect('/user/security');
+    }
     res.render('platform/view-bank-card', {
       layout: 'platform',
       nav: 'security',
@@ -181,9 +221,33 @@ exports.viewBankCard = function(req, res) {
 
 // 「银行卡认证」页面
 exports.verifyBankCard = function(req, res) {
-  res.render('platform/verify-bank-card', {
-    layout: 'platform',
-    nav: 'security'
+  var userToken = req.cookies.userToken;
+  async.auto({
+    // 获取用户信息
+    getUserInfo: function(cb) {
+      request
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({ token: userToken })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }
+  }, function(err, results) {
+    var user = results.getUserInfo.body;
+    // 未登录、登录超时
+    if (user.code === 1) {
+      res.clearCookie('userToken');
+      return res.redirect('/login');
+    }
+    // 如果已通过认证
+    if (user.data.bankCardVerifStatus === 1) {
+      return res.redirect('/user/security');
+    }
+    res.render('platform/verify-bank-card', {
+      layout: 'platform',
+      nav: 'security'
+    });
   });
 };
 
