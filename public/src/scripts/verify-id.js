@@ -21,14 +21,28 @@ let locale = Cookies.get('REITsLocale');
  */
 function previewImage(input, sort) {
   if (input.files && input.files[0]) {
-    $(`#spin${sort}`).removeClass('hide');
-    let reader = new FileReader();
 
+    // 图片大小验证（小于10MB）
+    if (input.files[0].size > 10000000) {
+      Alert(Locales.verifyId[locale]['photo-err-1'], 5000);
+      input.value = '';
+      return false;
+    }
+
+    // 格式验证
+    if (!Validate.image(input.files[0].name)) {
+      Alert(Locales.verifyId[locale]['photo-err-1'], 5000);
+      input.value = '';
+      return false;
+    }
+
+    $(`#spin${sort}`).removeClass('hide');
+
+    let reader = new FileReader();
     reader.onload = function(e) {
       $(`#preview${sort}`).removeClass('hide').attr('src', e.target.result);
       $(`#spin${sort}`).addClass('hide');
     }
-
     reader.readAsDataURL(input.files[0]);
   } else {
     $(`#preview${sort}`).addClass('hide').attr('src', '');
