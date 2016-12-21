@@ -37,9 +37,9 @@ exports.index = function(req, res) {
     var code = results.getInviteCode.body;
     var list = results.getInviteList.body;
 
-    res.render('platform/invitation-to-reward', {
+    res.render('platform/get-rewards', {
       layout: 'platform',
-      nav: 'invitation-to-reward',
+      nav: 'get-rewards',
       code: code.data,
       list: list.data
     });

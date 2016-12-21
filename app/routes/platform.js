@@ -2,11 +2,11 @@ var login = require('./../controllers/login');
 var signup = require('./../controllers/signup');
 var reset = require('./../controllers/reset');
 var dashboard = require('./../controllers/dashboard');
-var info = require('./../controllers/info');
+var profile = require('./../controllers/profile');
 var notification = require('./../controllers/notification');
 var security = require('./../controllers/security');
 var phoneCode = require('./../controllers/phone-code');
-var invitation = require('./../controllers/invitation-to-reward');
+var invitation = require('./../controllers/get-rewards');
 
 module.exports = function(app, auth) {
   // 登录页面
@@ -56,21 +56,21 @@ module.exports = function(app, auth) {
   app.get('/notification/:id', auth.needToLogin, notification.detail);
   
   // 个人信息
-  app.get('/user/info', auth.needToLogin, info.index);
+  app.get('/user/profile', auth.needToLogin, profile.index);
   
   // 更新个人信息
-  app.post('/user/update-info', auth.needToLogin, info.update);
+  app.post('/user/update-profile', auth.needToLogin, profile.update);
 
   // 账户安全
   app.get('/user/security', auth.needToLogin, security.index);
 
   // 修改密码
-  app.get('/user/modify-password', auth.needToLogin, security.pwd);
-  app.post('/user/modify-password', auth.needToLogin, security.modifyPwd);
+  app.get('/user/change-password', auth.needToLogin, security.pwd);
+  app.post('/user/change-password', auth.needToLogin, security.changePwd);
 
   // 修改手机
-  app.get('/user/modify-phone', auth.needToLogin, security.phone);
-  app.post('/user/modify-phone', auth.needToLogin, security.modifyPhone);
+  app.get('/user/change-phone', auth.needToLogin, security.phone);
+  app.post('/user/change-phone', auth.needToLogin, security.changePhone);
 
   // 查看实名认证信息
   app.get('/user/view-id', auth.needToLogin, security.viewId);
@@ -91,7 +91,7 @@ module.exports = function(app, auth) {
   app.post('/user/risk-tolerance', auth.needToLogin, security.riskTolerancePost);
 
   // 邀请奖励
-  app.get('/user/invitation-to-reward/:page?/:pageNum?', auth.needToLogin, invitation.index);
+  app.get('/user/get-rewards/:page?/:pageNum?', auth.needToLogin, invitation.index);
 
   // 下载钱包
   app.get('/download/:type/:name', auth.needToLogin, dashboard.download);

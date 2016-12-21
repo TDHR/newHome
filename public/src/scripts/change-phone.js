@@ -41,16 +41,16 @@ $('#btnSmsCode').on('click', function() {
     success: function(res) {
       if (!res.success) {
         // 根据错误码输出相应的提示
-        Alert(Locales.modifyPhone[locale]['phoneCode-err-' + res.code], 5000);
+        Alert(Locales.changePhone[locale]['phoneCode-err-' + res.code], 5000);
         // 还原「获取验证码」
-        that.removeClass('disabled').html(Locales.modifyPhone[locale].phoneCode);
+        that.removeClass('disabled').html(Locales.changePhone[locale].phoneCode);
       }
     },
     error: function() {
       // 获取验证码失败，请稍后重试
-      Alert(Locales.modifyPhone[locale]['phoneCode-err-1'], 5000);
+      Alert(Locales.changePhone[locale]['phoneCode-err-1'], 5000);
       // 还原「获取验证码」
-      that.removeClass('disabled').html(Locales.modifyPhone[locale].phoneCode);
+      that.removeClass('disabled').html(Locales.changePhone[locale].phoneCode);
     }
   });
 });
@@ -62,14 +62,14 @@ function countDown() {
     time--;
     if (time) {
       // 再次获取（60s）
-      $('#btnSmsCode').html(`${Locales.modifyPhone[locale]['phoneCode-count']}(${time}s)`);
+      $('#btnSmsCode').html(`${Locales.changePhone[locale]['phoneCode-count']}(${time}s)`);
       window.phoneCodeTimeout = setTimeout(() => {
         count();
       }, 1000);
     } else {
       clearTimeout(window.phoneCodeTimeout);
       // 还原「获取验证码」
-      $('#btnSmsCode').removeClass('disabled').html(Locales.modifyPhone[locale].phoneCode);
+      $('#btnSmsCode').removeClass('disabled').html(Locales.changePhone[locale].phoneCode);
     }
   };
   count();
@@ -84,7 +84,7 @@ function submitForm() {
   
   $.ajax({
     method: 'POST',
-    url: '/user/modify-phone',
+    url: '/user/change-phone',
     data: data,
     cache: false,
     beforeSend: function() {
@@ -92,16 +92,16 @@ function submitForm() {
     },
     success: function(res) {
       if (res.success) {
-        Alert(Locales.modifyPhone[locale].success, 5000, 'success', function() {
+        Alert(Locales.changePhone[locale].success, 5000, 'success', function() {
           location.href = '/user/security';
         });
       } else {
         // 根据错误码输出相应的提示
-        Alert(Locales.modifyPhone[locale]['error-code-' + res.code], 5000);
+        Alert(Locales.changePhone[locale]['error-code-' + res.code], 5000);
       }
     },
     error: function() {
-      Alert(Locales.modifyPhone[locale]['submit-err-1'], 5000);
+      Alert(Locales.changePhone[locale]['submit-err-1'], 5000);
     },
     complete: function() {
       $('#btnSubmit').removeClass('disabled');
@@ -121,19 +121,19 @@ $('#form').on('submit', function(e) {
 
   let phoneNumber = $('#phoneNumber').val();
   if (!Validate.mobile(phoneNumber)) {
-    Alert(Locales.modifyPhone[locale]['phone-err-1'], 5000);
+    Alert(Locales.changePhone[locale]['phone-err-1'], 5000);
     return false;
   }
 
   let phoneValidCode = $('#phoneValidCode').val();
   if (!Validate.length(phoneValidCode, 6)) {
-    Alert(Locales.modifyPhone[locale]['sms-err-1'], 5000);
+    Alert(Locales.changePhone[locale]['sms-err-1'], 5000);
     return false;
   }
 
   let password = $('#password').val();
   if (!Validate.length(password, 6)) {
-    Alert(Locales.modifyPhone[locale]['pwd-err-1'], 5000);
+    Alert(Locales.changePhone[locale]['pwd-err-1'], 5000);
     return false;
   }
 

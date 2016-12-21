@@ -2,11 +2,11 @@ import Explorer from './explorer/index';
 import Login from './platform/login';
 import Signup from './platform/signup';
 import Reset from './platform/reset';
-import Info from './platform/info';
+import Profile from './platform/profile';
 import VerifyId from './platform/verify-id';
-import ModifyPassword from './platform/modify-password';
+import ChangePassword from './platform/change-password';
 import Dividend from './platform/dividend';
-import ModifyPhone from './platform/modify-phone';
+import ChangePhone from './platform/change-phone';
 import VerifyBankCard from './platform/verify-bank-card';
 import RiskTolerance from './platform/risk-tolerance';
 
@@ -15,11 +15,11 @@ export default {
   login: Login,
   signup: Signup,
   reset: Reset,
-  info: Info,
+  profile: Profile,
   verifyId: VerifyId,
-  modifyPassword: ModifyPassword,
+  changePassword: ChangePassword,
   dividend: Dividend,
-  modifyPhone: ModifyPhone,
+  changePhone: ChangePhone,
   verifyBankCard: VerifyBankCard,
   riskTolerance: RiskTolerance
 };

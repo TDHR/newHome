@@ -23,9 +23,9 @@ exports.index = function(req, res) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-    res.render('platform/info', {
+    res.render('platform/profile', {
       layout: 'platform',
-      nav: 'info',
+      nav: 'profile',
       user: user.data
     });
   });

@@ -45,14 +45,14 @@ exports.index = function(req, res) {
 
 // 「修改密码」页面
 exports.pwd = function(req, res) {
-  res.render('platform/modify-password', {
+  res.render('platform/change-password', {
     layout: 'platform',
     nav: 'security'
   });
 };
 
 // 「修改密码」接口
-exports.modifyPwd = function(req, res) {
+exports.changePwd = function(req, res) {
   request
     .post(config.platform + '/api/vipuser/updatepassword')
     .set('Content-Type', 'application/x-www-form-urlencoded')
@@ -70,14 +70,14 @@ exports.modifyPwd = function(req, res) {
 
 // 「修改手机」页面
 exports.phone = function(req, res) {
-  res.render('platform/modify-phone', {
+  res.render('platform/change-phone', {
     layout: 'platform',
     nav: 'security'
   });
 };
 
 // 「修改手机」接口
-exports.modifyPhone = function(req, res) {
+exports.changePhone = function(req, res) {
   request
     .post(config.platform + '/api/vipuser/updatephonenumber')
     .set('Content-Type', 'application/x-www-form-urlencoded')

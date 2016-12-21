@@ -20,10 +20,10 @@ let locale = Cookies.get('REITsLocale');
 function submitForm() {
   let data = $('#form').serializeObject();
   data.token = Cookies.get('userToken');
-
+  
   $.ajax({
     method: 'POST',
-    url: '/user/update-info',
+    url: '/user/change-password',
     data: data,
     cache: false,
     beforeSend: function() {
@@ -31,19 +31,16 @@ function submitForm() {
     },
     success: function(res) {
       if (res.success) {
-        Alert(Locales.info[locale].success, 5000, 'success');
+        Alert(Locales.changePassword[locale].success, 5000, 'success', function() {
+          location.href = '/user/security';
+        });
       } else {
         // 根据错误码输出相应的提示
-        Alert(Locales.info[locale]['error-code-' + res.code], 5000);
-        // 未登录、登录超时
-        if (res.code === 2) {
-          Cookies.set('userToken', undefined);
-          location.href = '/login';
-        }
+        Alert(Locales.changePassword[locale]['error-code-' + res.code], 5000);
       }
     },
     error: function() {
-      Alert(Locales.info[locale]['submit-err-1'], 5000);
+      Alert(Locales.changePassword[locale]['submit-err-1'], 5000);
     },
     complete: function() {
       $('#btnSubmit').removeClass('disabled');
@@ -56,14 +53,31 @@ function submitForm() {
  */
 $('#form').on('submit', function(e) {
   e.preventDefault();
-
+  
   if ($('#btnSubmit').hasClass('disabled')) {
     return false;
   }
 
-  let nickName = $('#nickName').val();
-  if (!Validate.length(nickName, 1)) {
-    Alert(Locales.info[locale]['nickname-err-1'], 5000);
+  let oldPassword = $('#oldPassword').val();
+  if (!Validate.length(oldPassword, 6)) {
+    Alert(Locales.changePassword[locale]['old-pwd-err-1'], 5000);
+    return false;
+  }
+
+  let newPassword = $('#newPassword').val();
+  if (!Validate.length(newPassword, 6)) {
+    Alert(Locales.changePassword[locale]['new-pwd-err-1'], 5000);
+    return false;
+  }
+
+  let confirmPassword = $('#confirmPassword').val();
+  if (Validate.length(confirmPassword, 6)) {
+    if (newPassword !== confirmPassword) {
+      Alert(Locales.changePassword[locale]['confirm-pwd-err-1'], 5000);
+      return false;
+    }
+  } else {
+    Alert(Locales.changePassword[locale]['confirm-pwd-err-2'], 5000);
     return false;
   }
 

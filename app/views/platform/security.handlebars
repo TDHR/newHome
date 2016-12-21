@@ -15,7 +15,7 @@
                   {{__ 'security-login-password'}}
                 </div>
                 <div class="col-md-3 text-right">
-                  <a href="/user/modify-password">{{__ 'modify'}}</a>
+                  <a href="/user/change-password">{{__ 'change'}}</a>
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@
                   {{__ 'security-phone'}}
                 </div>
                 <div class="col-md-3 text-right">
-                  <a href="/user/modify-phone">{{__ 'modify'}}</a>
+                  <a href="/user/change-phone">{{__ 'change'}}</a>
                 </div>
               </div>
             </div>
@@ -54,7 +54,7 @@
                   {{#ifCond user.certificationStatus "===" -1}}
                     <div class="col-md-9">
                       <span class="glyphicon glyphicon-remove"></span>
-                      {{__ 'security-realname-verification-failed'}}
+                      {{__ 'security-identity-verification-failed'}}
                     </div>
                     <div class="col-md-3 text-right">
                       <a href="/user/verify-id">{{__ 'verify'}}</a>
@@ -63,7 +63,7 @@
                   {{#ifCond user.certificationStatus "===" 0}}
                     <div class="col-md-9">
                       <span class="glyphicon glyphicon-filter"></span>
-                      {{__ 'security-realname-unverified'}}
+                      {{__ 'security-identity-unverified'}}
                     </div>
                     <div class="col-md-3 text-right">
                       <a href="/user/verify-id">{{__ 'verify'}}</a>
@@ -72,13 +72,13 @@
                   {{#ifCond user.certificationStatus "===" 1}}
                     <div class="col-md-9">
                       <span class="glyphicon glyphicon-filter"></span>
-                      {{__ 'security-realname-verification-ing'}}
+                      {{__ 'security-identity-verification-ing'}}
                     </div>
                   {{/ifCond}}
                   {{#ifCond user.certificationStatus "===" 2}}
                     <div class="col-md-9">
                       <span class="glyphicon glyphicon-ok"></span>
-                      {{__ 'security-realname-verification'}}
+                      {{__ 'security-identity-verification'}}
                     </div>
                     <div class="col-md-3 text-right">
                       <a href="/user/view-id">{{__ 'view'}}</a>

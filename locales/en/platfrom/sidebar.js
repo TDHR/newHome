@@ -1,9 +1,9 @@
 {
   "sidebar-personal": "Personal center",
-  "sidebar-my-assets": "My assets",
-  "sidebar-invitation-to-reward": "Invitation to reward",
+  "sidebar-my-investments": "My investments",
+  "sidebar-get-rewards": "Get rewards",
   "sidebar-notification": "System notification",
   "sidebar-security": "Security center",
-  "sidebar-information": "Personal information",
-  "sidebar-account": "Account security"
+  "sidebar-profile": "My profile",
+  "sidebar-security-setting": "Security settings"
 }
