@@ -4,7 +4,6 @@
   "dashboard-asset-circulation": "总发行量",
   "dashboard-asset-holdings": "持有量",
   "dashboard-wallet-tips1": "你还没有绑定过钱包",
-  "dashboard-wallet-tips2": "钱包程序正在紧张开发中，敬请期待。",
   "dashboard-address-tips": "你还没有添加分红地址（目前仅支持 BTC 地址）",
   "dashboard-address-signup1": "还没有地址？在",
   "dashboard-address-signup2": "注册即可轻松获取",
