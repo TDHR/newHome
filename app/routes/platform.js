@@ -92,4 +92,7 @@ module.exports = function(app, auth) {
 
   // 邀请奖励
   app.get('/user/invitation-to-reward/:page?/:pageNum?', auth.needToLogin, invitation.index);
+
+  // 下载钱包
+  app.get('/download/:type/:name', auth.needToLogin, dashboard.download);
 };

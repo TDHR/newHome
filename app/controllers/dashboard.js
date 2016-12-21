@@ -180,3 +180,11 @@ exports.updateDividend = function(req, res) {
       });
     });
 };
+
+// 下载钱包
+exports.download = function(req, res) {
+  var type = req.params.type;
+  var name = req.params.name;
+  var filepath = config.root + '/public/download/' + type + '/' + name;
+  res.download(filepath);
+}

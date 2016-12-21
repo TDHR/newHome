@@ -17,7 +17,6 @@ exports.index = function(req, res) {
     }
   }, function(err, results) {
     var assets = results.getAssets.body;
-    console.log(assets.data);
     res.render('explorer/index', {
       layout: 'explorer',
       nav: 'explorer',
@@ -105,7 +104,7 @@ exports.asset = function(req, res) {
     var dayTrans = results.getDayTransTops.body;
     var weekTrans = results.getWeekTransTops.body;
     var monthTrans = results.getMonthTransTops.body;
-
+console.log('dayTrans', dayTrans);
     res.render('explorer/asset', {
       layout: 'explorer',
       nav: 'explorer',
