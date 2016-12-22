@@ -203,7 +203,7 @@ $("#startDate").datetimepicker({
   autoclose: true,
   minView: 2,
   todayHighlight: true,
-  endDate: '2016-10-28' // 今天
+  endDate: Convert.timestamp(new Date() * 1, 'ymd') // 今天
 });
 $("#endDate").datetimepicker({
   format: 'yyyy-mm-dd',
@@ -211,7 +211,7 @@ $("#endDate").datetimepicker({
   autoclose: true,
   minView: 2,
   todayHighlight: true,
-  endDate: '2016-10-28' // 不能晚于今天
+  endDate: Convert.timestamp(new Date() * 1, 'ymd') // 不能晚于今天
 });
 
 getTurnover(ago, today);
