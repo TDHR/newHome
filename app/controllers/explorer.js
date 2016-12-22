@@ -104,7 +104,7 @@ exports.asset = function(req, res) {
     var dayTrans = results.getDayTransTops.body;
     var weekTrans = results.getWeekTransTops.body;
     var monthTrans = results.getMonthTransTops.body;
-console.log('dayTrans', dayTrans);
+    
     res.render('explorer/asset', {
       layout: 'explorer',
       nav: 'explorer',

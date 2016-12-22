@@ -127,11 +127,18 @@ function turnoverChart(chartData) {
         align: 'center'
       }
     },
+    yAxis: {
+      labels: {
+        formatter: function() {
+          return this.value + '%';
+        }
+      }
+    },
     tooltip: {
       formatter: function() {
         var s = Highcharts.dateFormat('%Y-%m-%d', this.x);
         $.each(this.points, function() {
-          s += '<br/><b style="color: ' + this.series.color + '">' + this.series.name + ': </b><b>' + this.y + '</b>';
+          s += '<br/><b style="color: ' + this.series.color + '">' + this.series.name + ': </b><b>' + this.y + '%</b>';
         });
         return s;
       }
@@ -213,4 +220,3 @@ getTurnover(ago, today);
 $("#startDate, #endDate").on('change', function() {
   getTurnover($("#startDate").val(), $("#endDate").val());
 });
-
