@@ -6,15 +6,15 @@
       </div>
       <div class="col-md-9 col-sm-9">
         <div class="intro">
-          <p class="title">邀请好友注册，即可获得xxx</p>
-          <p class="rule">规则：好友使用邀请码完成注册，并且通过了实名认证，那么系统将会自动发放奖励到你的账户。</p>
+          <p class="title">{{__ 'get-rewards-title'}}</p>
+          <p class="rule">{{__ 'get-rewards-rules'}}</p>
         </div>
         <div class="code">
-          <p>方法一：好友在注册时填写你的邀请码</p>
+          <p>{{__ 'get-rewards-method1'}}</p>
           <div class="box">{{code.inviteCode}}</div>
         </div>
         <div class="url">
-          <p>方法二：复制下方链接发送给好友</p>
+          <p>{{__ 'get-rewards-method2'}}</p>
           {{#ifCond ENV '===' 'development'}}
             <input type="text" class="form-control url-holder" readonly="readonly" value="http://localhost:3000/signup?invite={{code.inviteCode}}" onclick="this.select();">
           {{/ifCond}}
@@ -26,14 +26,14 @@
           {{/ifCond}}
         </div>
         <div class="invite-list">
-          <div class="title">我的邀请</div>
+          <div class="title">{{__ 'get-rewards-my'}}</div>
           <div class="list table-responsive">
             <table class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th>手机号码</th>
-                  <th>状态</th>
-                  <th>注册时间</th>
+                  <th>{{__ 'get-rewards-phone'}}</th>
+                  <th>{{__ 'get-rewards-status'}}</th>
+                  <th>{{__ 'get-rewards-time'}}</th>
                 </tr>
               </thead>
               <tbody>
@@ -42,13 +42,13 @@
                     <tr>
                       <td>{{handleText phoneNum 4}}</td>
                       {{#ifCond status '===' 0}}
-                        <td>未实名认证</td>
+                        <td>{{__ 'get-rewards-state0'}}</td>
                       {{/ifCond}}
                       {{#ifCond status '===' 1}}
-                        <td>实名认证中</td>
+                        <td>{{__ 'get-rewards-state1'}}</td>
                       {{/ifCond}}
                       {{#ifCond status '===' 2}}
-                        <td>邀请成功</td>
+                        <td>{{__ 'get-rewards-state2'}}</td>
                       {{/ifCond}}
                       <td>{{dateFormat regTime '' 'unix'}}</td>
                     </tr>
