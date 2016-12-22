@@ -3,6 +3,7 @@
   "dashboard-asset-type": "The asset type",
   "dashboard-asset-circulation": "The total amount of the asset",
   "dashboard-asset-holdings": "Holdings",
+  "dashboard-wallet-title": "Your REITs Chain wallet address",
   "dashboard-wallet-tips1": "You have not been bound wallet.",
   "dashboard-address-tips": "You have not added a Dividend Address(Currently only supports BTC address).",
   "dashboard-address-signup1": "Have not address? Sign in",

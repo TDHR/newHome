@@ -4,17 +4,31 @@
     .info {
       padding: 15px;
       border-radius: 4px;
-      .nickname {
-      }
+      .nickname {}
       .assets {
         margin-top: 15px;
       }
     }
   }
   .wallet {
-    margin-top: 40px;
+    padding-bottom: 15px;
+    margin-top: 30px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
+    .address-holder {
+      padding: 15px;
+      margin-top: 30px;
+      .address {
+        width: 100%;
+        padding: 6px;
+        margin: 15px 0 30px;
+        background-color: #f9f9f9;
+        border: 1px dashed #ddd;
+        border-radius: 4px;
+        text-align: center;
+        font-size: 16px;
+      }
+    }
     .tips {
       padding: 40px 15px 20px;
       color: #999;
@@ -50,7 +64,8 @@
           background-color: #0089ec;
           color: #fff;
           border: 1px solid #0089ec;
-          &:hover, &:active {
+          &:hover,
+          &:active {
             border-color: #006bb9;
           }
         }

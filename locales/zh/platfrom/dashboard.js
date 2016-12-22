@@ -3,6 +3,7 @@
   "dashboard-asset-type": "资产类型",
   "dashboard-asset-circulation": "总发行量",
   "dashboard-asset-holdings": "持有量",
+  "dashboard-wallet-title": "你的瑞资链钱包地址",
   "dashboard-wallet-tips1": "你还没有绑定过钱包",
   "dashboard-address-tips": "你还没有添加分红地址（目前仅支持 BTC 地址）",
   "dashboard-address-signup1": "还没有地址？在",
