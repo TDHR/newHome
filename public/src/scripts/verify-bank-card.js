@@ -61,18 +61,6 @@ $('#form').on('submit', function(e) {
     return false;
   }
 
-  let name = $('#name').val();
-  if (!name) {
-    Alert(Locales.verifyBankCard[locale]['name-err-1'], 5000);
-    return false;
-  }
-
-  let idNumber = $('#idNumber').val();
-  if (!Validate.length(idNumber, 18)) {
-    Alert(Locales.verifyBankCard[locale]['id-num-err-1'], 5000);
-    return false;
-  }
-
   // 提交表单
   submitForm();
 });

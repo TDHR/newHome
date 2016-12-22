@@ -26,7 +26,7 @@ export default {
     'error-code-1': 'Abnormal data format, make sure and try again',
     'error-code-2': 'Please login first',
     'error-code-3': 'Submit failed, please try again later',
-    'error-code-4': 'Real name verification failed. Please try again confirm',
+    'error-code-4': 'Identity verification failed. Please try again confirm',
     'error-code-5': 'Save the information failed. Please try again later',
     'error-code-6': 'This identification number has already been registered',
     'success': 'Submitted successfully! After 5 seconds will automatically jump'

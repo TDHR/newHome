@@ -242,7 +242,7 @@ exports.verifyBankCard = function(req, res) {
     }
     // 如果已通过认证
     if (user.data.bankCardVerifStatus === 1) {
-      return res.redirect('/user/security');
+      // return res.redirect('/user/security');
     }
     res.render('platform/verify-bank-card', {
       layout: 'platform',
