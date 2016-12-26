@@ -6,12 +6,13 @@
     margin-top: 50px;
     .detail {
       width: 100%;
-      padding: 10px 0 10px 20px;
+      padding: 10px 10px 10px 20px;
       margin-top: 20px;
       border-left: 3px solid #deb36c;
       background-color: #fafafa;
       >div {
         margin: 10px 0;
+        word-break: break-all;
         >span {
           font-size: 13px;
           color: #999;
@@ -30,10 +31,9 @@
       margin-bottom: 10px;
       .address {
         float: left;
+        width: 100%;
         max-width: 280px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        word-break: break-all;
       }
       .amount {
         float: right;
