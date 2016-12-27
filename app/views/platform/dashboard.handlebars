@@ -27,8 +27,8 @@
                   {{#each asset.assets}}
                     <tr>
                       <td><a href="/explorer/asset/{{id}}" target="_blank">{{name}} ({{name_en}})</a></td>
-                      <td>{{total}}</td>
-                      <td>{{holdings}}</td>
+                      <td>{{numberWithCommas total}}</td>
+                      <td>{{numberWithCommas holdings}}</td>
                     </tr>
                   {{/each}}
                 {{else}}

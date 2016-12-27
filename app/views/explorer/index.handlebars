@@ -7,7 +7,7 @@
             <a class="list-group-item active">{{__ 'explorer-index-list-title'}}</a>
             {{#each assets.assets}}
             <a href="/explorer/asset/{{id}}" class="list-group-item">
-              <span class="badge">{{circulation}}</span>
+              <span class="badge">{{numberWithCommas circulation}}</span>
               {{name}} ({{name_en}})
             </a>
             {{/each}}

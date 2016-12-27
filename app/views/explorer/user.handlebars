@@ -13,7 +13,7 @@
           <span>{{__ 'explorer-user-holder-name'}}</span>{{handleText user.realName "2"}}
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6">
-          <span>{{__ 'explorer-user-holder-holdings'}}</span>{{user.balance}}
+          <span>{{__ 'explorer-user-holder-holdings'}}</span>{{numberWithCommas user.balance}}
         </div>
         <div class="col-md-4 col-sm-4 col-xs-6">
           <span>{{__ 'explorer-user-holder-ranking'}}</span>{{user.topIndex}}
@@ -38,7 +38,7 @@
               {{#each wallet.list}}
               <tr>
                 <td>{{this.address}}</td>
-                <td>{{this.balance}}</td>
+                <td>{{numberWithCommas this.balance}}</td>
               </tr>
               {{/each}}
             {{else}}
@@ -97,7 +97,7 @@
               {{#each tx.list}}
               <tr>
                 <td><a href="/explorer/asset/{{../assetId}}/tx/{{this.txId}}">{{this.txId}}</a></td>
-                <td>{{this.value}}</td>
+                <td>{{numberWithCommas this.value}}</td>
                 <td>{{dateFormat this.time 'default' 'unix'}}</td>
               </tr>
               {{/each}}

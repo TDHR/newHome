@@ -28,5 +28,6 @@
   "download": "下载",
   "stay-tuned": "敬请关注",
   "no-data": "暂无数据",
-  "explorer-asset-home-page": "资产主页"
+  "explorer-asset-home-page": "资产主页",
+  "copy": "复制"
 }

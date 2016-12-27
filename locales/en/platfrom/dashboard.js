@@ -13,5 +13,5 @@
   "dashboard-dividend-currency-type": "Currency type",
   "dashboard-dividend-currency-address": "Address",
   "dashboard-dividend-operating": "Operating",
-  "dashboard-notice-realname": "In order to guarantee your assets safety and comply with the laws of The People's Republic of China, Please complete the <a href=\"/user/security\">real name verification</a>"
+  "dashboard-notice-realname": "In order to guarantee your assets safety and comply with the laws of The People's Republic of China, Please complete the <a href=\"/user/security\">identity verification</a>"
 }

@@ -138,7 +138,7 @@ function turnoverChart(chartData) {
       formatter: function() {
         var s = Highcharts.dateFormat('%Y-%m-%d', this.x);
         $.each(this.points, function() {
-          s += '<br/><b style="color: ' + this.series.color + '">' + this.series.name + ': </b><b>' + this.y + '%</b>';
+          s += '<br/><b style="color: ' + this.series.color + '">' + this.series.name + ': </b><b>' + parseInt(this.y) + '%</b>';
         });
         return s;
       }

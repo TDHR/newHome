@@ -8,10 +8,10 @@
         {{base.name}}（{{base.name_en}}）
       </div>
       <div class="circulation">
-        <span>{{__ "explorer-asset-total-circulation"}}</span>{{base.circulation}}
+        <span>{{__ "explorer-asset-total-circulation"}}</span>{{numberWithCommas base.circulation}}
       </div>
       <div class="owners">
-        <span>{{__ "explorer-asset-owners"}}</span>{{base.holdUserCount}}
+        <span>{{__ "explorer-asset-owners"}}</span>{{numberWithCommas base.holdUserCount}}
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
               <tr>
                 <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
                 <td>{{handleText this.realName "2"}}</td>
-                <td>{{this.balance}}</td>
+                <td>{{numberWithCommas this.balance}}</td>
               </tr>
               {{/each}}
             {{else}}
@@ -91,8 +91,8 @@
                   {{#each dayTrans.list}}
                   <tr>
                     <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
-                    <td>{{this.trans}}</td>
-                    <td>{{this.balance}}</td>
+                    <td>{{numberWithCommas this.trans}}</td>
+                    <td>{{numberWithCommas this.balance}}</td>
                   </tr>
                   {{/each}}
                 {{else}}
@@ -119,8 +119,8 @@
                   {{#each weekTrans.list}}
                   <tr>
                     <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
-                    <td>{{this.trans}}</td>
-                    <td>{{this.balance}}</td>
+                    <td>{{numberWithCommas this.trans}}</td>
+                    <td>{{numberWithCommas this.balance}}</td>
                   </tr>
                   {{/each}}
                 {{else}}
@@ -147,8 +147,8 @@
                   {{#each monthTrans.list}}
                   <tr>
                     <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
-                    <td>{{this.trans}}</td>
-                    <td>{{this.balance}}</td>
+                    <td>{{numberWithCommas this.trans}}</td>
+                    <td>{{numberWithCommas this.balance}}</td>
                   </tr>
                   {{/each}}
                 {{else}}

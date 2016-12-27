@@ -28,5 +28,6 @@
   "download": "Download",
   "stay-tuned": "Stay tuned",
   "no-data": "No data",
-  "explorer-asset-home-page": "Asset home page"
+  "explorer-asset-home-page": "Asset home page",
+  "copy": "Copy"
 }

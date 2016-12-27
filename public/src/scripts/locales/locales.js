@@ -9,6 +9,7 @@ import Dividend from './platform/dividend';
 import ChangePhone from './platform/change-phone';
 import VerifyBankCard from './platform/verify-bank-card';
 import RiskTolerance from './platform/risk-tolerance';
+import GetRewards from './platform/get-rewards';
 
 export default {
   explorer: Explorer,
@@ -21,5 +22,6 @@ export default {
   dividend: Dividend,
   changePhone: ChangePhone,
   verifyBankCard: VerifyBankCard,
-  riskTolerance: RiskTolerance
+  riskTolerance: RiskTolerance,
+  getRewards: GetRewards
 };

@@ -4,7 +4,7 @@ var config = require('../../config/config');
 
 // 注册页面
 exports.index = function(req, res) {
-  var invite = req.query.invite;
+  var invite = req.query.i;
   res.render('platform/signup', {
     layout: 'platform',
     nav: 'signup',

@@ -6,24 +6,33 @@
       </div>
       <div class="col-md-9 col-sm-9">
         <div class="intro">
-          <p class="title">{{__ 'get-rewards-title'}}</p>
-          <p class="rule">{{__ 'get-rewards-rules'}}</p>
-        </div>
-        <div class="code">
-          <p>{{__ 'get-rewards-method1'}}</p>
-          <div class="box">{{code.inviteCode}}</div>
+          <div class="title">{{__ 'get-rewards-title'}}</div>
+          <div class="rules">
+            <p>{{__ 'get-rewards-rule1'}}</p>
+            <p>{{__ 'get-rewards-rule2'}}</p>
+            <p>{{__ 'get-rewards-rule3'}}</p>
+          </div>
         </div>
         <div class="url">
+          <p>{{__ 'get-rewards-method1'}}</p>
+          <div class="input-group">
+            {{#ifCond ENV '===' 'development'}}
+              <input id="inviteUrl" type="text" class="form-control url-holder" readonly="readonly" value="http://localhost:3000/signup?i={{code.inviteCode}}">
+            {{/ifCond}}
+            {{#ifCond ENV '===' 'beta'}}
+              <input id="inviteUrl" type="text" class="form-control url-holder" readonly="readonly" value="http://test.reitschain.com/signup?i={{code.inviteCode}}">
+            {{/ifCond}}
+            {{#ifCond ENV '===' 'production'}}
+              <input id="inviteUrl" type="text" class="form-control url-holder" readonly="readonly" value="https://www.reitschain.com/signup?i={{code.inviteCode}}">
+            {{/ifCond}}
+            <span class="input-group-btn">
+              <button id="copyBtn" class="btn btn-default" type="button" data-clipboard-action="copy" data-clipboard-target="#inviteUrl">{{__ 'copy'}}</button>
+            </span>
+          </div>
+        </div>
+        <div class="code">
           <p>{{__ 'get-rewards-method2'}}</p>
-          {{#ifCond ENV '===' 'development'}}
-            <input type="text" class="form-control url-holder" readonly="readonly" value="http://localhost:3000/signup?invite={{code.inviteCode}}" onclick="this.select();">
-          {{/ifCond}}
-          {{#ifCond ENV '===' 'beta'}}
-            <input type="text" class="form-control url-holder" readonly="readonly" value="http://test.reitschain.com/signup?invite={{code.inviteCode}}" onclick="this.select();">
-          {{/ifCond}}
-          {{#ifCond ENV '===' 'production'}}
-            <input type="text" class="form-control url-holder" readonly="readonly" value="https://www.reitschain.com/signup?invite={{code.inviteCode}}" onclick="this.select();">
-          {{/ifCond}}
+          <div class="box">{{code.inviteCode}}</div>
         </div>
         <div class="invite-list">
           <div class="title">{{__ 'get-rewards-my'}}</div>
@@ -73,4 +82,5 @@
 {{> footer}}
 {{> scripts}}
 <script src="/libs/jquery.bootpag.js"></script>
+<script src="/libs/clipboard.js/clipboard.min.js"></script>
 <script src="/scripts/get-rewards.js{{fileTail}}"></script>
