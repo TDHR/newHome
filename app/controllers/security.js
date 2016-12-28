@@ -45,9 +45,29 @@ exports.index = function(req, res) {
 
 // 「修改密码」页面
 exports.pwd = function(req, res) {
-  res.render('platform/change-password', {
-    layout: 'platform',
-    nav: 'security'
+  var userToken = req.cookies.userToken;
+  async.auto({
+    // 获取用户信息
+    getUserInfo: function(cb) {
+      request
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({ token: userToken })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }
+  }, function(err, results) {
+    var user = results.getUserInfo.body;
+    // 未登录、登录超时
+    if (user.code === 1) {
+      res.clearCookie('userToken');
+      return res.redirect('/login');
+    }
+    res.render('platform/change-password', {
+      layout: 'platform',
+      nav: 'security'
+    });
   });
 };
 
@@ -70,9 +90,29 @@ exports.changePwd = function(req, res) {
 
 // 「修改手机」页面
 exports.phone = function(req, res) {
-  res.render('platform/change-phone', {
-    layout: 'platform',
-    nav: 'security'
+  var userToken = req.cookies.userToken;
+  async.auto({
+    // 获取用户信息
+    getUserInfo: function(cb) {
+      request
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({ token: userToken })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }
+  }, function(err, results) {
+    var user = results.getUserInfo.body;
+    // 未登录、登录超时
+    if (user.code === 1) {
+      res.clearCookie('userToken');
+      return res.redirect('/login');
+    }
+    res.render('platform/change-phone', {
+      layout: 'platform',
+      nav: 'security'
+    });
   });
 };
 
@@ -270,9 +310,29 @@ exports.verifyBankCardPost = function(req, res) {
 
 // 「风险承受能力评估」页面
 exports.riskTolerance = function(req, res) {
-  res.render('platform/risk-tolerance', {
-    layout: 'platform',
-    nav: 'security'
+  var userToken = req.cookies.userToken;
+  async.auto({
+    // 获取用户信息
+    getUserInfo: function(cb) {
+      request
+        .get(config.platform + '/api/vipuser/getuserinfo')
+        .query({ token: userToken })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }
+  }, function(err, results) {
+    var user = results.getUserInfo.body;
+    // 未登录、登录超时
+    if (user.code === 1) {
+      res.clearCookie('userToken');
+      return res.redirect('/login');
+    }
+    res.render('platform/risk-tolerance', {
+      layout: 'platform',
+      nav: 'security'
+    });
   });
 };
 

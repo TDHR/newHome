@@ -39,12 +39,6 @@ module.exports = function(app, auth) {
   // dashboard
   app.get('/user/dashboard', auth.needToLogin, dashboard.index);
 
-  // 钱包详情页面
-  app.get('/wallet/:wid',  auth.needToLogin, dashboard.wallet);
-
-  // 绑定钱包页面
-  app.get('/user/bind-wallet',  auth.needToLogin, dashboard.bindWallet);
-
   // 修改分红地址
   app.get('/user/update-dividend',  auth.needToLogin, dashboard.dividend);
   app.post('/user/update-dividend',  auth.needToLogin, dashboard.updateDividend);

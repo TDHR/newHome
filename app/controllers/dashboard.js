@@ -71,14 +71,6 @@ exports.wallet = function(req, res) {
   });
 };
 
-// 绑定钱包
-exports.bindWallet = function(req, res) {
-  res.render('platform/bind-wallet', {
-    layout: 'platform',
-    nav: 'dashboard'
-  });
-};
-
 // 「修改分红地址」页面
 exports.dividend = function(req, res) {
   var userToken = req.cookies.userToken;

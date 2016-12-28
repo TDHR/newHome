@@ -36,6 +36,12 @@ exports.index = function(req, res) {
   }, function(err, results) {
     var code = results.getInviteCode.body;
     var list = results.getInviteList.body;
+    
+    // 未登录、登录超时
+    if (code.code === 1) {
+      res.clearCookie('userToken');
+      return res.redirect('/login');
+    }
 
     res.render('platform/get-rewards', {
       layout: 'platform',
