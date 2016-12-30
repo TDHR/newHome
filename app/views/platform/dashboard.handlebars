@@ -14,7 +14,7 @@
           <div class="info">
             <div class="nickname">{{__ 'dashboard-hello'}}{{user.nickName}}</div>
             <div class="assets table-responsive">
-              <table class="table table-bordered table-hover">
+              <table class="table table-bordered table-striped table-hover">
                 <thead>
                   <tr>
                     <th>{{__ 'dashboard-asset-type'}}</th>
@@ -82,11 +82,12 @@
           <div class="dividend">
             <div class="dividend-title">{{__ 'dashboard-dividend-address'}}</div>
             <div class="table-responsive">
-              <table class="table table-bordered table-hover">
+              <table class="table table-bordered table-striped table-hover">
                 <thead>
                   <tr>
-                    <th>{{__ 'dashboard-dividend-currency-type'}}</th>
-                    <th>{{__ 'dashboard-dividend-currency-address'}}</th>
+                    <th>{{__ 'dashboard-dividend-type'}}</th>
+                    <th>{{__ 'dashboard-dividend-address'}}</th>
+                    <th>{{__ 'dashboard-dividend-source'}}</th>
                     <th>{{__ 'dashboard-dividend-operating'}}</th>
                   </tr>
                 </thead>
@@ -95,8 +96,9 @@
                   <tr>
                     <td>{{type}}</td>
                     <td>{{address}}</td>
+                    <td>{{source}}</td>
                     <td>
-                      <a href="/user/update-dividend">{{__ 'change'}}</a>
+                      <a href="/user/update-dividend/{{id}}">{{__ 'change'}}</a>
                     </td>
                   </tr>
                   {{/each}}

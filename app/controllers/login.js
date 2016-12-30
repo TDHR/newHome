@@ -64,7 +64,8 @@ exports.login = function(req, res) {
   }, function(err, results) {
     var body = results.sendToSever.body;
     if (body.success) {
-      res.cookie('userToken', body.token, { maxAge: 7 * 24 * 60 * 60 * 1000, httpOnly: false });
+      // 存储 token 到 cookie，保留24小时
+      res.cookie('userToken', body.token, { maxAge: 24 * 60 * 60 * 1000, httpOnly: false });
     }
     return res.json({
       success: body.success,

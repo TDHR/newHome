@@ -10,8 +10,9 @@
   "dashboard-address-signup2": "注册即可轻松获取",
   "dashboard-address-update": "已有地址，点此添加",
   "dashboard-dividend-address": "分红地址",
-  "dashboard-dividend-currency-type": "货币类型",
-  "dashboard-dividend-currency-address": "地址",
+  "dashboard-dividend-type": "货币类型",
+  "dashboard-dividend-address": "地址",
+  "dashboard-dividend-source": "来源",
   "dashboard-dividend-operating": "操作",
   "dashboard-notice-realname": "为符合国家相关法令并确保您的资产安全，请您尽快完成 <a href=\"/user/security\">实名认证</a>"
 }

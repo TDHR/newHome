@@ -17,7 +17,7 @@ var mergeJson = require('gulp-merge-json');
 
 // images
 gulp.task('devImages', function() {
-  return gulp.src(path.join(conf.paths.src, '/images/*'))
+  return gulp.src(path.join(conf.paths.src, '/images/**'))
     .pipe(plumber())
     .pipe(cache(imagemin({
       progressive: true,
@@ -93,7 +93,7 @@ gulp.task('livereload', function() {
 
 // watch
 gulp.task('watch', function() {
-  gulp.watch(path.join(conf.paths.src, '/images/*'), ['devImages', 'livereload']);
+  gulp.watch(path.join(conf.paths.src, '/images/**'), ['devImages', 'livereload']);
   gulp.watch(path.join(conf.paths.src, '/styles/*.scss'), ['devStyles', 'livereload']);
   gulp.watch(path.join(conf.paths.src, '/styles/**/*.scss'), ['devStyles', 'livereload']);
   gulp.watch(path.join(conf.paths.src, '/scripts/*.js'), ['devScripts', 'livereload']);

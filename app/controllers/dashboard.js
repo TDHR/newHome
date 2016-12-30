@@ -74,6 +74,7 @@ exports.wallet = function(req, res) {
 // 「修改分红地址」页面
 exports.dividend = function(req, res) {
   var userToken = req.cookies.userToken;
+  var id = +req.params.id;
 
   // haobtc
   var code = req.query.code;
@@ -139,18 +140,26 @@ exports.dividend = function(req, res) {
     var user = results.getUserInfo.body;
     var bonus = results.getBonusAddress.body;
     var haobtcProfile = results.getHaobtcProfile.body;
-
     // 未登录、登录超时
     if (user.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
 
+    var bonusData = null;
+    if (bonus.data.bonus.length) {
+      bonus.data.bonus.forEach(function(v) {
+        if (v.id === id) {
+          bonusData = v;
+        }
+      });
+    }
+
     res.render('platform/update-dividend', {
       layout: 'platform',
       nav: 'dashboard',
       user: user.data,
-      bonus: bonus.data,
+      bonus: bonusData,
       haobtcProfile: haobtcProfile
     });
   });
@@ -165,6 +174,7 @@ exports.updateDividend = function(req, res) {
     .send(req.body)
     .end(function(err, result) {
       var body = result.body;
+      console.log('body', body);
       return res.json({
         success: body.success,
         code: body.code,

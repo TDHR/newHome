@@ -104,7 +104,6 @@ exports.asset = function(req, res) {
     var dayTrans = results.getDayTransTops.body;
     var weekTrans = results.getWeekTransTops.body;
     var monthTrans = results.getMonthTransTops.body;
-    
     res.render('explorer/asset', {
       layout: 'explorer',
       nav: 'explorer',
@@ -216,38 +215,72 @@ exports.user = function(req, res) {
 exports.tx = function(req, res) {
   var assetId = +req.params.assetId;
   var txId = req.params.txId;
-  async.auto({
-    // 获取交易信息
-    getTxInfo: function(cb) {
-      request
-        .get(config.platform + '/papi/person/gettxinfo')
-        .query({
-          txId: txId
-        })
-        .set('Accept', 'application/json')
-        .end(function(err, result) {
-          cb(null, result);
-        });
-    }
-  }, function(err, results) {
-    var info = results.getTxInfo.body;
 
-    var total = 0; // 交易总额
-    if (info.data.list.length > 1) {
-      for (var i = 0; i < info.data.list.length; i++) {
-        if (info.data.list[i].way === 1) {
-          total += info.data.list[i].amount;
-        }
-      }
-    }
-
+  // 发行资料
+  // TODO: 根据真实数据，将此流程融合到正常的请求流程中
+  if (txId === 'test') {
     res.render('explorer/tx', {
       layout: 'explorer',
       nav: 'explorer',
       assetId: assetId,
-      info: info.data,
-      total: total,
-      txId: txId
+      type: 'info'
     });
+  } else {
+    async.auto({
+      // 获取交易信息
+      getTxInfo: function(cb) {
+        request
+          .get(config.platform + '/papi/person/gettxinfo')
+          .query({
+            txId: txId
+          })
+          .set('Accept', 'application/json')
+          .end(function(err, result) {
+            cb(null, result);
+          });
+      }
+    }, function(err, results) {
+      var info = results.getTxInfo.body;
+      if (info.data) {
+        var total = 0; // 交易总额
+        if (info.data.list.length > 1) {
+          for (var i = 0; i < info.data.list.length; i++) {
+            if (info.data.list[i].way === 1) {
+              total += info.data.list[i].amount;
+            }
+          }
+        }
+        res.render('explorer/tx', {
+          layout: 'explorer',
+          nav: 'explorer',
+          assetId: assetId,
+          type: 'tx',
+          info: info.data,
+          total: total,
+          txId: txId
+        });
+      } else {
+        res.render('error/404', {
+          message: 'Not Found',
+          error: {
+            status: 404
+          },
+          title: 'error'
+        });
+      }
+    });
+  }
+};
+
+/**
+ * [页面：项目介绍]
+ */
+exports.intro = function(req, res) {
+  // 资产id
+  var assetId = +req.params.assetId;
+  res.render('explorer/intro/intro-' + assetId, {
+    layout: 'explorer',
+    nav: 'explorer',
+    assetId: assetId
   });
 };

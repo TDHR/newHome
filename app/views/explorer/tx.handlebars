@@ -4,42 +4,46 @@
       <li><a href="/explorer/asset/{{assetId}}">{{__ 'explorer-asset-home-page'}}</a></li>
       <li class="active">{{__ 'explorer-tx-transaction'}}</li>
     </ol>
-    <div class="info">
-      <h4>{{__ 'explorer-tx-transaction'}}</h4>
-      <div class="detail">
-        <div><span>{{__ 'explorer-tx-transaction-hash'}}</span>{{txId}}</div>
-        <div><span>{{__ 'explorer-tx-transaction-quantity'}}</span>{{numberWithCommas total}}</div>
-        <div><span>{{__ 'explorer-tx-transaction-date'}}</span>{{dateFormat info.time 'default' 'unix'}}</div>
-        <div><span>{{__ 'explorer-tx-transaction-confirmed'}}</span>{{info.confirmations}}</div>
-      </div>
-    </div>
-    {{#if info.list}}
-    <div class="address-list">
-      <div class="row">
-        <div class="col-md-5">
-          {{#each info.list}}
-            {{#ifCond this.way '===' -1}}
-              <div class="list-item clearfix">
-                <div class="address" title="{{this.address}}">{{this.address}}</div>
-                <div class="amount amount-from">{{numberWithCommas this.amount}}</div>
-              </div>
-            {{/ifCond}}
-          {{/each}}
-        </div>
-        <div class="col-md-2 address-arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
-        <div class="col-md-5">
-          {{#each info.list}}
-            {{#ifCond this.way '===' 1}}
-              <div class="list-item clearfix">
-                <div class="address" title="{{this.address}}">{{this.address}}</div>
-                <div class="amount amount-to">{{numberWithCommas this.amount}}</div>
-              </div>
-            {{/ifCond}}
-          {{/each}}
+    {{#ifCond type '===' 'tx'}}
+      <div class="info">
+        <h4>{{__ 'explorer-tx-transaction'}}</h4>
+        <div class="detail">
+          <div><span>{{__ 'explorer-tx-transaction-hash'}}</span>{{txId}}</div>
+          <div><span>{{__ 'explorer-tx-transaction-quantity'}}</span>{{numberWithCommas total}}</div>
+          <div><span>{{__ 'explorer-tx-transaction-date'}}</span>{{dateFormat info.time 'default' 'unix'}}</div>
+          <div><span>{{__ 'explorer-tx-transaction-confirmed'}}</span>{{info.confirmations}}</div>
         </div>
       </div>
-    </div>
-    {{/if}}
+      {{#if info.list}}
+      <div class="address-list">
+        <div class="row">
+          <div class="col-md-5">
+            {{#each info.list}}
+              {{#ifCond this.way '===' -1}}
+                <div class="list-item clearfix">
+                  <div class="address" title="{{this.address}}">{{this.address}}</div>
+                  <div class="amount amount-from">{{numberWithCommas this.amount}}</div>
+                </div>
+              {{/ifCond}}
+            {{/each}}
+          </div>
+          <div class="col-md-2 address-arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
+          <div class="col-md-5">
+            {{#each info.list}}
+              {{#ifCond this.way '===' 1}}
+                <div class="list-item clearfix">
+                  <div class="address" title="{{this.address}}">{{this.address}}</div>
+                  <div class="amount amount-to">{{numberWithCommas this.amount}}</div>
+                </div>
+              {{/ifCond}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    {{else}}
+    开发中
+    {{/ifCond}}
   </div>
 </div>
 

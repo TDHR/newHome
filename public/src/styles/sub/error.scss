@@ -1,11 +1,12 @@
 .page-error {
   text-align: center;
-  color: #999;
+  color: #c0c0c0;
+  text-shadow: 7px 7px 5px rgba(100, 100, 100, .2);
   .status {
     margin-top: 60px;
-    font-size: 42px;
+    font-size: 96px;
   }
   .message {
-    font-size: 28px;
+    font-size: 32px;
   }
 }

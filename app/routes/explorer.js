@@ -14,4 +14,7 @@ module.exports = function(app, auth) {
 
   // 页面：交易详情
   app.get('/explorer/asset/:assetId/tx/:txId', explorer.tx);
+
+  // 页面：项目介绍
+  app.get('/explorer/asset/:assetId/intro', explorer.intro);
 };

@@ -20,10 +20,19 @@
             <label for="address">{{__ 'dividend-address'}}</label>
             {{#if haobtcProfile.ok}}
               <input type="text" class="form-control" id="address" name="address" value="{{haobtcProfile.user_info.address}}">
-              <span class="help-block"><b>{{__ 'dividend-address-help-haobtc'}}</b>，{{__ 'dividend-address-help'}}</span>
+              <span class="help-block">{{__ 'dividend-address-help'}}</span>
             {{else}}
               <input type="text" class="form-control" id="address" name="address" value="{{bonus.address}}">
               <span class="help-block">{{__ 'dividend-address-help'}}</span>
+            {{/if}}
+          </div>
+          <div class="form-group">
+            <label for="source">{{__ 'dividend-source'}}</label>
+            {{#if haobtcProfile.ok}}
+              <input type="text" class="form-control readonly" id="source" name="source" disabled value="HaoBTC">
+            {{else}}
+              <input type="text" class="form-control" id="source" name="source" value="{{bonus.source}}">
+              <span class="help-block">*{{__ 'optional'}}{{__ 'dividend-source-help'}}</span>
             {{/if}}
           </div>
           <div class="form-group">
@@ -34,13 +43,14 @@
                   <div class="col-md-6 col-sm-7 col-xs-7">
                     <input type="text" class="form-control" id="phoneValidCode" name="phoneValidCode" data-phonenum="{{user.phoneNum}}">
                   </div>
-                  <div class="col-md-4 col-sm-4 col-xs-5">
+                  <div class="col-md-5 col-sm-5 col-xs-5">
                     <a id="btnSmsCode" class="btn-sms">{{__ "dividend-get-sms"}}</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <input type="hidden" id="id" name="id" value="{{bonus.id}}">
           <button id="btnSubmit" type="submit" class="btn btn-primary btn-submit">{{__ 'submit'}}</button>
         </form>
       </div>

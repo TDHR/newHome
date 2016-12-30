@@ -14,7 +14,7 @@ var csso = require('gulp-csso');
 
 // images
 gulp.task('betaImages', function() {
-  return gulp.src(path.join(conf.paths.src, '/images/*'))
+  return gulp.src(path.join(conf.paths.src, '/images/**'))
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{

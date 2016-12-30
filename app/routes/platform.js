@@ -40,7 +40,7 @@ module.exports = function(app, auth) {
   app.get('/user/dashboard', auth.needToLogin, dashboard.index);
 
   // 修改分红地址
-  app.get('/user/update-dividend',  auth.needToLogin, dashboard.dividend);
+  app.get('/user/update-dividend/:id?',  auth.needToLogin, dashboard.dividend);
   app.post('/user/update-dividend',  auth.needToLogin, dashboard.updateDividend);
 
   // 系统通知页面

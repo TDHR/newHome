@@ -10,8 +10,9 @@
   "dashboard-address-signup2": "easily get.",
   "dashboard-address-update": "Already have a address, click here to add",
   "dashboard-dividend-address": "Dividend Address",
-  "dashboard-dividend-currency-type": "Currency type",
-  "dashboard-dividend-currency-address": "Address",
+  "dashboard-dividend-type": "Currency type",
+  "dashboard-dividend-address": "Address",
+  "dashboard-dividend-source": "Source",
   "dashboard-dividend-operating": "Operating",
   "dashboard-notice-realname": "In order to guarantee your assets safety and comply with the laws of The People's Republic of China, Please complete the <a href=\"/user/security\">identity verification</a>"
 }
