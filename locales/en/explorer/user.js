@@ -1,6 +1,6 @@
 {
   "explorer-user-holder": "Details of the holder",
-  "explorer-user-holder-id": "Holder ID: ",
+  "explorer-user-holder-address": "Holder address: ",
   "explorer-user-holder-name": "Name: ",
   "explorer-user-holder-holdings": "Holdings: ",
   "explorer-user-holder-ranking": "Ranking: ",

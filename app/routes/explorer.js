@@ -10,7 +10,7 @@ module.exports = function(app, auth) {
   app.get('/explorer/turnover', explorer.turnover);
 
   // 页面：持仓人信息
-  app.get('/explorer/asset/:assetId/user/:userId/:tx?/:txPageNum?', explorer.user);
+  app.get('/explorer/asset/:assetId/user/:walletAddress/:tx?/:txPageNum?', explorer.user);
 
   // 页面：交易详情
   app.get('/explorer/asset/:assetId/tx/:txId', explorer.tx);

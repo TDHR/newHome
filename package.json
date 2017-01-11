@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/biallo/gold-rock"
+    "url": "https://github.com/REITs-Chain/gold-rock"
   },
   "dependencies": {
     "async": "2.0.1",

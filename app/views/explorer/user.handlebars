@@ -6,19 +6,19 @@
     </ol>
     <div class="user-info">
       <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-6">
-          <span>{{__ 'explorer-user-holder-id'}}</span>{{user.userId}}
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <span>{{__ 'explorer-user-holder-address'}}</span>{{user.walletAddress}}
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <span>{{__ 'explorer-user-holder-name'}}</span>{{handleText user.realName "2"}}
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <span>{{__ 'explorer-user-holder-holdings'}}</span>{{numberWithCommas user.balance}}
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <span>{{__ 'explorer-user-holder-ranking'}}</span>{{user.topIndex}}
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-6">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <span>{{__ 'explorer-user-holder-rate'}}</span>{{user.holdRate}}
         </div>
       </div>

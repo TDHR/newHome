@@ -1,6 +1,6 @@
 {
   "explorer-user-holder": "持仓人详情",
-  "explorer-user-holder-id": "持仓人ID：",
+  "explorer-user-holder-address": "持仓人地址：",
   "explorer-user-holder-name": "真实姓名：",
   "explorer-user-holder-holdings": "持有量：",
   "explorer-user-holder-ranking": "持仓排名：",

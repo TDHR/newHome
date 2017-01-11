@@ -145,7 +145,7 @@ exports.turnover = function(req, res) {
  */
 exports.user = function(req, res) {
   var assetId = +req.params.assetId;
-  var userId = +req.params.userId;
+  var walletAddress = req.params.walletAddress;
   var txPageNum = +req.params.txPageNum || 1;
   txPageNum -= 1;
   async.auto({
@@ -155,7 +155,7 @@ exports.user = function(req, res) {
         .get(config.platform + '/papi/person/getbaseinfo')
         .query({
           assetId: assetId,
-          userId: userId
+          walletAddress: walletAddress
         })
         .set('Accept', 'application/json')
         .end(function(err, result) {
@@ -168,7 +168,7 @@ exports.user = function(req, res) {
         .get(config.platform + '/papi/person/getaddrbalance')
         .query({
           assetId: assetId,
-          userId: userId,
+          walletAddress: walletAddress,
           pageIndex: 0,
           pageSize: 999
         })
@@ -183,7 +183,7 @@ exports.user = function(req, res) {
         .get(config.platform + '/papi/person/gettxdetail')
         .query({
           assetId: assetId,
-          userId: userId,
+          walletAddress: walletAddress,
           pageIndex: txPageNum,
           pageSize: 30
         })
@@ -201,7 +201,7 @@ exports.user = function(req, res) {
       layout: 'explorer',
       nav: 'explorer',
       assetId: assetId,
-      userId: userId,
+      walletAddress: walletAddress,
       user: user.data,
       wallet: wallet.data,
       tx: tx.data

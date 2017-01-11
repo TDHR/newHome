@@ -29,7 +29,7 @@
         <table class="table table-striped table-hover">
           <thead>
             <tr>
-              <th>{{__ 'explorer-asset-positions-id'}}</th>
+              <th>{{__ 'explorer-asset-positions-address'}}</th>
               <th>{{__ 'explorer-asset-positions-name'}}</th>
               <th>{{__ 'explorer-asset-positions-holdings'}}</th>
             </tr>
@@ -38,7 +38,7 @@
             {{#if tops.list}}
               {{#each tops.list}}
               <tr>
-                <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
+                <td><a href="/explorer/asset/{{../assetId}}/user/{{this.walletAddress}}">{{this.walletAddress}}</a></td>
                 <td>{{handleText this.realName "2"}}</td>
                 <td>{{numberWithCommas this.balance}}</td>
               </tr>
@@ -88,7 +88,7 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th>{{__ 'explorer-asset-trading-id'}}</th>
+                  <th>{{__ 'explorer-asset-trading-address'}}</th>
                   <th>{{__ 'explorer-asset-trading-volume'}}</th>
                   <th>{{__ 'explorer-asset-trading-balance'}}</th>
                 </tr>
@@ -97,7 +97,7 @@
                 {{#if dayTrans.list}}
                   {{#each dayTrans.list}}
                   <tr>
-                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.walletAddress}}">{{this.walletAddress}}</a></td>
                     <td>{{numberWithCommas this.trans}}</td>
                     <td>{{numberWithCommas this.balance}}</td>
                   </tr>
@@ -116,7 +116,7 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th>{{__ 'explorer-asset-trading-id'}}</th>
+                  <th>{{__ 'explorer-asset-trading-address'}}</th>
                   <th>{{__ 'explorer-asset-trading-volume'}}</th>
                   <th>{{__ 'explorer-asset-trading-balance'}}</th>
                 </tr>
@@ -125,7 +125,7 @@
                 {{#if weekTrans.list}}
                   {{#each weekTrans.list}}
                   <tr>
-                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.walletAddress}}">{{this.walletAddress}}</a></td>
                     <td>{{numberWithCommas this.trans}}</td>
                     <td>{{numberWithCommas this.balance}}</td>
                   </tr>
@@ -144,7 +144,7 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th>{{__ 'explorer-asset-trading-id'}}</th>
+                  <th>{{__ 'explorer-asset-trading-address'}}</th>
                   <th>{{__ 'explorer-asset-trading-volume'}}</th>
                   <th>{{__ 'explorer-asset-trading-balance'}}</th>
                 </tr>
@@ -153,7 +153,7 @@
                 {{#if monthTrans.list}}
                   {{#each monthTrans.list}}
                   <tr>
-                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.userId}}">{{this.userId}}</a></td>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.walletAddress}}">{{this.walletAddress}}</a></td>
                     <td>{{numberWithCommas this.trans}}</td>
                     <td>{{numberWithCommas this.balance}}</td>
                   </tr>
