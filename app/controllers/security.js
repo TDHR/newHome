@@ -30,7 +30,7 @@ exports.index = function(req, res) {
     var user = results.getUserInfo;
     var loginInfo = results.getLoginInfo;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -60,7 +60,7 @@ exports.pwd = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -105,7 +105,7 @@ exports.phone = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -150,7 +150,7 @@ exports.viewId = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -183,7 +183,7 @@ exports.verifyId = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -243,7 +243,7 @@ exports.viewBankCard = function(req, res) {
     var user = results.getUserInfo;
     var bank = results.getBankCard;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -276,7 +276,7 @@ exports.verifyBankCard = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -325,7 +325,7 @@ exports.riskTolerance = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }

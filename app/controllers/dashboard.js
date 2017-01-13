@@ -43,7 +43,7 @@ exports.index = function(req, res) {
     var asset = results.getAsset;
     var bonus = results.getBonusAddress;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -141,7 +141,7 @@ exports.dividend = function(req, res) {
     var bonus = results.getBonusAddress;
     var haobtcProfile = results.getHaobtcProfile;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -174,7 +174,6 @@ exports.updateDividend = function(req, res) {
     .send(req.body)
     .end(function(err, result) {
       var body = result.body;
-      console.log('body', body);
       return res.json({
         success: body.success,
         code: body.code,

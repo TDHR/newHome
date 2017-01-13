@@ -38,7 +38,7 @@ exports.index = function(req, res) {
     var list = results.getInviteList;
     
     // 未登录、登录超时
-    if (!code.body || code.body.code === 1) {
+    if (!code || !code.body || code.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }

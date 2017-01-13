@@ -19,7 +19,7 @@ exports.index = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo;
     // 未登录、登录超时
-    if (!user.body || user.body.code === 1) {
+    if (!user || !user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
