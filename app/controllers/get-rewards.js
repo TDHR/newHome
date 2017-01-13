@@ -34,11 +34,11 @@ exports.index = function(req, res) {
         });
     }
   }, function(err, results) {
-    var code = results.getInviteCode.body;
-    var list = results.getInviteList.body;
+    var code = results.getInviteCode;
+    var list = results.getInviteList;
     
     // 未登录、登录超时
-    if (code.code === 1) {
+    if (!code.body || code.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -46,8 +46,8 @@ exports.index = function(req, res) {
     res.render('platform/get-rewards', {
       layout: 'platform',
       nav: 'get-rewards',
-      code: code.data,
-      list: list.data
+      code: code.body.data,
+      list: list.body.data
     });
   });
 };

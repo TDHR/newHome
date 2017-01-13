@@ -39,11 +39,11 @@ exports.index = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
-    var asset = results.getAsset.body;
-    var bonus = results.getBonusAddress.body;
+    var user = results.getUserInfo;
+    var asset = results.getAsset;
+    var bonus = results.getBonusAddress;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -54,9 +54,9 @@ exports.index = function(req, res) {
       res.render('platform/dashboard', {
         layout: 'platform',
         nav: 'dashboard',
-        user: user.data,
-        asset: asset.data,
-        bonus: bonus.data,
+        user: user.body.data,
+        asset: asset.body.data,
+        bonus: bonus.body.data,
         haobtcClientId: config.haobtcClientId
       });
     }
@@ -137,18 +137,18 @@ exports.dividend = function(req, res) {
       }
     }]
   }, function(err, results) {
-    var user = results.getUserInfo.body;
-    var bonus = results.getBonusAddress.body;
-    var haobtcProfile = results.getHaobtcProfile.body;
+    var user = results.getUserInfo;
+    var bonus = results.getBonusAddress;
+    var haobtcProfile = results.getHaobtcProfile;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
 
     var bonusData = null;
-    if (bonus.data.bonus.length) {
-      bonus.data.bonus.forEach(function(v) {
+    if (bonus.body && bonus.body.data.bonus.length) {
+      bonus.body.data.bonus.forEach(function(v) {
         if (v.id === id) {
           bonusData = v;
         }
@@ -158,9 +158,9 @@ exports.dividend = function(req, res) {
     res.render('platform/update-dividend', {
       layout: 'platform',
       nav: 'dashboard',
-      user: user.data,
+      user: user.body.data,
       bonus: bonusData,
-      haobtcProfile: haobtcProfile
+      haobtcProfile: haobtcProfile.body
     });
   });
 };

@@ -17,16 +17,16 @@ exports.index = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
+    var user = results.getUserInfo;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
     res.render('platform/profile', {
       layout: 'platform',
       nav: 'profile',
-      user: user.data
+      user: user.body.data
     });
   });
 };

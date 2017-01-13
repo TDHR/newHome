@@ -104,16 +104,27 @@ exports.asset = function(req, res) {
     var dayTrans = results.getDayTransTops.body;
     var weekTrans = results.getWeekTransTops.body;
     var monthTrans = results.getMonthTransTops.body;
-    res.render('explorer/asset', {
-      layout: 'explorer',
-      nav: 'explorer',
-      assetId: assetId,
-      base: base.data,
-      tops: tops.data,
-      dayTrans: dayTrans.data,
-      weekTrans: weekTrans.data,
-      monthTrans: monthTrans.data
-    });
+
+    if (base.data && base.data.circulation > 0 && base.data.name) {
+      res.render('explorer/asset', {
+        layout: 'explorer',
+        nav: 'explorer',
+        assetId: assetId,
+        base: base.data,
+        tops: tops.data,
+        dayTrans: dayTrans.data,
+        weekTrans: weekTrans.data,
+        monthTrans: monthTrans.data
+      });
+    } else {
+      res.render('error/404', {
+        message: 'Not Found',
+        error: {
+          status: 404
+        },
+        title: 'error'
+      });
+    }
   });
 };
 
@@ -196,16 +207,26 @@ exports.user = function(req, res) {
     var user = results.getUserInfo.body;
     var wallet = results.getWallet.body;
     var tx = results.getTx.body;
-
-    res.render('explorer/user', {
-      layout: 'explorer',
-      nav: 'explorer',
-      assetId: assetId,
-      walletAddress: walletAddress,
-      user: user.data,
-      wallet: wallet.data,
-      tx: tx.data
-    });
+    console.log('user.data', user.data);
+    if (user.data && user.data.realName && user.data.walletAddress) {
+      res.render('explorer/user', {
+        layout: 'explorer',
+        nav: 'explorer',
+        assetId: assetId,
+        walletAddress: walletAddress,
+        user: user.data,
+        wallet: wallet.data,
+        tx: tx.data
+      });
+    } else {
+      res.render('error/404', {
+        message: 'Not Found',
+        error: {
+          status: 404
+        },
+        title: 'error'
+      });
+    }
   });
 };
 

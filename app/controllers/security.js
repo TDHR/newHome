@@ -27,18 +27,18 @@ exports.index = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
-    var loginInfo = results.getLoginInfo.body;
+    var user = results.getUserInfo;
+    var loginInfo = results.getLoginInfo;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
     res.render('platform/security', {
       layout: 'platform',
       nav: 'security',
-      user: user.data,
-      loginInfo: loginInfo.data
+      user: user.body.data,
+      loginInfo: loginInfo.body.data
     });
   });
 };
@@ -58,9 +58,9 @@ exports.pwd = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
+    var user = results.getUserInfo;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -103,9 +103,9 @@ exports.phone = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
+    var user = results.getUserInfo;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
@@ -148,20 +148,20 @@ exports.viewId = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
+    var user = results.getUserInfo;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-    // 实名认证还未通过审核
-    if (user.data.certificationStatus !== 2) {
+    // -1(认证失败) 0(未认证)  1(认证中)  2(已认证)
+    if (user.body.data.certificationStatus !== 2) {
       return res.redirect('/user/security');
     }
     res.render('platform/view-id', {
       layout: 'platform',
       nav: 'security',
-      user: user.data
+      user: user.body.data
     });
   });
 };
@@ -181,14 +181,14 @@ exports.verifyId = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
+    var user = results.getUserInfo;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-    // 未进行过实名认证
-    if (user.data.certificationStatus !== 0) {
+    // -1(认证失败) 0(未认证)  1(认证中)  2(已认证)
+    if (user.body.data.certificationStatus > 0) {
       return res.redirect('/user/security');
     }
     res.render('platform/verify-id', {
@@ -240,21 +240,21 @@ exports.viewBankCard = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
-    var bank = results.getBankCard.body;
+    var user = results.getUserInfo;
+    var bank = results.getBankCard;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-    // 未进行过认证
-    if (user.data.bankCardVerifStatus === 0) {
+    // 0(未认证) 1(已认证)
+    if (user.body.data.bankCardVerifStatus === 0) {
       return res.redirect('/user/security');
     }
     res.render('platform/view-bank-card', {
       layout: 'platform',
       nav: 'security',
-      bank: bank.data
+      bank: bank.body.data
     });
   });
 };
@@ -274,14 +274,14 @@ exports.verifyBankCard = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
+    var user = results.getUserInfo;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-    // 如果已通过认证
-    if (user.data.bankCardVerifStatus === 1) {
+    // 0(未认证) 1(已认证)
+    if (user.body.data.bankCardVerifStatus === 1) {
       return res.redirect('/user/security');
     }
     res.render('platform/verify-bank-card', {
@@ -323,9 +323,9 @@ exports.riskTolerance = function(req, res) {
         });
     }
   }, function(err, results) {
-    var user = results.getUserInfo.body;
+    var user = results.getUserInfo;
     // 未登录、登录超时
-    if (user.code === 1) {
+    if (!user.body || user.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
