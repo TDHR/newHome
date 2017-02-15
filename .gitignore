@@ -10,4 +10,5 @@ logs
 public/dist
 public/dev
 public/tmp
+public/beta
 public/src/scripts/config/config-now.js

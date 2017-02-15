@@ -21,10 +21,5 @@
   "team-card4-office": "CEO Assistant",
   "team-card4-text1": "Many years experience in external communications, public relations and primary market investment, worked at China Institute for innovation &Development strategy，participate in the planning of international forum, more than 300 domestic and foreign dignitaries attended",
   "team-card4-text2": "Worked as CEO Assistant (investment) in AnBang Insurance group and investment manager in strategic investment department",
-  "team-card4-text3": "BSc in mathenmatic and economices in York University, MSc in Management in LSE",
-  "team-card5-name": "Guoyun Jing",
-  "team-card5-office": "Operations Director",
-  "team-card5-text1": "More than 6 years operations and management experience in the internet products, worked in Huosu, Haodai and Sina weibo",
-  "team-card5-text2": "Skilled in content and user operations, refinement operations. Proficient in operations strategy of internet products",
-  "team-card5-text3": "M.A. in communications, Wuhan University. B.A. in advertisement, Huazhong University of Science and Technology"
+  "team-card4-text3": "BSc in mathenmatic and economices in York University, MSc in Management in LSE"
 }
