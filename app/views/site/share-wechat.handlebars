@@ -28,16 +28,13 @@
   <script src="/libs/jquery.min.js"></script>
   <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
   <script>
-    // {{wechat.jsapi_ticket}}
-    // {{wechat.url}}
     wx.config({
-      debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+      debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
       appId: '{{wechat.appId}}', // 必填，公众号的唯一标识
       timestamp: {{wechat.timestamp}}, // 必填，生成签名的时间戳
       nonceStr: '{{wechat.nonceStr}}', // 必填，生成签名的随机串
       signature: '{{wechat.signature}}',// 必填，签名，见附录1
       jsApiList: [
-        'checkJsApi',
         'onMenuShareTimeline',
         'onMenuShareAppMessage',
         'onMenuShareQQ',
@@ -45,8 +42,46 @@
         'onMenuShareQZone'
       ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
+
+    // 分享到朋友圈
+    wx.onMenuShareTimeline({
+      title: '瑞资链公测', // 分享标题
+      link: 'https://test.reitschain.com/signup', // 分享链接
+      imgUrl: '/images/share-wechat.png' // 分享图标
+    });
+
+    // 分享给朋友
+    wx.onMenuShareAppMessage({
+      title: '瑞资链公测', // 分享标题
+      desc: '你获得了什么什么', // 分享描述
+      link: 'https://test.reitschain.com/signup', // 分享链接
+      imgUrl: '/images/share-wechat.png' // 分享图标
+    });
+
+    // 分享到QQ
+    wx.onMenuShareQQ({
+      title: '瑞资链公测', // 分享标题
+      desc: '你获得了什么什么', // 分享描述
+      link: 'https://test.reitschain.com/signup', // 分享链接
+      imgUrl: '/images/share-wechat.png' // 分享图标
+    });
+
+    // 分享到腾讯微博
+    wx.onMenuShareWeibo({
+      title: '瑞资链公测', // 分享标题
+      desc: '你获得了什么什么', // 分享描述
+      link: 'https://test.reitschain.com/signup', // 分享链接
+      imgUrl: '/images/share-wechat.png' // 分享图标
+    });
+
+    // 分享到QQ空间
+    wx.onMenuShareQZone({
+      title: '瑞资链公测', // 分享标题
+      desc: '你获得了什么什么', // 分享描述
+      link: 'https://test.reitschain.com/signup', // 分享链接
+      imgUrl: '/images/share-wechat.png' // 分享图标
+    });
   </script>
-  <script src="/scripts/share-wechat.js{{fileTail}}"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
