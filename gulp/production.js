@@ -15,7 +15,7 @@ var csso = require('gulp-csso');
 
 // images
 gulp.task('prodImages', function() {
-  return gulp.src(path.join(conf.paths.src, '/images/*'))
+  return gulp.src(path.join(conf.paths.src, '/images/**'))
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{
@@ -57,11 +57,11 @@ gulp.task('prodLibs', function() {
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/libs')));
 });
 
-// clean tmp file
-gulp.task('cleanTmp', function() {
-  return del.sync([path.join(conf.paths.tmp, '/*')]);
+// copy MP_verify_3TLkdnPeXo8BPm7Y.txt
+gulp.task('prodMP', function() {
+  return gulp.src(path.join(conf.paths.src, 'MP_verify_3TLkdnPeXo8BPm7Y.txt'))
+    .pipe(gulp.dest(conf.paths.tmp));
 });
-
 
 // clean dist file
 gulp.task('cleanDist', function() {
@@ -74,7 +74,7 @@ gulp.task('renewDist', ['cleanDist'], function() {
     .pipe(gulp.dest(conf.paths.dist));
 });
 
-gulp.task('production', ['prodImages', 'prodStyles', 'prodScripts', 'prodLibs'], function() {
+gulp.task('production', ['prodImages', 'prodStyles', 'prodScripts', 'prodLibs', 'prodMP'], function() {
   gulp.start('renewDist');
   util.log(util.colors.green('Build success!'));
 });
