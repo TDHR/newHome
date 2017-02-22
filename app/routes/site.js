@@ -33,4 +33,7 @@ module.exports = function(app, auth) {
   
   // 帮助-介绍运作机制
   app.get('/help/intro', site.helpIntro);
+
+  // 公测-微信分享页面
+  app.get('/share/wechat', site.shareWeChat);
 };

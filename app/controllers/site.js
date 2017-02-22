@@ -109,3 +109,24 @@ exports.helpIntro = function(req, res) {
     layout: ''
   });
 };
+
+// 公测-微信分享页面
+exports.shareWeChat = function(req, res) {
+  var appid = 'wx51e4d7e2e0a6cbf1';
+  var secret = '57d229ddd7c99ed0032c0cab99425134';
+
+  // {
+  //   "RootUrl": "http://app.reitschain.com/",
+  //   "Url": "http://app.reitschain.com/WxInput",
+  //   "Appid": "wx51e4d7e2e0a6cbf1",
+  //   "Secret": "57d229ddd7c99ed0032c0cab99425134",
+  //   "Token": "ruizi_weixin_new",
+  //   "EncodingAESKey": "p4Qr3PwpsjZfYlXSWdVL9R27AYNTpKpvOx57Z7Iiu2z"
+  // }
+
+
+  res.render('site/share-wechat', {
+    layout: ''
+  })
+};
+

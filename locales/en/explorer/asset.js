@@ -2,7 +2,7 @@
   "explorer-asset-total-circulation": "Total circulation: ",
   "explorer-asset-owners": "Number of holders: ",
   "explorer-asset-positions": "Positions",
-  "explorer-asset-intro": "Project Introduction",
+  "explorer-asset-intro": "Asset Introduction",
   "explorer-asset-info": "Release information",
   "explorer-asset-positions-address": "Holder address",
   "explorer-asset-positions-name": "Name",
