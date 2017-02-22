@@ -148,7 +148,8 @@ var jssdk = {
       if (err) {
         res.locals.wechat = null;
       }
-      res.locals.wechat = jssdk.createSha1Sign(ticket, req.headers.referer);
+      var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+      res.locals.wechat = jssdk.createSha1Sign(ticket, fullUrl);
       next();
     });
   }
