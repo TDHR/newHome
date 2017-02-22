@@ -127,8 +127,8 @@ var jssdk = {
     sha1.update(str);
     data.signature = sha1.digest('hex');
     data.appId = config.wechat.appid;
-    delete data.jsapi_ticket;
-    delete data.url;
+    data.jsapi_ticket;
+    data.url;
     return data;
   },
   getJssdkConfig: function(req, res, next) {
