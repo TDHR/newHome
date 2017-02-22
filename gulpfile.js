@@ -6,6 +6,7 @@ var merge = require('merge-stream');
 var mergeJson = require('gulp-merge-json');
 var plumber = require('gulp-plumber');
 var concat = require('gulp-concat');
+var del = require('del');
 
 wrench.readdirSyncRecursive('./gulp').filter(function(file) {
   return (/\.(js|coffee)$/i).test(file);
@@ -37,6 +38,11 @@ gulp.task('devCfg', function() {
   return gulp.src(path.join(conf.paths.src, '/scripts/config/config-dev.js'))
     .pipe(concat('config-now.js'))
     .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
+});
+
+// clean tmp file
+gulp.task('cleanTmp', function() {
+  return del.sync([path.join(conf.paths.tmp, '/*')]);
 });
 
 gulp.task('dev', ['cleanDev', 'tpl', 'locales', 'devCfg'], function() {
