@@ -29,8 +29,15 @@ function submitForm(data) {
     },
     success: function(res) {
       if (res.success) {
-        // 登录成功，跳转到 ucenter
-        location.href = '/user/dashboard';
+        let share = location.search ? location.search.split('=')[1] : '';
+        // 登录成功
+        if (share === 'wechat') {
+          // 跳转到微信分享页面
+          location.href = '/share/wechat';
+        } else {
+          // 跳转到 ucenter
+          location.href = '/user/dashboard';
+        }
       } else {
         // 根据错误码输出相应的提示
         Alert(Locales.login[locale]['error-code-' + res.code], 5000);
