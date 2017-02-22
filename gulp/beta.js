@@ -56,6 +56,12 @@ gulp.task('betaLibs', function() {
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/libs')));
 });
 
+// copy MP_verify_3TLkdnPeXo8BPm7Y.txt
+gulp.task('betaMP', function() {
+  return gulp.src(path.join(conf.paths.src, 'MP_verify_3TLkdnPeXo8BPm7Y.txt'))
+    .pipe(gulp.dest(conf.paths.tmp));
+});
+
 // clean beta file
 gulp.task('cleanBeta', function() {
   return del.sync([path.join(conf.paths.beta, '/*')]);
@@ -67,7 +73,7 @@ gulp.task('renewBeta', ['cleanBeta'], function() {
     .pipe(gulp.dest(conf.paths.beta));
 });
 
-gulp.task('runbeta', ['betaImages', 'betaStyles', 'betaScripts', 'betaLibs'], function() {
+gulp.task('runbeta', ['betaImages', 'betaStyles', 'betaScripts', 'betaLibs', 'betaMP'], function() {
   gulp.start('renewBeta');
   util.log(util.colors.green('Build beta success!'));
 });

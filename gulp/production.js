@@ -57,6 +57,12 @@ gulp.task('prodLibs', function() {
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/libs')));
 });
 
+// copy MP_verify_3TLkdnPeXo8BPm7Y.txt
+gulp.task('prodMP', function() {
+  return gulp.src(path.join(conf.paths.src, 'MP_verify_3TLkdnPeXo8BPm7Y.txt'))
+    .pipe(gulp.dest(conf.paths.tmp));
+});
+
 // clean dist file
 gulp.task('cleanDist', function() {
   return del.sync([path.join(conf.paths.dist, '/*')]);
@@ -68,7 +74,7 @@ gulp.task('renewDist', ['cleanDist'], function() {
     .pipe(gulp.dest(conf.paths.dist));
 });
 
-gulp.task('production', ['prodImages', 'prodStyles', 'prodScripts', 'prodLibs'], function() {
+gulp.task('production', ['prodImages', 'prodStyles', 'prodScripts', 'prodLibs', 'prodMP'], function() {
   gulp.start('renewDist');
   util.log(util.colors.green('Build success!'));
 });
