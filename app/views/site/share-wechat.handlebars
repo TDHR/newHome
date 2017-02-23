@@ -23,7 +23,7 @@
 </head>
 <body class="page-help-intro">
   <div class="page-share-wechat">
-    share
+    点右上角分享
   </div>
   <script src="/libs/jquery.min.js"></script>
   <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -47,7 +47,7 @@
       // 分享到朋友圈
       wx.onMenuShareTimeline({
         title: '瑞资链公测', // 分享标题
-        link: 'http://test.reitschain.com/signup', // 分享链接
+        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
         imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
       });
 
@@ -55,7 +55,7 @@
       wx.onMenuShareAppMessage({
         title: '瑞资链公测', // 分享标题
         desc: '你获得了什么什么', // 分享描述
-        link: 'http://test.reitschain.com/signup', // 分享链接
+        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
         imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
       });
 
@@ -63,7 +63,7 @@
       wx.onMenuShareQQ({
         title: '瑞资链公测', // 分享标题
         desc: '你获得了什么什么', // 分享描述
-        link: 'http://test.reitschain.com/signup', // 分享链接
+        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
         imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
       });
 
@@ -71,7 +71,7 @@
       wx.onMenuShareWeibo({
         title: '瑞资链公测', // 分享标题
         desc: '你获得了什么什么', // 分享描述
-        link: 'http://test.reitschain.com/signup', // 分享链接
+        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
         imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
       });
 
@@ -79,7 +79,7 @@
       wx.onMenuShareQZone({
         title: '瑞资链公测', // 分享标题
         desc: '你获得了什么什么', // 分享描述
-        link: 'http://test.reitschain.com/signup', // 分享链接
+        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
         imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
       });
     });

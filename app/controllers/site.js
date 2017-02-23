@@ -113,10 +113,25 @@ exports.helpIntro = function(req, res) {
 
 // 公测-微信分享页面
 exports.shareWeChat = function(req, res) {
+  var userToken = req.cookies.userToken;
   var wechat = res.locals.wechat;
-  res.render('site/share-wechat', {
-    layout: '',
-    wechat: wechat
-  })
-};
 
+  // 获取邀请码
+  request
+    .get(config.platform + '/api/vipuser/getinvitecode')
+    .query({ token: userToken })
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+      // 未登录、登录超时
+      if (!result || !result.body || result.body.code === 1) {
+        res.clearCookie('userToken');
+        return res.redirect('/login');
+      }
+
+      res.render('site/share-wechat', {
+        layout: '',
+        wechat: wechat,
+        inviteCode: result.body.data.inviteCode
+      });
+    });
+};
