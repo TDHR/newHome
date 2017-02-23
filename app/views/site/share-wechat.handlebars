@@ -11,6 +11,7 @@
   <meta name="keywords" content="瑞资,瑞资链,瑞资北京,REITs,REITsChain,资产证券化,房地产投融资服务,区块链,区块链金融,中国REITs">
   <meta name="format-detection" content="telephone=no, email=no">
   <title>{{__ 'help-intro-main-title'}}{{__ 'help-intro-sub-title'}}</title>
+  <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/default.css{{fileTail}}">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <!--[if lt IE 9]>
@@ -23,7 +24,11 @@
 </head>
 <body class="page-help-intro">
   <div class="page-share-wechat">
-    点右上角分享
+    <div class="share-ready {{#unless inviteCode}}hide{{/unless}}">分享链接已生成，请点右上角进行分享</div>
+    <form id="form" class="{{#if inviteCode}}hide{{/if}}">
+      <input id="mobile" type="number" placeholder="手机号码">
+      <button type="submit">生成分享链接</button>
+    </form>
   </div>
   <script src="/libs/jquery.min.js"></script>
   <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -43,47 +48,13 @@
       ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
     });
 
-    wx.ready(function() {
-      // 分享到朋友圈
-      wx.onMenuShareTimeline({
-        title: '瑞资链公测', // 分享标题
-        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
-        imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
+    {{#if inviteCode}}
+      wx.ready(function() {
+        setShare('{{inviteCode}}');
       });
-
-      // 分享给朋友
-      wx.onMenuShareAppMessage({
-        title: '瑞资链公测', // 分享标题
-        desc: '你获得了什么什么', // 分享描述
-        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
-        imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
-      });
-
-      // 分享到QQ
-      wx.onMenuShareQQ({
-        title: '瑞资链公测', // 分享标题
-        desc: '你获得了什么什么', // 分享描述
-        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
-        imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
-      });
-
-      // 分享到腾讯微博
-      wx.onMenuShareWeibo({
-        title: '瑞资链公测', // 分享标题
-        desc: '你获得了什么什么', // 分享描述
-        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
-        imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
-      });
-
-      // 分享到QQ空间
-      wx.onMenuShareQZone({
-        title: '瑞资链公测', // 分享标题
-        desc: '你获得了什么什么', // 分享描述
-        link: 'http://test.reitschain.com/signup?i={{inviteCode}}', // 分享链接
-        imgUrl: 'http://test.reitschain.com/images/share-wechat.png' // 分享图标
-      });
-    });
+    {{/if}}
   </script>
+  <script src="/scripts/share-wechat.js{{fileTail}}"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

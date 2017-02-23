@@ -36,5 +36,5 @@ module.exports = function(app, auth) {
   app.get('/help/intro', site.helpIntro);
 
   // 公测-微信分享页面
-  app.get('/share/wechat', auth.shareNeedToLogin, wechatJssdk.getJssdkConfigByAjax, site.shareWeChat);
+  app.get('/share/wechat', wechatJssdk.getJssdkConfigByAjax, site.shareWeChat);
 };

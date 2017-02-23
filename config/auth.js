@@ -9,14 +9,6 @@ exports.needToLogin = function(req, res, next) {
   next();
 };
 
-exports.shareNeedToLogin = function(req, res, next) {
-  var token = req.cookies.userToken;
-  if (!token) {
-    return res.redirect('/login?share=wechat');
-  }
-  next();
-};
-
 /**
  * 无需登录
  * 登录后无法访问登录、注册、找回密码

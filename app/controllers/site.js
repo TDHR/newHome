@@ -116,22 +116,33 @@ exports.shareWeChat = function(req, res) {
   var userToken = req.cookies.userToken;
   var wechat = res.locals.wechat;
 
-  // 获取邀请码
-  request
-    .get(config.platform + '/api/vipuser/getinvitecode')
-    .query({ token: userToken })
-    .set('Accept', 'application/json')
-    .end(function(err, result) {
-      // 未登录、登录超时
-      if (!result || !result.body || result.body.code === 1) {
-        res.clearCookie('userToken');
-        return res.redirect('/login');
-      }
-
-      res.render('site/share-wechat', {
-        layout: '',
-        wechat: wechat,
-        inviteCode: result.body.data.inviteCode
+  // 已经登录
+  if (userToken) {
+    // 获取邀请码
+    request
+      .get(config.platform + '/api/vipuser/getinvitecode')
+      .query({ token: userToken })
+      .set('Accept', 'application/json')
+      .end(function(err, result) {
+        var inviteCode = '';
+        // 登录超时
+        if (!result || !result.body || result.body.code === 1) {
+          res.clearCookie('userToken');
+        } else {
+          inviteCode = result.body.data.inviteCode;
+        }
+        res.render('site/share-wechat', {
+          layout: '',
+          wechat: wechat,
+          inviteCode: inviteCode
+        });
       });
+  } else {
+    res.render('site/share-wechat', {
+      layout: '',
+      wechat: wechat,
+      inviteCode: ''
     });
+  }
+
 };
