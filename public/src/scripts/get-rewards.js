@@ -10,18 +10,8 @@ import Alert from './modules/alert';
 // 获取当前的语言类型
 let locale = Cookies.get('REITsLocale');
 
-// 交易列表的分页
-$('.pagination-holder').bootpag({
-  total: $('#paginationHolder').data('total'),
-  page: $('#paginationHolder').data('current'),
-  maxVisible: 5,
-  leaps: true,
-  hrefVariable: '[number]',
-  href: location.pathname.split('/page')[0] + '/page/[number]',
-  wrapClass: 'pagination',
-  activeClass: 'active',
-  disabledClass: 'disabled'
-});
+// 生成二维码
+$('#qrcode').qrcode({width: 180,height: 180,text: $('#qrcode').data('url')});
 
 // 复制到剪接版
 let clipboard = new Clipboard('#copyBtn');

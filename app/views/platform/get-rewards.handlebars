@@ -6,15 +6,29 @@
       </div>
       <div class="col-md-9 col-sm-9">
         <div class="intro">
-          <div class="title">{{__ 'get-rewards-title'}}</div>
+          <div class="title">邀请好友注册，获得丰厚奖励</div>
           <div class="rules">
-            <p>{{__ 'get-rewards-rule1'}}</p>
-            <p>{{__ 'get-rewards-rule2'}}</p>
-            <p>{{__ 'get-rewards-rule3'}}</p>
+            <p>1. 活动奖励：邀请好友参与瑞资链公测，成功邀请1名好友可以获得100RTSt1级邀请奖励，好友再成功邀请1名好友，还可获得50RTSt2级邀请奖励。</p>
+            <p>2. 成功邀请条件：好友通过邀请链接完成注册认证，下载瑞资钱包，完成首次登录。</p>
+            <p>3. 奖励范围：仅奖励第1级邀请和第2级邀请，举例：A成功邀请B，A获得1级邀请奖励100RTSt；B成功邀请C，A获得2级邀请奖励50RTSt，B获得1级邀请奖励100RTSt；C再成功邀请一位朋友，A不再获得邀请奖励，B获得2级邀请奖励，C获得1级邀请奖励。</p>
+            <p>4. 问题反馈渠道：加入瑞资链测试群，QQ群号253988302，@管理员即可得到帮助。</p>
+            <p>5. 如果您有好的推广渠道，欢迎联系bd@reitsfax.com合作洽谈 。</p>
           </div>
         </div>
+        <div class="wechat">
+          <p>方式一：使用微信扫描下方二维码，将页面分享给好友</p>
+          {{#ifCond ENV '===' 'development'}}
+            <div id="qrcode" data-url="http://localhost:3000/share/wechat"></div>
+          {{/ifCond}}
+          {{#ifCond ENV '===' 'beta'}}
+            <div id="qrcode" data-url="http://test.reitschain.com/share/wechat"></div>
+          {{/ifCond}}
+          {{#ifCond ENV '===' 'production'}}
+            <div id="qrcode" data-url="https://www.reitschain.com/share/wechat"></div>
+          {{/ifCond}}
+        </div>
         <div class="url">
-          <p>{{__ 'get-rewards-method1'}}</p>
+          <p>方式二：复制下方链接发送给好友</p>
           <div class="input-group">
             {{#ifCond ENV '===' 'development'}}
               <input id="inviteUrl" type="text" class="form-control url-holder" readonly="readonly" value="http://localhost:3000/signup?i={{code.inviteCode}}">
@@ -31,7 +45,7 @@
           </div>
         </div>
         <div class="code">
-          <p>{{__ 'get-rewards-method2'}}</p>
+          <p>方式三：好友在注册时填写你的邀请码</p>
           <div class="box">{{code.inviteCode}}</div>
         </div>
         <div class="invite-list">
@@ -40,39 +54,40 @@
             <table class="table table-bordered table-striped table-hover">
               <thead>
                 <tr>
-                  <th>{{__ 'get-rewards-phone'}}</th>
-                  <th>{{__ 'get-rewards-status'}}</th>
-                  <th>{{__ 'get-rewards-time'}}</th>
+                  <th colspan="2">一级邀请</th>
+                </tr>
+                <tr>
+                  <td>人数</td>
+                  <td>奖励</td>
                 </tr>
               </thead>
               <tbody>
-                {{#if list.list}}
-                  {{#each list.list}}
-                    <tr>
-                      <td>{{handleText phoneNum 4}}</td>
-                      {{#ifCond status '===' 0}}
-                        <td>{{__ 'get-rewards-state0'}}</td>
-                      {{/ifCond}}
-                      {{#ifCond status '===' 1}}
-                        <td>{{__ 'get-rewards-state1'}}</td>
-                      {{/ifCond}}
-                      {{#ifCond status '===' 2}}
-                        <td>{{__ 'get-rewards-state2'}}</td>
-                      {{/ifCond}}
-                      <td>{{dateFormat regTime '' 'unix'}}</td>
-                    </tr>
-                  {{/each}}
-                {{else}}
-                  <tr>
-                    <td class="text-center" colspan="3">{{__ 'no-data'}}</td>
-                  </tr>
-                {{/if}}
+                <tr>
+                  <td>10</td>
+                  <td>1,000</td>
+                </tr>
               </tbody>
             </table>
           </div>
-          {{#ifCond tx.pageCount '>' 1}}
-          <div id="paginationHolder" class="pagination-holder" data-total="{{list.pageCount}}" data-current="{{list.pageIndex}}"></div>
-          {{/ifCond}}
+          <div class="list table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+              <thead>
+                <tr>
+                  <th colspan="2">二级邀请</th>
+                </tr>
+                <tr>
+                  <td>人数</td>
+                  <td>奖励</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>100</td>
+                  <td>5,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -83,4 +98,5 @@
 {{> scripts}}
 <script src="/libs/jquery.bootpag.js"></script>
 <script src="/libs/clipboard.js/clipboard.min.js"></script>
+<script src="/libs/jquery.qrcode.min.js"></script>
 <script src="/scripts/get-rewards.js{{fileTail}}"></script>

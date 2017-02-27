@@ -89,7 +89,7 @@
             <div class="panel-body">{{__ 'security-view-helper'}}</div>
           </div>
           {{!-- 银行卡认证 --}}
-          {{#ifCond user.bankCardVerifStatus "===" 0}}
+          {{!-- {{#ifCond user.bankCardVerifStatus "===" 0}}
             <div class="panel panel-warning">
           {{else}}
             <div class="panel panel-success">
@@ -115,9 +115,9 @@
               </div>
             </div>
             <div class="panel-body">{{__ 'security-bank-card-helper'}}</div>
-          </div>
+          </div> --}}
           {{!-- 风险承受能力评估 --}}
-          {{#if user.riskInfo}}
+          {{!-- {{#if user.riskInfo}}
           <div class="panel panel-success">
           {{else}}
           <div class="panel panel-warning">
@@ -155,7 +155,7 @@
               </div>
               {{/if}}
             </div>
-          </div>
+          </div> --}}
         </div>
         <div class="record-list">
           <div class="record-title">{{__ 'security-login-records'}}</div>

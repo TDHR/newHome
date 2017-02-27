@@ -10,7 +10,7 @@
   <meta name="description" content="瑞资科技致力于ABC(Asset-Backed-Chain)的搭建,运用区块链技术为资产证券化和房地产投融资服务提供一站式的解决方案；利用区块链公开透明和数字资产高流动性和跨境流动的特点,创建一个面向全球的数字资产交易平台。">
   <meta name="keywords" content="瑞资,瑞资链,瑞资北京,REITs,REITsChain,资产证券化,房地产投融资服务,区块链,区块链金融,中国REITs">
   <meta name="format-detection" content="telephone=no, email=no">
-  <title>{{__ 'help-intro-main-title'}}{{__ 'help-intro-sub-title'}}</title>
+  <title>瑞资链邀请有奖</title>
   <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/default.css{{fileTail}}">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
@@ -22,13 +22,31 @@
     <script src="http://localhost:35729/livereload.js"></script>
   {{/if}}
 </head>
-<body class="page-help-intro">
+<body>
   <div class="page-share-wechat">
-    <div class="share-ready {{#unless inviteCode}}hide{{/unless}}">分享链接已生成，请点右上角进行分享</div>
-    <form id="form" class="{{#if inviteCode}}hide{{/if}}">
-      <input id="mobile" type="number" placeholder="手机号码">
-      <button type="submit">生成分享链接</button>
-    </form>
+    <div class="container">
+      <div class="title">
+        送给朋友100RTSt，当TA第一次登录瑞资钱包时您将获得100RTSt奖励，当TA再成功推荐一位朋友，您还可获得50RTSt
+      </div>
+      <div class="share-ready {{#unless inviteCode}}hide{{/unless}}">点击右上角分享给朋友获得奖励</div>
+      <form id="form" class="{{#if inviteCode}}hide{{/if}}">
+        <div class="form-group">
+          <input id="mobile" class="form-control" type="number" placeholder="输入手机号码">
+        </div>
+        <div class="text-center">
+          <button id="submitBtn" class="btn btn-primary" type="submit">生成您的专属邀请链接</button>
+        </div>
+      </form>
+      <div class="rules">
+        <ul>
+          <li>活动奖励：邀请好友参与瑞资链公测，成功邀请1名好友可以获得100RTSt1级邀请奖励，好友再成功邀请1名好友，还可获得50RTSt2级邀请奖励；</li>
+          <li>成功邀请条件：好友通过邀请链接完成注册认证，下载瑞资钱包，完成首次登录；</li>
+          <li>奖励范围：仅奖励第1级邀请和第2级邀请，举例：A成功邀请B，A获得1级邀请奖励100RTSt；B成功邀请C，A获得2级邀请奖励50RTSt，B获得1级邀请奖励100RTSt；C再成功邀请一位朋友，A不再获得邀请奖励，B获得2级邀请奖励，C获得1级邀请奖励；</li>
+          <li>问题反馈渠道：加入瑞资链测试群，QQ群号253988302，@管理员即可得到帮助；</li>
+          <li>如果您有好的推广渠道，欢迎联系bd@reitsfax.com合作洽谈 。</li>
+        </ul>
+      </div>
+    </div>
   </div>
   <script src="/libs/jquery.min.js"></script>
   <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

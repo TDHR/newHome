@@ -8,17 +8,27 @@
     .rules {
       margin-top: 15px;
       color: #777;
+      >p {
+        line-height: 24px;
+      }
+    }
+  }
+  .wechat {
+    margin-top: 45px;
+    #qrcode {
+      width: 200px;
+      margin: 20px auto 0;
     }
   }
   .url {
-    margin-top: 30px;
+    margin-top: 45px;
     .input-group {
       width: 100%;
       max-width: 600px;
     }
   }
   .code {
-    margin-top: 30px;
+    margin-top: 45px;
     .box {
       max-width: 600px;
       padding: 6px;
