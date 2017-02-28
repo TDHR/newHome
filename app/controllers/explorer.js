@@ -240,11 +240,10 @@ exports.tx = function(req, res) {
   // 发行资料
   // TODO: 根据真实数据，将此流程融合到正常的请求流程中
   if (txId === 'test') {
-    res.render('explorer/tx', {
+    res.render('explorer/issue', {
       layout: 'explorer',
       nav: 'explorer',
-      assetId: assetId,
-      type: 'info'
+      assetId: assetId
     });
   } else {
     async.auto({
@@ -275,7 +274,6 @@ exports.tx = function(req, res) {
           layout: 'explorer',
           nav: 'explorer',
           assetId: assetId,
-          type: 'tx',
           info: info.data,
           total: total,
           txId: txId
@@ -303,5 +301,18 @@ exports.intro = function(req, res) {
     layout: 'explorer',
     nav: 'explorer',
     assetId: assetId
+  });
+};
+
+/**
+ * [页面：企业介绍]
+ */
+exports.company = function(req, res) {
+  var walletAddress = req.params.walletAddress;
+
+  // TODO: 根据真实数据，从接口获得企业介绍
+  res.render('explorer/company', {
+    layout: 'explorer',
+    nav: 'explorer'
   });
 };

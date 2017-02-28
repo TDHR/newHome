@@ -144,5 +144,11 @@ exports.shareWeChat = function(req, res) {
       inviteCode: ''
     });
   }
+};
 
+// 公测介绍页面
+exports.betaIntro = function(req, res) {
+  res.render('site/beta-intro', {
+    nav: ''
+  });
 };

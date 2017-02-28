@@ -17,4 +17,7 @@ module.exports = function(app, auth) {
 
   // 页面：项目介绍
   app.get('/explorer/asset/:assetId/intro', explorer.intro);
+
+  // 页面：企业介绍
+  app.get('/explorer/company/:walletAddress', explorer.company);
 };

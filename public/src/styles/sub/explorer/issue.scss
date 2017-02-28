@@ -1,0 +1,56 @@
+.page-explorer-issue {
+  .breadcrumb {
+    margin: 20px 0;
+  }
+  .info {
+    margin-top: 50px;
+    .detail {
+      width: 100%;
+      padding: 10px 10px 10px 20px;
+      margin-top: 20px;
+      border-left: 3px solid #deb36c;
+      background-color: #fafafa;
+      >div {
+        margin: 10px 0;
+        word-break: break-all;
+        >span {
+          font-size: 13px;
+          color: #777;
+        }
+      }
+    }
+  }
+  .company {
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #fafafa;
+    .head {
+      margin-top: 10px;
+      .head-right {
+        text-align: right;
+        word-break: break-all;
+      }
+      @media (max-width: 767px) {
+        .head-right {
+          padding-top: 10px;
+          text-align: left;
+        }
+      }
+      .name {
+        font-size: 16px;
+      }
+      .address {
+        color: #777;
+      }
+    }
+    .body {
+      margin-top: 20px;
+    }
+    .table {
+      background-color: #fff;
+    }
+    .icon-green {
+      color: #6edc40;
+    }
+  }
+}

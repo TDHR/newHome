@@ -1,0 +1,42 @@
+.page-explorer-company {
+  .info {
+    margin-top: 50px;
+    >h4 {
+      color: $color-blue;
+    }
+    .detail {
+      width: 100%;
+      padding: 10px 10px 10px 20px;
+      margin-top: 20px;
+      border-left: 3px solid #deb36c;
+      background-color: #fafafa;
+      >div {
+        margin: 10px 0;
+        word-break: break-all;
+        >span {
+          font-size: 13px;
+          color: #777;
+        }
+      }
+    }
+  }
+  .intro {
+    margin-top: 50px;
+    >h4 {
+      color: $color-blue;
+    }
+    .title {
+      margin-top: 10px;
+    }
+    .content {
+      margin-top: 15px;
+      color: #555;
+    }
+  }
+  .cases {
+    margin-top: 50px;
+    >h4 {
+      color: $color-blue;
+    }
+  }
+}
