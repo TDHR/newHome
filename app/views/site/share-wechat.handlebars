@@ -12,6 +12,7 @@
   <meta name="format-detection" content="telephone=no, email=no">
   <title>瑞资链邀请有奖</title>
   <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/libs/fullpage/jquery.fullpage.min.css">
   <link rel="stylesheet" href="/styles/default.css{{fileTail}}">
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <!--[if lt IE 9]>
@@ -23,32 +24,61 @@
   {{/if}}
 </head>
 <body>
-  <div class="page-share-wechat">
-    <div class="container">
-      <div class="title">
-        送给朋友100RTSt，当TA第一次登录瑞资钱包时您将获得100RTSt奖励，当TA再成功推荐一位朋友，您还可获得50RTSt
+  <div id="page" class="page-share-wechat">
+    <div class="section">
+      <div class="share">
+        <img src="/images/share-wechat-1.png" class="main-picture1">
+        <img src="/images/share-wechat-2.png" class="main-picture2 hide">
+        <div class="title">
+          <div class="text">送给朋友100RTSt，当TA第一次登录瑞资钱包时</div>
+          <div class="point">您将获得100RTSt奖励</div>
+          <div class="text">当TA再成功推荐一位朋友</div>
+          <div class="point">您还可获得50RTSt</div>
+        </div>
+        <div class="share-ready {{#unless inviteCode}}hide{{/unless}}">
+          <img src="/images/share-wechat-3.png" class="ready-picture">
+          <p>点击右上角分享给朋友获得奖励</p>
+        </div>
+        <form id="form" class="{{#if inviteCode}}hide{{/if}}">
+          <div class="form-group">
+            <input id="mobile" class="form-control" type="number" placeholder="输入手机号码">
+          </div>
+          <div class="text-center">
+            <button id="submitBtn" class="btn" type="submit">生成您的专属邀请链接</button>
+          </div>
+        </form>
       </div>
-      <div class="share-ready {{#unless inviteCode}}hide{{/unless}}">点击右上角分享给朋友获得奖励</div>
-      <form id="form" class="{{#if inviteCode}}hide{{/if}}">
-        <div class="form-group">
-          <input id="mobile" class="form-control" type="number" placeholder="输入手机号码">
-        </div>
-        <div class="text-center">
-          <button id="submitBtn" class="btn btn-primary" type="submit">生成您的专属邀请链接</button>
-        </div>
-      </form>
+    </div>
+    <div class="section">
       <div class="rules">
+        <div class="main-title">活动规则</div>
         <ul>
-          <li>活动奖励：邀请好友参与瑞资链公测，成功邀请1名好友可以获得100RTSt1级邀请奖励，好友再成功邀请1名好友，还可获得50RTSt2级邀请奖励；</li>
-          <li>成功邀请条件：好友通过邀请链接完成注册认证，下载瑞资钱包，完成首次登录；</li>
-          <li>奖励范围：仅奖励第1级邀请和第2级邀请，举例：A成功邀请B，A获得1级邀请奖励100RTSt；B成功邀请C，A获得2级邀请奖励50RTSt，B获得1级邀请奖励100RTSt；C再成功邀请一位朋友，A不再获得邀请奖励，B获得2级邀请奖励，C获得1级邀请奖励；</li>
-          <li>问题反馈渠道：加入瑞资链测试群，QQ群号253988302，@管理员即可得到帮助；</li>
-          <li>如果您有好的推广渠道，欢迎联系bd@reitsfax.com合作洽谈 。</li>
+          <li>
+            <div class="title">活动奖励：</div>
+            <div class="content">邀请好友参与瑞资链公测，成功邀请1名好友可以获得100RTSt1级邀请奖励，好友再成功邀请1名好友，还可获得50RTSt2级邀请奖励。</div>
+          </li>
+          <li>
+            <div class="title">成功邀请条件：</div>
+            <div class="content">好友通过邀请链接完成注册认证，下载瑞资钱包，完成首次登录。</div>
+          </li>
+          <li>
+            <div class="title">奖励范围：</div>
+            <div class="content">仅奖励第1级邀请和第2级邀请，举例：A成功邀请B，A获得1级邀请奖励100RTSt；B成功邀请C，A获得2级邀请奖励50RTSt，B获得1级邀请奖励100RTSt；C再成功邀请一位朋友，A不再获得邀请奖励，B获得2级邀请奖励，C获得1级邀请奖励。</div>
+          </li>
+          <li>
+            <div class="title">问题反馈渠道：</div>
+            <div class="content">加入瑞资链测试群，QQ群号253988302，@管理员即可得到帮助。</div>
+          </li>
+          <li>
+            <div class="title">合作洽谈</div>
+            <div class="content">如果您有好的推广渠道，欢迎联系bd@reitsfax.com合作洽谈。</div>
+          </li>
         </ul>
       </div>
     </div>
   </div>
   <script src="/libs/jquery.min.js"></script>
+  <script src="/libs/fullpage/jquery.fullpage.min.js"></script>
   <script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
   <script>
     wx.config({

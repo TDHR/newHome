@@ -2,6 +2,14 @@
 import Validate from './utils/validate';
 
 /**
+ * fullpage
+ */
+$("#page").fullpage({
+  responsiveWidth: 319
+});
+
+
+/**
  * 检查表单
  */
 $('#form').on('submit', function(e) {
@@ -29,6 +37,29 @@ function submitForm(data) {
   setShare(inviteCode);
   $('#form').addClass('hide');
   $('.share-ready').removeClass('hide');
+
+  // $.ajax({
+  //   method: 'POST',
+  //   url: '',
+  //   data: data,
+  //   cache: false,
+  //   beforeSend: function() {
+  //     $('#btnSubmit').addClass('disabled');
+  //   },
+  //   success: function(res) {
+  //     if (res.success) {
+        
+  //     } else {
+  //       alert(res.message);
+  //     }
+  //   },
+  //   error: function() {
+  //     alert('生成失败，请稍后重试');
+  //   },
+  //   complete: function() {
+  //     $('#btnSubmit').removeClass('disabled');
+  //   }
+  // });
 }
 
 

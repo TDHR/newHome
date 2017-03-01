@@ -1,13 +1,77 @@
 .page-share-wechat {
+  .share {
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px;
+    .main-picture1,
+    .main-picture2 {
+      display: block;
+      width: 270px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .title {
+      margin-top: 20px;
+      text-align: center;
+      .text {
+        margin-top: 10px;
+        font-size: 13px;
+      }
+      .point {
+        font-size: 24px;
+      }
+    }
+  }
   .share-ready {
-
+    margin-top: 30px;
+    .ready-picture {
+      display: block;
+      width: 160px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    >p {
+      margin: 15px 0 0;
+      text-align: center;
+      color: #fe8c07;
+    }
   }
   #form {
+    margin-top: 35px;
     #mobile {
-      
+      padding: 8px 12px;
+      border-color: #fe8c07;
+      text-align: center;
     }
     #submitBtn {
-      
+      display: block;
+      width: 100%;
+      padding: 8px 12px;
+      margin-top: 15px;
+      background-color: #fe8c07;
+      color: #fff;
+      &.disabled {
+        background-color: #bbb;
+      }
+    }
+  }
+  .rules {
+    width: 100%;
+    height: 100%;
+    padding: 30px 15px;
+    background-color: #f9f9f9;
+    .main-title {
+      color: #fe8c07;
+      text-align: center;
+      font-size: 18px;
+    }
+    .title {
+      margin-top: 18px;
+      color: #fe8c07;
+    }
+    .content {
+      margin-top: 6px;
+      font-size: 13px;
     }
   }
 }
