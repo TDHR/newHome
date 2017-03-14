@@ -37,6 +37,7 @@ module.exports = function(app, auth) {
 
   // 公测-微信分享页面
   app.get('/share/wechat', wechatJssdk.getJssdkConfigByAjax, site.shareWeChat);
+  app.post('/share/get-invite-code', site.getInviteCode);
 
   // 公测介绍页
   app.get('/beta/intro', site.betaIntro);

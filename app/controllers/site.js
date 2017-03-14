@@ -146,6 +146,23 @@ exports.shareWeChat = function(req, res) {
   }
 };
 
+// 通过手机号码获取邀请码
+exports.getInviteCode = function(req, res) {
+  request
+    .get(config.platform + '/papi/share/getinvitecode')
+    .query({ username: req.body.username })
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+      var body = result.body;
+      return res.json({
+        success: body.success,
+        code: body.code,
+        msg: body.message,
+        data: body.data
+      });
+    });
+};
+
 // 公测介绍页面
 exports.betaIntro = function(req, res) {
   res.render('site/beta-intro', {

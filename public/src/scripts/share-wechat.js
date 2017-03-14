@@ -32,34 +32,30 @@ $('#form').on('submit', function(e) {
  * 提交表单
  */
 function submitForm(data) {
-  // TODO: 真实情况下从接口获取
-  var inviteCode = '98968c';
-  setShare(inviteCode);
-  $('#form').addClass('hide');
-  $('.share-ready').removeClass('hide');
-
-  // $.ajax({
-  //   method: 'POST',
-  //   url: '',
-  //   data: data,
-  //   cache: false,
-  //   beforeSend: function() {
-  //     $('#btnSubmit').addClass('disabled');
-  //   },
-  //   success: function(res) {
-  //     if (res.success) {
-        
-  //     } else {
-  //       alert(res.message);
-  //     }
-  //   },
-  //   error: function() {
-  //     alert('生成失败，请稍后重试');
-  //   },
-  //   complete: function() {
-  //     $('#btnSubmit').removeClass('disabled');
-  //   }
-  // });
+  $.ajax({
+    method: 'POST',
+    url: '/share/get-invite-code',
+    data: data,
+    cache: false,
+    beforeSend: function() {
+      $('#btnSubmit').addClass('disabled');
+    },
+    success: function(res) {
+      if (res.success) {
+        setShare(res.data.inviteCode);
+        $('#form').addClass('hide');
+        $('.share-ready').removeClass('hide');
+      } else {
+        alert(res.message);
+      }
+    },
+    error: function() {
+      alert('生成失败，请稍后重试');
+    },
+    complete: function() {
+      $('#btnSubmit').removeClass('disabled');
+    }
+  });
 }
 
 

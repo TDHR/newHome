@@ -20,13 +20,11 @@ exports.index = function(req, res) {
         });
     },
     // 获取「我的邀请」列表
-    getInviteList: function(cb) {
+    getInviteRewards: function(cb) {
       request
-        .get(config.platform + '/api/vipuser/getinvitelist')
+        .get(config.platform + '/api/vipuser/getinviterewards')
         .query({
-          token: userToken,
-          pageIndex: pageNum,
-          pageSize: 20
+          token: userToken
         })
         .set('Accept', 'application/json')
         .end(function(err, result) {
@@ -35,19 +33,18 @@ exports.index = function(req, res) {
     }
   }, function(err, results) {
     var code = results.getInviteCode;
-    var list = results.getInviteList;
+    var rewards = results.getInviteRewards;
     
     // 未登录、登录超时
     if (!code || !code.body || code.body.code === 1) {
       res.clearCookie('userToken');
       return res.redirect('/login');
     }
-
     res.render('platform/get-rewards', {
       layout: 'platform',
       nav: 'get-rewards',
       code: code.body.data,
-      list: list.body.data
+      rewards: rewards.body.data
     });
   });
 };

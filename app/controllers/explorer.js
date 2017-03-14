@@ -237,58 +237,48 @@ exports.tx = function(req, res) {
   var assetId = +req.params.assetId;
   var txId = req.params.txId;
 
-  // 发行资料
-  // TODO: 根据真实数据，将此流程融合到正常的请求流程中
-  if (txId === 'test') {
-    res.render('explorer/issue', {
-      layout: 'explorer',
-      nav: 'explorer',
-      assetId: assetId
-    });
-  } else {
-    async.auto({
-      // 获取交易信息
-      getTxInfo: function(cb) {
-        request
-          .get(config.platform + '/papi/person/gettxinfo')
-          .query({
-            txId: txId
-          })
-          .set('Accept', 'application/json')
-          .end(function(err, result) {
-            cb(null, result);
-          });
-      }
-    }, function(err, results) {
-      var info = results.getTxInfo.body;
-      if (info.data) {
-        var total = 0; // 交易总额
-        if (info.data.list.length > 1) {
-          for (var i = 0; i < info.data.list.length; i++) {
-            if (info.data.list[i].way === 1) {
-              total += info.data.list[i].amount;
-            }
+  async.auto({
+    // 获取交易信息
+    getTxInfo: function(cb) {
+      request
+        .get(config.platform + '/papi/person/gettxinfo')
+        .query({
+          txId: txId
+        })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    }
+  }, function(err, results) {
+    var info = results.getTxInfo.body;
+    if (info.data) {
+      var total = 0; // 交易总额
+      if (info.data.list.length > 1) {
+        for (var i = 0; i < info.data.list.length; i++) {
+          if (info.data.list[i].way === 1) {
+            total += info.data.list[i].amount;
           }
         }
-        res.render('explorer/tx', {
-          layout: 'explorer',
-          nav: 'explorer',
-          assetId: assetId,
-          info: info.data,
-          total: total,
-          txId: txId
-        });
-      } else {
-        res.render('error/404', {
-          message: 'Not Found',
-          error: {
-            status: 404
-          },
-          title: 'error'
-        });
       }
-    });
-  }
+      res.render('explorer/tx', {
+        layout: 'explorer',
+        nav: 'explorer',
+        assetId: assetId,
+        info: info.data,
+        total: total,
+        txId: txId
+      });
+    } else {
+      res.render('error/404', {
+        message: 'Not Found',
+        error: {
+          status: 404
+        },
+        title: 'error'
+      });
+    }
+  });
 };
 
 /**
@@ -314,5 +304,16 @@ exports.company = function(req, res) {
   res.render('explorer/company', {
     layout: 'explorer',
     nav: 'explorer'
+  });
+};
+
+/**
+ * [发行资料]
+ */
+exports.announce = function(req, res) {
+  res.render('explorer/announce', {
+    layout: 'explorer',
+    nav: 'explorer',
+    assetId: 0
   });
 };
