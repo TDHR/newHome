@@ -96,7 +96,7 @@
             {{#if tx.list}}
               {{#each tx.list}}
               <tr>
-                <td><a href="/explorer/asset/{{../assetId}}/tx/{{this.txId}}">{{this.txId}}</a></td>
+                <td><a href="/explorer/tx/{{this.txId}}" target="_blank">{{this.txId}}</a></td>
                 <td>{{numberWithCommas this.value}}</td>
                 <td>{{dateFormat this.time 'default' 'unix'}}</td>
               </tr>

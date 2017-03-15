@@ -220,3 +220,9 @@ getTurnover(ago, today);
 $("#startDate, #endDate").on('change', function() {
   getTurnover($("#startDate").val(), $("#endDate").val());
 });
+
+// 搜索框的提交事件
+$('#searchForm').on('submit', function(e) {
+  e.preventDefault();
+  // TODO: 调用搜索接口，根据返回的数据生成跳转链接
+});

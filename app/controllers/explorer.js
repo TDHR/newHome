@@ -234,7 +234,6 @@ exports.user = function(req, res) {
  * [页面：交易详情]
  */
 exports.tx = function(req, res) {
-  var assetId = +req.params.assetId;
   var txId = req.params.txId;
 
   async.auto({
@@ -264,7 +263,6 @@ exports.tx = function(req, res) {
       res.render('explorer/tx', {
         layout: 'explorer',
         nav: 'explorer',
-        assetId: assetId,
         info: info.data,
         total: total,
         txId: txId
@@ -313,7 +311,6 @@ exports.company = function(req, res) {
 exports.announce = function(req, res) {
   res.render('explorer/announce', {
     layout: 'explorer',
-    nav: 'explorer',
-    assetId: 0
+    nav: 'explorer'
   });
 };

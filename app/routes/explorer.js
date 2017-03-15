@@ -13,7 +13,7 @@ module.exports = function(app, auth) {
   app.get('/explorer/asset/:assetId/user/:walletAddress/:tx?/:txPageNum?', explorer.user);
 
   // 页面：交易详情
-  app.get('/explorer/asset/:assetId/tx/:txId', explorer.tx);
+  app.get('/explorer/tx/:txId', explorer.tx);
 
   // 页面：项目介绍
   app.get('/explorer/asset/:assetId/intro', explorer.intro);
