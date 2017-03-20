@@ -311,6 +311,7 @@ exports.company = function(req, res) {
 exports.announce = function(req, res) {
   res.render('explorer/announce', {
     layout: 'explorer',
-    nav: 'explorer'
+    nav: 'explorer',
+    assetId: 0
   });
 };
