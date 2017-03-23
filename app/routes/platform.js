@@ -87,6 +87,6 @@ module.exports = function(app, auth) {
   // 邀请奖励
   app.get('/user/get-rewards/:page?/:pageNum?', auth.needToLogin, invitation.index);
 
-  // 下载钱包
-  app.get('/download/:type/:name', auth.needToLogin, dashboard.download);
+  // 下载
+  app.get('/download/:type/:name', dashboard.download);
 };

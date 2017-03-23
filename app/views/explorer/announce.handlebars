@@ -1,30 +1,26 @@
 <div class="page-explorer-announce">
   <div class="container">
-    <ol class="breadcrumb">
-      <li><a href="/explorer/asset/{{assetId}}">{{__ 'explorer-asset-home-page'}}</a></li>
-      <li class="active">发行资料</li>
-    </ol>
     <div class="info">
       <div class="detail">
         <div>
           <span>地址：</span>
-          1hj1hj23h1h3jk1hjk3h1jkh31j
+          {{walletAddress}}
         </div>
         <div>
           <span>资产名：</span>
-          测试
+          {{assetName}}
         </div>
         <div>
           <span>资产ID：</span>
-          0
+          {{assetId}}
         </div>
         <div>
           <span>发行量：</span>
-          1,000,000
+          2,000,000,000
         </div>
         <div>
           <span>发行时间：</span>
-          2017-01-02 11:11:11
+          2017-03-11
         </div>
       </div>
     </div>
@@ -33,19 +29,19 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-md-6 col-sm-6">
-            <span class="name">xxxx基金公司</span>
+            <a href="/explorer/company/17MQ5oaiJgyhangkkjK2AbUD4Dzzf7jN56" class="name" target="_blank">瑞资运营部</a>
           </div>
           <div class="col-md-6 col-sm-6 head-right">
             <span class="address">地址：</span>
-            <a href="/explorer/company/test1">1djskfjojsoiwejfijfeijfioejfjw</a>
+            <a href="/explorer/company/17MQ5oaiJgyhangkkjK2AbUD4Dzzf7jN56" target="_blank">17MQ5oaiJgyhangkkjK2AbUD4Dzzf7jN56</a>
           </div>
         </div>
       </div>
       <div class="panel-body">
         <div class="tx-info">
-          <p>交易ID：<a href="/explorer/asset/1/tx/9d410d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9e5f">9d410d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9e5f</a></p>
-          <p>交易时间：2017-03-10 15:57:45</p>
-          <p>确认次数：1</p>
+          <p>交易ID：<span>9dd10d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9eff</span></p>
+          <p>交易时间：2017-03-10 11:57:45</p>
+          {{!-- <p>确认次数：3</p> --}}
         </div>
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
@@ -59,37 +55,12 @@
             </thead>
             <tbody>
               <tr>
-                <td>可行性分析报告</td>
-                <td>dfadhfkshdfhskhfkshdkfkhsfhsk <span class="icon-green glyphicon glyphicon-ok"></span></td>
-                <td>1.2MB</td>
-                <td class="options"><a href=""><i class="glyphicon glyphicon-cloud-download"></i>下载</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="tx-info">
-          <p>交易ID：<a href="/explorer/asset/1/tx/9d410d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9e5f">9d410d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9e5f</a></p>
-          <p>交易时间：2017-03-10 15:57:45</p>
-          <p>确认次数：1</p>
-        </div>
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>文件名称</th>
-                <th>文件Hash</th>
-                <th>文件大小</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>现场照片</td>
-                <td>dfadhfkshdfhskhfkshdkfkhsfhsk <span class="icon-green glyphicon glyphicon-ok"></span></td>
-                <td>101KB</td>
+                <td>瑞资运营部介绍</td>
+                <td>e69efeb04298500d2184111b53b2b5de01787b796d72e4b66e1daa997d0e9847 <span class="icon-green glyphicon glyphicon-ok"></span></td>
+                <td>441KB</td>
                 <td class="options">
-                  <a href=""><i class="glyphicon glyphicon-cloud-download"></i>下载</a>
-                  <a href=""><i class="glyphicon glyphicon-eye-open"></i>预览</a>
+                  <a href="/download/files/e69efeb.jpeg"><i class="glyphicon glyphicon-cloud-download"></i>下载</a>
+                  {{!-- <a href="" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>预览</a> --}}
                 </td>
               </tr>
             </tbody>
@@ -100,60 +71,20 @@
     <div class="panel panel-default company">
       <div class="panel-heading">
         <div class="row">
-          <div class="col-sm-6 col-md-6">
-            <span class="name">xxxx会计师事务所</span>
-          </div>
-          <div class="col-sm-6 col-md-6 head-right">
-            <span class="address">地址：</span>
-            <a href="/explorer/company/test2">1djskfjojsoiwejfijfeijfioejfjw</a>
-          </div>
-        </div>
-      </div>
-      <div class="panel-body">
-        <div class="tx-info">
-          <p>交易ID：<a href="/explorer/asset/1/tx/9d410d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9e5f">9d410d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9e5f</a></p>
-          <p>交易时间：2017-03-10 15:57:45</p>
-          <p>确认次数：1</p>
-        </div>
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>文件名称</th>
-                <th>文件Hash</th>
-                <th>文件大小</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>审核报告</td>
-                <td>dfadhfkshdfhskhfkshdkfkhsfhsk <span class="icon-green glyphicon glyphicon-ok"></span></td>
-                <td>1.2MB</td>
-                <td class="options"><a href=""><i class="glyphicon glyphicon-cloud-download"></i>下载</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default company">
-      <div class="panel-heading">
-        <div class="row">
           <div class="col-md-6 col-sm-6">
-            <span class="name">xxxx法律事务所</span>
+            <a href="/explorer/company/19FQ5oaiJgyhangkkjK2AbUD4Dzzf7jQ77" class="name" target="_blank">审批委员会</a>
           </div>
           <div class="col-md-6 col-sm-6 head-right">
             <span class="address">地址：</span>
-            <a href="/explorer/company/test3">1djskfjojsoiwejfijfeijfioejfjw</a>
+            <a href="/explorer/company/19FQ5oaiJgyhangkkjK2AbUD4Dzzf7jQ77" target="_blank">19FQ5oaiJgyhangkkjK2AbUD4Dzzf7jQ77</a>
           </div>
         </div>
       </div>
       <div class="panel-body">
         <div class="tx-info">
-          <p>交易ID：<a href="/explorer/asset/1/tx/9d410d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9e5f">9d410d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9e5f</a></p>
-          <p>交易时间：2017-03-10 15:57:45</p>
-          <p>确认次数：1</p>
+          <p>交易ID：<span>1abde49db21524bc7a5752a991c889cf272f54849e1426cc52a6b525bc215631</span></p>
+          <p>交易时间：2017-03-11 10:30:05</p>
+          {{!-- <p>确认次数：3</p> --}}
         </div>
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
@@ -167,10 +98,13 @@
             </thead>
             <tbody>
               <tr>
-                <td>审核报告</td>
-                <td>dfadhfkshdfhskhfkshdkfkhsfhsk <span class="icon-green glyphicon glyphicon-ok"></span></td>
-                <td>1.2MB</td>
-                <td class="options"><a href=""><i class="glyphicon glyphicon-cloud-download"></i>下载</a></td>
+                <td>审批委员会介绍</td>
+                <td>914c332860e50ec9d90595649957523bc745551b13805aa5808351208cd6586e <span class="icon-green glyphicon glyphicon-ok"></span></td>
+                <td>575KB</td>
+                <td class="options">
+                  <a href="/download/files/914c332.jpeg"><i class="glyphicon glyphicon-cloud-download"></i>下载</a>
+                  {{!-- <a href="" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>预览</a> --}}
+                </td>
               </tr>
             </tbody>
           </table>

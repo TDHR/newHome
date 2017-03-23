@@ -186,6 +186,6 @@ exports.updateDividend = function(req, res) {
 exports.download = function(req, res) {
   var type = req.params.type;
   var name = req.params.name;
-  var filepath = config.root + '/public/download/' + type + '/' + name;
+  var filepath = config.root + '/public/downloads/' + type + '/' + name;
   res.download(filepath);
 }

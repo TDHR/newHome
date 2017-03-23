@@ -15,9 +15,9 @@
           <span>{{__ "explorer-asset-owners"}}</span>{{numberWithCommas base.holdUserCount}}
         </div>
         <div class="btns">
-          <a href="/explorer/asset/{{assetId}}/intro" class="btn btn-banner-blue">{{__ 'explorer-asset-intro'}}</a>
-          <a class="btn btn-banner-gray">发行资料</a>
-          {{!-- <a href="/explorer/announce/test" class="btn btn-banner-blue">发行资料</a> --}}
+          <a href="/explorer/asset/{{assetId}}/intro" class="btn btn-banner-blue" target="_blank">{{__ 'explorer-asset-intro'}}</a>
+          {{!-- 由于是模拟数据，暂时用 assetId 作为分辨依据 --}}
+          <a href="/explorer/announce/{{assetId}}" class="btn btn-banner-blue" target="_blank">发行资料</a>
         </div>
         {{!-- <form id="searchForm">
           <input type="text" class="form-control" id="search" placeholder="搜索地址、交易ID">

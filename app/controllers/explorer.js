@@ -298,10 +298,20 @@ exports.intro = function(req, res) {
 exports.company = function(req, res) {
   var walletAddress = req.params.walletAddress;
 
+  // TODO：真实接口
+
+  var companyName = '瑞资运营部';
+
+  if (walletAddress === '19FQ5oaiJgyhangkkjK2AbUD4Dzzf7jQ77') {
+    companyName = '审批委员会';
+  }
+
   // TODO: 根据真实数据，从接口获得企业介绍
   res.render('explorer/company', {
     layout: 'explorer',
-    nav: 'explorer'
+    nav: 'explorer',
+    walletAddress: walletAddress,
+    companyName: companyName
   });
 };
 
@@ -309,9 +319,31 @@ exports.company = function(req, res) {
  * [发行资料]
  */
 exports.announce = function(req, res) {
+
+  // TODO: 真实数据
+  
+  var assetId = req.params.walletAddress;
+  var assetName = '0号资产';
+
+  switch(assetId) {
+    case '1':
+      assetName = '晟孚量化';
+      break;
+
+    case '2':
+      assetName = 'UCR';
+      break;
+
+    case '3':
+      assetName = 'RTSt';
+      break;
+  }
+
   res.render('explorer/announce', {
     layout: 'explorer',
     nav: 'explorer',
-    assetId: 0
+    assetId: assetId,
+    walletAddress: '13MQ5oaiJgyhangk6jK2AbUD4Dzzf7jN7' + assetId,
+    assetName: assetName
   });
 };
