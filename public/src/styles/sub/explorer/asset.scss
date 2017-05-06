@@ -1,0 +1,108 @@
+.page-explorer-asset {
+  .banner {
+    position: relative;
+    background-image: url("/images/banner-bgi.png"), linear-gradient(30deg, #3aa5f3, #013a63);
+    background-color: #3aa5f3;
+    background-repeat: repeat;
+    background-position: center top;
+    color: #fff;
+    .particles-js {
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+    .base-info {
+      position: relative;
+      padding: 60px 0;
+      text-align: center;
+      .name {
+        font-size: 26px;
+        text-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+      }
+      .circulation {
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: center;
+        text-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+      }
+      .owners {
+        margin-top: 12px;
+        font-size: 16px;
+        text-align: center;
+        text-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+      }
+      .btns {
+        position: relative;
+        z-index: 3;
+        margin: 18px 0 25px;
+        .btn-banner-blue {
+          padding: 7px 20px 5px;
+          margin: 0 12px 10px 0;
+          color: #fff;
+          background-color: #55b7fd;
+          border: 0;
+          border-radius: 15px;
+          font-size: 12px;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, .15);
+          &:hover,
+          &:active {
+            background-color: #3eaaf7;
+          }
+        }
+        .btn-banner-gray {
+          padding: 7px 20px 5px;
+          margin: 0 12px 10px 0;
+          color: #eee;
+          background-color: #bbb;
+          border: 0;
+          border-radius: 15px;
+          font-size: 12px;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, .15);
+          cursor: not-allowed;
+          &:hover,
+          &:active {
+            background-color: #bbb;
+          }
+        }
+      }
+      #searchForm {
+        position: relative;
+        z-index: 3;
+        #search {
+          width: 500px;
+          height: 48px;
+          max-width: 100%;
+          padding: 15px;
+          margin: 25px auto 60px;
+          border: 0;
+          border-radius: 4px;
+          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+          background-color: rgba(255, 255, 255, .85);
+        }
+      }
+    }
+  }
+  .positions-list {
+    margin-top: 60px;
+  }
+  .turnover {
+    margin-top: 60px;
+    .turnoverDate {
+      margin-top: 10px;
+      text-align: right;
+    }
+  }
+  .trading-list {
+    margin: 60px 0;
+    .trading-nav {
+      margin-top: 20px;
+    }
+    .trading-content {
+      margin-top: 10px;
+    }
+  }
+}

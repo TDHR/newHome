@@ -1,17 +1,20 @@
 {
-  "apps" : [{
-    "name"        : "gold-rock",
-    "script"      : "app.js",
-    "instances"   : "2",
-    "exec_mode"   : "cluster",
-    "watch"       : false,
-    "node_args"   : "--harmony",
-    "merge_logs"  : true,
+  "apps": [{
+    "name": "gold-rock",
+    "script": "app.js",
+    "instances": "2",
+    "exec_mode": "cluster",
+    "watch": false,
+    "node_args": "--harmony",
+    "merge_logs": true,
     "env": {
       "NODE_ENV": "development"
     },
-    "env_production" : {
-       "NODE_ENV": "production"
+    "env_production": {
+      "NODE_ENV": "production"
+    },
+    "env_beta": {
+      "NODE_ENV": "beta"
     }
   }]
 }

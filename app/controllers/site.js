@@ -4,101 +4,80 @@ var config = require('../../config/config');
 // 首页
 exports.index = function(req, res) {
   res.render('site/home', {
+    layout: '',
     nav: 'home'
-  });
-};
-
-// 核心价值
-exports.values = function(req, res) {
-  res.render('site/values', {
-    nav: 'values'
-  });
-};
-
-// 服务
-exports.service = function(req, res) {
-  res.render('site/service', {
-    nav: 'service'
-  });
-};
-
-// 团队
-exports.team = function(req, res) {
-  res.render('site/team', {
-    nav: 'team'
-  });
-};
-
-// 知识库
-exports.knowledge = function(req, res) {
-  res.render('site/knowledge', {
-    nav: 'knowledge'
-  });
-};
-
-// 联系我们
-exports.contact = function(req, res) {
-  res.render('site/contact', {
-    nav: 'contact'
   });
 };
 
 // 服务条款
 exports.terms = function(req, res) {
   res.render('site/terms', {
-    nav: 'terms'
+    nav: ''
   });
 };
 
-// 获取文章
-exports.articles = function(req, res) {
-  var page = req.query.page || 1;
-  var limit = req.query.limit || 4;
-  request
-    .get(config.weixin + '/ArticleOut/GetList')
-    .send({
-      language: res.getLocale() || 'zh',
-      page: page,
-      limit: limit
-    })
-    .end(function(err, result) {
-      var articleData = '';
-      if (result && result.body.success) {
-        return res.json({
-          success: true,
-          data: result.body.data
-        });
-      } else {
-        return res.json({
-          success: false
-        });
-      }
-    });
+// 关于 POS
+exports.helpPos = function(req, res) {
+  res.render('site/help-pos', {
+    nav: ''
+  });
 };
 
-// 文章内容
-exports.article = function(req, res) {
+// 公测-微信分享页面
+exports.shareWeChat = function(req, res) {
+  var userToken = req.cookies.userToken;
+  var wechat = res.locals.wechat;
+
+  // 已经登录
+  if (userToken) {
+    // 获取邀请码
+    request
+      .get(config.platform + '/api/vipuser/getinvitecode')
+      .query({ token: userToken })
+      .set('Accept', 'application/json')
+      .end(function(err, result) {
+        var inviteCode = '';
+        // 登录超时
+        if (!result || !result.body || result.body.code === 1) {
+          res.clearCookie('userToken');
+        } else {
+          inviteCode = result.body.data.inviteCode;
+        }
+        res.render('site/share-wechat', {
+          layout: '',
+          wechat: wechat,
+          inviteCode: inviteCode
+        });
+      });
+  } else {
+    res.render('site/share-wechat', {
+      layout: '',
+      wechat: wechat,
+      inviteCode: ''
+    });
+  }
+};
+
+// 通过手机号码获取邀请码
+exports.getInviteCode = function(req, res) {
   request
-    .get(config.weixin + '/ArticleOut/GetDetail')
-    .send({
-      language: res.getLocale() || 'zh',
-      id: req.params.articleID
-    })
+    .get(config.platform + '/papi/share/getinvitecode')
+    .query({ username: req.body.username })
+    .set('Accept', 'application/json')
     .end(function(err, result) {
-      var data = '';
-      if (result && result.body.success) {
-        data = result.body.data;
-      }
-      res.render('site/article', {
-        nav: 'knowledge',
-        data: data
+      var body = result.body;
+      return res.json({
+        success: body.success,
+        code: body.code,
+        msg: body.message,
+        data: body.data
       });
     });
 };
 
-// 帮助-介绍运作机制
-exports.helpIntro = function(req, res) {
-  res.render('site/help-intro', {
-    layout: ''
+// 公测介绍页面
+exports.betaIntro = function(req, res) {
+  res.render('site/beta-intro', {
+    nav: ''
   });
 };

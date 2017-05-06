@@ -16,7 +16,7 @@ export default {
     'error-code-4': '短信验证码错误'
   },
   en: {
-    'submit-err-1': 'Submit failed, please try again later',
+    'submit-err-1': 'Submission failed, please try again later',
     'phone-err-1': 'Please enter the correct phone number',
     'sms-err-1': 'Please enter the verification code SMS',
     'pwd-err-1': 'Please enter a password at least six characters',

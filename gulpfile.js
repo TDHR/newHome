@@ -18,10 +18,8 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
 gulp.task('locales', function() {
   var lang = ['zh', 'en'];
   for (var i = 0; i < lang.length; i++) {
-    lang[i] = lang[i] = gulp.src(path.join(conf.paths.locales, '/' + lang[i] + '/*.js'))
-      .pipe(plumber())
+    lang[i] = gulp.src(path.join(conf.paths.locales, '/' + lang[i] + '/**/*.js'))
       .pipe(mergeJson(lang[i] + '.js'))
-      .pipe(plumber.stop())
       .pipe(gulp.dest(path.join(conf.paths.locales)));
   }
   return merge(lang[0], lang[1]);
@@ -40,6 +38,12 @@ gulp.task('devCfg', function() {
     .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
 });
 
+gulp.task('betaCfg', function() {
+  return gulp.src(path.join(conf.paths.src, '/scripts/config/config-beta.js'))
+    .pipe(concat('config-now.js'))
+    .pipe(gulp.dest(path.join(conf.paths.src, '/scripts/config')));
+});
+
 // clean tmp file
 gulp.task('cleanTmp', function() {
   return del.sync([path.join(conf.paths.tmp, '/*')]);
@@ -52,3 +56,7 @@ gulp.task('dev', ['cleanDev', 'tpl', 'locales', 'devCfg'], function() {
 gulp.task('prod', ['cleanTmp', 'tpl', 'locales', 'prodCfg'], function() {
   gulp.start('production');
 });
+
+gulp.task('beta', ['cleanTmp', 'tpl', 'locales', 'betaCfg'], function() {
+  gulp.start('runbeta');
+})
