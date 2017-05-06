@@ -50,10 +50,17 @@ const seconds = (value) => {
     time += value + '秒';
   }
   return time;
-}
+};
+
+const numberWithCommas = (value) => {
+  var parts = value.toString().split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return parts.join(".");
+};
 
 export default {
   bytes: bytes,
   timestamp: timestamp,
-  seconds: seconds
+  seconds: seconds,
+  numberWithCommas: numberWithCommas
 };

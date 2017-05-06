@@ -10,7 +10,7 @@ export default {
     'error-code-4': '验证码输入错误，请重试'
   },
   en: {
-    'submit-err-1': 'Submit failed, please try again later',
+    'submit-err-1': 'Submission failed, please try again later',
     'phone-err-1': 'Please enter the correct phone number',
     'pwd-err-1': 'Please enter your password',
     'captcha-err-1': 'please enter verification code',

@@ -1,0 +1,37 @@
+.page-explorer-user {
+  .breadcrumb {
+    margin: 20px 0;
+  }
+  .user-info {
+    width: 100%;
+    padding: 10px 0 10px 20px;
+    margin-top: 50px;
+    border-left: 3px solid #deb36c;
+    background-color: #fafafa;
+    >div {
+      >div {
+        padding: 10px 20px 10px 10px;
+        word-break: break-all;
+        >span {
+          color: #666;
+        }
+      }
+    }
+  }
+  .wallet-list {
+    margin-top: 50px;
+  }
+  .dividend-list {
+    margin-top: 50px;
+  }
+  .transactions-list {
+    margin: 50px 0;
+    .count {
+      font-size: 12px;
+      color: #666;
+    }
+    .pagination-holder {
+      text-align: right;
+    }
+  }
+}

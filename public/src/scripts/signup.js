@@ -29,7 +29,7 @@ $('#btnSmsCode').on('click', function() {
 
   $.ajax({
     method: 'POST',
-    url: '/phoneCode',
+    url: '/phone-code',
     data: {
       phoneNum: phoneNum
     },
@@ -76,23 +76,33 @@ function countDown() {
 }
 
 /**
- * 提交表单
- * @param [object] photos
+ * [提交表单]
  */
-function submitForm(photos) {
-  let data = $('#form').serializeObject();
-  data.idPhoto1 = photos.idPhoto1;
-  data.idPhoto2 = photos.idPhoto2;
-  data.photo = photos.photo;
+function submitForm() {
+  // 倒计时跳转
+  var jump = (sec) => {
+    clearTimeout(window.jumpCountdown);
+    sec--;
+    if (sec) {
+      $('#jumpCountdown').text(sec);
+      window.jumpCountdown = setTimeout(() => {
+        jump(sec);
+      }, 1000);
+    } else {
+      location.href = '/login';
+    }
+  };
+
   $.ajax({
     method: 'POST',
     url: '/signup',
-    data: data,
+    data: $('#form').serializeObject(),
     cache: false,
     success: function(res) {
       if (res.success) {
         $('#formHolder').addClass('hide');
         $('#successHolder').removeClass('hide');
+        jump(5);
       } else {
         // 根据错误码输出相应的提示
         Alert(Locales.signup[locale]['error-code-' + res.code], 5000);
@@ -108,43 +118,15 @@ function submitForm(photos) {
 }
 
 /**
- * 上传图片
+ * 检查表单
  */
-function uploadPhoto() {
-  let formData = new FormData();
-  formData.append('idPhoto1', $('#idPhoto1')[0].files[0]);
-  formData.append('idPhoto2', $('#idPhoto2')[0].files[0]);
-  formData.append('photo', $('#photo')[0].files[0]);
+$('#form').on('submit', function(e) {
+  e.preventDefault();
 
-  $.ajax({
-    method: 'POST',
-    url: `${Config.platform}/api/vipuser/uploadimage`,
-    data: formData,
-    cache: false,
-    dataType: 'json',
-    contentType: false,
-    processData: false,
-    beforeSend: function() {
-      $('#btnSubmit').addClass('disabled');
-    },
-    success: function(res) {
-      if (res.success) {
-        submitForm(res);
-      } else {
-        // 根据相应的错误码进行提示
-        Alert(Locales.signup[locale]['photo-err-1'], 5000);
-        $('#btnSubmit').removeClass('disabled');
-      }
-    },
-    error: function() {
-      Alert(Locales.signup[locale]['submit-err-1'], 5000);
-      $('#btnSubmit').removeClass('disabled');
-    }
-  });
-}
+  if ($('#btnSubmit').hasClass('disabled')) {
+    return false;
+  }
 
-// 「下一步」按钮
-$('#btnNext').on('click', function() {
   let phoneNum = $('#phoneNum').val();
   if (!Validate.mobile(phoneNum)) {
     Alert(Locales.signup[locale]['phone-err-1'], 5000);
@@ -174,79 +156,11 @@ $('#btnNext').on('click', function() {
     return false;
   }
 
-  // 显示第二步
-  $('#step1').addClass('hide');
-  $('#stepTitle1').removeClass('active');
-  $('#step2').removeClass('hide');
-  $('#stepTitle2').addClass('active');
-});
-
-// 注册按钮
-$('#btnSubmit').on('click', function() {
-  if ($(this).hasClass('disabled')) {
-    return false;
-  }
-
-  let realName = $('#realName').val();
-  if (!realName) {
-    Alert(Locales.signup[locale]['real-name-err-1'], 5000);
-    return false;
-  }
-
-  let idNum = $('#idNum').val();
-  if (!Validate.length(idNum, 18)) {
-    Alert(Locales.signup[locale]['id-num-err-1'], 5000);
-    return false;
-  }
-
-  // 验证浏览器是否支持图片上传
-  if (!window.FormData || typeof XMLHttpRequest === 'undefined' || typeof FileReader === "undefined") {
-    Alert(Locales.signup[locale]['browser-tips']);
-    return false;
-  }
-
-  let photo1 = $('#idPhoto1');
-  if (photo1.val()) {
-    photo1 = photo1[0];
-    if (!Validate.image(photo1.value)) {
-      Alert(Locales.signup[locale]['photo-err-1'], 5000);
-      return false;
-    }
-  } else {
-    Alert(Locales.signup[locale]['photo-err-2'], 5000);
-    return false;
-  }
-
-  let photo2 = $('#idPhoto2');
-  if (photo2.val()) {
-    photo2 = photo2[0];
-    if (!Validate.image(photo2.value)) {
-      Alert(Locales.signup[locale]['photo-err-1'], 5000);
-      return false;
-    }
-  } else {
-    Alert(Locales.signup[locale]['photo-err-3'], 5000);
-    return false;
-  }
-
-  let photo3 = $('#photo');
-  if (photo3.val()) {
-    photo3 = photo3[0];
-    if (!Validate.image(photo3.value)) {
-      Alert(Locales.signup[locale]['photo-err-1'], 5000);
-      return false;
-    }
-  } else {
-    Alert(Locales.signup[locale]['photo-err-4'], 5000);
-    return false;
-  }
-
   let terms = $('#terms:checked').val();
   if (!terms) {
     Alert(Locales.signup[locale]['terms-err-1'], 5000);
     return false;
   }
 
-  // 先上传图片
-  uploadPhoto();
+  submitForm();
 });

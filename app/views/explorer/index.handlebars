@@ -1,56 +1,22 @@
 <div class="page-explorer">
   <div class="container">
-    <div class="info-total">
-      <p>
-        <span>{{__ "explorer-total-circulation"}}</span>{{data.total.total_circulation}}
-      </p>
-      <p>
-        <span>{{__ "explorer-owners"}}</span>{{data.total.owners}}
-      </p>
-    </div>
-    <div class="positions-list">
-      <h3>持仓排行</h3>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>持仓人ID</th>
-              <th>姓名</th>
-              <th>流动</th>
-              <th>冻结</th>
-              <th>打包</th>
-              <th>总量</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#if data.positions}}
-              {{#each data.positions}}
-              <tr>
-                <td><a href="/explorer/{{../chainID}}/user/{{this.owner_id}}">{{this.owner_id}}</a></td>
-                <td>{{handleText this.real_name "2"}}</td>
-                <td>{{this.liquidity}}</td>
-                <td>{{this.freeze}}</td>
-                <td>{{this.packing}}</td>
-                <td>{{this.balance}}</td>
-              </tr>
-              {{/each}}
-            {{else}}
-            <tr>
-              <td class="text-center" colspan="6">暂无数据</td>
-            </tr>
-            {{/if}}
-          </tbody>
-        </table>
+    <div class="assets">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+          <div class="list-group">
+            <a class="list-group-item active">{{__ 'explorer-index-list-title'}}</a>
+            {{#each assets.assets}}
+            <a href="/explorer/asset/{{id}}" class="list-group-item">
+              <span class="badge">{{numberWithCommas circulation}}</span>
+              {{name}} ({{name_en}})
+            </a>
+            {{/each}}
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="turnover">
-      <h3>换手率</h3>
-      <div id="chartsTurnover"></div>
     </div>
   </div>
 </div>
 
-{{> footer-explorer}}
+{{> footer}}
 {{> scripts}}
-<script src="/libs/highstock.js"></script>
-<script src="/scripts/explorer.js{{fileTail}}"></script>

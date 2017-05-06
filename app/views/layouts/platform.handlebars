@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--[if lte IE 7]> <html class="ie7"> <![endif]-->
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <title>瑞资链</title>
+  <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/platform.css{{fileTail}}">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <!--[if lt IE 9]>
+    <script src="/libs/html5shiv.min.js"></script>
+    <script src="/libs/respond.min.js"></script>
+  <![endif]-->
+  {{#if ENV_DEVELOPMENT}}
+    <script src="http://localhost:35729/livereload.js"></script>
+  {{/if}}
+</head>
+<body>
+  <!--[if lt IE 9]><p class="browsehappy">{{{__ "browsehappy"}}}</p><![endif]-->
+  {{> alert}}
+  {{{body}}}
+</body>
+</html>

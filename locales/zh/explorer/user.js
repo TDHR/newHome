@@ -1,0 +1,22 @@
+{
+  "explorer-user-holder": "持仓人详情",
+  "explorer-user-holder-address": "持仓人地址：",
+  "explorer-user-holder-name": "真实姓名：",
+  "explorer-user-holder-holdings": "持有量：",
+  "explorer-user-holder-ranking": "持仓排名：",
+  "explorer-user-holder-rate": "持仓占比：",
+  "explorer-user-wallet": "钱包",
+  "explorer-user-wallet-address": "地址",
+  "explorer-user-wallet-balance": "余额",
+  "explorer-user-dividend": "分红记录",
+  "explorer-user-dividend-type": "类型",
+  "explorer-user-dividend-quantity": "数量",
+  "explorer-user-dividend-transaction-record": "交易记录",
+  "explorer-user-dividend-date": "时间",
+  "explorer-user-transactions": "交易",
+  "explorer-user-transactions-total": "共",
+  "explorer-user-transactions-times": "次",
+  "explorer-user-transactions-id": "交易ID",
+  "explorer-user-transactions-quantity": "数量",
+  "explorer-user-transactions-date": "时间"
+}

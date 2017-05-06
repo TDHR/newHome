@@ -1,0 +1,182 @@
+<link rel="stylesheet" href="/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+
+<div class="page-explorer-asset">
+  <div class="banner">
+    <div id="particlesJs" class="particles-js"></div>
+    <div class="container">
+      <div class="base-info">
+        <div class="name">
+          {{base.name}}（{{base.name_en}}）
+        </div>
+        <div class="circulation">
+          <span>{{__ "explorer-asset-total-circulation"}}</span>{{numberWithCommas base.circulation}}
+        </div>
+        <div class="owners">
+          <span>{{__ "explorer-asset-owners"}}</span>{{numberWithCommas base.holdUserCount}}
+        </div>
+        <div class="btns">
+          <a href="/explorer/asset/{{assetId}}/intro" class="btn btn-banner-blue">{{__ 'explorer-asset-intro'}}</a>
+          {{!-- 由于是模拟数据，暂时用 assetId 作为分辨依据 --}}
+          <a href="/explorer/announce/{{assetId}}" class="btn btn-banner-blue">发行资料</a>
+        </div>
+        {{!-- <form id="searchForm">
+          <input type="text" class="form-control" id="search" placeholder="搜索地址、交易ID">
+        </form> --}}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="positions-list">
+      <h4>{{__ 'explorer-asset-positions'}}</h4>
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>{{__ 'explorer-asset-positions-address'}}</th>
+              <th>{{__ 'explorer-asset-positions-name'}}</th>
+              <th>{{__ 'explorer-asset-positions-holdings'}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#if tops.list}}
+              {{#each tops.list}}
+              <tr>
+                <td><a href="/explorer/asset/{{../assetId}}/user/{{this.walletAddress}}">{{this.walletAddress}}</a></td>
+                <td>{{handleText this.realName "2"}}</td>
+                <td>{{numberWithCommas this.balance}}</td>
+              </tr>
+              {{/each}}
+            {{else}}
+            <tr>
+              <td class="text-center" colspan="6">{{__ 'no-data'}}</td>
+            </tr>
+            {{/if}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="turnover">
+      <h4>{{__ 'explorer-asset-turnover'}}</h4>
+      <div class="turnoverDate">
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <div class="input-group">
+              <input id="startDate" class="form-control input-sm" type="text" readonly>
+              <div class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </div>
+            </div>
+            <span>~</span>
+            <div class="input-group">
+              <input id="endDate" class="form-control input-sm" type="text" readonly>
+              <div class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="turnoverChart"></div>
+    </div>
+    <div class="trading-list">
+      <h4>{{__ 'explorer-asset-trading'}}</h4>
+      <ul class="nav nav-tabs trading-nav" role="tablist">
+        <li role="presentation" class="active"><a href="#tradingDay" role="tab" data-toggle="tab">{{__ 'explorer-asset-trading-day'}}</a></li>
+        <li role="presentation"><a href="#tradingWeek" role="tab" data-toggle="tab">{{__ 'explorer-asset-trading-week'}}</a></li>
+        <li role="presentation"><a href="#tradingMonth" role="tab" data-toggle="tab">{{__ 'explorer-asset-trading-month'}}</a></li>
+      </ul>
+      <div class="tab-content trading-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="tradingDay">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>{{__ 'explorer-asset-trading-address'}}</th>
+                  <th>{{__ 'explorer-asset-trading-volume'}}</th>
+                  <th>{{__ 'explorer-asset-trading-balance'}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if dayTrans.list}}
+                  {{#each dayTrans.list}}
+                  <tr>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.walletAddress}}">{{this.walletAddress}}</a></td>
+                    <td>{{numberWithCommas this.trans}}</td>
+                    <td>{{numberWithCommas this.balance}}</td>
+                  </tr>
+                  {{/each}}
+                {{else}}
+                <tr>
+                  <td class="text-center" colspan="6">{{__ 'no-data'}}</td>
+                </tr>
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tradingWeek">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>{{__ 'explorer-asset-trading-address'}}</th>
+                  <th>{{__ 'explorer-asset-trading-volume'}}</th>
+                  <th>{{__ 'explorer-asset-trading-balance'}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if weekTrans.list}}
+                  {{#each weekTrans.list}}
+                  <tr>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.walletAddress}}">{{this.walletAddress}}</a></td>
+                    <td>{{numberWithCommas this.trans}}</td>
+                    <td>{{numberWithCommas this.balance}}</td>
+                  </tr>
+                  {{/each}}
+                {{else}}
+                <tr>
+                  <td class="text-center" colspan="6">{{__ 'no-data'}}</td>
+                </tr>
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tradingMonth">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>{{__ 'explorer-asset-trading-address'}}</th>
+                  <th>{{__ 'explorer-asset-trading-volume'}}</th>
+                  <th>{{__ 'explorer-asset-trading-balance'}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if monthTrans.list}}
+                  {{#each monthTrans.list}}
+                  <tr>
+                    <td><a href="/explorer/asset/{{../assetId}}/user/{{this.walletAddress}}">{{this.walletAddress}}</a></td>
+                    <td>{{numberWithCommas this.trans}}</td>
+                    <td>{{numberWithCommas this.balance}}</td>
+                  </tr>
+                  {{/each}}
+                {{else}}
+                <tr>
+                  <td class="text-center" colspan="6">{{__ 'data'}}</td>
+                </tr>
+                {{/if}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{> footer}}
+{{> scripts}}
+<script src="/libs/particles.min.js"></script>
+<script src="/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/libs/highstock.js"></script>
+<script src="/scripts/explorer-asset.js{{fileTail}}"></script>

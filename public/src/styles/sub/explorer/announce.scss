@@ -1,0 +1,72 @@
+.page-explorer-announce {
+  .breadcrumb {
+    margin: 20px 0;
+  }
+  .info {
+    margin-top: 50px;
+    .detail {
+      width: 100%;
+      padding: 10px 10px 10px 20px;
+      margin-top: 20px;
+      border-left: 3px solid #deb36c;
+      background-color: #fafafa;
+      >div {
+        margin: 10px 0;
+        word-break: break-all;
+        >span {
+          font-size: 13px;
+          color: #777;
+        }
+      }
+    }
+  }
+  .group-title {
+    margin-top: 50px;
+  }
+  .company {
+    margin: 30px 0 40px;
+    &:last-child {
+      margin-bottom: 50px;
+    }
+    .panel-heading {
+      .head-right {
+        text-align: right;
+        word-break: break-all;
+      }
+      @media (max-width: 767px) {
+        .head-right {
+          padding-top: 10px;
+          text-align: left;
+        }
+      }
+      .name {
+        font-size: 16px;
+      }
+      .address {
+        color: #777;
+      }
+    }
+    .panel-body {
+      font-size: 13px;
+      .tx-info {
+        margin: 15px 0;
+        color: #777;
+        word-break: break-all;
+      }
+    }
+    .table {
+      background-color: #fff;
+      .options {
+        >a {
+          margin-right: 10px;
+          >i {
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+    .icon-green {
+      color: #6edc40;
+    }
+  }
+}

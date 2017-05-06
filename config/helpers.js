@@ -7,12 +7,14 @@ module.exports = function() {
   var tail = '';
 
   // i18n helper函数 __函数不考虑单复数
-  _helpers.__ = function() {
+  _helpers.__ = function(str, options) {
+    this.locale = this.locale || options.data.root.locale;
     return i18n.__.apply(this, arguments);
   };
 
   // i18n helper函数 __n函数考虑单复数
-  _helpers.__n = function() {
+  _helpers.__n = function(str, options) {
+    this.locale = this.locale || options.data.root.locale;
     return i18n.__n.apply(this, arguments);
   };
 
@@ -46,19 +48,24 @@ module.exports = function() {
         result = value.substr(0, 1) + value.substr(1).replace(/./g, '*');
         break;
 
-      // 除了最后一个字，全部处理为星号
+        // 除了最后一个字，全部处理为星号
       case '2':
-        result = value.replace(/.(?=.)/g, '*');;
+        result = value.replace(/.(?=.)/g, '*');
         break;
 
-      // 处理身份证，除了前两位和后四位，全部处理为星号
+        // 处理身份证，除了前两位和后四位，全部处理为星号
       case '3':
         result = value.replace(/(\d{2})\d{12}(\d{4})/, "$1************$2");
         break;
 
-      // 处理手机号码，中间四位处理为星号
+        // 处理手机号码，中间四位处理为星号
       case '4':
         result = value.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
+        break;
+
+        // 处理银行卡号，除了最后四位，全部处理为星号
+      case '5':
+        result = '**** ' + value.substr(-4, 4);
         break;
     }
 
@@ -115,17 +122,24 @@ module.exports = function() {
     var date = new Date(timestamp * fix);
     switch (type) {
       case 'ymd':
-        result = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+        result = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2);
         break;
 
       case 'hms':
-        result = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        result = ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2);
         break;
 
       default:
-        result = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        result = date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2);
     }
     return result;
+  };
+
+  // 为数字添加逗号
+  _helpers.numberWithCommas = function(num) {
+    var parts = num.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
   };
 
   return _helpers;

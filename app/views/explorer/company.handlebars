@@ -1,0 +1,79 @@
+<div class="page-explorer-company">
+  <div class="container">
+    <div class="info">
+      <h4>企业详情</h4>
+      <div class="detail">
+        <div>
+          <span>机构名称：</span>
+          {{companyName}}
+        </div>
+        <div>
+          <span>地址：</span>
+          {{walletAddress}}
+        </div>
+        <div>
+          <span>官网背书：</span>
+          <a href="https://reitschain.com" target="_blank">https://reitschain.com</a>
+        </div>
+        <div>
+          <span>注册时间：</span>
+          2017-03-07
+        </div>
+      </div>
+    </div>
+    <div class="intro">
+      {{#ifCond walletAddress '===' '17MQ5oaiJgyhangkkjK2AbUD4Dzzf7jN56'}}
+        <h4>介绍</h4>
+        <div class="title">嘿，大家好！我们是瑞资运营部门。</div>
+        <div class="content">
+          <p>我们的在公测期间的工作就是设计各种游戏玩法，在瑞资链上以虚拟资产的形式发布出来。大家通过参与游戏，测试瑞资链账本，在信用搭建，资金传递，交易，记账，分红的各种能力。当然，在玩的过程中，我们的任务是把至少100万份我们的股份和超过10万块钱的BTC分给大家。</p>
+          <p>每一个资产，都有自己的玩法，祝大家玩的尽兴！</p>
+          <p>一旦公测结束，这样欢乐的资产，就不会再出现。会被严谨的金融资产所取代。我们运营部门发行资产的权限，也将被褫夺，被合规专业的金融公司所替代。</p>
+        </div>
+      {{else}}
+        <h4>介绍</h4>
+        <div class="title">哟哟，大家好！我们是瑞资公司的审批委员会。</div>
+        <div class="content">
+          <p>我们在公测过程中的工作，就是审核一下运营部门所发行的玩法，好玩不好玩，分的钱会不会太多，我们支付不起？份额拆分应该以多少为宜？从技术角度上看，能不能实现？从数学角度上看，会不会形成黑洞自己栽进坑里？从逻辑角度上看，有没有逻辑死锁。</p>
+          <p>坦白告诉你，对学文的兄弟策划的活动，还是要留个心眼。</p>
+          <p>运营部门策划的活动，只有通过了我们的审核，并且实名在区块链上签署同意发行文档，才会由技术部门发行出去。技术部门不会关心之前的任何流程。只有看到区块链上我们的批准证明，才会按照发行文档所规定的份额，代号，等等指标发行资产，并且，直接打入到资产地址下。</p>
+          <p>公测结束以后，我们就会让贤。我们将被真正的AUTHY（审批委员会）取代。AUTHY会对真实金融资产进行法律流程审核，对金融公司进行准入审核。会更严峻。更专业。当然，也没有那么好玩啦。</p>
+        </div>
+      {{/ifCond}}
+    </div>
+    {{!-- <div class="cases">
+      <h4>案例</h4>
+      <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>资产名称</th>
+                <th>发行资料</th>
+                <th>状态</th>
+                <th>发行量</th>
+                <th>发行时间</th> 
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>aaaa</td>
+                <td><a href="/explorer/asset/0/tx/test">dfadhfkshdfhskhfkshdkfkhsfhsk</a></td>
+                <td>运作中</td>
+                <td>1,000,000</td>
+                <td>2017-01-02 11:11:11</td>
+              </tr>
+              <tr>
+                <td>bbbbb</td>
+                <td><a href="/explorer/asset/0/tx/test">dfadhfkshdfhskhfkshdkfkhsfhsk</a></td>
+                <td>运作中</td>
+                <td>1,000,000</td>
+                <td>2017-01-02 11:11:11</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div> --}}
+  </div>  
+</div>
+{{> footer}}
+{{> scripts}}
