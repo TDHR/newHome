@@ -1,81 +1,11 @@
 <div class="header">
   <div class="navbar navbar-fixed-top">
-    <div class="header-top">
-      <div class="container">
-        <div class="navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="hasLogged hide">
-              <a href="/user/dashboard">{{__ 'my-account'}}</a>
-            </li>
-            <li>
-              <a href="/logout" class="hasLogged hide">{{__ 'logout'}}</a>
-            </li>
-            <li class="notLogged hide {{#ifCond nav '===' 'signup'}} active{{/ifCond}}">
-              <a href="/signup">{{__ 'nav-signup'}}</a>
-            </li>
-            <li class="notLogged hide {{#ifCond nav '===' 'login'}} active{{/ifCond}}">
-              <a href="/login">{{__ 'nav-login'}}</a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="/images/{{__ 'language-code'}}.png" class="language-flag">{{__ 'language'}}
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu language-menu">
-                <li>
-                  <a class="btn-language" data-language="zh">
-                    <img src="/images/zh.png" class="language-flag">
-                    中文
-                  </a>
-                </li>
-                <li>
-                  <a class="btn-language" data-language="en">
-                    <img src="/images/en.png" class="language-flag">
-                    English
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
     <div class="header-bottom">
       <div class="container">
         <div class="navbar-header">
           <a href='/' class="navbar-brand">
             <img src="/images/logo.png">
           </a>
-          <a data-toggle="collapse" data-target="#navbarCollapse" class="navbar-toggle collapsed">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-        </div>
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li {{#ifCond nav '===' 'home'}}class="active"{{/ifCond}}>
-              <a href="/">{{__ 'nav-home'}}</a>
-            </li>
-            <li {{#ifCond nav '===' 'values'}}class="active"{{/ifCond}}>
-              <a href="/values">{{__ 'nav-values'}}</a>
-            </li>
-            <li {{#ifCond nav '===' 'service'}}class="active"{{/ifCond}}>
-              <a href="/service">{{__ 'nav-service'}}</a>
-            </li>
-            <li {{#ifCond nav '===' 'team'}}class="active"{{/ifCond}}>
-              <a href="/team">{{__ 'nav-team'}}</a>
-            </li>
-            <li {{#ifCond nav '===' 'knowledge'}}class="active"{{/ifCond}}>
-              <a href="/knowledge">{{__ 'nav-knowledge'}}</a>
-            </li>
-            <li {{#ifCond nav '===' 'contact'}}class="active"{{/ifCond}}>
-              <a href="/contact">{{__ 'nav-contact'}}</a>
-            </li>
-            <li class="{{#ifCond nav '===' 'explorer'}}active{{/ifCond}}">
-              <a href="/explorer">{{__ 'nav-block-explorer'}}</a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
