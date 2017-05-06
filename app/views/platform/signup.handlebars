@@ -1,6 +1,8 @@
 <div class="page-signup">
   <div id="formHolder" class="container">
-    <div class="form-title">{{__ 'platform-title'}}</div>
+    <div class="logo">
+      <a href="/"><img src="/images/logo.png"></a>
+    </div>
     <div class="beta-slogan">瑞资链正在火爆公测，完成注册即可获得100RTSt！</div>
     <div class="form-big-holder">
       <form id="form" class="form-big">
@@ -35,7 +37,7 @@
         <div class="checkbox">
           <label>
             <input id="terms" type="checkbox">
-            {{{__ 'signup-terms'}}}
+            我已阅读并同意瑞资链的<a href="/terms" target="_blank">服务条款</a>
           </label>
         </div>
         <button id="btnSubmit" type="submit" class="btn btn-primary btn-lg btn-block btn-submit">{{__ 'signup-register'}}</button>
@@ -51,7 +53,7 @@
       </div>
     </div>
     <h3>{{__ 'signup-success1'}}</h3>
-    <p><span id="jumpCountdown">5</span>{{{__ 'signup-success2'}}}</p>
+    <p><span id="jumpCountdown">5</span>秒后跳转到钱包的下载页面</p>
   </div>
 </div>
 

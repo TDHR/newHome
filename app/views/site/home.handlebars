@@ -27,13 +27,13 @@
   <div class="page-home">
     <div class="header-banner">
       <div class="container content">
-        <img src="/images/logo-white.png" alt="瑞资链" class="logo">
+        <img src="/images/logo-simple-white.png" alt="瑞资链" class="logo">
         <div class="title">瑞资链</div>
         <div class="slogan">我们专心让区块链技术落地</div>
         <div class="btn btn-default btn-beta">公测即将开启</div>
       </div>
     </div>
-    <div class="intro-block block-1">
+    <div class="block-intro block-1">
       <div class="container">
         <div class="row">
           <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4 text-center">
@@ -54,10 +54,10 @@
         </div>
       </div>
     </div>
-    <div class="intro-block block-2">
+    <div class="block-intro block-2">
       <div class="container">
         <div class="row">
-          <div class="col-md-offset-2 col-md-5 col-sm-offset-2 col-sm-5">
+          <div class="col-md-offset-2 col-md-4 col-sm-offset-2 col-sm-4">
             <img src="/images/number-02.png" class="number">
             <div class="title">
               <p>密钥丢失终于</p>
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-    <div class="intro-block block-3">
+    <div class="block-intro block-3">
       <div class="container">
         <div class="row">
           <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-4 text-center">
@@ -94,16 +94,59 @@
         </div>
       </div>
     </div>
+    <div class="block-summary">
+      <div class="container">
+        <div class="title">未来无限可能</div>
+        <img src="/images/wechat.png" class="qrcode">
+        <div class="content">
+          <p>密钥丢失终于可以把资产找回了</p>
+          <p>数字资产由实名登记和私钥双重确权，资产无丢失风险。</p>
+          <p>拥有完整的挂失、冻结、公示、注销、找回业务流程。</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-4">
+            <div class="title">瑞资（北京）科技有限公司</div>
+            <div class="content">
+              <p>地址：北京市朝阳区望京嘉润花园B座 无界空间</p>
+              <p>电话：<a href="tel:400-0599980">400-0599980</a></p>
+              <p>邮箱：<a href="mailto:bd@reitsfax.com">bd@reitsfax.com</a></p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="title">社交媒体</div>
+            <div class="content">
+              <p>
+                <a href="http://weibo.com/u/5999479802" target="_blank">官方微博</a>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="title">其它</div>
+            <div class="content">
+              <!-- 正式版中暂时不显示区块链浏览器 -->
+              {{#ifCond ENV '!==' 'production'}}
+              <p>
+                <a href="/explorer" target="_blank">区块链浏览器</a>
+              </p>
+              {{/ifCond}}
+              <p>
+                <a href="/terms" target="_blank">服务条款</a>
+              </p>
+              <p>
+                <a href="/help/pos" target="_blank">POS 共识机制</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="hr"></div>
+        <div class="copyright">© 瑞资链 &nbsp;|&nbsp; 京ICP备16039726号-1</div>
+      </div>
+    </div>
   </div>
   {{> scripts}}
-  <script src="/scripts/home.js{{fileTail}}"></script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-82585504-1', 'auto');
-    ga('send', 'pageview');
-  </script>
 </body>
 </html>
