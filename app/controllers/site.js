@@ -62,7 +62,7 @@ exports.shareWeChat = function(req, res) {
 exports.getInviteCode = function(req, res) {
   request
     .get(config.platform + '/papi/share/getinvitecode')
-    .query({ username: req.body.username })
+    .query({ phoneNum: req.body.phoneNum })
     .set('Accept', 'application/json')
     .end(function(err, result) {
       var body = result.body;

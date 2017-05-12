@@ -17,6 +17,7 @@ exports.index = function(req, res) {
     }
   }, function(err, results) {
     var assets = results.getAssets.body;
+    console.log('assets.data', assets.data);
     res.render('explorer/index', {
       layout: 'explorer',
       nav: 'explorer',
@@ -125,6 +126,7 @@ exports.asset = function(req, res) {
         title: 'error'
       });
     }
+
   });
 };
 
@@ -173,30 +175,15 @@ exports.user = function(req, res) {
           cb(null, result);
         });
     },
-    // 获取持仓人的钱包信息
-    getWallet: function(cb) {
-      request
-        .get(config.platform + '/papi/person/getaddrbalance')
-        .query({
-          assetId: assetId,
-          walletAddress: walletAddress,
-          pageIndex: 0,
-          pageSize: 999
-        })
-        .set('Accept', 'application/json')
-        .end(function(err, result) {
-          cb(null, result);
-        });
-    },
     // 获取持仓人的交易记录
     getTx: function(cb) {
       request
-        .get(config.platform + '/papi/person/gettxdetail')
+        .get(config.platform + '/papi/person/gettxlist')
         .query({
           assetId: assetId,
           walletAddress: walletAddress,
           pageIndex: txPageNum,
-          pageSize: 30
+          pageSize: 20
         })
         .set('Accept', 'application/json')
         .end(function(err, result) {
@@ -205,9 +192,7 @@ exports.user = function(req, res) {
     },
   }, function(err, results) {
     var user = results.getUserInfo.body;
-    var wallet = results.getWallet.body;
     var tx = results.getTx.body;
-    console.log('user.data', user.data);
     if (user.data && user.data.realName && user.data.walletAddress) {
       res.render('explorer/user', {
         layout: 'explorer',
@@ -215,7 +200,6 @@ exports.user = function(req, res) {
         assetId: assetId,
         walletAddress: walletAddress,
         user: user.data,
-        wallet: wallet.data,
         tx: tx.data
       });
     } else {
@@ -242,7 +226,8 @@ exports.tx = function(req, res) {
       request
         .get(config.platform + '/papi/person/gettxinfo')
         .query({
-          txId: txId
+          txid: txId,
+          walletAddress:"19YDUwPkCaq4ybVETmGbV8TS8gnTA14kaG"
         })
         .set('Accept', 'application/json')
         .end(function(err, result) {

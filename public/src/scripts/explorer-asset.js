@@ -156,7 +156,7 @@ function turnoverChart(chartData) {
 
 /**
  * [获取换手率数据]
- * @param  {[string]} begin   [开始日期]
+ * @param  {[string]} begin [开始日期]
  * @param  {[string]} end [结束日期]
  */
 function getTurnover(begin, end) {

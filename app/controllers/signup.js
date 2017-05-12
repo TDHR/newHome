@@ -15,10 +15,14 @@ exports.index = function(req, res) {
 // 注册接口
 exports.signup = function(req, res) {
   request
-    .post(config.platform + '/api/vipuser/register')
-    .set('Content-Type', 'application/x-www-form-urlencoded')
+    .post(config.platform + '/user/register')
     .set('Accept', 'application/json')
-    .send(req.body)
+    .send({
+      username: req.body.phoneNum,
+      password: req.body.password,
+      verifyCode: req.body.phoneValidCode,
+      inviteCode: req.body.invitationCode
+    })
     .end(function(err, result) {
       var body = result.body;
       return res.json({

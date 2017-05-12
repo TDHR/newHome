@@ -5,10 +5,11 @@
         <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
           <div class="list-group">
             <a class="list-group-item active">{{__ 'explorer-index-list-title'}}</a>
-            {{#each assets.assets}}
+            {{#each assets}}
             <a href="/explorer/asset/{{id}}" class="list-group-item">
               <span class="badge">{{numberWithCommas circulation}}</span>
-              {{name}} ({{name_en}})
+              <span class="name">{{name}}</span>
+              <span class="nameShort">({{name_short}})</span>
             </a>
             {{/each}}
           </div>

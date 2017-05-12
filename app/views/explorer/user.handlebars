@@ -19,66 +19,8 @@
           <span>{{__ 'explorer-user-holder-ranking'}}</span>{{user.topIndex}}
         </div>
         <div class="col-md-6 col-sm-6 col-xs-12">
-          <span>{{__ 'explorer-user-holder-rate'}}</span>{{user.holdRate}}
+          <span>{{__ 'explorer-user-holder-rate'}}</span>{{user.holdRate}}%
         </div>
-      </div>
-    </div>
-    <div class="wallet-list">
-      <h4>{{__ 'explorer-user-wallet'}}</h4>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>{{__ 'explorer-user-wallet-address'}}</th>
-              <th>{{__ 'explorer-user-wallet-balance'}}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#if wallet.list}}
-              {{#each wallet.list}}
-              <tr>
-                <td>{{this.address}}</td>
-                <td>{{numberWithCommas this.balance}}</td>
-              </tr>
-              {{/each}}
-            {{else}}
-            <tr>
-              <td class="text-center" colspan="6">{{__ 'no-data'}}</td>
-            </tr>
-            {{/if}}
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="dividend-list">
-      <h4>{{__ 'explorer-user-dividend'}}</h4>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover">
-          <thead>
-            <tr>
-              <th>{{__ 'explorer-user-dividend-type'}}</th>
-              <th>{{__ 'explorer-user-dividend-quantity'}}</th>
-              <th>{{__ 'explorer-user-dividend-transaction-record'}}</th>
-              <th>{{__ 'explorer-user-dividend-date'}}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#if dividend}}
-              {{#each dividend}}
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              {{/each}}
-            {{else}}
-            <tr>
-              <td class="text-center" colspan="6">{{__ 'no-data'}}</td>
-            </tr>
-            {{/if}}
-          </tbody>
-        </table>
       </div>
     </div>
     <div class="transactions-list">
@@ -96,7 +38,7 @@
             {{#if tx.list}}
               {{#each tx.list}}
               <tr>
-                <td><a href="/explorer/tx/{{this.txId}}" target="_blank">{{this.txId}}</a></td>
+                <td><a href="/explorer/tx/{{this.txid}}">{{this.txid}}</a></td>
                 <td>{{numberWithCommas this.value}}</td>
                 <td>{{dateFormat this.time 'default' 'unix'}}</td>
               </tr>
