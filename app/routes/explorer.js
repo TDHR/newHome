@@ -22,5 +22,5 @@ module.exports = function(app, auth) {
   app.get('/explorer/company/:walletAddress', explorer.company);
 
   // 页面：发行资料
-  app.get('/explorer/announce/:walletAddress', explorer.announce);
+  app.get('/explorer/announce/:assetId', explorer.announce);
 };
