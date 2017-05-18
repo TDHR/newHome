@@ -1,238 +1,218 @@
+$red: #e40321;
+
 .page-beta-intro {
   .banner {
     width: 100%;
-    height: 260px;
-    background-image: url("/images/banner-beta.jpg");
-    background-position: center top;
-    background-size: cover;
-    .content {
-      text-align: center;
-      color: #fff;
-      .title {
-        margin-top: 90px;
-        font-size: 27px;
+    height: 500px;
+    background-color: $red;
+    text-align: center;
+    .title {
+      display: inline-block;
+      width: 516px;
+      max-width: 80%;
+      margin-top: 160px;
+    }
+  }
+
+  .plan {
+    padding: 75px 0;
+    text-align: center;
+    .title {
+      font-size: 24px;
+    }
+    .sub-title {
+      margin-top: 35px;
+      font-size: 14px;
+    }
+    .box-holder {
+      margin-top: 65px;
+    }
+    .box {
+      .icon {
+        width: 105px;
       }
-      .subtitle {
-        max-width: 300px;
-        margin: 30px auto;
-        font-size: 15px;
-        >div {
-          margin-bottom: 10px;
-        }
+      .text {
+        margin-top: 20px;
       }
     }
   }
-  .first {
+
+  .download {
+    padding: 110px 0;
+    background-image: url('/images/beta-bgi-download.jpg');
     text-align: center;
-    .title {
-      margin-top: 60px;
-      font-size: 18px;
-    }
-    .subtitle {
-      margin-top: 30px;
-      font-size: 13px;
-    }
-    .steps {
-      margin-top: 40px;
-      padding-bottom: 10px;
-      .step {
-        >img {
-          width: 110px;
-          max-width: 100%;
+    .box {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 2px solid $red;
+      border-radius: 4px;
+      color: $red;
+      &:hover, &:active {
+        background-color: $red;
+        .fa {
+          color: #fff;
         }
-        .text {
-          margin: 20px 0 30px;
+        .name {
+          color: #fff;
+        }
+        .btn-download {
+          background-color: #fff;
+          color: $red;
         }
       }
-    }
-    .banner-download {
-      width: 100%;
-      height: 100px;
-      background-image: url("/images/banner-beta-download.jpg");
-      background-position: center top;
-      background-size: cover;
-      .content {
-        padding-top: 24px;
-        .btn-holder {
-          width: 320px;
-          max-width: 100%;
-          margin: 0 auto;
-          .banner-btn-download {
-            >img {
-              width: 135px;
-            }
+      &.disabled {
+        border-color: #999;
+        &:hover, &:active {
+          background-color: #fff;
+          border-color: #999;
+          .btn-download {
+            color: #fff;
           }
         }
-        .text {
-          margin-top: 12px;
-          font-size: 10px;
-          color: #ff8100;
+        .fa {
+          color: #999;
         }
+        .name {
+          color: #999;
+        }
+        .btn-download {
+          background-color: #cdcdcd;
+          border: 1px solid #999;
+        }
+      }
+      .fa {
+        display: block;
+        margin-top: 14px;
+        font-size: 32px;
+      }
+      .name {
+        margin: 10px 0;
+        font-size: 12px;
+      }
+      .btn-download {
+        height: 24px;
+        padding: 4px 12px;
+        background-color: $red;
+        border: 1px solid #d0021b;
+        color: #fff;
+        font-size: 12px;
       }
     }
   }
-  .second {
+  
+  .reward {
+    padding: 75px 0;
     text-align: center;
     .title {
-      margin-top: 60px;
-      font-size: 18px;
+      font-size: 24px;
     }
-    .subtitle {
-      margin-top: 20px;
-      font-size: 13px;
-      >p {
-        margin: 0 0 4px;
-      }
+    .sub-title {
+      margin-top: 35px;
+      font-size: 14px;
+    }
+    .icon {
+      width: 105px;
+      margin-top: 65px;
     }
     .rules {
-      .rule-icon {
-        width: 110px;
-        margin-top: 40px;
-      }
-      .list-title {
-        margin-top: 30px;
-        font-size: 15px;
-        color: #f76e1e;
-        >span {
-          display: inline-block;
-          padding-bottom: 3px;
-          border-bottom: 1px solid #f76e1e;
-        }
-      }
-      .list {
-        width: 560px;
-        max-width: 100%;
-        margin: 30px auto 50px;
-        text-align: left;
-        font-size: 13px;
-        >ul {
-          >li {
-            margin: 8px 0;
-            line-height: 24px;
-            >a {
-              color: #000;
-            }
-          }
-        }
-        .helper-text {
-          margin-top: 10px;
-          font-size: 12px;
-          color: #999;
-        }
+      margin-top: 35px;
+    }
+    .rules-title {
+      display: inline-block;
+      padding-bottom: 2px;
+      font-size: 15px;
+      color: $red;
+      border-bottom: 2px solid $red;
+    }
+    .rules-list {
+      margin-top: 35px;
+      font-size: 14px;
+      >p {
+        margin: 0 0 10px;
       }
     }
   }
-  .third {
-    text-align: center;
+
+  .mission {
+    padding: 75px 0;
     background-color: #fafafa;
+    text-align: center;
     .title {
-      margin-top: 60px;
-      font-size: 18px;
+      font-size: 24px;
     }
-    .subtitle {
-      margin-top: 20px;
-      font-size: 13px;
+    .sub-title {
+      margin-top: 35px;
+      font-size: 14px;
     }
-    .events {
-      .event-icon {
-        width: 110px;
-        margin-top: 40px;
-      }
-      .list-title {
-        margin-top: 30px;
-        font-size: 15px;
-        color: #f76e1e;
-        >span {
-          display: inline-block;
-          padding-bottom: 3px;
-          border-bottom: 1px solid #f76e1e;
-        }
-      }
-      .list {
-        width: 560px;
-        max-width: 100%;
-        margin: 30px auto 50px;
-        text-align: left;
-        font-size: 13px;
-        >ul {
-          >li {
-            margin: 8px 0;
-            line-height: 24px;
-            >a {
-              color: #000;
-            }
-            .table-responsive {
-              margin-top: 10px;
-              .table {
-                text-align: center;
-                border-color: #f77422;
-                font-size: 13px;
-                thead {
-                  td {
-                    background-color: #ff901c;
-                    color: #fff;
-                  }
-                }
-                td, th {
-                  border-color: #f77422;
-                }
-              }
-            }
-          }
-        }
-        .helper-text {
-          margin-top: 10px;
-          font-size: 12px;
-          color: #999;
+    .icon {
+      width: 105px;
+      margin-top: 65px;
+    }
+    .rules {
+      margin-top: 35px;
+    }
+    .rules-title {
+      display: inline-block;
+      padding-bottom: 2px;
+      font-size: 15px;
+      color: $red;
+      border-bottom: 2px solid $red;
+    }
+    .rules-list {
+      margin-top: 35px;
+      font-size: 14px;
+      >p {
+        margin: 0 0 10px;
+        >a {
+          color: $red;
         }
       }
     }
   }
-  .banner-footer {
-    width: 100%;
-    height: 385px;
-    background-image: url("/images/banner-beta-footer.jpg");
-    background-position: center top;
+  
+  .footer-banner {
+    padding: 75px 0;
+    background-image: url('/images/beta-bgi-foot-banner.jpg');
+    background-position: center center;
     background-size: cover;
     text-align: center;
     color: #fff;
     .title {
-      margin-top: 50px;
       font-size: 18px;
     }
-    .info-list {
-      margin-top: 20px;
-      font-size: 13px;
-      >ul {
-        >li {
-          margin: 5px 0;
-          >a {
-            color: #fff;
-          }
-        }
+    .content {
+      margin-top: 30px;
+      >p {
+        margin: 0 0 10px;
       }
       .qrcode {
         width: 220px;
-        max-width: 100%;
-        margin-top: 10px;
+        margin: 20px 0 30px;
       }
-    }
-    .email {
-      margin-top: 20px;
-      font-size: 13px;
-      >a {
+      .link-email {
         color: #fff;
+      }
+      .explain {
+        margin-top: 10px;
+        font-size: 13px;
       }
     }
   }
+
 }
+
 @media (max-width: 767px) {
   .page-beta-intro {
-    .banner {
-      .content {
-        .subtitle {
-          margin-bottom: 10px;
-        }
+    .plan {
+      .box {
+        margin-bottom: 30px;
+      }
+    }
+    .download {
+      .box {
+        margin-bottom: 30px;
       }
     }
   }

@@ -77,73 +77,15 @@ only screen and (min-device-pixel-ratio: 2) {
 }
 
 .header {
-  .navbar {
-    margin-bottom: 0;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-    .header-bottom {
-      background-color: #fff;
-      background-color: rgba(255, 255, 255, .95);
-      .navbar-header {
-        margin: 0;
-        .navbar-brand {
-          height: 60px;
-          padding: 12px 0 0;
-          >img {
-            height: 40px;
-          }
-        }
-        .navbar-toggle {
-          padding: 10px;
-          margin: 12px 0 0;
-          border-color: #1689e5;
-          .icon-bar {
-            background-color: #1689e5;
-          }
-        }
-      }
-      .navbar-collapse {
-        .navbar-nav {
-          >li {
-            >a {
-              position: relative;
-              padding: 0;
-              margin: 20px 15px;
-              color: #000;
-              @media (min-width: 768px) {
-                &:after {
-                  position: absolute;
-                  bottom: -21px;
-                  left: 0;
-                  width: 0;
-                  height: 3px;
-                  content: "";
-                  background-color: $color-blue;
-                  transition: width .35s;
-                }
-              }
-              &:hover,
-              &:focus,
-              &:active {
-                background-color: transparent;
-                color: $color-blue;
-                &:after {
-                  width: 100%;
-                }
-              }
-            }
-            &.active {
-              >a {
-                background-color: transparent;
-                color: $color-blue;
-                &:after {
-                  width: 100%;
-                }
-              }
-            }
-          }
-        }
-      }
+  height: 60px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  text-align: center;
+  .header-logo {
+    display: inline-block;
+    margin-top: 10px;
+    >img {
+      width: 29px;
     }
   }
 }
@@ -151,7 +93,7 @@ only screen and (min-device-pixel-ratio: 2) {
 .footer {
   border-top: 1px solid #f4f4f4;
   .copyright {
-    padding: 35px 0;
+    padding: 25px 0;
     text-align: center;
     font-size: 12px;
     color: #666;
