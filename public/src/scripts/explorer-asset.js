@@ -138,7 +138,7 @@ function turnoverChart(chartData) {
       formatter: function() {
         var s = Highcharts.dateFormat('%Y-%m-%d', this.x);
         $.each(this.points, function() {
-          s += '<br/><b style="color: ' + this.series.color + '">' + this.series.name + ': </b><b>' + parseInt(this.y) + '%</b>';
+          s += '<br/><b style="color: ' + this.series.color + '">' + this.series.name + ': </b><b>' + this.y.toFixed(8) + '%</b>';
         });
         return s;
       }
@@ -156,7 +156,7 @@ function turnoverChart(chartData) {
 
 /**
  * [获取换手率数据]
- * @param  {[string]} begin   [开始日期]
+ * @param  {[string]} begin [开始日期]
  * @param  {[string]} end [结束日期]
  */
 function getTurnover(begin, end) {
@@ -180,7 +180,7 @@ function getTurnover(begin, end) {
           let chartData = [];
           // 将数据转换为数组，处理 unix 时间戳
           for (var i = 0; i < turnover.length; i++) {
-            let time = turnover[i].time * 1000;
+            let time = +new Date(turnover[i].recordtime);
             chartData.push([time, turnover[i].rate]);
           }
           turnoverChart(chartData);

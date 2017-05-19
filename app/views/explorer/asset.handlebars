@@ -6,7 +6,7 @@
     <div class="container">
       <div class="base-info">
         <div class="name">
-          {{base.name}}（{{base.name_en}}）
+          {{base.name}}（{{base.name_short}}）
         </div>
         <div class="circulation">
           <span>{{__ "explorer-asset-total-circulation"}}</span>{{numberWithCommas base.circulation}}
@@ -81,9 +81,9 @@
     <div class="trading-list">
       <h4>{{__ 'explorer-asset-trading'}}</h4>
       <ul class="nav nav-tabs trading-nav" role="tablist">
-        <li role="presentation" class="active"><a href="#tradingDay" role="tab" data-toggle="tab">{{__ 'explorer-asset-trading-day'}}</a></li>
-        <li role="presentation"><a href="#tradingWeek" role="tab" data-toggle="tab">{{__ 'explorer-asset-trading-week'}}</a></li>
-        <li role="presentation"><a href="#tradingMonth" role="tab" data-toggle="tab">{{__ 'explorer-asset-trading-month'}}</a></li>
+        <li role="presentation" class="active"><a href="#tradingDay" role="tab" data-toggle="tab">日排行</a></li>
+        <li role="presentation"><a href="#tradingWeek" role="tab" data-toggle="tab">7天排行</a></li>
+        <li role="presentation"><a href="#tradingMonth" role="tab" data-toggle="tab">30天排行</a></li>
       </ul>
       <div class="tab-content trading-content">
         <div role="tabpanel" class="tab-pane fade in active" id="tradingDay">
@@ -163,7 +163,7 @@
                   {{/each}}
                 {{else}}
                 <tr>
-                  <td class="text-center" colspan="6">{{__ 'data'}}</td>
+                  <td class="text-center" colspan="6">{{__ 'no-data'}}</td>
                 </tr>
                 {{/if}}
               </tbody>

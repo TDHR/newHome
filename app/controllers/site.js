@@ -62,7 +62,7 @@ exports.shareWeChat = function(req, res) {
 exports.getInviteCode = function(req, res) {
   request
     .get(config.platform + '/papi/share/getinvitecode')
-    .query({ username: req.body.username })
+    .query({ phoneNum: req.body.phoneNum })
     .set('Accept', 'application/json')
     .end(function(err, result) {
       var body = result.body;
@@ -80,4 +80,12 @@ exports.betaIntro = function(req, res) {
   res.render('site/beta-intro', {
     nav: ''
   });
+};
+
+// 下载文件
+exports.download = function(req, res) {
+  var type = req.params.type;
+  var name = req.params.name;
+  var filepath = config.root + '/public/downloads/' + type + '/' + name;
+  res.download(filepath);
 };

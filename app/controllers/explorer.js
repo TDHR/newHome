@@ -173,30 +173,15 @@ exports.user = function(req, res) {
           cb(null, result);
         });
     },
-    // 获取持仓人的钱包信息
-    getWallet: function(cb) {
-      request
-        .get(config.platform + '/papi/person/getaddrbalance')
-        .query({
-          assetId: assetId,
-          walletAddress: walletAddress,
-          pageIndex: 0,
-          pageSize: 999
-        })
-        .set('Accept', 'application/json')
-        .end(function(err, result) {
-          cb(null, result);
-        });
-    },
     // 获取持仓人的交易记录
     getTx: function(cb) {
       request
-        .get(config.platform + '/papi/person/gettxdetail')
+        .get(config.platform + '/papi/person/gettxlist')
         .query({
           assetId: assetId,
           walletAddress: walletAddress,
           pageIndex: txPageNum,
-          pageSize: 30
+          pageSize: 20
         })
         .set('Accept', 'application/json')
         .end(function(err, result) {
@@ -205,9 +190,7 @@ exports.user = function(req, res) {
     },
   }, function(err, results) {
     var user = results.getUserInfo.body;
-    var wallet = results.getWallet.body;
     var tx = results.getTx.body;
-    console.log('user.data', user.data);
     if (user.data && user.data.realName && user.data.walletAddress) {
       res.render('explorer/user', {
         layout: 'explorer',
@@ -215,7 +198,6 @@ exports.user = function(req, res) {
         assetId: assetId,
         walletAddress: walletAddress,
         user: user.data,
-        wallet: wallet.data,
         tx: tx.data
       });
     } else {
@@ -242,7 +224,8 @@ exports.tx = function(req, res) {
       request
         .get(config.platform + '/papi/person/gettxinfo')
         .query({
-          txId: txId
+          txid: txId,
+          walletAddress: "19YDUwPkCaq4ybVETmGbV8TS8gnTA14kaG"
         })
         .set('Accept', 'application/json')
         .end(function(err, result) {
@@ -285,11 +268,30 @@ exports.tx = function(req, res) {
 exports.intro = function(req, res) {
   // 资产id
   var assetId = +req.params.assetId;
-  res.render('explorer/intro/intro-' + assetId, {
-    layout: 'explorer',
-    nav: 'explorer',
-    assetId: assetId
-  });
+  request
+    .get(config.platform + '/papi/assetinfo')
+    .query({
+      assetId: +req.query.assetId
+    })
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+      const body = result.body;
+      if (body && body.success && body.data) {
+        res.render('explorer/asset-intro', {
+          layout: 'explorer',
+          nav: 'explorer',
+          data: body.data
+        });
+      } else {
+        res.render('error/404', {
+          message: 'Not Found',
+          error: {
+            status: 404
+          },
+          title: 'error'
+        });
+      }
+    });
 };
 
 /**
@@ -298,52 +300,60 @@ exports.intro = function(req, res) {
 exports.company = function(req, res) {
   var walletAddress = req.params.walletAddress;
 
-  // TODO：真实接口
-
-  var companyName = '瑞资运营部';
-
-  if (walletAddress === '19FQ5oaiJgyhangkkjK2AbUD4Dzzf7jQ77') {
-    companyName = '审批委员会';
-  }
-
-  // TODO: 根据真实数据，从接口获得企业介绍
-  res.render('explorer/company', {
-    layout: 'explorer',
-    nav: 'explorer',
-    walletAddress: walletAddress,
-    companyName: companyName
-  });
+  request
+    .get(config.platform + '/papi/companyinfo')
+    .query({
+      rootAddress: walletAddress
+    })
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+      const body = result ? result.body : null;
+      if (body && body.success && body.data) {
+        res.render('explorer/company', {
+          layout: 'explorer',
+          nav: 'explorer',
+          data: body.data
+        });
+      } else {
+        res.render('error/404', {
+          message: 'Not Found',
+          error: {
+            status: 404
+          },
+          title: 'error'
+        });
+      }
+    });
 };
 
 /**
  * [发行资料]
  */
 exports.announce = function(req, res) {
-
-  // TODO: 真实数据
-  
-  var assetId = req.params.walletAddress;
-  var assetName = '0号资产';
-
-  switch(assetId) {
-    case '1':
-      assetName = '晟孚量化';
-      break;
-
-    case '2':
-      assetName = 'UCR';
-      break;
-
-    case '3':
-      assetName = 'RTSt';
-      break;
-  }
-
-  res.render('explorer/announce', {
-    layout: 'explorer',
-    nav: 'explorer',
-    assetId: assetId,
-    walletAddress: '13MQ5oaiJgyhangk6jK2AbUD4Dzzf7jN7' + assetId,
-    assetName: assetName
-  });
+  const assetId = +req.params.assetId;
+  request
+    .get(config.platform + '/papi/assetannounce')
+    .query({ assetId: assetId })
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+      const body = result ? result.body : null;
+      console.log('body......', body.data);
+      if (body && body.data) {
+        res.render('explorer/announce', {
+          layout: 'explorer',
+          nav: 'explorer',
+          assetId, assetId,
+          asset: body.data.asset,
+          announce: body.data.announce
+        });
+      } else {
+        res.render('error/404', {
+          message: 'Not Found',
+          error: {
+            status: 404
+          },
+          title: 'error'
+        });
+      }
+    });
 };
