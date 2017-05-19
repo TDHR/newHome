@@ -18,7 +18,6 @@ module.exports = function() {
     return i18n.__n.apply(this, arguments);
   };
 
-  // 随机字符串
   if (env !== 'development') {
     tail = '?v=' + Math.random().toString(36).substr(2);
   }
@@ -26,7 +25,12 @@ module.exports = function() {
     return tail;
   };
 
-  // 基本运算
+  /**
+   * [math 基本运算]
+   * @param  {[number]} lvalue
+   * @param  {[string]} operator
+   * @param  {[number]} rvalue
+   */
   _helpers.math = function(lvalue, operator, rvalue) {
     lvalue = parseFloat(lvalue);
     rvalue = parseFloat(rvalue);
@@ -39,7 +43,11 @@ module.exports = function() {
     }[operator];
   };
 
-  // 处理字符串（加星号）
+  /**
+   * [handleText 处理字符串（加星号）]
+   * @param  {[string]} value
+   * @param  {[string]} type
+   */
   _helpers.handleText = function(value, type) {
     var result = '';
     switch (type) {
@@ -72,7 +80,13 @@ module.exports = function() {
     return result;
   };
 
-  // 增强版 if
+  /**
+   * [ifCond 增强版 if]
+   * @param  {[string, number]} v1       [参数1]
+   * @param  {[string]} operator [比较符号]
+   * @param  {[string, number]} v2       [参数2]
+   * @param  {[type]} options
+   */
   _helpers.ifCond = function(v1, operator, v2, options) {
     switch (operator) {
       case '===':
@@ -100,7 +114,12 @@ module.exports = function() {
     return options.inverse(this);
   };
 
-  // for 循环
+  /**
+   * [times for 循环]
+   * @param  {[number]} n    
+   * @param  {[number]} start
+   * @param  {[object]} block
+   */
   _helpers.times = function(n, start, block) {
     var accum = '';
     start = start || 0;
@@ -116,7 +135,12 @@ module.exports = function() {
     return accum;
   };
 
-  // 格式化时间戳
+  /**
+   * [dateFormat 格式化时间戳]
+   * @param  {[number]} timestamp [description]
+   * @param  {[string]} type      [description]
+   * @param  {[string]} unix      [description]
+   */
   _helpers.dateFormat = function(timestamp, type, unix) {
     var fix = unix === 'unix' ? 1000 : 1;
     var date = new Date(timestamp * fix);
@@ -135,11 +159,32 @@ module.exports = function() {
     return result;
   };
 
-  // 为数字添加逗号
-  _helpers.numberWithCommas = function(num) {
+  /**
+   * [numberWithCommas 添加千位逗号]
+   * @param  {[type]} num [数字]
+   * @return {[type]}     [100,000,000]
+   */
+  _helpers.numberWithCommas = (num) => {
     var parts = num.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
+  };
+
+  /**
+   * [covertBytes 将 bytes 转换为更大的单位]
+   * @param  {number} bytes [字节]
+   * @param {number} decimals [保留几位小数]
+   * @return {string} 
+   */
+  _helpers.covertBytes =  (bytes, decimals) => {
+    if (!bytes) {
+      return '0 B';
+    }
+    let k = 1000; // 二进制时用 1024
+    decimals = decimals + 1 || 2; // 默认保留两位
+    let sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+    let i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(decimals)) + ' ' + sizes[i];
   };
 
   return _helpers;
