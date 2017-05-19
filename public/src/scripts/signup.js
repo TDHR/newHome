@@ -89,7 +89,7 @@ function submitForm() {
         jump(sec);
       }, 1000);
     } else {
-      location.href = '/login';
+      location.href = '/beta/intro#plan';
     }
   };
 

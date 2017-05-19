@@ -18,9 +18,9 @@ $('#form').on('submit', function(e) {
     return false;
   }
   let data = {};
-  let mobile = $('#mobile').val();
-  if (Validate.mobile(mobile)) {
-    data.username = mobile;
+  let phoneNum = $('#phoneNum').val();
+  if (Validate.mobile(phoneNum)) {
+    data.phoneNum = phoneNum;
   } else {
     alert('请输入正确的手机号码');
     return false;
@@ -46,7 +46,7 @@ function submitForm(data) {
         $('#form').addClass('hide');
         $('.share-ready').removeClass('hide');
       } else {
-        alert(res.message);
+        alert(res.msg);
       }
     },
     error: function() {

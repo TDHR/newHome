@@ -3,12 +3,12 @@
     <div class="info">
       <div class="detail">
         <div>
-          <span>地址：</span>
-          {{walletAddress}}
+          <span>资产名：</span>
+          {{asset.name}}
         </div>
         <div>
-          <span>资产名：</span>
-          {{assetName}}
+          <span>简称：</span>
+          {{asset.name_short}}
         </div>
         <div>
           <span>资产ID：</span>
@@ -16,130 +16,68 @@
         </div>
         <div>
           <span>发行量：</span>
-          2,000,000,000
-        </div>
-        <div>
-          <span>发行时间：</span>
-          2017-03-11
+          {{numberWithCommas asset.circulation}}
         </div>
       </div>
     </div>
     <h4 class="group-title">文件存证</h4>
-    <div class="panel panel-default company">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <a href="/explorer/company/17MQ5oaiJgyhangkkjK2AbUD4Dzzf7jN56" class="name" target="_blank">瑞资运营部</a>
-          </div>
-          <div class="col-md-6 col-sm-6 head-right">
-            <span class="address">地址：</span>
-            <a href="/explorer/company/17MQ5oaiJgyhangkkjK2AbUD4Dzzf7jN56" target="_blank">17MQ5oaiJgyhangkkjK2AbUD4Dzzf7jN56</a>
-          </div>
-        </div>
-      </div>
-      <div class="panel-body">
-        <div class="tx-info">
-          <p>交易ID：<span>9dd10d4d3801a426c4c57fe01307b7275bef7c24dc4953fdcc239a6321fe9eff</span></p>
-          <p>交易时间：2017-03-10 11:57:45</p>
-          {{!-- <p>确认次数：3</p> --}}
-        </div>
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>文件名称</th>
-                <th>文件Hash</th>
-                <th>文件大小</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>瑞资运营部介绍</td>
-                <td>e69efeb04298500d2184111b53b2b5de01787b796d72e4b66e1daa997d0e9847 <span class="icon-green glyphicon glyphicon-ok"></span></td>
-                <td>441KB</td>
-                <td class="options">
-                  <a href="/download/files/e69efeb.jpeg"><i class="glyphicon glyphicon-cloud-download"></i>下载</a>
-                  {{!-- <a href="" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>预览</a> --}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default company">
-      <div class="panel-heading">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <a href="/explorer/company/19FQ5oaiJgyhangkkjK2AbUD4Dzzf7jQ77" class="name" target="_blank">审批委员会</a>
-          </div>
-          <div class="col-md-6 col-sm-6 head-right">
-            <span class="address">地址：</span>
-            <a href="/explorer/company/19FQ5oaiJgyhangkkjK2AbUD4Dzzf7jQ77" target="_blank">19FQ5oaiJgyhangkkjK2AbUD4Dzzf7jQ77</a>
+    {{#if announce}}
+      {{#each announce}}
+      <div class="panel panel-default company">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <a href="/explorer/company/{{this.walletAddress}}" class="name" target="_blank">{{this.name}}</a>
+            </div>
+            <div class="col-md-6 col-sm-6 head-right">
+              <span class="address">地址：</span>
+              <a href="/explorer/company/{{this.walletAddress}}" target="_blank">{{this.walletAddress}}</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="panel-body">
-        <div class="tx-info">
-          <p>交易ID：<span>1abde49db21524bc7a5752a991c889cf272f54849e1426cc52a6b525bc215631</span></p>
-          <p>交易时间：2017-03-11 10:30:05</p>
-          {{!-- <p>确认次数：3</p> --}}
-        </div>
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>文件名称</th>
-                <th>文件Hash</th>
-                <th>文件大小</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>审批委员会介绍</td>
-                <td>914c332860e50ec9d90595649957523bc745551b13805aa5808351208cd6586e <span class="icon-green glyphicon glyphicon-ok"></span></td>
-                <td>575KB</td>
-                <td class="options">
-                  <a href="/download/files/914c332.jpeg"><i class="glyphicon glyphicon-cloud-download"></i>下载</a>
-                  {{!-- <a href="" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>预览</a> --}}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <h4 class="group-title">分红存证</h4>
-    <div class="company">
-      <div class="head">
-        <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <span class="name"></span>
+        <div class="panel-body">
+          <div class="tx-info">
+            <p>
+              交易ID：
+              <span>{{this.txid}}</span>
+            </p>
+            <p>
+              文件签名：
+              <span>{{this.signature}}</span>
+              <span class="icon-green glyphicon glyphicon-ok"></span>
+            </p>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>文件名称</th>
+                  <th>文件大小</th>
+                  <th>文件格式</th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#if this.files}}
+                  {{#each this.files}}
+                  <tr>
+                    <td>{{origin_name}}</td>
+                    <td>{{covertBytes size}}</td>
+                    <td>{{format}}</td>
+                    <td class="options">
+                      <a href="/download/files/{{name}}"><i class="glyphicon glyphicon-cloud-download"></i>下载</a>
+                      {{!-- <a href="" target="_blank"><i class="glyphicon glyphicon-eye-open"></i>预览</a> --}}
+                    </td>
+                  </tr>
+                  {{/each}}
+                {{/if}}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-      <div class="body">
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>文件名称</th>
-                <th>文件Hash</th>
-                <th>文件大小</th>
-                <th>操作</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="4" class="text-center">暂无</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+      {{/each}}
+    {{/if}}
   </div>
 </div>
 {{> footer}}

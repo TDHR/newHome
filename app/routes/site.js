@@ -17,4 +17,7 @@ module.exports = function(app, auth) {
 
   // 公测介绍页
   // app.get('/beta/intro', site.betaIntro);
+
+  // 下载
+  app.get('/download/:type/:name', site.download);
 };

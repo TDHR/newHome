@@ -4,11 +4,11 @@ var config = require('../../config/config');
 // 注册接口
 exports.default = function(req, res) {
   request
-    .post(config.platform + '/api/vipuser/getphonevalidcode')
-    .set('Content-Type', 'application/x-www-form-urlencoded')
+    .get(config.platform + '/user/verifyCode')
     .set('Accept', 'application/json')
-    .send({
-      phoneNum: req.body.phoneNum
+    .query({
+      smsType: 1,
+      phone: req.body.phoneNum
     })
     .end(function(err, result) {
       var body = result.body;
