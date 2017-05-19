@@ -1,3 +1,3 @@
 export default {
-  platform: 'https://box.reitschain.com/reits'
+  platform: 'http://123.207.174.20:8080/api'
 };
