@@ -16,7 +16,7 @@ module.exports = function(app, auth) {
   app.post('/share/get-invite-code', site.getInviteCode);
 
   // 公测介绍页
-  // app.get('/beta/intro', site.betaIntro);
+  app.get('/beta/intro', site.betaIntro);
 
   // 下载
   app.get('/download/:type/:name', site.download);
