@@ -92,11 +92,40 @@ $red: #e40321;
         font-size: 12px;
       }
       .btn-download {
-        height: 24px;
-        padding: 4px 12px;
+        height: 22px;
+        padding: 3px 12px;
         background-color: $red;
         border: 1px solid #d0021b;
         color: #fff;
+        font-size: 12px;
+      }
+    }
+    .box-qrcode {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      background-color: #fff;
+      border: 2px solid $red;
+      border-radius: 4px;
+      color: $red;
+      .android-qrcode {
+        width: 75px;
+        height: 75px;
+        margin: 10px auto 0;
+      }
+      .box-icon {
+        position: absolute;
+        top: 45px;
+        left: 50px;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        font-size: 16px;
+        line-height: 18px;
+      }
+      .name {
+        margin-top: 8px;
         font-size: 12px;
       }
     }
