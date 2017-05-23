@@ -10,7 +10,8 @@ var config = {
       name: 'gold-rock'
     },
     port: process.env.PORT || 3000,
-    platform: 'http://10.0.2.80:8080/api'
+    // platform: 'http://10.0.2.80:8080/api'
+    platform: 'http://123.207.174.20:8080/api'
   },
   beta: {
     root: rootPath,
