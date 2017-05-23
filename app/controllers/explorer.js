@@ -271,7 +271,7 @@ exports.intro = function(req, res) {
   request
     .get(config.platform + '/papi/assetinfo')
     .query({
-      assetId: +req.query.assetId
+      assetId: assetId
     })
     .set('Accept', 'application/json')
     .end(function(err, result) {
@@ -337,7 +337,6 @@ exports.announce = function(req, res) {
     .set('Accept', 'application/json')
     .end(function(err, result) {
       const body = result ? result.body : null;
-      console.log('body......', body.data);
       if (body && body.data) {
         res.render('explorer/announce', {
           layout: 'explorer',
