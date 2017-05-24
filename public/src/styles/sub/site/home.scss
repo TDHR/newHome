@@ -1,5 +1,4 @@
 $yellow: #edcc92;
-
 .page-home {
   height: 100%;
   color: $yellow;
@@ -12,7 +11,6 @@ $yellow: #edcc92;
     height: 100%;
     background-size: cover;
   }
-
   .home-header {
     background-position: top center;
     background-image: url("/images/home-bgi-header.jpg");
@@ -61,14 +59,15 @@ $yellow: #edcc92;
         font-size: 18px;
       }
       .btn-beta {
-        width: 170px;
-        height: 30px;
-        padding: 5px 12px;
+        width: 200px;
+        height: 40px;
+        padding: 8px 0;
         margin-top: 50px;
-        background-color: transparent;
-        border: 1px solid $yellow;
-        color: $yellow;
-        cursor: wait;
+        background-color: $yellow;
+        border: 1px solid #b18d4f;
+        color: #fff;
+        font-size: 16px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, .35);
       }
     }
     .bottom-block {
@@ -111,7 +110,6 @@ $yellow: #edcc92;
       }
     }
   }
-
   .middle1 {
     background-image: url("/images/home-bgi-middle1.jpg");
   }
@@ -121,8 +119,9 @@ $yellow: #edcc92;
   .middle3 {
     background-image: url("/images/home-bgi-middle3.jpg");
   }
-
-  .middle1, .middle2, .middle3 {
+  .middle1,
+  .middle2,
+  .middle3 {
     .content {
       padding: 0 15px;
       text-align: center;
@@ -142,7 +141,6 @@ $yellow: #edcc92;
       }
     }
   }
-
   .footer {
     background-image: url("/images/home-bgi-footer.jpg");
     .content {
@@ -221,7 +219,7 @@ $yellow: #edcc92;
 
 @media (max-width: 992px) {
   .page-home {
-    .header {
+    .home-header {
       .bottom-block {
         .col-md-4 {
           border-right: 1px solid $yellow;
@@ -255,31 +253,16 @@ $yellow: #edcc92;
 
 @media (max-width: 767px) {
   .page-home {
-    .header {
+    .home-header {
       .content {
         width: 100%;
-        height: 260px;
         margin: -130px 0 0 -50%;
-        text-align: center;
-        text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
         .title {
           font-size: 18px;
-          >p {
-            margin: 0 0 10px;
-          }
         }
         .sub-title {
           margin-top: 30px;
           font-size: 14px;
-        }
-        .btn-beta {
-          width: 170px;
-          height: 30px;
-          padding: 5px 12px;
-          margin-top: 50px;
-          background-color: transparent;
-          border: 1px solid $yellow;
-          color: $yellow;
         }
       }
       .bottom-block {
@@ -325,7 +308,9 @@ $yellow: #edcc92;
         }
       }
     }
-    .middle1, .middle2, .middle3 {
+    .middle1,
+    .middle2,
+    .middle3 {
       .content {
         .title {
           font-size: 18px;
@@ -343,7 +328,7 @@ $yellow: #edcc92;
         }
       }
       .bottom-block {
-        height: 320px;
+        height: 330px;
         padding: 10px 0 0;
         .title {
           font-size: 15px;
@@ -351,12 +336,12 @@ $yellow: #edcc92;
         .detail {
           margin: 6px 0 10px;
           >p {
-            margin: 0 0 5px;
+            margin: 0 0 4px;
           }
         }
         .copyright {
           padding-top: 0;
-          margin-top: 8px;
+          margin-top: 5px;
           border: 0;
         }
       }
@@ -366,7 +351,7 @@ $yellow: #edcc92;
 
 @media (max-width: 319px) {
   .page-home {
-    .header {
+    .home-header {
       .bottom-block {
         display: none;
       }

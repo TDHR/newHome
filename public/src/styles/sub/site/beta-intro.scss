@@ -235,12 +235,12 @@ $red: #e40321;
 @media (max-width: 767px) {
   .page-beta-intro {
     .plan {
-      .box {
+      .box, .box-qrcode {
         margin-bottom: 30px;
       }
     }
     .download {
-      .box {
+      .box, .box-qrcode {
         margin-bottom: 30px;
       }
     }
