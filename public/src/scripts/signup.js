@@ -104,12 +104,19 @@ function submitForm() {
         $('#successHolder').removeClass('hide');
         jump(5);
       } else {
-        // 根据错误码输出相应的提示
-        Alert(Locales.signup[locale]['error-code-' + res.code], 5000);
+        if (res.code === 19) {
+          Alert('请输入图片验证码', 5000);
+          $('.image-code-holder').removeClass('hide');
+          $('#key').val(res.data.key);
+          $('#imageCodeSrc').attr('src', 'data:image/jpeg;base64,' + res.data.image);
+        } else {
+          // 根据错误码输出相应的提示
+          Alert(res.msg, 5000);
+        }
       }
     },
     error: function() {
-      Alert(Locales.signup[locale]['submit-err-1'], 5000);
+      Alert(res.msg, 5000);
     },
     complete: function() {
       $('#btnSubmit').removeClass('disabled');
@@ -117,9 +124,28 @@ function submitForm() {
   });
 }
 
-/**
- * 检查表单
- */
+// 获取图片验证码
+$('#imageCodeSrc').on('click', function() {
+  $.ajax({
+    method: 'GET',
+    url: '/get-image-code',
+    cache: false,
+    success: function(res) {
+      if (res.code === 0) {
+        $('#key').val(res.data.key);
+        $('#imageCodeSrc').attr('src', 'data:image/jpeg;base64,' + res.data.image);
+      } else {
+        // 根据错误码输出相应的提示
+        Alert(Locales.signup[locale]['error-code-' + res.code], 5000);
+      }
+    },
+    error: function() {
+      Alert('获取图片验证码失败', 5000);
+    }
+  });
+});
+
+// 检查表单
 $('#form').on('submit', function(e) {
   e.preventDefault();
 
@@ -153,6 +179,11 @@ $('#form').on('submit', function(e) {
     }
   } else {
     Alert(Locales.signup[locale]['confirm-pwd-err-2'], 5000);
+    return false;
+  }
+
+  if (!$('.image-code-holder').hasClass('hide') && !$('#imageCode').val()) {
+    Alert('请输入图片验证码', 5000);
     return false;
   }
 

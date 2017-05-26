@@ -10,4 +10,7 @@ module.exports = function(app, auth) {
 
   // 发送手机验证码
   app.post('/phone-code', phoneCode.default);
+
+  // 获取图片验证码
+  app.get('/get-image-code', signup.getImageCode);
 };
