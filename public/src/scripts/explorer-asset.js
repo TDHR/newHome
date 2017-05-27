@@ -180,7 +180,7 @@ function getTurnover(begin, end) {
           let chartData = [];
           // 将数据转换为数组，处理 unix 时间戳
           for (var i = 0; i < turnover.length; i++) {
-            let time = +new Date(turnover[i].recordtime);
+            let time = (+new Date(turnover[i].time)) + 28800000;
             chartData.push([time, turnover[i].rate]);
           }
           turnoverChart(chartData);

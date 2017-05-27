@@ -104,6 +104,7 @@ exports.asset = function(req, res) {
     var dayTrans = results.getDayTransTops.body;
     var weekTrans = results.getWeekTransTops.body;
     var monthTrans = results.getMonthTransTops.body;
+    console.log('tops', tops.data.list);
 
     if (base.data && base.data.circulation > 0 && base.data.name) {
       res.render('explorer/asset', {
@@ -191,6 +192,9 @@ exports.user = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo.body;
     var tx = results.getTx.body;
+    console.log('user', user);
+    console.log('tx', tx);
+
     if (user.data && user.data.realName && user.data.walletAddress) {
       res.render('explorer/user', {
         layout: 'explorer',
