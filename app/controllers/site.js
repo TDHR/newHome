@@ -77,9 +77,26 @@ exports.getInviteCode = function(req, res) {
 
 // 公测介绍页面
 exports.betaIntro = function(req, res) {
-  res.render('site/beta-intro', {
-    nav: ''
-  });
+  request
+    .get(config.platform + '/papi/getWalletVersion')
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+      var body = result.body;
+      if (body.success) {
+        res.render('site/beta-intro', {
+          nav: '',
+          walletVersion: body.data
+        });
+      } else {
+        res.render('error/404', {
+          message: 'Not Found',
+          error: {
+            status: 404
+          },
+          title: 'error'
+        });
+      }
+    });
 };
 
 // 下载文件
