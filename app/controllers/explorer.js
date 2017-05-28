@@ -104,7 +104,6 @@ exports.asset = function(req, res) {
     var dayTrans = results.getDayTransTops.body;
     var weekTrans = results.getWeekTransTops.body;
     var monthTrans = results.getMonthTransTops.body;
-    console.log('tops', tops.data.list);
 
     if (base.data && base.data.circulation > 0 && base.data.name) {
       res.render('explorer/asset', {

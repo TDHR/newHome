@@ -38,9 +38,19 @@ $red: #e40321;
   }
 
   .download {
-    padding: 110px 0;
+    padding: 50px 0 110px;
     background-image: url('/images/beta-bgi-download.jpg');
     text-align: center;
+    .desc {
+      margin-bottom: 60px;
+      >span {
+        padding-bottom: 4px;
+        color: #999;
+        font-size: 13px;
+        border-bottom: 2px solid #ddd;
+        line-height: 28px;
+      }
+    }
     .box {
       width: 120px;
       height: 120px;
@@ -130,7 +140,7 @@ $red: #e40321;
       }
     }
   }
-  
+
   .reward {
     padding: 75px 0;
     text-align: center;
@@ -200,7 +210,7 @@ $red: #e40321;
       }
     }
   }
-  
+
   .footer-banner {
     padding: 75px 0;
     background-image: url('/images/beta-bgi-foot-banner.jpg');
