@@ -2,7 +2,7 @@
   "apps": [{
     "name": "gold-rock",
     "script": "app.js",
-    "instances": "0",
+    "instances": 3,
     "exec_mode": "cluster",
     "watch": false,
     "node_args": "--harmony",
