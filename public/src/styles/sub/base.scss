@@ -40,6 +40,15 @@ ol {
   list-style: none;
 }
 
+.system-notice {
+  padding: 12px 0;
+  color: #8a6d3b;
+  background-color: #f1e8bc;
+  border-top: 1px solid #daae54;
+  border-bottom: 1px solid #daae54;
+  text-align: center;
+}
+
 .icon {
   background-image: url("/images/icons.png");
   background-size: 62px auto;
