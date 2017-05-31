@@ -11,7 +11,8 @@ var config = {
     },
     port: process.env.PORT || 3000,
     // platform: 'http://10.0.14.162:8080/api'
-    platform: 'http://10.0.14.138:8080/api'
+    // platform: 'http://10.0.14.138:8080/api'
+    platform: 'http://123.207.174.20:8080/api'
   },
   beta: {
     root: rootPath,
