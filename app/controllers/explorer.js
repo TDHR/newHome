@@ -341,6 +341,7 @@ exports.announce = function(req, res) {
     .end(function(err, result) {
       const body = result ? result.body : null;
       if (body && body.data) {
+        console.log('body.data.announce', body.data.announce);
         res.render('explorer/announce', {
           layout: 'explorer',
           nav: 'explorer',
