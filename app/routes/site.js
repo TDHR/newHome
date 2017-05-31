@@ -12,8 +12,9 @@ module.exports = function(app, auth) {
   app.get('/help/pos', site.helpPos);
 
   // 公测-微信分享页面
-  app.get('/share/wechat', wechatJssdk.getJssdkConfigByAjax, site.shareWeChat);
-  app.post('/share/get-invite-code', site.getInviteCode);
+  // app.get('/share/wechat', wechatJssdk.getJssdkConfigByAjax, site.shareWeChat);
+  // app.post('/share/get-invite-code', site.getInviteCode);
+  app.get('/share/wechat', site.betaIntro);
 
   // 公测介绍页
   app.get('/beta/intro', site.betaIntro);

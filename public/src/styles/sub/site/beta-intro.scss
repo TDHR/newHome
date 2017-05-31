@@ -14,29 +14,6 @@ $red: #e40321;
     }
   }
 
-  .plan {
-    padding: 75px 0;
-    text-align: center;
-    .title {
-      font-size: 24px;
-    }
-    .sub-title {
-      margin-top: 35px;
-      font-size: 14px;
-    }
-    .box-holder {
-      margin-top: 65px;
-    }
-    .box {
-      .icon {
-        width: 105px;
-      }
-      .text {
-        margin-top: 20px;
-      }
-    }
-  }
-
   .download {
     padding: 50px 0 110px;
     background-image: url('/images/beta-bgi-download.jpg');
@@ -141,42 +118,9 @@ $red: #e40321;
     }
   }
 
-  .reward {
-    padding: 75px 0;
-    text-align: center;
-    .title {
-      font-size: 24px;
-    }
-    .sub-title {
-      margin-top: 35px;
-      font-size: 14px;
-    }
-    .icon {
-      width: 105px;
-      margin-top: 65px;
-    }
-    .rules {
-      margin-top: 35px;
-    }
-    .rules-title {
-      display: inline-block;
-      padding-bottom: 2px;
-      font-size: 15px;
-      color: $red;
-      border-bottom: 2px solid $red;
-    }
-    .rules-list {
-      margin-top: 35px;
-      font-size: 14px;
-      >p {
-        margin: 0 0 10px;
-      }
-    }
-  }
-
   .mission {
     padding: 75px 0;
-    background-color: #fafafa;
+    background-color: #fff;
     text-align: center;
     .title {
       font-size: 24px;
