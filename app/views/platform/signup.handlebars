@@ -16,6 +16,18 @@
           <label for="phoneNum">{{__ 'signup-phone'}}</label>
           <input type="text" class="form-control input-lg" id="phoneNum" name="phoneNum">
         </div>
+        <div class="form-group image-code-holder">
+          <label for="imageCode">图片验证码</label>
+          <div class="row">
+            <div class="col-md-8 col-sm-8 col-xs-6">
+              <input type="hidden" id="key" name="key">
+              <input type="text" class="form-control input-lg" id="imageCode" name="imageCode">
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+              <img id="imageCodeSrc">
+            </div>
+          </div>
+        </div>
         <div class="form-group">
           <label for="phoneValidCode">{{__ 'signup-sms'}}</label>
           <div class="row">
@@ -39,18 +51,6 @@
           <label for="invitationCode">{{__ 'invitation-code'}}</label>
           <input type="text" class="form-control input-lg" id="invitationCode" name="invitationCode" value="{{invite}}" {{#if invite}}readOnly{{/if}}>
           <span class="help-block">{{__ 'optional'}}</span>
-        </div>
-        <div class="form-group image-code-holder hide">
-          <label for="imageCode">图片验证码</label>
-          <div class="row">
-            <div class="col-md-8 col-sm-8 col-xs-6">
-              <input type="hidden" id="key" name="key">
-              <input type="text" class="form-control input-lg" id="imageCode" name="imageCode">
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-              <img id="imageCodeSrc">
-            </div>
-          </div>
         </div>
         <div class="checkbox">
           <label>

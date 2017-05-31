@@ -3,12 +3,16 @@ var config = require('../../config/config');
 
 // 注册接口
 exports.default = function(req, res) {
+  var body = req.body;
   request
     .get(config.platform + '/user/verifyCode')
     .set('Accept', 'application/json')
     .query({
-      smsType: 1,
-      phone: req.body.phoneNum
+      smsType: body.smsType,
+      phone: body.phoneNum,
+      type: body.type,
+      imageCode: body.imageCode,
+      key: body.key
     })
     .end(function(err, result) {
       var body = result.body;

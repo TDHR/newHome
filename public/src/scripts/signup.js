@@ -14,12 +14,22 @@ import Alert from './modules/alert';
 // 获取当前的语言类型
 let locale = Cookies.get('REITsLocale');
 
+$(document).ready(function() {
+  getImageCode();
+});
+
 // 获取手机验证码
 $('#btnSmsCode').on('click', function() {
   const that = $(this);
   let phoneNum = $('#phoneNum').val();
   if (!Validate.mobile(phoneNum)) {
     Alert(Locales.signup[locale]['phone-err-1'], 5000);
+    return false;
+  }
+
+  let imageCode = $('#imageCode').val();
+  if (!imageCode) {
+    Alert('请先输入图片验证码', 5000);
     return false;
   }
 
@@ -31,7 +41,11 @@ $('#btnSmsCode').on('click', function() {
     method: 'POST',
     url: '/phone-code',
     data: {
-      phoneNum: phoneNum
+      phoneNum: phoneNum,
+      smsType: 1,
+      type: 1,
+      imageCode: imageCode,
+      key: $('#key').val()
     },
     cache: false,
     beforeSend: function() {
@@ -41,16 +55,18 @@ $('#btnSmsCode').on('click', function() {
     success: function(res) {
       if (!res.success) {
         // 根据错误码输出相应的提示
-        Alert(Locales.signup[locale]['phoneCode-err-' + res.code], 5000);
+        Alert(res.msg, 5000);
         // 还原「获取验证码」
         that.removeClass('disabled').html(Locales.signup[locale].phoneCode);
       }
     },
     error: function() {
-      // 获取验证码失败，请稍后重试
-      Alert(Locales.signup[locale]['phoneCode-err-1'], 5000);
+      Alert('获取验证码失败，请稍后重试', 5000);
       // 还原「获取验证码」
       that.removeClass('disabled').html(Locales.signup[locale].phoneCode);
+    },
+    complete: function() {
+      clearTimeout(window.phoneCodeTimeout);
     }
   });
 });
@@ -106,7 +122,6 @@ function submitForm() {
       } else {
         if (res.code === 19) {
           Alert('请输入图片验证码', 5000);
-          $('.image-code-holder').removeClass('hide');
           $('#key').val(res.data.key);
           $('#imageCodeSrc').attr('src', 'data:image/jpeg;base64,' + res.data.image);
         } else {
@@ -125,7 +140,7 @@ function submitForm() {
 }
 
 // 获取图片验证码
-$('#imageCodeSrc').on('click', function() {
+function getImageCode() {
   $.ajax({
     method: 'GET',
     url: '/get-image-code',
@@ -143,6 +158,10 @@ $('#imageCodeSrc').on('click', function() {
       Alert('获取图片验证码失败', 5000);
     }
   });
+}
+
+$('#imageCodeSrc').on('click', function() {
+  getImageCode();
 });
 
 // 检查表单
@@ -182,7 +201,7 @@ $('#form').on('submit', function(e) {
     return false;
   }
 
-  if (!$('.image-code-holder').hasClass('hide') && !$('#imageCode').val()) {
+  if (!$('#imageCode').val()) {
     Alert('请输入图片验证码', 5000);
     return false;
   }
