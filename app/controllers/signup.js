@@ -21,7 +21,6 @@ exports.signup = function(req, res) {
       username: req.body.phoneNum,
       password: req.body.password,
       verifyCode: req.body.phoneValidCode,
-      inviteCode: req.body.invitationCode,
       key: req.body.key,
       imageCode: req.body.imageCode
     })
