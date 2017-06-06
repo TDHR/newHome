@@ -10,18 +10,7 @@ var config = {
       name: 'gold-rock'
     },
     port: process.env.PORT || 3000,
-    // platform: 'http://10.0.14.162:8080/api'
-    // platform: 'http://10.0.14.138:8080/api'
-    platform: 'http://123.207.174.20:8080/api'
-  },
-  beta: {
-    root: rootPath,
-    public: rootPath + '/public/beta',
-    app: {
-      name: 'gold-rock'
-    },
-    port: process.env.PORT || 3000,
-    platform: 'http://123.207.164.141:9080/api'
+    platform: 'http://10.0.15.238:7070'
   },
   production: {
     root: rootPath,
@@ -30,7 +19,7 @@ var config = {
       name: 'gold-rock'
     },
     port: process.env.PORT || 3000,
-    platform: 'http://123.207.174.20:8080/api'
+    platform: 'http://123.207.174.20:7070'
   }
 };
 

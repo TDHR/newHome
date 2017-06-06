@@ -9,7 +9,7 @@ exports.index = function(req, res) {
   async.auto({
     getAssets: function(cb) {
       request
-        .get(config.platform + '/papi/chainhome/getassets')
+        .get(config.platform + '/explorer/getassets')
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
@@ -35,7 +35,7 @@ exports.asset = function(req, res) {
     // 获取基础信息
     getBaseInfo: function(cb) {
       request
-        .get(config.platform + '/papi/chainhome/getbaseinfo')
+        .get(config.platform + '/explorer/getbaseinfo')
         .query({ assetId: assetId })
         .set('Accept', 'application/json')
         .end(function(err, result) {
@@ -45,7 +45,7 @@ exports.asset = function(req, res) {
     // 获取持仓排行
     getHoldTops: function(cb) {
       request
-        .get(config.platform + '/papi/chainhome/getholdtops')
+        .get(config.platform + '/explorer/getholdtops')
         .query({
           assetId: assetId,
           pageIndex: 0,
@@ -59,7 +59,7 @@ exports.asset = function(req, res) {
     // 获取日交易排行
     getDayTransTops: function(cb) {
       request
-        .get(config.platform + '/papi/chainhome/getdaytranstops')
+        .get(config.platform + '/explorer/getdaytranstops')
         .query({
           assetId: assetId,
           pageIndex: 0,
@@ -73,7 +73,7 @@ exports.asset = function(req, res) {
     // 获取周交易排行
     getWeekTransTops: function(cb) {
       request
-        .get(config.platform + '/papi/chainhome/getweektranstops')
+        .get(config.platform + '/explorer/getweektranstops')
         .query({
           assetId: assetId,
           pageIndex: 0,
@@ -87,7 +87,7 @@ exports.asset = function(req, res) {
     // 获取月交易排行
     getMonthTransTops: function(cb) {
       request
-        .get(config.platform + '/papi/chainhome/getmonthtranstops')
+        .get(config.platform + '/explorer/getmonthtranstops')
         .query({
           assetId: assetId,
           pageIndex: 0,
@@ -133,7 +133,7 @@ exports.asset = function(req, res) {
  */
 exports.turnover = function(req, res) {
   request
-    .get(config.platform + '/papi/chainhome/getturnoverrate')
+    .get(config.platform + '/explorer/getturnoverrate')
     .query({
       assetId: +req.query.assetId,
       beginDate: req.query.beginDate,
@@ -163,7 +163,7 @@ exports.user = function(req, res) {
     // 获取持仓人的基础信息
     getUserInfo: function(cb) {
       request
-        .get(config.platform + '/papi/person/getbaseinfo')
+        .get(config.platform + '/explorer/person/getbaseinfo')
         .query({
           assetId: assetId,
           walletAddress: walletAddress
@@ -176,7 +176,7 @@ exports.user = function(req, res) {
     // 获取持仓人的交易记录
     getTx: function(cb) {
       request
-        .get(config.platform + '/papi/person/gettxlist')
+        .get(config.platform + '/explorer/person/gettxlist')
         .query({
           assetId: assetId,
           walletAddress: walletAddress,
@@ -191,9 +191,6 @@ exports.user = function(req, res) {
   }, function(err, results) {
     var user = results.getUserInfo.body;
     var tx = results.getTx.body;
-    console.log('user', user);
-    console.log('tx', tx);
-
     if (user.data && user.data.realName && user.data.walletAddress) {
       res.render('explorer/user', {
         layout: 'explorer',
@@ -225,10 +222,9 @@ exports.tx = function(req, res) {
     // 获取交易信息
     getTxInfo: function(cb) {
       request
-        .get(config.platform + '/papi/person/gettxinfo')
+        .get(config.platform + '/explorer/person/gettxinfo')
         .query({
-          txid: txId,
-          walletAddress: "19YDUwPkCaq4ybVETmGbV8TS8gnTA14kaG"
+          txid: txId
         })
         .set('Accept', 'application/json')
         .end(function(err, result) {
@@ -266,13 +262,13 @@ exports.tx = function(req, res) {
 };
 
 /**
- * [页面：项目介绍]
+ * [页面：资产介绍]
  */
 exports.intro = function(req, res) {
   // 资产id
   var assetId = +req.params.assetId;
   request
-    .get(config.platform + '/papi/assetinfo')
+    .get(config.platform + '/explorer/assetinfo')
     .query({
       assetId: assetId
     })
@@ -304,9 +300,9 @@ exports.company = function(req, res) {
   var walletAddress = req.params.walletAddress;
 
   request
-    .get(config.platform + '/papi/companyinfo')
+    .get(config.platform + '/explorer/companyinfo')
     .query({
-      rootAddress: walletAddress
+      walletAddress: walletAddress
     })
     .set('Accept', 'application/json')
     .end(function(err, result) {
@@ -335,13 +331,12 @@ exports.company = function(req, res) {
 exports.announce = function(req, res) {
   const assetId = +req.params.assetId;
   request
-    .get(config.platform + '/papi/assetannounce')
+    .get(config.platform + '/explorer/assetannounce')
     .query({ assetId: assetId })
     .set('Accept', 'application/json')
     .end(function(err, result) {
       const body = result ? result.body : null;
       if (body && body.data) {
-        console.log('body.data.announce', body.data.announce);
         res.render('explorer/announce', {
           layout: 'explorer',
           nav: 'explorer',
