@@ -12,22 +12,24 @@
     {{#if info.list}}
     <div class="address-list">
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-lg-5 col-md-5">
           {{#each info.list}}
             {{#ifCond this.way '===' -1}}
               <div class="list-item clearfix">
                 <div class="address" title="{{this.address}}">{{this.address}}</div>
+                <div class="type">{{this.assetType}}号资产</div>
                 <div class="amount amount-from">{{numberWithCommas this.amount}}</div>
               </div>
             {{/ifCond}}
           {{/each}}
         </div>
-        <div class="col-md-2 address-arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
-        <div class="col-md-5">
+        <div class="col-lg-2 col-md-2 address-arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
+        <div class="col-lg-5 col-md-5">
           {{#each info.list}}
             {{#ifCond this.way '===' 1}}
               <div class="list-item clearfix">
                 <div class="address" title="{{this.address}}">{{this.address}}</div>
+                <div class="type">{{this.assetType}}号资产</div>
                 <div class="amount amount-to">{{numberWithCommas this.amount}}</div>
               </div>
             {{/ifCond}}

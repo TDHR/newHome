@@ -23,23 +23,35 @@
   .address-list {
     margin: 70px 0;
     .address-arrow {
+      margin-bottom: 10px;
       font-size: 28px;
       color: #5aba23;
       text-align: center;
     }
     .list-item {
-      margin-bottom: 10px;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #efefef;
       .address {
         float: left;
         width: 100%;
-        max-width: 300px;
+        margin-bottom: 5px;
+        overflow: hidden;
         word-break: break-all;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .type {
+        float: left;
+        font-size: 12px;
+        line-height: 20px;
+        color: #bbb;
       }
       .amount {
         float: right;
       }
       .amount-from {
-        color: #666;
+        color: #999;
       }
       .amount-to {
         color: #5aba23;
