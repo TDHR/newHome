@@ -17,7 +17,7 @@
             {{#ifCond this.way '===' -1}}
               <div class="list-item clearfix">
                 <div class="address" title="{{this.address}}">{{this.address}}</div>
-                <div class="type">{{this.assetType}}号资产</div>
+                <div class="type">{{this.assetName}}</div>
                 <div class="amount amount-from">{{numberWithCommas this.amount}}</div>
               </div>
             {{/ifCond}}
@@ -29,7 +29,7 @@
             {{#ifCond this.way '===' 1}}
               <div class="list-item clearfix">
                 <div class="address" title="{{this.address}}">{{this.address}}</div>
-                <div class="type">{{this.assetType}}号资产</div>
+                <div class="type">{{this.assetName}}</div>
                 <div class="amount amount-to">{{numberWithCommas this.amount}}</div>
               </div>
             {{/ifCond}}

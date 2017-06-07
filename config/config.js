@@ -10,7 +10,7 @@ var config = {
       name: 'gold-rock'
     },
     port: process.env.PORT || 3000,
-    platform: 'http://10.0.15.238:7070'
+    platform: 'http://localhost:7070'
   },
   production: {
     root: rootPath,
