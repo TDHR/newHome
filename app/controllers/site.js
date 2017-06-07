@@ -23,62 +23,10 @@ exports.helpPos = function(req, res) {
   });
 };
 
-// 公测-微信分享页面
-exports.shareWeChat = function(req, res) {
-  var userToken = req.cookies.userToken;
-  var wechat = res.locals.wechat;
-
-  // 已经登录
-  if (userToken) {
-    // 获取邀请码
-    request
-      .get(config.platform + '/api/vipuser/getinvitecode')
-      .query({ token: userToken })
-      .set('Accept', 'application/json')
-      .end(function(err, result) {
-        var inviteCode = '';
-        // 登录超时
-        if (!result || !result.body || result.body.code === 1) {
-          res.clearCookie('userToken');
-        } else {
-          inviteCode = result.body.data.inviteCode;
-        }
-        res.render('site/share-wechat', {
-          layout: '',
-          wechat: wechat,
-          inviteCode: inviteCode
-        });
-      });
-  } else {
-    res.render('site/share-wechat', {
-      layout: '',
-      wechat: wechat,
-      inviteCode: ''
-    });
-  }
-};
-
-// 通过手机号码获取邀请码
-exports.getInviteCode = function(req, res) {
-  request
-    .get(config.platform + '/papi/share/getinvitecode')
-    .query({ phoneNum: req.body.phoneNum })
-    .set('Accept', 'application/json')
-    .end(function(err, result) {
-      var body = result.body;
-      return res.json({
-        success: body.success,
-        code: body.code,
-        msg: body.message,
-        data: body.data
-      });
-    });
-};
-
 // 公测介绍页面
 exports.betaIntro = function(req, res) {
   request
-    .get(config.platform + '/papi/getWalletVersion')
+    .get(config.platform + '/site/getwalletversion')
     .set('Accept', 'application/json')
     .end(function(err, result) {
       res.render('site/beta-intro', {
