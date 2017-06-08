@@ -5,7 +5,7 @@ var config = require('../../config/config');
 exports.default = function(req, res) {
   var body = req.body;
   request
-    .get(config.platform + '/user/verifyCode')
+    .get(config.platform + '/wallet/user/verifyCode')
     .set('Accept', 'application/json')
     .query({
       smsType: body.smsType,
