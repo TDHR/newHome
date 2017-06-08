@@ -15,7 +15,7 @@ exports.index = function(req, res) {
 // 注册接口
 exports.signup = function(req, res) {
   request
-    .post(config.platform + '/user/register')
+    .post(config.platform + '/wallet/user/register')
     .set('Accept', 'application/json')
     .send({
       username: req.body.phoneNum,
@@ -38,7 +38,7 @@ exports.signup = function(req, res) {
 // 获取图片验证码
 exports.getImageCode = function(req, res) {
   request
-    .get(config.platform + '/user/getimages')
+    .get(config.platform + '/wallet/user/getimages')
     .set('Accept', 'application/json')
     .end(function(err, result) {
       var body = result.body;
