@@ -11,7 +11,7 @@ exports.default = function(req, res) {
       smsType: body.smsType,
       phone: body.phoneNum,
       type: body.type,
-      imageCode: body.imageCode,
+      imageCode: body.imageCode.toUpperCase(),
       key: body.key
     })
     .end(function(err, result) {
