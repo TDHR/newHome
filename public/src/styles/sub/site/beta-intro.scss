@@ -19,14 +19,29 @@ $red: #e40321;
     background-image: url('/images/beta-bgi-download.jpg');
     text-align: center;
     .desc {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
       >span {
         padding-bottom: 4px;
-        color: #999;
+        color: #777;
         font-size: 13px;
         border-bottom: 2px solid #ddd;
         line-height: 28px;
       }
+    }
+    .notice {
+      margin-bottom: 30px;
+      color: #777;
+      .title {
+        font-size: 15px;
+      }
+    }
+    .version {
+      margin-bottom: 40px;
+      display: inline-block;
+      padding-bottom: 2px;
+      font-size: 15px;
+      color: #e40321;
+      border-bottom: 2px solid #e40321;
     }
     .box {
       width: 120px;

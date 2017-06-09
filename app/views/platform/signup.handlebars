@@ -5,11 +5,15 @@
     </div>
   </div>
   <div id="formHolder" class="container">
-    <div class="beta-slogan">
+    {{!-- <div class="beta-slogan">
       <p>全球首个面向金融应用场景的全实名制区块链，正在公测！</p>
       <p>百万权益token免费派送</p>
+    </div> --}}
+    <div class="notice">
+      <p class="title">钱包维护公告</p>
+      <p>为了给用户提供更稳定的瑞资链钱包程序，我们计划于6月9日18点开始为期2周时间的维护，将会对公测版轻钱包程序进行持续的大量改进，维护期间用户无法注册和登录。本次维护结束后将会发布新的版本和新的测试玩法，并补发部分用户的测试奖励，感谢您在公测期对我们的支持和理解！</p>
     </div>
-    <div class="form-big-holder">
+    <div class="form-big-holder hide">
       <form id="form" class="form-big">
         <div class="form-group">
           <label for="phoneNum">{{__ 'signup-phone'}}</label>
@@ -69,4 +73,4 @@
   </div>
 </div>
 {{> scripts}}
-<script src="/scripts/signup.js{{fileTail}}"></script>
+{{!-- <script src="/scripts/signup.js{{fileTail}}"></script> --}}
