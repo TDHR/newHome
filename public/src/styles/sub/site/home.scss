@@ -11,7 +11,105 @@ $yellow: #edcc92;
     height: 100%;
     background-size: cover;
   }
-  .home-header {
+  .home-ico {
+    background-position: top center;
+    background-image: url("/images/ico-bgi-header.jpg");
+    .top-block {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 65px;
+      overflow: hidden;
+      background-color: #000;
+      background-color: rgba(0, 0, 0, .65);
+      border-bottom: 1px solid $yellow;
+      text-align: center;
+      .header-logo {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        width: 32px;
+        margin-left: -16px;
+        opacity: 0;
+      }
+      .header-logo-ready {
+        top: 12px;
+        opacity: 1;
+        transition: 1.5s top, 1.5s opacity;
+      }
+    }
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 460px;
+      height: 260px;
+      margin: -130px 0 0 -230px;
+      text-align: center;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+      .title {
+        >img {
+          width: 180px;
+        }
+      }
+      .sub-title {
+        margin-top: 50px;
+        font-size: 18px;
+      }
+      .btn-beta {
+        width: 200px;
+        height: 40px;
+        padding: 8px 0;
+        margin-top: 50px;
+        background-color: $yellow;
+        border: 1px solid #b18d4f;
+        color: #fff;
+        font-size: 16px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, .35);
+      }
+    }
+    .bottom-block {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100px;
+      background-color: rgba(0, 0, 0, .5);
+      .col-md-4 {
+        border-right: 1px solid $yellow;
+        margin-top: 25px;
+        &:first-child {
+          .box {
+            width: 100px;
+          }
+        }
+        &:nth-child(2) {
+          .box {
+            width: 110px;
+          }
+        }
+        &:last-child {
+          border: 0;
+          .box {
+            width: 230px;
+          }
+        }
+      }
+      .box {
+        margin: 0 auto;
+        .title {
+          font-size: 24px;
+        }
+        .text {
+          margin-top: 6px;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  .home-beta {
     background-position: top center;
     background-image: url("/images/home-bgi-header.jpg");
     .top-block {
@@ -68,45 +166,6 @@ $yellow: #edcc92;
         color: #fff;
         font-size: 16px;
         text-shadow: 0 2px 4px rgba(0, 0, 0, .35);
-      }
-    }
-    .bottom-block {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100px;
-      background-color: rgba(0, 0, 0, .5);
-      .col-md-4 {
-        border-right: 1px solid $yellow;
-        margin-top: 25px;
-        &:first-child {
-          .box {
-            width: 100px;
-          }
-        }
-        &:nth-child(2) {
-          .box {
-            width: 110px;
-          }
-        }
-        &:last-child {
-          border: 0;
-          .box {
-            width: 230px;
-          }
-        }
-      }
-      .box {
-        margin: 0 auto;
-        .title {
-          font-size: 24px;
-        }
-        .text {
-          margin-top: 6px;
-          font-size: 13px;
-        }
       }
     }
   }
@@ -186,7 +245,7 @@ $yellow: #edcc92;
       }
     }
     .wechat-qrcode {
-      position: absolute;
+      position: fixed;
       z-index: 9;
       top: 50%;
       left: 50%;
@@ -219,7 +278,7 @@ $yellow: #edcc92;
 
 @media (max-width: 992px) {
   .page-home {
-    .home-header {
+    .home-ico {
       .bottom-block {
         .col-md-4 {
           border-right: 1px solid $yellow;
@@ -253,7 +312,7 @@ $yellow: #edcc92;
 
 @media (max-width: 767px) {
   .page-home {
-    .home-header {
+    .home-ico {
       .content {
         width: 100%;
         margin: -130px 0 0 -50%;
@@ -308,6 +367,19 @@ $yellow: #edcc92;
         }
       }
     }
+    .home-beta {
+      .content {
+        width: 100%;
+        margin: -130px 0 0 -50%;
+        .title {
+          font-size: 18px;
+        }
+        .sub-title {
+          margin-top: 30px;
+          font-size: 14px;
+        }
+      }
+    }
     .middle1,
     .middle2,
     .middle3 {
@@ -351,7 +423,7 @@ $yellow: #edcc92;
 
 @media (max-width: 319px) {
   .page-home {
-    .home-header {
+    .home-ico {
       .bottom-block {
         display: none;
       }

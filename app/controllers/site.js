@@ -12,14 +12,14 @@ exports.index = function(req, res) {
 // 服务条款
 exports.terms = function(req, res) {
   res.render('site/terms', {
-    nav: ''
+    nav: 'terms'
   });
 };
 
 // 关于 POS
 exports.helpPos = function(req, res) {
   res.render('site/help-pos', {
-    nav: ''
+    nav: 'help-pos'
   });
 };
 
@@ -43,3 +43,11 @@ exports.download = function(req, res) {
   var filepath = config.root + '/public/downloads/' + type + '/' + name;
   res.download(filepath);
 };
+
+// ico
+exports.ico = function(req, res) {
+  res.render('site/ico', {
+    nav: 'ico'
+  });
+};
+

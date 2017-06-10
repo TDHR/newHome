@@ -1,0 +1,239 @@
+$yellow: #edcc92;
+
+.page-ico {
+  a {
+    color: $yellow;
+  }
+  .head-banner {
+    width: 100%;
+    min-height: 540px;
+    padding: 70px 0;
+    background-position: top center;
+    background-image: url("/images/ico-bgi-header.jpg");
+    .content {
+      padding: 0 15px;
+      margin-top: 100px;
+      text-align: center;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+      color: $yellow;
+      .title {
+        >img {
+          width: 180px;
+        }
+        >p {
+          margin-top: 20px;
+          font-size: 24px;
+        }
+      }
+      .sub-title {
+        margin-top: 50px;
+        font-size: 24px;
+      }
+      .btn-beta {
+        width: 200px;
+        height: 40px;
+        padding: 8px 0;
+        margin-top: 50px;
+        background-color: $yellow;
+        border: 1px solid #b18d4f;
+        color: #fff;
+        font-size: 16px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, .35);
+      }
+    }
+  }
+
+  .partner {
+    padding: 50px 0 0;
+    text-align: center;
+    .title {
+      display: inline-block;
+      padding-bottom: 8px;
+      font-size: 18px;
+      border-bottom: 2px solid #4990e2;
+    }
+    .partner-line {
+      width: 100%;
+      height: 50px;
+    }
+    .content {
+      padding: 25px 0;
+      background-color: #f1f3fc;
+      >div {
+        margin-bottom: 10px;
+        >a {
+          font-size: 20px;
+          color: #bbb;
+        }
+      }
+      .ready {
+        &:hover, &:active {
+          color: $yellow;
+        }
+      }
+    }
+  }
+
+  .about {
+    width: 100%;
+    min-height: 520px;
+    padding: 70px 0;
+    background-position: top center;
+    background-image: url("/images/ico-bgi-about.jpg");
+    color: $yellow;
+    text-align: center;
+    .title {
+      display: inline-block;
+      padding-bottom: 8px;
+      font-size: 18px;
+      border-bottom: 2px solid $yellow;
+    }
+    .text {
+      width: 610px;
+      max-width: 90%;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+    .content {
+      margin-top: 50px;
+      .box {
+        margin-bottom: 50px;
+        >img {
+          display: block;
+          width: 100px;
+          margin: 0 auto;
+        }
+        >a {
+          display: block;
+          width: 120px;
+          padding: 5px 0;
+          margin: 30px auto 0;
+          color: $yellow;
+          border: 1px solid $yellow;
+        }
+      }
+      .box-soon {
+        >a {
+          color: #9b9b9b;
+          border-color: #9b9b9b;
+          cursor: wait;
+        }
+      }
+    }
+  }
+
+  .program {
+    padding: 70px 0;
+    text-align: center;
+    .title {
+      display: inline-block;
+      padding-bottom: 8px;
+      font-size: 18px;
+      border-bottom: 2px solid #4990e2;
+    }
+    .content {
+      width: 768px;
+      max-width: 100%;
+      padding: 0 15px;
+      margin: 50px auto 0;
+      text-align: left;
+      >div {
+        margin-bottom: 20px;
+      }
+      .subtitle {
+        margin: 40px 0;
+        color: #4990e2;
+        text-align: center;
+        font-size: 15px;
+      }
+      .program-table {
+        width: 768px;
+        max-width: 90%;
+        margin-bottom: 20px;
+      }
+      .program-pie {
+        display: block;
+        width: 768px;
+        max-width: 90%;
+        margin: 70px auto 0;
+      }
+    }
+  }
+  
+  .foot-banner {
+    padding: 75px 0 0;
+    background-image: url('/images/ico-bgi-footer.jpg');
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+    color: $yellow;
+    .main-title {
+      display: inline-block;
+      padding-bottom: 10px;
+      font-size: 24px;
+      border-bottom: 2px solid $yellow;
+    }
+    .plan-img {
+      display: block;
+      width: 730px;
+      max-width: 90%;
+      margin: 50px auto 0;
+    }
+    .bottom-block {
+      width: 100%;
+      padding: 40px 0;
+      margin-top: 70px;
+      background-color: #000;
+      background-color: rgba(0, 0, 0, .5);
+      text-align: left;
+      .title {
+        font-size: 14px;
+      }
+      .detail {
+        margin-top: 20px;
+        font-size: 12px;
+        >p {
+          margin: 0 0 10px;
+        }
+      }
+      .copyright {
+        padding-top: 20px;
+        margin-top: 25px;
+        text-align: left;
+        font-size: 12px;
+        color: $yellow;
+        border-top: 1px solid $yellow;
+      }
+    }
+    .wechat-qrcode {
+      position: fixed;
+      z-index: 9;
+      top: 50%;
+      left: 50%;
+      width: 250px;
+      height: 250px;
+      padding-top: 5px;
+      margin: -125px 0 0 -125px;
+      background-color: #fff;
+      text-align: center;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .35);
+      .wechat-close {
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        top: -12px;
+        right: -12px;
+        font-size: 24px;
+        line-height: 1;
+        color: #333;
+        background-color: #fff;
+        border-radius: 50%;
+        text-align: center;
+      }
+      >img {
+        width: 240px;
+      }
+    }
+  }
+
+}
