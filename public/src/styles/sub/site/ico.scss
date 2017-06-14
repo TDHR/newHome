@@ -187,10 +187,11 @@ $yellow: #edcc92;
       background-color: rgba(0, 0, 0, .5);
       text-align: left;
       .title {
+        margin-top: 25px;
         font-size: 14px;
       }
       .detail {
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: 12px;
         >p {
           margin: 0 0 10px;
@@ -235,5 +236,4 @@ $yellow: #edcc92;
       }
     }
   }
-
 }
