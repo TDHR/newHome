@@ -7,10 +7,3 @@ $('#wechat').on('click', function() {
 $('.wechat-close').on('click', function() {
   $('.wechat-qrcode').addClass('hide');
 });
-
-// tooltip
-$(document).ready(function() {
-  $('.partner-link[title]').tooltip({
-    container: 'body'
-  });
-});
