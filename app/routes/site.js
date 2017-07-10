@@ -20,7 +20,7 @@ module.exports = function(app, auth) {
   // app.get('/beta/intro', site.betaIntro);
 
   // 下载
-  // app.get('/download/:type/:name', site.download);
+  app.get('/download/:type/:name', site.download);
 
   // ico
   app.get('/ico', site.ico);
