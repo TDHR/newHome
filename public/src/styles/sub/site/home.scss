@@ -23,7 +23,7 @@ $yellow: #edcc92;
       overflow: hidden;
       background-color: #000;
       background-color: rgba(0, 0, 0, .65);
-      border-bottom: 1px solid $yellow;
+      border-bottom: 1px solid rgba(237, 204, 146, .65);
       text-align: center;
       .header-logo {
         position: absolute;
@@ -37,6 +37,36 @@ $yellow: #edcc92;
         top: 12px;
         opacity: 1;
         transition: 1.5s top, 1.5s opacity;
+      }
+    }
+    .nav-holder {
+      position: absolute;
+      top: 65px;
+      left: 0;
+      width: 100%;
+      height: auto;
+      background-color: #000;
+      background-color: rgba(0, 0, 0, .65);
+      border-bottom: 1px solid $yellow;
+      text-align: center;
+      .nav-list {
+        >li {
+          display: inline-block;
+          margin: 8px 40px 12px;
+          >a {
+            padding-bottom: 4px;
+            color: #fff;
+            border-bottom: 1px solid transparent;
+            &:hover {
+              color: $yellow;
+              border-color: $yellow;
+            }
+            &.active {
+              color: $yellow;
+              border-color: $yellow;
+            }
+          }
+        }
       }
     }
     .content {
@@ -262,6 +292,13 @@ $yellow: #edcc92;
         .sub-title {
           margin-top: 30px;
           font-size: 14px;
+        }
+      }
+      .nav-holder {
+        .nav-list {
+          >li {
+            margin: 8px 15px 12px;
+          }
         }
       }
       .bottom-block {

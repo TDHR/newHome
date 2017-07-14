@@ -1,3 +1,42 @@
+$yellow: #edcc92;
+.explorer-nav-holder {
+  width: 100%;
+  height: auto;
+  margin-top: 1px;
+  background-color: #fff;
+  border-bottom: 1px solid #f4f4f4;
+  text-align: center;
+  .nav-list {
+    >li {
+      display: inline-block;
+      margin: 8px 40px 12px;
+      >a {
+        padding-bottom: 4px;
+        color: #000;
+        border-bottom: 1px solid transparent;
+        &:hover {
+          color: $yellow;
+          border-color: $yellow;
+        }
+        &.active {
+          color: $yellow;
+          border-color: $yellow;
+        }
+      }
+    }
+  }
+}
+
 .page-explorer {
   padding: 50px 0;
+}
+
+@media (max-width: 767px) {
+  .explorer-nav-holder {
+    .nav-list {
+      >li {
+        margin: 8px 15px 12px;
+      }
+    }
+  }
 }
