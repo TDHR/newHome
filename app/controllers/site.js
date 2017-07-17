@@ -36,6 +36,14 @@ exports.betaIntro = function(req, res) {
     });
 };
 
+// 下载钱包页面
+exports.downloads = function(req, res) {
+  res.render('site/downloads', {
+    layout: '',
+    nav: 'downloads'
+  });
+};
+
 // 下载文件
 exports.download = function(req, res) {
   var type = req.params.type;

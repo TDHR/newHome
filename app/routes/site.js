@@ -19,6 +19,9 @@ module.exports = function(app, auth) {
   // 公测介绍页
   // app.get('/beta/intro', site.betaIntro);
 
+  // 下载钱包
+  app.get('/downloads', site.downloads);
+
   // 下载
   app.get('/download/:type/:name', site.download);
 
