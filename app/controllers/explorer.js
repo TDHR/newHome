@@ -9,135 +9,30 @@ exports.index = function(req, res) {
   async.auto({
     getAssets: function(cb) {
       request
-        .get(config.platform + '/explorer/getassets')
+        .get(config.platform + '/papi/pbrower/getassets')
         .set('Accept', 'application/json')
         .end(function(err, result) {
           cb(null, result);
         });
     }
   }, function(err, results) {
-    var assets = results.getAssets.body;
+    var body = results.getAssets.body;
     res.render('explorer/index', {
       layout: 'explorer',
       nav: 'explorer',
-      assets: assets.data
+      assets: body.data.assets
     });
   });
 };
 
 /**
- * [资产详情]
+ * [搜索]
  */
-exports.asset = function(req, res) {
-  // 资产id
-  var assetId = +req.params.assetId;
-  async.auto({
-    // 获取基础信息
-    getBaseInfo: function(cb) {
-      request
-        .get(config.platform + '/explorer/getbaseinfo')
-        .query({ assetId: assetId })
-        .set('Accept', 'application/json')
-        .end(function(err, result) {
-          cb(null, result);
-        });
-    },
-    // 获取持仓排行
-    getHoldTops: function(cb) {
-      request
-        .get(config.platform + '/explorer/getholdtops')
-        .query({
-          assetId: assetId,
-          pageIndex: 0,
-          pageSize: 20
-        })
-        .set('Accept', 'application/json')
-        .end(function(err, result) {
-          cb(null, result);
-        });
-    },
-    // 获取日交易排行
-    getDayTransTops: function(cb) {
-      request
-        .get(config.platform + '/explorer/getdaytranstops')
-        .query({
-          assetId: assetId,
-          pageIndex: 0,
-          pageSize: 20
-        })
-        .set('Accept', 'application/json')
-        .end(function(err, result) {
-          cb(null, result);
-        });
-    },
-    // 获取周交易排行
-    getWeekTransTops: function(cb) {
-      request
-        .get(config.platform + '/explorer/getweektranstops')
-        .query({
-          assetId: assetId,
-          pageIndex: 0,
-          pageSize: 20
-        })
-        .set('Accept', 'application/json')
-        .end(function(err, result) {
-          cb(null, result);
-        });
-    },
-    // 获取月交易排行
-    getMonthTransTops: function(cb) {
-      request
-        .get(config.platform + '/explorer/getmonthtranstops')
-        .query({
-          assetId: assetId,
-          pageIndex: 0,
-          pageSize: 20
-        })
-        .set('Accept', 'application/json')
-        .end(function(err, result) {
-          cb(null, result);
-        });
-    }
-  }, function(err, results) {
-    var base = results.getBaseInfo.body;
-    var tops = results.getHoldTops.body;
-    var dayTrans = results.getDayTransTops.body;
-    var weekTrans = results.getWeekTransTops.body;
-    var monthTrans = results.getMonthTransTops.body;
-
-    if (base.data && base.data.circulation > 0 && base.data.name) {
-      res.render('explorer/asset', {
-        layout: 'explorer',
-        nav: 'explorer',
-        assetId: assetId,
-        base: base.data,
-        tops: tops.data,
-        dayTrans: dayTrans.data,
-        weekTrans: weekTrans.data,
-        monthTrans: monthTrans.data
-      });
-    } else {
-      res.render('error/404', {
-        message: 'Not Found',
-        error: {
-          status: 404
-        },
-        title: 'error'
-      });
-    }
-  });
-};
-
-/**
- * [换手率]
- */
-exports.turnover = function(req, res) {
+exports.search = function(req, res) {
   request
-    .get(config.platform + '/explorer/getturnoverrate')
+    .get(config.platform + '/papi/pbrower/search')
     .query({
-      assetId: +req.query.assetId,
-      beginDate: req.query.beginDate,
-      endDate: req.query.endDate
+      key: req.query.key
     })
     .set('Accept', 'application/json')
     .end(function(err, result) {
@@ -340,7 +235,8 @@ exports.announce = function(req, res) {
         res.render('explorer/announce', {
           layout: 'explorer',
           nav: 'explorer',
-          assetId, assetId,
+          assetId,
+          assetId,
           asset: body.data.asset,
           announce: body.data.announce
         });

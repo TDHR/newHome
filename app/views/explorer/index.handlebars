@@ -1,19 +1,37 @@
 <div class="page-explorer">
-  <div class="container">
-    <div class="assets">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-          <div class="list-group">
-            <a class="list-group-item active">{{__ 'explorer-index-list-title'}}</a>
-            {{#each assets}}
-            <a href="/explorer/asset/{{id}}" class="list-group-item">
-              <span class="badge">{{numberWithCommas circulation}}</span>
-              <span class="name">{{name}}</span>
-              <span class="nameShort">({{name_short}})</span>
-            </a>
-            {{/each}}
+  <div class="banner">
+    <div id="particlesJs" class="particles-js"></div>
+    <div class="container">
+      <div class="title">区块链浏览器</div>
+    </div>
+  </div>
+    <div class="container">
+      <div class="search-holder">
+        <div class="row">
+          <div class="col-md-9 col-sm-9 col-xs-9">
+            <input type="text" class="form-control" id="keyword" placeholder="钱包地址、交易ID、区块高度、区块ID">
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-3">
+            <button id="searchBtn" type="submit" class="btn btn-info">搜 索</button>
           </div>
         </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="assets">
+      <div class="title">资产类型</div>
+      <div class="list">
+        {{#each assets}}
+          <div class="list-item">
+            <div class="row">
+              <div class="col-md-7 col-sm-7 col-xs-12">{{name}} ({{name_en}})</div>
+              <div class="col-md-5 col-sm-5 col-xs-12">
+                <a href="/explorer/asset/{{id}}/intro" class="btn btn-primary">资产介绍</a>
+                <a href="/explorer/announce/{{id}}" class="btn btn-success">发行资料</a>
+              </div>
+            </div>
+          </div>
+        {{/each}}
       </div>
     </div>
   </div>
@@ -21,3 +39,6 @@
 
 {{> footer}}
 {{> scripts}}
+<script src="/libs/particles.min.js"></script>
+<script src="/scripts/explorer-index.js{{fileTail}}"></script>
+

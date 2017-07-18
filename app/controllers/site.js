@@ -38,10 +38,20 @@ exports.betaIntro = function(req, res) {
 
 // 下载钱包页面
 exports.downloads = function(req, res) {
-  res.render('site/downloads', {
-    layout: '',
-    nav: 'downloads'
-  });
+  request
+    .get(config.platform + '/papi/pwallet/getappdownurl')
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+      var body = result.body;
+      res.render('site/downloads', {
+        layout: '',
+        nav: 'downloads',
+        data: {
+          iosDownUrl: body.iosDownUrl,
+          androidDownUrl: body.androidDownUrl
+        }
+      });
+    });
 };
 
 // 下载文件
@@ -58,4 +68,3 @@ exports.ico = function(req, res) {
     nav: 'ico'
   });
 };
-

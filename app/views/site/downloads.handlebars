@@ -62,33 +62,17 @@
                   <div class="title">瑞资链钱包客户端</div>
                   <div class="desc">基于瑞资链的轻钱包应用1.0版，集合资产发行资料展示、资产流传、钱包挂失等基础功能。未来轻钱包2.0版即将加入用户交互、社区治理、资产分红等更令人激动的功能。</div>
                   <div class="links">
-                    <div class="row link-box">
-                      <div class="col-md-4 col-sm-5 download-qrcode">
-                        <img src="/images/wechat-qrcode.png">
-                      </div>
-                      <div class="col-md-8 col-sm-7">
-                        <div class="platform">iOS</div>
-                        <div class="size">大小：4MB</div>
-                        <div class="version">版本：V1.0</div>
-                        <div class="apply">适应系统：IOS 8 及更高版本</div>
-                        <div class="date">更新时间：2017-7-17</div>
+                    <div class="row">
+                      <div class="col-md-6 col-sm-6 qrcode-box">
+                        <div class="ios-qrcode" data-url="{{data.iosDownUrl}}"></div>
                         <div class="btn-link">
-                          <a href="#"><img src="/images/btn-download-ios.png"></a>
+                          <a href="{{data.iosDownUrl}}" target="_blank"><img src="/images/btn-download-ios.png"></a>
                         </div>
                       </div>
-                    </div>
-                    <div class="row link-box">
-                      <div class="col-md-4 col-sm-5 download-qrcode">
-                        <img src="/images/wechat-qrcode.png">
-                      </div>
-                      <div class="col-md-8 col-sm-7">
-                        <div class="platform">iOS</div>
-                        <div class="size">大小：4MB</div>
-                        <div class="version">版本：V1.0</div>
-                        <div class="apply">适应系统：IOS 8 及更高版本</div>
-                        <div class="date">更新时间：2017-7-17</div>
+                      <div class="col-md-6 col-sm-6 qrcode-box">
+                        <div class="android-qrcode" data-url="{{data.androidDownUrl}}"></div>
                         <div class="btn-link">
-                          <a href="#"><img src="/images/btn-download-android.png"></a>
+                          <a href="{{data.androidDownUrl}}" target="_blank"><img src="/images/btn-download-android.png"></a>
                         </div>
                       </div>
                     </div>
@@ -180,6 +164,7 @@
     </div>
   </div>
   {{> scripts}}
+  <script src="/libs/jquery.qrcode.min.js"></script>
   <script src="/scripts/downloads.js{{fileTail}}"></script>
 </body>
 </html>
