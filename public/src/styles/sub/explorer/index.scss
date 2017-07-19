@@ -1,4 +1,5 @@
 $yellow: #edcc92;
+$blue: #0089ec;
 .explorer-nav-holder {
   width: 100%;
   height: auto;
@@ -15,12 +16,12 @@ $yellow: #edcc92;
         color: #000;
         border-bottom: 1px solid transparent;
         &:hover {
-          color: $yellow;
-          border-color: $yellow;
+          color: $blue;
+          border-color: $blue;
         }
         &.active {
-          color: $yellow;
-          border-color: $yellow;
+          color: $blue;
+          border-color: $blue;
         }
       }
     }
