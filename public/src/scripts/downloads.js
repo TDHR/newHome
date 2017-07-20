@@ -1,14 +1,14 @@
 // 生成 iOS 二维码
 $('.ios-qrcode').qrcode({
-  width: 100,
-  height: 100,
+  width: 132,
+  height: 132,
   text: $('.ios-qrcode').data('url')
 });
 
 // 生成 Android 二维码
 $('.android-qrcode').qrcode({
-  width: 100,
-  height: 100,
+  width: 132,
+  height: 132,
   text: $('.android-qrcode').data('url')
 });
 

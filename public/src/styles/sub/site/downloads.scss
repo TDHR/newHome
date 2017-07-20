@@ -78,17 +78,24 @@
               margin-bottom: 30px;
               .ios-qrcode,
               .android-qrcode {
-                width: 120px;
-                height: 120px;
+                display: inline-block;
+                margin-right: 30px;
+                width: 152px;
+                height: 152px;
                 padding: 10px;
                 background-color: #fff;
               }
+              .qrcode-mes{
+                display: inline-block;
+                vertical-align: top;
+                font-size: 14px;
+              }
             }
             .btn-link {
-              margin-top: 10px;
+              margin-top: 8px;
               >a {
                 >img {
-                  width: 120px;
+                  width: 140px;
                   max-width: 100%;
                   margin-top: 6px;
                 }
@@ -198,8 +205,9 @@
       }
     }
   }
-  
+
   @media (max-width: 992px) {
+
     .page-downloads {
       .head-banner {
         .points {
@@ -240,7 +248,7 @@
       }
     }
   }
-  
+
   @media (max-width: 767px) {
     .page-downloads {
       .head-banner {
@@ -272,7 +280,6 @@
                 margin-bottom: 30px;
                 .ios-qrcode,
                 .android-qrcode {
-                  margin: 0 auto;
                 }
               }
             }
@@ -293,6 +300,24 @@
             padding-top: 0;
             margin-top: 5px;
             border: 0;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 385px) {
+    .page-downloads {
+      .head-banner {
+        .download-holder {
+          .download-left {
+            .links {
+              .qrcode-box {
+                .ios-qrcode,
+                .android-qrcode {
+                  margin: 0 auto;
+                }
+              }
+            }
           }
         }
       }

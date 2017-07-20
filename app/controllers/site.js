@@ -46,10 +46,7 @@ exports.downloads = function(req, res) {
       res.render('site/downloads', {
         layout: '',
         nav: 'downloads',
-        data: {
-          iosDownUrl: body.iosDownUrl,
-          androidDownUrl: body.androidDownUrl
-        }
+        data: body.data
       });
     });
 };
