@@ -1,38 +1,35 @@
 <div class="page-explorer-tx">
   <div class="container">
     <div class="info">
-      <h4>{{__ 'explorer-tx-transaction'}}</h4>
+      <h4 class="title">{{__ 'explorer-tx-transaction'}}</h4>
       <div class="detail">
         <div><span>交易ID：</span>{{txId}}</div>
-        <div><span>{{__ 'explorer-tx-transaction-quantity'}}</span>{{numberWithCommas total}}</div>
         <div><span>{{__ 'explorer-tx-transaction-date'}}</span>{{dateFormat info.time 'default' 'unix'}}</div>
-        <div><span>{{__ 'explorer-tx-transaction-confirmed'}}</span>{{info.confirmations}}</div>
+        <div><span>版本号：</span>{{info.version}}</div>
+        <div><span>块ID：</span><a href="/explorer/block/{{info.blockhash}}">{{info.blockhash}}</a></div>
+        <div><span>{{__ 'explorer-tx-transaction-quantity'}}</span>{{detail.listTo.length}}</div>
       </div>
     </div>
-    {{#if info.list}}
+    {{#if detail.listTo.length}}
     <div class="address-list">
       <div class="row">
         <div class="col-lg-5 col-md-5">
-          {{#each info.list}}
-            {{#ifCond this.way '===' -1}}
+          {{#each detail.listFrom}}
               <div class="list-item clearfix">
                 <div class="address" title="{{this.address}}">{{this.address}}</div>
-                <div class="type">{{this.assetName}}</div>
+                <div class="type">{{this.assetName}}（{{this.assetSName}}）</div>
                 <div class="amount amount-from">{{numberWithCommas this.amount}}</div>
               </div>
-            {{/ifCond}}
           {{/each}}
         </div>
         <div class="col-lg-2 col-md-2 address-arrow"><i class="glyphicon glyphicon-arrow-right"></i></div>
         <div class="col-lg-5 col-md-5">
-          {{#each info.list}}
-            {{#ifCond this.way '===' 1}}
+          {{#each detail.listTo}}
               <div class="list-item clearfix">
-                <div class="address" title="{{this.address}}">{{this.address}}</div>
-                <div class="type">{{this.assetName}}</div>
+                <div class="address" title="{{this.address}}"><a href="/explorer/user/{{this.address}}">{{this.address}}</a></div>
+                <div class="type">{{this.assetName}}（{{this.assetSName}}）</div>
                 <div class="amount amount-to">{{numberWithCommas this.amount}}</div>
               </div>
-            {{/ifCond}}
           {{/each}}
         </div>
       </div>

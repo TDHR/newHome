@@ -1,4 +1,5 @@
-.page-explorer-user {
+
+.page-explorer-block {
   .breadcrumb {
     margin: 20px 0;
   }
@@ -10,15 +11,15 @@
     color: #5F5F5F;
     text-align: center;
   }
-  .user-info {
+  .block-info {
     width: 100%;
-    padding: 5px 0 5px 20px;
+    padding: 10px 0 10px 20px;
     margin-top: 20px;
     border-left: 3px solid #deb36c;
     background-color: #fafafa;
     >div {
       >div {
-        padding: 10px 20px 10px 10px;
+        padding: 5px 20px 5px 10px;
         word-break: break-all;
         >span {
           color: #666;

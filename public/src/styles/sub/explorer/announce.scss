@@ -2,11 +2,19 @@
   .breadcrumb {
     margin: 20px 0;
   }
-  .info {
+  .title{
+    height: 72px;
+    line-height: 72px;
     margin-top: 50px;
+    font-size: 36px;
+    color: #5F5F5F;
+    text-align: center;
+  }
+  .info {
+    margin-top: 20px;
     .detail {
       width: 100%;
-      padding: 10px 10px 10px 20px;
+      padding: 5px 10px 5px 20px;
       margin-top: 20px;
       border-left: 3px solid #deb36c;
       background-color: #fafafa;

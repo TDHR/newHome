@@ -50,18 +50,16 @@ exports.search = function(req, res) {
  * [页面：持仓人信息]
  */
 exports.user = function(req, res) {
-  var assetId = +req.params.assetId;
-  var walletAddress = req.params.walletAddress;
+  var walletAddress = req.params.issueAddress;
   var txPageNum = +req.params.txPageNum || 1;
   txPageNum -= 1;
   async.auto({
     // 获取持仓人的基础信息
     getUserInfo: function(cb) {
       request
-        .get(config.platform + '/explorer/person/getbaseinfo')
+        .get(config.platform + '/papi/pbrower/getaddressinfo')
         .query({
-          assetId: assetId,
-          walletAddress: walletAddress
+          address: walletAddress
         })
         .set('Accept', 'application/json')
         .end(function(err, result) {
@@ -71,10 +69,9 @@ exports.user = function(req, res) {
     // 获取持仓人的交易记录
     getTx: function(cb) {
       request
-        .get(config.platform + '/explorer/person/gettxlist')
+        .get(config.platform + '/papi/pbrower/getaddresstxs')
         .query({
-          assetId: assetId,
-          walletAddress: walletAddress,
+          address: walletAddress,
           pageIndex: txPageNum,
           pageSize: 20
         })
@@ -90,10 +87,10 @@ exports.user = function(req, res) {
       res.render('explorer/user', {
         layout: 'explorer',
         nav: 'explorer',
-        assetId: assetId,
         walletAddress: walletAddress,
         user: user.data,
-        tx: tx.data
+        tx: tx.data,
+        pageIndex: txPageNum+1
       });
     } else {
       res.render('error/404', {
@@ -117,7 +114,7 @@ exports.tx = function(req, res) {
     // 获取交易信息
     getTxInfo: function(cb) {
       request
-        .get(config.platform + '/explorer/person/gettxinfo')
+        .get(config.platform + '/papi/pbrower/gettxinfo')
         .query({
           txid: txId
         })
@@ -125,24 +122,38 @@ exports.tx = function(req, res) {
         .end(function(err, result) {
           cb(null, result);
         });
+    },
+    // 获取交易明细
+    getTxDetailed: function (cb) {
+      request
+        .get(config.platform + '/papi/pbrower/gettxdetail')
+        .query({
+          txid: txId
+        })
+        .set('Accept', 'application/json')
+        .end(function (err, result) {
+          cb(null, result);
+        })
     }
   }, function(err, results) {
     var info = results.getTxInfo.body;
+    var detail = results.getTxDetailed.body;
     if (info.data) {
-      var total = 0; // 交易总额
-      if (info.data.list.length > 1) {
-        for (var i = 0; i < info.data.list.length; i++) {
-          if (info.data.list[i].way === 1) {
-            total += info.data.list[i].amount;
-          }
-        }
-      }
+      // var total = 0; // 交易总额
+      // if (info.data.list.length > 1) {
+      //   for (var i = 0; i < info.data.list.length; i++) {
+      //     if (info.data.list[i].way === 1) {
+      //       total += info.data.list[i].amount;
+      //     }
+      //   }
+      // }
       res.render('explorer/tx', {
         layout: 'explorer',
         nav: 'explorer',
         info: info.data,
-        total: total,
-        txId: txId
+        // total: total,
+        txId: txId,
+        detail: detail.data
       });
     } else {
       res.render('error/404', {
@@ -157,13 +168,70 @@ exports.tx = function(req, res) {
 };
 
 /**
+ * [页面：块信息]
+ */
+exports.block = function (req, res) {
+  var blockHash = req.params.hash;
+  var blPageNum = req.params.blPageNum ? req.params.blPageNum:1;
+  blPageNum -= 1;
+  async.auto({
+    // 获取块基本信息
+    getBlockInfo: function (cb) {
+      request
+        .get(config.platform + '/papi/pbrower/getblockinfo')
+        .query({
+          hash: blockHash
+        })
+        .set('Accept', 'application/json')
+        .end(function(err, result) {
+          cb(null, result);
+        });
+    },
+    // 获取块中交易列表
+    getBlockTx: function (cb) {
+      request
+        .get(config.platform + '/papi/pbrower/getblocktxs')
+        .query({
+          hash: blockHash,
+          pageSize: 20,
+          pageIndex: blPageNum
+        })
+        .set('Accept', 'application/json')
+        .end(function (err, result) {
+          cb(null, result);
+        })
+    }
+  },function (err, results) {
+    var info = results.getBlockInfo.body;
+    var tx = results.getBlockTx.body;
+    if(info.data){
+      res.render('explorer/block',{
+        layout: 'explorer',
+        nav: 'explorer',
+        info: info.data,
+        tx: tx.data,
+        pageIndex: blPageNum+1
+      })
+    }else {
+      res.render('error/404', {
+        message: 'Not Found',
+        error: {
+          status: 404
+        },
+        title: 'error'
+      });
+    }
+  })
+};
+
+/**
  * [页面：资产介绍]
  */
 exports.intro = function(req, res) {
   // 资产id
   var assetId = +req.params.assetId;
   request
-    .get(config.platform + '/explorer/assetinfo')
+    .get(config.platform + '/papi/pbrower/getassetintro')
     .query({
       assetId: assetId
     })
@@ -226,19 +294,19 @@ exports.company = function(req, res) {
 exports.announce = function(req, res) {
   const assetId = +req.params.assetId;
   request
-    .get(config.platform + '/explorer/assetannounce')
+    .get(config.platform + '/papi/pbrower/getassetissuedata')
     .query({ assetId: assetId })
     .set('Accept', 'application/json')
     .end(function(err, result) {
       const body = result ? result.body : null;
-      if (body && body.data) {
+      if (body && body.asset) {
         res.render('explorer/announce', {
           layout: 'explorer',
           nav: 'explorer',
           assetId,
           assetId,
-          asset: body.data.asset,
-          announce: body.data.announce
+          asset: body.asset,
+          announce: body.asset.issues
         });
       } else {
         res.render('error/404', {

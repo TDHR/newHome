@@ -132,7 +132,7 @@ $('#searchBtn').on('click', function() {
               default:
                 Alert('没有找到相关信息', 5000);
                 break;
-            }  
+            }
           } else {
             Alert(res.msg, 5000);
           }

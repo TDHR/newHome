@@ -1,5 +1,6 @@
 <div class="page-explorer-announce">
   <div class="container">
+    <div class="title">发行资料</div>
     <div class="info">
       <div class="detail">
         <div>
@@ -8,11 +9,11 @@
         </div>
         <div>
           <span>简称：</span>
-          {{asset.name_short}}
+          {{asset.sname}}
         </div>
         <div>
           <span>资产ID：</span>
-          {{assetId}}
+          {{asset.id}}
         </div>
         <div>
           <span>发行量：</span>
@@ -27,11 +28,11 @@
         <div class="panel-heading">
           <div class="row">
             <div class="col-md-6 col-sm-6">
-              <a href="/explorer/company/{{this.walletAddress}}" class="name">{{this.name}}</a>
+              <a href="/explorer/user/{{this.issueAddress}}" class="name">{{this.realName}}</a>
             </div>
             <div class="col-md-6 col-sm-6 head-right">
               <span class="address">地址：</span>
-              <a href="/explorer/company/{{this.walletAddress}}">{{this.walletAddress}}</a>
+              <a href="/explorer/user/{{this.issueAddress}}">{{this.issueAddress}}</a>
             </div>
           </div>
         </div>
@@ -61,7 +62,7 @@
                 {{#if this.files}}
                   {{#each this.files}}
                   <tr>
-                    <td>{{origin_name}}</td>
+                    <td>{{name}}</td>
                     <td>{{covertBytes size}}</td>
                     <td>{{format}}</td>
                     <td class="options">

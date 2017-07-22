@@ -1,10 +1,9 @@
 // 交易列表的分页
 $('.pagination-holder').bootpag({
-  total: $('#pagination-holder').data('total'),
-  page: $('#pagination-holder').data('current'),
+  total: $('#paginationHolder').data('total'),
+  page: $('#paginationHolder').data('current'),
   maxVisible: 5,
   leaps: true,
-
   wrapClass: 'pagination',
   activeClass: 'active',
   disabledClass: 'disabled'

@@ -1,35 +1,29 @@
 <div class="page-explorer-user">
   <div class="container">
-    <ol class="breadcrumb">
-      <li><a href="/explorer/asset/{{assetId}}">{{__ 'explorer-asset-home-page'}}</a></li>
-      <li class="active">{{__ 'explorer-user-holder'}}</li>
-    </ol>
+    <div class="title">基本信息</div>
+    <!--<ol class="breadcrumb">-->
+      <!--<li><a href="/explorer/asset/{{assetId}}">{{__ 'explorer-asset-home-page'}}</a></li>-->
+      <!--<li class="active">{{__ 'explorer-user-holder'}}</li>-->
+    <!--</ol>-->
     <div class="user-info">
       <div class="row">
-        <div class="col-md-6 col-sm-12 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
           <span>{{__ 'explorer-user-holder-address'}}</span>{{user.walletAddress}}
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-12 col-sm-6 col-xs-12">
           <span>{{__ 'explorer-user-holder-name'}}</span>{{handleText user.realName "2"}}
         </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <span>{{__ 'explorer-user-holder-holdings'}}</span>{{numberWithCommas user.balance}}
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <span>{{__ 'explorer-user-holder-ranking'}}</span>{{user.topIndex}}
-        </div>
-        <div class="col-md-6 col-sm-6 col-xs-12">
-          <span>{{__ 'explorer-user-holder-rate'}}</span>{{user.holdRate}}%
-        </div>
+
       </div>
     </div>
     <div class="transactions-list">
-      <h4>{{__ 'explorer-user-transactions'}} / <span class="count">共{{tx.count}}次</span></h4>
+      <h4>{{__ 'explorer-user-transactions'}} / <span class="count">共{{user.txCount}}次</span></h4>
       <div class="table-responsive">
         <table class="table table-striped table-hover">
           <thead>
             <tr>
               <th>{{__ 'explorer-user-transactions-id'}}</th>
+              <th>资产类型</th>
               <th>{{__ 'explorer-user-transactions-quantity'}}</th>
               <th>{{__ 'explorer-user-transactions-date'}}</th>
             </tr>
@@ -39,7 +33,8 @@
               {{#each tx.list}}
               <tr>
                 <td><a href="/explorer/tx/{{this.txid}}">{{this.txid}}</a></td>
-                <td>{{numberWithCommas this.value}}</td>
+                <td>{{numberWithCommas this.assetSName}}</td>
+                <td>{{this.amount}}</td>
                 <td>{{dateFormat this.time 'default' 'unix'}}</td>
               </tr>
               {{/each}}
@@ -52,7 +47,7 @@
         </table>
       </div>
       {{#ifCond tx.pageCount '>' 1}}
-        <div id="paginationHolder" class="pagination-holder" data-total={{tx.pageCount}} data-current={{tx.pageIndex}}></div>
+        <div id="pagination-holder" class="pagination-holder" data-total={{tx.pageCount}} data-current= "{{pageIndex}}"></div>
       {{/ifCond}}
     </div>
   </div>
