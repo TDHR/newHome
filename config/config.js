@@ -10,7 +10,7 @@ var config = {
       name: 'gold-rock'
     },
     port: process.env.PORT || 3000,
-    platform: 'http://123.207.164.141:10080/reits'
+    platform: 'http://59.110.172.243:20080/reits/'
   },
   production: {
     root: rootPath,
@@ -19,7 +19,7 @@ var config = {
       name: 'gold-rock'
     },
     port: process.env.PORT || 3000,
-    platform: 'http://123.207.164.141:10080/reits'
+    platform: 'http://59.110.172.243:20080/reits/'
   }
 };
 

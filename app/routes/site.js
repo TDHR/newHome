@@ -27,4 +27,7 @@ module.exports = function(app, auth) {
 
   // ico
   app.get('/ico', site.ico);
+
+  // 下载中转页
+  app.get('/downloadgo', site.go);
 };

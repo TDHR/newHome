@@ -65,3 +65,12 @@ exports.ico = function(req, res) {
     nav: 'ico'
   });
 };
+
+//下载跳转页面
+exports.go = function (req, res) {
+  res.render('site/download-go', {
+    layout: '',
+    nav: 'go',
+    data: 'www.baidu.com'
+  })
+};
