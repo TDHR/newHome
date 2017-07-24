@@ -69,10 +69,11 @@
           }
           .desc {
             margin-top: 36px;
+            margin-bottom: 60px;
             line-height: 28px;
           }
           .links {
-            margin-top: 70px;
+            margin-top: 30px;
             font-size: 12px;
             .qrcode-box {
               margin-bottom: 30px;
@@ -105,8 +106,8 @@
         }
         .download-right {
           >img {
-            width: 100%;
-            max-width: 240px;
+            width: 95%;
+            //max-width: 240px;
           }
         }
       }
