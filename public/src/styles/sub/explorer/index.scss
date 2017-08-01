@@ -91,6 +91,11 @@ $blue: #0089ec;
       }
     }
   }
+  .tool{
+    text-align: center;
+    padding: 20px 0 10px 0;
+    user-select: none;
+  }
 }
 
 @media (max-width: 767px) {

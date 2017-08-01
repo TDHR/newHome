@@ -16,7 +16,7 @@
         <div class="col-lg-5 col-md-5">
           {{#each detail.listFrom}}
               <div class="list-item clearfix">
-                <div class="address" title="{{this.address}}">{{this.address}}</div>
+                <div class="address" title="{{this.address}}"><a href="/explorer/user/{{this.address}}">{{this.address}}</a></div>
                 <div class="type">{{this.assetName}}（{{this.assetSName}}）</div>
                 <div class="amount amount-from">{{numberWithCommas this.amount}}</div>
               </div>
