@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--[if lte IE 7]> <html class="ie7"> <![endif]-->
+<!--[if IE 8]> <html class="ie8"> <![endif]-->
+<!--[if IE 9]> <html class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="瑞资科技，专心让区块链技术落地。">
+  <meta name="keywords" content="瑞资,瑞资链,瑞资北京,REITs,REITsChain,资产证券化,区块链,区块链金融">
+  <meta name="format-detection" content="telephone=no, email=no">
+  <title>瑞资链</title>
+  <link rel="stylesheet" href="/libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/libs/fullpage/jquery.fullpage.min.css">
+  <link rel="stylesheet" href="/styles/default.css{{fileTail}}">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <!--[if lt IE 9]>
+  <script src="/libs/html5shiv.min.js"></script>
+  <script src="/libs/respond.min.js"></script>
+  <![endif]-->
+  {{#if ENV_DEVELOPMENT}}
+    <script src="http://localhost:35729/livereload.js"></script>
+  {{/if}}
+  <style>
+    .page-home{
+      color: black;
+    }
+    .loginItem{
+      width: 60%;
+      font-size: 14px;
+      margin-left: 20%;
+    }
+    .telNum {
+      width: 100%;
+    }
+    .telNumInp{
+      width: 100%;
+      height: 34px;
+      margin: 5px 0;
+      padding:2px 12px;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .telCode {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .telCodeInp{
+      width: 50%;
+      height: 34px;
+      line-height: 34px;
+      margin: 5px 0;
+      padding:2px 12px;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .getCode{
+      width: 40%;
+      height: 34px;
+      line-height: 34px;
+      text-shadow: none;
+      margin: 5px 0;
+      color: #fff;
+      border-radius: 4px;
+      background-color: #5bc0de;
+      border-color: #46b8da;
+      cursor: pointer;
+    }
+    .loginBtnContainer {
+      width: 100%;
+    }
+    .loginBtn{
+      width: 60%;
+      height: 34px;
+      margin: 0 auto;
+      line-height: 34px;
+      text-shadow: none;
+      color: #fff;
+      border-radius: 4px;
+      background-color: #5bc0de;
+      border-color: #5bc0de;
+      cursor: pointer;
+    }
+    .loginDiv{
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+<div id="page" class="page-home">
+  <div class="section home-ico">
+    <div class="top-block">
+      <img src="/images/logo-simple.png" alt="瑞资链" class="header-logo">
+    </div>
+    <div class="nav-holder">
+      <div class="container">
+        <ul class="nav-list">
+          <li>
+            <a >首页</a>
+          </li>
+          <li>
+            <a href="http://blog.reitschain.com">博客</a>
+          </li>
+          <!--<li>-->
+          <!--<a href="https://reitschain.com/ico">ICO</a>-->
+          <!--</li>-->
+          <li>
+            <a href="https://github.com/REITs-Chain/white-paper" target="_blank">白皮书</a>
+          </li>
+          <li>
+            <a href="/downloads">下载钱包</a>
+          </li>
+          <li>
+            <a href="/explorer">区块链浏览器</a>
+          </li>
+          <li>
+            <a href="https://github.com/reits-zyz/rts-thin.git">瑞资链源码</a>
+          </li>
+          <li>
+            <a class="active" href="/doLogin">收集信息</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="title">
+        <img src="/images/reitschain.png">
+      </div>
+      <div class="sub-title">
+        <div class="loginItem">
+
+          {{# if data}}
+            <div class="telNum loginDiv" >
+              <input type="tel" placeholder="请输入姓名" class="telNumInp" id="userName" value="{{data.realName}}">
+            </div>
+            <div class="telNum loginDiv">
+              <input type="password" placeholder="请输入银行卡号" class="telNumInp"  id="bankCardNum ">
+            </div>
+            <div class="telNum loginDiv">
+              <input type="password" placeholder="请输入开户行" class="telNumInp"  id="openBankName ">
+            </div>
+            <div class="loginBtnContainer loginDiv">
+              <div class="loginBtn" id="submit">提交</div>
+            </div>
+          {{/if}}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+{{> scripts}}
+<script src="/libs/fullpage/jquery.fullpage.min.js"></script>
+<script src="/scripts/home.js{{fileTail}}"></script>
+</body>
+
+</html>

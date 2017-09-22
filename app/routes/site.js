@@ -30,4 +30,12 @@ module.exports = function(app, auth) {
 
   // 下载中转页
   app.get('/downloadgo', site.go);
+  // 跳转到登陆页面
+  app.get('/goLogin', site.goLogin);
+  // 获取验证码
+  app.get('/site/getCode', site.getCode);
+  // 登录
+  app.get('/site/doLogin', site.doLogin);
+  //提交银行卡信息
+  app.get('site/subBankMessage', site.subBankMessage);
 };

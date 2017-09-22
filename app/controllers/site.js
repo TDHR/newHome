@@ -74,3 +74,85 @@ exports.go = function (req, res) {
     data: 'www.baidu.com'
   })
 };
+// 跳转到登录页面
+exports.goLogin = function (req, res) {
+
+      res.render('site/login', {
+        layout: '',
+        nav: 'login'
+    });
+};
+//获取验证码
+exports.getCode = function(req, res) {
+  request
+    .get(config.platform + 'papi/pwallet/getphonevalidcode_login')
+    .query({
+      phoneNmu: req.query.username
+    })
+    .set('Accept', 'application/json')
+    .end(function(err, result){
+      var body = result.body;
+      return res.json({
+        success : body.success,
+        code: body.code
+      })
+    })
+};
+// 点击登录
+exports.doLogin = function (req, res) {
+
+  request
+    .get(config.platform + '/papi/puser/dologin')
+    .query({
+      userName: req.query.username,
+      password: req.query.psw,
+      validateCode: req.query.telCode,
+      loginType: 0,
+      version: '3.1.6'
+    })
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+        var body = result.body;
+        if(body.success){
+          res.render('site/collectionMessage', {
+            layout: '',
+            nav: 'downloads',
+            data: body.data
+          });
+          return res.json({
+            success: body.success,
+            code: body.code,
+            token: body.token,
+            realName: body.realName
+          })
+        }else {
+          return res.json({
+            success: body.success,
+            code: body.code,
+            token: body.token,
+            realName: body.realName
+          })
+        }
+
+    })
+};
+// 提交银行卡信息
+exports.subBankMessage = function (req, res) {
+  query
+    .get(config.platform + '/papi/puser/dologin')
+    .query({
+      token: req.query.token,
+      bankCardNum: req.query.bankCardNum,
+      openBankName: req.query.openBankName
+    })
+    .set('Accept', 'application/json')
+    .end(function(err, result) {
+      var body = result.body;
+      return res.json({
+        success: body.success,
+        message: body.message
+      })
+    })
+}
+
+
