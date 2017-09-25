@@ -76,7 +76,6 @@ exports.go = function (req, res) {
 };
 // 跳转到登录页面
 exports.goLogin = function (req, res) {
-
       res.render('site/login', {
         layout: '',
         nav: 'login'
@@ -87,7 +86,7 @@ exports.getCode = function(req, res) {
   request
     .get(config.platform + 'papi/pwallet/getphonevalidcode_login')
     .query({
-      phoneNmu: req.query.username
+      phoneNum: req.query.username
     })
     .set('Accept', 'application/json')
     .end(function(err, result){
@@ -102,9 +101,9 @@ exports.getCode = function(req, res) {
 exports.doLogin = function (req, res) {
 
   request
-    .get(config.platform + '/papi/puser/dologin')
+    .post(config.platform + 'papi/puser/dologin')
     .query({
-      userName: req.query.username,
+      username: req.query.username,
       password: req.query.psw,
       validateCode: req.query.telCode,
       loginType: 0,
@@ -113,37 +112,33 @@ exports.doLogin = function (req, res) {
     .set('Accept', 'application/json')
     .end(function(err, result) {
         var body = result.body;
-        if(body.success){
-          res.render('site/collectionMessage', {
-            layout: '',
-            nav: 'downloads',
-            data: body.data
+
+          return res.json({
+            success: body.success,
+            code: body.code,
+            token: body.token,
+            realName: body.realName
           });
-          return res.json({
-            success: body.success,
-            code: body.code,
-            token: body.token,
-            realName: body.realName
-          })
-        }else {
-          return res.json({
-            success: body.success,
-            code: body.code,
-            token: body.token,
-            realName: body.realName
-          })
-        }
 
     })
 };
+// 跳转到收集页面
+exports.collection = function (req, res) {
+  res.render('site/collectionMessage', {
+    layout: '',
+    nav: 'collection'
+  });
+};
+
 // 提交银行卡信息
 exports.subBankMessage = function (req, res) {
-  query
-    .get(config.platform + '/papi/puser/dologin')
+  request
+    .post(config.platform + 'api/vipuser/setBankCard')
     .query({
       token: req.query.token,
       bankCardNum: req.query.bankCardNum,
-      openBankName: req.query.openBankName
+      openBankName: req.query.openBankName,
+      bankAddress: req.query.bankAddress
     })
     .set('Accept', 'application/json')
     .end(function(err, result) {

@@ -31,6 +31,7 @@
     }
     .loginItem{
       width: 60%;
+      /*display: inline-block;*/
       font-size: 14px;
       margin-left: 20%;
     }
@@ -77,6 +78,7 @@
     }
     .loginBtnContainer {
       width: 100%;
+      margin-top: 20px !important;
     }
     .loginBtn{
       width: 60%;
@@ -93,6 +95,28 @@
     .loginDiv{
       margin-top: 10px;
     }
+    .backAddress{
+      margin-top: 20px;
+      color: white;
+    }
+
+    .code{
+      display: inline-block;
+      width: 152px;
+      height: 152px;
+      padding: 10px;
+      background-color: #fff;
+    }
+    .address{
+      position: absolute;
+      width: 460px;
+      /*right: 10%;*/
+      left: -100%;
+      top: 80px;
+    }
+    .backAddress{
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 
@@ -106,7 +130,7 @@
       <div class="container">
         <ul class="nav-list">
           <li>
-            <a >首页</a>
+            <a href="/" >首页</a>
           </li>
           <li>
             <a href="http://blog.reitschain.com">博客</a>
@@ -127,7 +151,7 @@
             <a href="https://github.com/reits-zyz/rts-thin.git">瑞资链源码</a>
           </li>
           <li>
-            <a class="active" href="/doLogin">收集信息</a>
+            <a class="active" href="/goLogin">回购收集信息</a>
           </li>
         </ul>
       </div>
@@ -138,23 +162,29 @@
         <img src="/images/reitschain.png">
       </div>
       <div class="sub-title">
-        <div class="loginItem">
+          <div class="loginItem">
 
-          {{# if data}}
             <div class="telNum loginDiv" >
-              <input type="tel" placeholder="请输入姓名" class="telNumInp" id="userName" value="{{data.realName}}">
+              <input type="tel" placeholder="请输入姓名" class="telNumInp" id="userName" value="" readonly>
             </div>
             <div class="telNum loginDiv">
-              <input type="password" placeholder="请输入银行卡号" class="telNumInp"  id="bankCardNum ">
+              <input type="number" placeholder="请输入银行卡号" class="telNumInp"  id="bankCardNum">
             </div>
             <div class="telNum loginDiv">
-              <input type="password" placeholder="请输入开户行" class="telNumInp"  id="openBankName ">
+              <input type="text" placeholder="请输入开户行" class="telNumInp"  id="openBankName">
             </div>
+          <div class="telNum loginDiv">
+            <input type="text" placeholder="请输入银行详细地址" class="telNumInp"  id="openBankAddress">
+          </div>
             <div class="loginBtnContainer loginDiv">
               <div class="loginBtn" id="submit">提交</div>
             </div>
-          {{/if}}
         </div>
+        <div class="address">
+          <div class="backAddress"><span>回购地址：</span><span>1BxUWEsD6dUkYr7SvaLzsCMjqoHZhWAmZQ</span></div>
+          <div class="code ios-qrcode" data-url="1BxUWEsD6dUkYr7SvaLzsCMjqoHZhWAmZQ"></div>
+        </div>
+
       </div>
 
 
@@ -163,6 +193,8 @@
 </div>
 {{> scripts}}
 <script src="/libs/fullpage/jquery.fullpage.min.js"></script>
+<script src="/libs/jquery.qrcode.min.js"></script>
+<script src="/scripts/downloads.js{{fileTail}}"></script>
 <script src="/scripts/home.js{{fileTail}}"></script>
 </body>
 

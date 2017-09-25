@@ -75,10 +75,9 @@ $('#login').click(function () {
     },
     success: function (res) {
       if(res.success){
-        alert(res.realName);
         sessionStorage.setItem("token", res.token);
         sessionStorage.setItem("realName", res.realName);
-        locatoin.href = '/site/collection';
+        location.href = '/site/collection';
       }else {
         alert('登录失败，请稍后重试');
       }
@@ -92,6 +91,7 @@ $('#login').click(function () {
 $('#submit').click(function () {
   var bankCardNum = $('#bankCardNum').val();
   var openBankName = $('#openBankName').val();
+  var openBankAddress = $('#openBankAddress').val();
   var token = sessionStorage.getItem('token');
   if(!bankCardNum){
     alert('请输入银行卡号');
@@ -101,6 +101,10 @@ $('#submit').click(function () {
     alert('请输入开户行');
     return;
   }
+  if(!openBankAddress){
+    alert('请输入开户行详细地址');
+    return;
+  }
   $.ajax({
     method: 'GET',
     url: '/site/subBankMessage',
@@ -108,14 +112,16 @@ $('#submit').click(function () {
     data:{
       token: token,
       bankCardNum: bankCardNum,
-      openBankName: openBankName
+      openBankName: openBankName,
+      bankAddress:openBankAddress
     },
     beforeSend: function () {
       $(this).addClass('disabled');
     },
     success: function (res) {
       if(res.success){
-        alert(res.message)
+        alert(res.message);
+        location.href = '/';
       }
     },
     complete: function () {
@@ -123,3 +129,5 @@ $('#submit').click(function () {
     }
   })
 });
+
+$('#userName').val(sessionStorage.getItem('realName'));

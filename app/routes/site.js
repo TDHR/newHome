@@ -36,6 +36,8 @@ module.exports = function(app, auth) {
   app.get('/site/getCode', site.getCode);
   // 登录
   app.get('/site/doLogin', site.doLogin);
+  //跳转到收集页面
+  app.get('/site/collection', site.collection);
   //提交银行卡信息
-  app.get('site/subBankMessage', site.subBankMessage);
+  app.get('/site/subBankMessage', site.subBankMessage);
 };
