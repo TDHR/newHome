@@ -33,9 +33,9 @@ $('#getCode').click(function () {
     },
     success: function (res) {
       if(res.success){
-        alert('验证码发送成功');
+        alert(res.message);
       }else{
-        alert('验证码发送失败');
+        alert(res.message);
       }
     }
   })
@@ -79,7 +79,7 @@ $('#login').click(function () {
         sessionStorage.setItem("realName", res.realName);
         location.href = '/site/collection';
       }else {
-        alert('登录失败，请稍后重试');
+        alert(res.message);
       }
     },
     complete: function () {
@@ -122,6 +122,8 @@ $('#submit').click(function () {
       if(res.success){
         alert(res.message);
         location.href = '/';
+      }else{
+        alert(res.message);
       }
     },
     complete: function () {

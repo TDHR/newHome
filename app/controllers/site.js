@@ -93,7 +93,8 @@ exports.getCode = function(req, res) {
       var body = result.body;
       return res.json({
         success : body.success,
-        code: body.code
+        code: body.code,
+        message: body.message
       })
     })
 };
@@ -117,7 +118,8 @@ exports.doLogin = function (req, res) {
             success: body.success,
             code: body.code,
             token: body.token,
-            realName: body.realName
+            realName: body.realName,
+            message: body.message
           });
 
     })
