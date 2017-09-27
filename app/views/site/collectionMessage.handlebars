@@ -48,6 +48,16 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+    .loginItemInp{
+      width: 100%;
+      height: 34px;
+      margin: 5px 0;
+      padding:2px 12px;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
     .telCode {
       width: 100%;
       display: flex;
@@ -165,16 +175,16 @@
           <div class="loginItem">
 
             <div class="telNum loginDiv" >
-              <input type="tel" placeholder="请输入姓名" class="telNumInp" id="userName" value="" readonly>
+              <input type="text" placeholder="请输入姓名" class=" loginItemInp" id="userName" value="" readonly>
             </div>
             <div class="telNum loginDiv">
-              <input type="number" placeholder="请输入银行卡号" class="telNumInp"  id="bankCardNum">
+              <input type="number" placeholder="请输入银行卡号" class=" loginItemInp"  id="bankCardNum">
             </div>
             <div class="telNum loginDiv">
-              <input type="text" placeholder="请输入开户行" class="telNumInp"  id="openBankName">
+              <input type="text" placeholder="请输入开户行" class=" loginItemInp"  id="openBankName">
             </div>
           <div class="telNum loginDiv">
-            <input type="text" placeholder="请输入银行详细地址" class="telNumInp"  id="openBankAddress">
+            <input type="text" placeholder="请输入银行详细地址" class=" loginItemInp"  id="openBankAddress">
           </div>
             <div class="loginBtnContainer loginDiv">
               <div class="loginBtn" id="submit">提交</div>
