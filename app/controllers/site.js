@@ -4,7 +4,7 @@ var config = require('../../config/config');
 // 首页
 exports.index = function(req, res) {
   res.render('site/home', {
-    layout: '',
+    layout: 'explorer',
     nav: 'home'
   });
 };
@@ -44,7 +44,7 @@ exports.downloads = function(req, res) {
     .end(function(err, result) {
       var body = result.body;
       res.render('site/downloads', {
-        layout: '',
+        layout: 'explorer',
         nav: 'downloads',
         data: body.data
       });

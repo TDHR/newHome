@@ -1,8 +1,4 @@
-$("#page").fullpage({
-  anchors:['home', 'beta', 'legal', 'guarantee', 'easy', 'contact'],
-  navigation: false,
-  responsiveSlides: false
-});
+
 
 // 打开微信二维码
 $('#wechat').on('click', function() {

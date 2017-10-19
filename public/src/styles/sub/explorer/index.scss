@@ -1,27 +1,31 @@
 $yellow: #edcc92;
 $blue: #0089ec;
 .explorer-nav-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: auto;
-  margin-top: 1px;
-  background-color: #fff;
-  border-bottom: 1px solid #f4f4f4;
+  margin-top: 1%;
   text-align: center;
+  z-index: 10;
   .nav-list {
+    margin-left: 15%;
     >li {
       display: inline-block;
       margin: 8px 40px 12px;
       >a {
         padding-bottom: 4px;
-        color: #000;
+        color: #FFF;
         border-bottom: 1px solid transparent;
         &:hover {
-          color: $blue;
-          border-color: $blue;
+          color: #FFFFFF;
+          font-size: 16px;
         }
         &.active {
-          color: $blue;
-          border-color: $blue;
+          //color: $blue;
+          border-color: #FFFFFF;
+
         }
       }
     }
@@ -100,9 +104,24 @@ $blue: #0089ec;
 
 @media (max-width: 767px) {
   .explorer-nav-holder {
-    .nav-list {
-      >li {
-        margin: 8px 15px 12px;
+    .container{
+      width: 100%;
+      padding: 0;
+      .header{
+        top: 15%;
+        left: 0;
+        height: auto;
+        .header-logo{
+          width: 25%;
+        }
+      }
+      .nav-list {
+        margin-left: 0;
+        margin-top: 25px;
+        >li {
+          margin: 8px 3% 12px;
+          font-size: 12px;
+        }
       }
     }
   }

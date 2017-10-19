@@ -25,3 +25,5 @@ $('.wechat-close').on('click', function() {
 $(document).ready(function() {
   $('.header-logo').addClass('header-logo-ready');
 });
+$('li a').removeClass('active');
+$('.download').addClass('active');
