@@ -101,23 +101,37 @@ $blue: #0089ec;
     user-select: none;
   }
 }
+@media (max-width: 992px) {
+  .explorer-nav-holder{
+    .header{
+      left: 4%;
+    }
+    .nav-list{
+      >li{
+        margin: 8px 20px 12px;
+      }
 
+    }
+  }
+}
 @media (max-width: 767px) {
   .explorer-nav-holder {
+    margin-top: 2%;
     .container{
-      width: 100%;
+      //width: 100%;
       padding: 0;
       .header{
         top: 15%;
-        left: 0;
+        left: 50%;
+        transform: translate(-50%,-50%);
         height: auto;
         .header-logo{
-          width: 25%;
+          width: 75%;
         }
       }
       .nav-list {
         margin-left: 0;
-        margin-top: 25px;
+        margin-top: 30px;
         >li {
           margin: 8px 3% 12px;
           font-size: 12px;

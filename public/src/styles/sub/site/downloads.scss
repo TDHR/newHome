@@ -263,7 +263,7 @@
 
   @media (max-width: 767px) {
     .page-downloads {
-      //height: auto;
+      height: auto;
       min-height: 100%;
       .head-banner {
         .points {
@@ -282,6 +282,7 @@
           }
         }
         .download-holder {
+          margin: 70px 0 0;
           .download-left {
             text-align: center;
             .desc {

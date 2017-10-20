@@ -90,13 +90,14 @@ only screen and (min-device-pixel-ratio: 2) {
   left:12%;
   top:50%;
   transform: translateY(-50%);
+  width: 140px;
   height: 60px;
   //background-color: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
   text-align: center;
   .header-logo {
     display: inline-block;
-    width:35%;
+    width:140px;
     margin-top: 10px;
     >img {
       width: 100%;

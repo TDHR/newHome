@@ -61,10 +61,13 @@ $yellow: #edcc92;
   }
   .home-ico {
     background-position: top center;
+    //min-height: 600px;
     //background-image: url("/images/home01.png");
     .contentImg{
       width:100%;
+
     }
+
     .top-block {
       position: absolute;
       top: 0;
@@ -143,7 +146,7 @@ $yellow: #edcc92;
         }
       }
       .home02Title{
-        margin-bottom:5%;
+        margin-bottom:1%;
       }
       .home02Content{
         display: flex;
@@ -226,18 +229,62 @@ $yellow: #edcc92;
 
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1180px) {
   .page-home {
     .home-ico {
+      //background-color: red;
+      min-height: 0;
+      .content{
+        .title{
+          margin-bottom: 10px;
+          .titleText{
+            font-size: 30px;
+          }
+          .home03Title{
+            font-size: 30px;
+          }
+        }
+        .sub-title{
+          display: none;
+        }
+        >p{
+          display: none;
+        }
+        .btn-beta{
+          display: none;
+        }
+        .home02Title{
+          .titleSubText{
+            font-size: 30px;
+          }
+        }
+        .home02Content{
+          .home02Left{
+            padding: 0;
+            >p{
+              font-size: 14px;
+              line-height: 22px;
+            }
+          }
+          .home02Right{
+            display: none;
+          }
+        }
+        .home03Content{
+          font-size: 14px;
+          margin-top: 0px;
+        }
+      }
 
+    }
+    .section{
       .bottom-block {
-        border: 1px solid red;
         .box {
 
           .textContainer{
             border: none;
             .title {
-              font-size: 18px;
+              font-size: 14px;
             }
           }
         }
@@ -249,6 +296,7 @@ $yellow: #edcc92;
 @media (max-width: 767px) {
   .page-home {
     .home-ico {
+      min-height: 0;
       .homeImg
       {
         height: 200px;
