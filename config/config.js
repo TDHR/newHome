@@ -18,7 +18,7 @@ var config = {
     app: {
       name: 'gold-rock'
     },
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 80,
     platform: 'http://59.110.172.243:20080/reits/'
   }
 };
