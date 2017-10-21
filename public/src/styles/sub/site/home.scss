@@ -60,7 +60,10 @@ $yellow: #edcc92;
     }
   }
   .homeLast{
-    margin-top: -1px;
+    
+  }
+  .home02{
+
   }
   .home-ico {
     background-position: top center;
@@ -68,7 +71,7 @@ $yellow: #edcc92;
     //background-image: url("/images/home01.png");
     .contentImg{
       width:100%;
-
+      display: block;
     }
 
     .top-block {
