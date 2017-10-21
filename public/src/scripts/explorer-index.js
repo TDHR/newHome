@@ -147,3 +147,5 @@ $('#searchBtn').on('click', function() {
     }
   }
 });
+$('li a').removeClass('active');
+$('.explorer').addClass('active');
